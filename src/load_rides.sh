@@ -8,6 +8,7 @@
 #          It extracts the csv file from the zip file extracted from the stream downloaded
 #          from S3 (thus avoiding storing the zip file).
 #
+# Notes: This script uses bsdtar so if it's not already installed ...
 
 # constants
 RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_station_id, user_type, gender, birth_year"
@@ -166,6 +167,7 @@ do
     # and convert them to lowercase
     # and replace spaces and commas with underscores
     dos2unix "${i%%zip}csv"
+    sed -i 's/"//g' "${i%%zip}csv"
     exec 3< "${i%%zip}csv"
     read -r RAW <&3
     columns=$( tr ' ,' '_\n' <<< "$RAW")
