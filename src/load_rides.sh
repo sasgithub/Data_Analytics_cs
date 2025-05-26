@@ -16,6 +16,7 @@ RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_st
 # user_type: 0 = customer, 1 = member, NULL = unknown
 DB=/home/sas/classes/Google/data-analytics/data/caseStudy.db
 declare -a new_columns
+#file="/home/sas/classes/Google/data-analytics/data/rideFiles"
 file="/home/sas/classes/Google/data-analytics/data/rideFiles"
 
 #Functions
