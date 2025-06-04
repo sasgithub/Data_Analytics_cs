@@ -2,13 +2,13 @@
 # 
 # Author: sas
 # Purpose: Calculate the distance between pairs of GPS coordinates
-#          This use the Haversine formula which caculates the distance
+#          This uses the Haversine formula which caculates the distance
 #          along the great arc between the two points. 
 ## 
 isNum() {
   [[ $1 =~ ^-?[0-9]+([.][0-9]+)?$ ]]
 }
-# note to self: when you get time convert this to use getopt instead
+# note to self: when you get time, convert this to use getopt instead
 # this is ugly
 PROGNAME="$(basename "$0")"
 lat1=$1
