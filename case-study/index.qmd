@@ -28,5 +28,34 @@ The fictional business challenge of **Cyclistic** is explored through the lens o
 
 How do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?
 
+## 📦 Data Sources
+
+The analysis is based on the following datasets:
+
+    - Divvy Bike Trip Data (2013–2025)[^Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.]: This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal.  The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive .  Please note, rides from the time period of the COVID-19 Pandemic are not included.
+    • Chicago Weather Data (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns.
+    • Tourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Willis Tower) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.
+
+### 🔗 Attribution
+    • City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data
+    • Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html
+    • Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
+    • Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.
+
+---
+
+## 🔍 Key Metrics and Analysis
+
+---
+
 ## 📊 Summary of Findings
+
+---
+
+## 💡 Implications and Recommendations
+
+---
+
+## ⏩ Next Steps
+
 
