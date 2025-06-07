@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>Visualizations</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,51 +118,68 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#how-does-a-bike-share-navigate-speedy-success" id="toc-how-does-a-bike-share-navigate-speedy-success" class="nav-link active" data-scroll-target="#how-does-a-bike-share-navigate-speedy-success">🚲 How Does a Bike-Share Navigate Speedy Success?</a>
-  <ul class="collapse">
-  <li><a href="#project-context" id="toc-project-context" class="nav-link" data-scroll-target="#project-context">📚 Project Context</a></li>
-  <li><a href="#business-task" id="toc-business-task" class="nav-link" data-scroll-target="#business-task">🎯 Business Task</a></li>
-  <li><a href="#summary-of-findings" id="toc-summary-of-findings" class="nav-link" data-scroll-target="#summary-of-findings">📊 Summary of Findings</a></li>
-  </ul></li>
+  <li><a href="#interactive-visuals" id="toc-interactive-visuals" class="nav-link active" data-scroll-target="#interactive-visuals">📈 Interactive Visuals</a></li>
+  <li><a href="#screenshots" id="toc-screenshots" class="nav-link" data-scroll-target="#screenshots">📸 Screenshots</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Visualizations</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<blockquote class="blockquote">
-<p>🚧 <strong>This case study is currently under construction.</strong><br>
-Please check back soon for a complete walkthrough, analysis, and visualizations.</p>
-</blockquote>
-<section id="how-does-a-bike-share-navigate-speedy-success" class="level1">
-<h1>🚲 How Does a Bike-Share Navigate Speedy Success?</h1>
-<p>This project began as the capstone case study for the <a href="https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics Certificate</a>, which presents a fictional company named <strong>Cyclistic</strong>. The business goal:<br>
-<strong>Determine how casual riders and annual members use Cyclistic bikes differently — and identify strategies to convert more casual users into annual members.</strong></p>
-<p>To bring this scenario into the real world, I extended the analysis using <strong>actual Divvy bike-share data</strong> from the City of Chicago, covering rides from 2013 through early 2025. I also incorporated <strong>hourly weather data</strong> and <strong>geospatial analysis</strong> to enhance the depth and utility of the findings.</p>
-<hr>
-<section id="project-context" class="level2">
-<h2 class="anchored" data-anchor-id="project-context">📚 Project Context</h2>
-<p>This project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:</p>
-<ul>
-<li>Independent sourcing and integration of multi-year real-world data</li>
-<li>Use of tools beyond the course scope (e.g., SQLite, Leaflet, Tableau, shell scripting)</li>
-<li>Realistic data cleaning, transformation, and exploratory analysis</li>
-</ul>
-<p>The fictional business challenge of <strong>Cyclistic</strong> is explored through the lens of actual <strong>Divvy</strong> usage patterns.</p>
-<hr>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="interactive-visuals" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="interactive-visuals">📈 Interactive Visuals</h2>
+<div class="column-page-inset-right">
+<p><span width="100%"><img src="images/thunbnail_top_50_stations.png" class="img-fluid" alt="Thumbnail of Top 50 Stations Map"></span>](Top_50_Stations_by_User_Type.html){target=“_blank”}</p>
+</div>
+<p>This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We follow the normal color scheme with the dots for subscriber stations rendered in <span style="color: darkblue;">darkblue</span> and the dots for customer stations rendered in <span style="color: darkorange;">darkorance</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.</p>
+<p>It was created in R using Leaflet with the following command</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(top_stations_df_offset) <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addCircleMarkers</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">lng =</span> <span class="sc">~</span>long_offset,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> <span class="sc">~</span>lat,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal</span>(user_type),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">radius =</span> <span class="sc">~</span><span class="fu">pmax</span>(<span class="fu">sqrt</span>(ride_count) <span class="sc">/</span> <span class="dv">50</span>, <span class="dv">4</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">fillOpacity =</span> <span class="fl">0.8</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste0</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">"&lt;b&gt;"</span>, name, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>, <span class="st">"Rank: #"</span>, rn, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">"User Type: "</span>, user_type, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Ride Count: "</span>, <span class="fu">format</span>(ride_count, <span class="at">big.mark =</span> <span class="st">","</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addLegend</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">position =</span> <span class="st">"bottomright"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">pal =</span> pal,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">values =</span> <span class="sc">~</span>user_type,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"User Type"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">opacity =</span> <span class="dv">1</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>     )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tableau dashboard</p>
 </section>
-<section id="business-task" class="level2">
-<h2 class="anchored" data-anchor-id="business-task">🎯 Business Task</h2>
-<p>How do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?</p>
-</section>
-<section id="summary-of-findings" class="level2">
-<h2 class="anchored" data-anchor-id="summary-of-findings">📊 Summary of Findings</h2>
+<section id="screenshots" class="level2">
+<h2 class="anchored" data-anchor-id="screenshots">📸 Screenshots</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

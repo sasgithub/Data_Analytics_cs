@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "section": "",
+    "text": "🚧 This case study is currently under construction.\nPlease check back soon for a complete walkthrough, analysis, and visualizations."
+  },
+  {
+    "objectID": "index.html#project-context",
+    "href": "index.html#project-context",
+    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "section": "📚 Project Context",
+    "text": "📚 Project Context\nThis project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:\n\nIndependent sourcing and integration of multi-year real-world data\nUse of tools beyond the course scope (e.g., SQLite, Leaflet, Tableau, shell scripting)\nRealistic data cleaning, transformation, and exploratory analysis\n\nThe fictional business challenge of Cyclistic is explored through the lens of actual Divvy usage patterns."
+  },
+  {
+    "objectID": "index.html#business-task",
+    "href": "index.html#business-task",
+    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "section": "🎯 Business Task",
+    "text": "🎯 Business Task\nHow do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?"
+  },
+  {
+    "objectID": "index.html#summary-of-findings",
+    "href": "index.html#summary-of-findings",
+    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "section": "📊 Summary of Findings",
+    "text": "📊 Summary of Findings"
+  },
+  {
+    "objectID": "visualizations.html",
+    "href": "visualizations.html",
+    "title": "Visualizations",
+    "section": "",
+    "text": "](Top_50_Stations_by_User_Type.html){target=“_blank”}\n\nThis interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We follow the normal color scheme with the dots for subscriber stations rendered in darkblue and the dots for customer stations rendered in darkorance. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )\nTableau dashboard"
+  },
+  {
+    "objectID": "visualizations.html#interactive-visuals",
+    "href": "visualizations.html#interactive-visuals",
+    "title": "Visualizations",
+    "section": "",
+    "text": "](Top_50_Stations_by_User_Type.html){target=“_blank”}\n\nThis interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We follow the normal color scheme with the dots for subscriber stations rendered in darkblue and the dots for customer stations rendered in darkorance. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )\nTableau dashboard"
+  },
+  {
+    "objectID": "visualizations.html#screenshots",
+    "href": "visualizations.html#screenshots",
+    "title": "Visualizations",
+    "section": "📸 Screenshots",
+    "text": "📸 Screenshots"
+  },
+  {
+    "objectID": "case-study.html",
+    "href": "case-study.html",
+    "title": "case-study",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "case-study.html#quarto",
+    "href": "case-study.html#quarto",
+    "title": "case-study",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  }
+]

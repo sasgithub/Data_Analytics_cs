@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: ../docs
 
 Website:  
   title: "Bike share case-study"
