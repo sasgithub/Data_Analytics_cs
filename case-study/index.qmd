@@ -42,7 +42,7 @@ The analysis is based on the following datasets:
 - Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
 - Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.
 
-[^note1]Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.
+[^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.
 ---
 
 ## 🔍 Key Metrics and Analysis
