@@ -147,8 +147,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="interactive-visuals" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="interactive-visuals">📈 Interactive Visuals</h2>
-<div class="column-page-inset-right">
-<p><span width="100%"><img src="images/thunbnail_top_50_stations.png" class="img-fluid" alt="Thumbnail of Top 50 Stations Map"></span>](Top_50_Stations_by_User_Type.html){target=“_blank”}</p>
+<div class="page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><a href="Top_50_Stations_by_User_Type.html" target="_blank" class="page-columns page-full"><img src="images/thumbnails/thumbnail_top_50_stations.png" class="img-fluid figure-img column-page-inset-right" style="width:100.0%"></a></p>
+<figcaption>Thumbnail of Top 50 Stations Map</figcaption>
+</figure>
+</div>
 </div>
 <p>This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We follow the normal color scheme with the dots for subscriber stations rendered in <span style="color: darkblue;">darkblue</span> and the dots for customer stations rendered in <span style="color: darkorange;">darkorance</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.</p>
 <p>It was created in R using Leaflet with the following command</p>
