@@ -2,63 +2,63 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "",
     "text": "🚧 This case study is currently under construction.\nPlease check back soon for a complete walkthrough, analysis, and visualizations."
   },
   {
     "objectID": "index.html#project-context",
     "href": "index.html#project-context",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "📚 Project Context",
     "text": "📚 Project Context\nThis project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:\n\nIndependent sourcing and integration of multi-year real-world data\nUse of tools beyond the course scope (e.g., SQLite, Leaflet, Tableau, shell scripting)\nRealistic data cleaning, transformation, and exploratory analysis\n\nThe fictional business challenge of Cyclistic is explored through the lens of actual Divvy usage patterns."
   },
   {
     "objectID": "index.html#business-task",
     "href": "index.html#business-task",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "🎯 Business Task",
     "text": "🎯 Business Task\nHow do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?"
   },
   {
     "objectID": "index.html#data-sources",
     "href": "index.html#data-sources",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "📦 Data Sources",
     "text": "📦 Data Sources\nThe analysis is based on the following datasets:\n\nDivvy Bike Trip Data (2013–2025)1 : This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal. The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive . Please note, rides from the time period of the COVID-19 Pandemic are not included.\nChicago Weather Data (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns.\nTourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Willis Tower) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.\n\n\n🔗 Attribution\n\nCity of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data\nLyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html\nMeteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)\nTourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes."
   },
   {
     "objectID": "index.html#key-metrics-and-analysis",
     "href": "index.html#key-metrics-and-analysis",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "🔍 Key Metrics and Analysis",
     "text": "🔍 Key Metrics and Analysis"
   },
   {
     "objectID": "index.html#summary-of-findings",
     "href": "index.html#summary-of-findings",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "📊 Summary of Findings",
     "text": "📊 Summary of Findings"
   },
   {
     "objectID": "index.html#implications-and-recommendations",
     "href": "index.html#implications-and-recommendations",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "💡 Implications and Recommendations",
     "text": "💡 Implications and Recommendations"
   },
   {
     "objectID": "index.html#next-steps",
     "href": "index.html#next-steps",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "⏩ Next Steps",
     "text": "⏩ Next Steps"
   },
   {
     "objectID": "index.html#footnotes",
     "href": "index.html#footnotes",
-    "title": "🚲 How Does a Bike-Share Navigate Speedy Success?",
+    "title": "Case Study",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nDivvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.↩︎"
   },
@@ -67,14 +67,21 @@
     "href": "visualizations.html",
     "title": "Visualizations",
     "section": "",
-    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )\nTableau dashboard"
+    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )"
   },
   {
     "objectID": "visualizations.html#interactive-visuals",
     "href": "visualizations.html#interactive-visuals",
     "title": "Visualizations",
     "section": "",
-    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )\nTableau dashboard"
+    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet with the following command\nleaflet(top_stations_df_offset) %&gt;%\n     addTiles() %&gt;%\n     addCircleMarkers(\n         lng = ~long_offset,\n         lat = ~lat,\n         color = ~pal(user_type),\n         radius = ~pmax(sqrt(ride_count) / 50, 4),\n         stroke = FALSE,\n         fillOpacity = 0.8,\n         popup = ~paste0(\n             \"&lt;b&gt;\", name, \"&lt;/b&gt;&lt;br&gt;\", \"Rank: #\", rn, \"&lt;br&gt;\",\n             \"User Type: \", user_type, \"&lt;br&gt;\",\n             \"Ride Count: \", format(ride_count, big.mark = \",\")\n         )\n     ) %&gt;%\n     addLegend(\n         position = \"bottomright\",\n         pal = pal,\n         values = ~user_type,\n         title = \"User Type\",\n         opacity = 1\n     )"
+  },
+  {
+    "objectID": "visualizations.html#tableau-dashboard",
+    "href": "visualizations.html#tableau-dashboard",
+    "title": "Visualizations",
+    "section": "Tableau dashboard",
+    "text": "Tableau dashboard"
   },
   {
     "objectID": "visualizations.html#screenshots",
@@ -82,6 +89,209 @@
     "title": "Visualizations",
     "section": "📸 Screenshots",
     "text": "📸 Screenshots"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min, fill = week_part)) +\n     geom_density(alpha = 0.4) +\n     scale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration by Weekday vs Weekend\",\n         x = \"Ride Length (minutes)\",\n         fill = \"Day Type\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +\n     geom_col(position = \"dodge\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Hour of Day\",\n         subtitle = \"Adjusted to Chicago Local Time\",\n         x = \"Hour of Day\",\n         y = \"Ride Count\",\n         fill = \"Day Type\"\n     ) +\n     scale_x_continuous(breaks = 0:23) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Frequency_of_Temp_bins.html",
+    "href": "images/image_notes/Frequency_of_Temp_bins.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(aes(x = temp_bin, y = n)) +\n  geom_col(fill = \"gray\") +\n  labs(title = \"Frequency of Temperature Bins\", x = \"Temp (°C)\", y = \"Hours Observed\")"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Distribution.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Distribution.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +\n     geom_histogram(binwidth = 5, fill = \"darkorange\", color = \"white\") +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration Distribution\",\n         x = \"Ride Length (minutes)\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Ride_Duration_by_User_Type_box.html",
+    "href": "images/image_notes/Ride_Duration_by_User_Type_box.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +\n     geom_boxplot(outlier.alpha = 0.1) +\n     labs(title = \"Ride Duration by User Type\", x = \"\", y = \"Duration (minutes)\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Temp_vs_Ride_Volume_by_User_Type.html",
+    "href": "images/image_notes/Temp_vs_Ride_Volume_by_User_Type.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(rides_weather_df, aes(x = temp, y = rides)) +\n     geom_smooth(method = \"loess\", se = FALSE, color = \"darkgreen\") +\n     scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +\n     facet_wrap(~ user_type) +\n     labs(\n         title = \"Temperature vs Ride Volume by User Type\",\n         x = \"Temperature (°C)\",\n         y = \"Hourly Ride Volume\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.html",
+    "href": "images/image_notes/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(top_non_tourist_stations_named, aes(\n   x = reorder(name, customer_ride_count),\n   y = customer_ride_count\n   )) +\n   geom_col(fill = \"steelblue\") +\n   coord_flip() +\n   labs(\n     title = \"Top 25 Non-Tourist Stations by Customer Ride Count\",\n     x = \"Station\",\n     y = \"Customer Rides\"\n) +\ntheme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Day_of_the_Week.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Day_of_the_Week.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = day_of_week)) +\n     geom_bar(fill = \"steelblue\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Day of the Week\",\n         x = \"Day of the Week\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
+    "href": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
+    "title": "",
+    "section": "",
+    "text": "group_by(temp_bin, user_type, precip_label) %&gt;%\n     summarise(rides = sum(rides), .groups = \"drop\") %&gt;%\n     ggplot(aes(x = temp_bin, y = rides, color = user_type)) +\n     geom_line(size = 1) +\n     facet_wrap(~ precip_label, nrow = 1) +\n     labs(\n         title = \"Ride Volume by Temperature and Precipitation\",\n         subtitle = \"2°C temperature bins grouped by rain condition\",\n         x = \"Temperature Bin (°C)\",\n         y = \"Total Rides\",\n         color = \"User Type\"\n     ) +\n     scale_x_continuous(breaks = seq(-30, 40, by = 10)) +\n     theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "images/image_notes/Ride_Duration_Distribution.html",
+    "href": "images/image_notes/Ride_Duration_Distribution.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(ride_durations, aes(x = duration_min, fill = user_type)) +\n     geom_histogram(binwidth = 2, position = \"identity\", alpha = 0.6) +\n     labs(title = \"Ride Duration Distribution\", x = \"Duration (minutes)\", y = \"Ride Count\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) + \n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_smooth.html",
+    "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_smooth.html",
+    "title": "",
+    "section": "",
+    "text": "set title \"Average hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nset key off\n\n\n# smoothed curve (Cubic Spline)\nplot \"temp_vs_rides.dat\" using 1:2 smooth csplines lw 2"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Density.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Density.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +\n     geom_density(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration Density\",\n         x = \"Ride Length (minutes)\",\n         y = \"Density\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_loop_rides_df, aes(x = distance_km)) + \ngeom_density(fill = \"darkorange\", alpha = 0.6) +\nlabs(\ntitle = \"Non-Tourist_Customer_Distribution of Station-to-Station Distances\",\nx = \"Distance Between Stations (km)\",\ny = \"Density\"\n) +\ntheme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.html",
+    "href": "images/image_notes/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(post_electric_rides_df, aes(x = bike_type, y = rides_per_day, fill = user_type)) +\n  geom_bar(stat = \"identity\", position = \"stack\") +\n  labs(\n    title = \"Average Daily Rides by Bike Type and User Type\",\n    x = \"Bike Type\",\n    y = \"Average Rides per Day\",\n    fill = \"User Type\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.html",
+    "href": "images/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(daily_avg_df, aes(\n     x = bike_type,\n     y = avg_rides_per_day,\n     fill = fct_recode(as.factor(user_type),\n                       \"Subscriber\" = \"0\",\n                       \"Customer\" = \"1\")\n )) +\n     geom_bar(stat = \"identity\", position = \"dodge\") +\n     labs(\n         title = \"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)\",\n         x = \"Bike Type\",\n         y = \"Average Rides per Day\",\n         fill = \"User Type\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Season.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Season.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = season)) +\n     geom_bar(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Season\",\n         x = \"Season\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) \n+\ngeom_histogram(binwidth = 1, position = \"identity\", alpha = 0.5) +\nfacet_wrap(~ hour_local, ncol = 4) +\nlabs(title = \"Loop Ride Length Distribution by Week Part and Time of Day\",\nx = \"Ride Length (minutes)\",\ny = \"Ride Count\",\nfill = \"Week/Time\") +\ntheme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.html",
+    "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.html",
+    "title": "",
+    "section": "",
+    "text": "set title  \"Hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nplot \\\n    \"temp_vs_rides.tsv\" using 1:2 with lines lw 2 title \"Total\", \\\n    \"\"                   using 1:3 with lines lw 2 dt 2  title \"Subscribers\", \\\n    \"\"                   using 1:4 with lines lw 2 dt 3  title \"Customers\""
+  },
+  {
+    "objectID": "images/image_notes/Divvy_Stations_in_QGIS.html",
+    "href": "images/image_notes/Divvy_Stations_in_QGIS.html",
+    "title": "",
+    "section": "",
+    "text": "This is a screen shot of the Divvy Stations plotted in QGIS."
+  },
+  {
+    "objectID": "images/image_notes/Ride_Duration_Density.html",
+    "href": "images/image_notes/Ride_Duration_Density.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(ride_durations, aes(x = duration_min, color = user_type, fill = user_type)) +\n     geom_density(alpha = 0.3) +\n     labs(title = \"Ride Duration Density\", x = \"Duration (minutes)\", y = \"Density\") +\n     scale_color_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Month.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Month.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(non_tourist_customer_rides_df, aes(x = month)) +\n     geom_bar(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Month\",\n         x = \"Month\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.html",
+    "href": "images/image_notes/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(ride_props, aes(x = hour, y = week_part, fill = prop)) +\n     geom_tile() +\n     scale_fill_gradient(low = \"white\", high = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Proportion of Daily Rides by Hour and Day Type\",\n         x = \"Hour of Day\",\n         y = \"Day Type\",\n         fill = \"Ride Proportion\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Ride_Volume_by_Temp_2_bin.html",
+    "href": "images/image_notes/Ride_Volume_by_Temp_2_bin.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(aes(x = temp_bin, y = rides, color = user_type)) +\n     geom_line(size = 1) +\n     facet_wrap(~ precip_label, nrow = 1) +\n     labs(\n         title = \"Ride Volume by Temperature and Precipitation\",\n         subtitle = \"2°C temperature bins grouped by rain condition\",\n         x = \"Temperature Bin (°C)\",\n         y = \"Total Rides\",\n         color = \"User Type\"\n     ) +\n     scale_x_continuous(breaks = seq(-30, 40, by = 10)) +\n     theme_minimal(base_size = 14)"
+  },
+  {
+    "objectID": "images/image_notes/Hourly_Ride_Volume_vs_Temperature.html",
+    "href": "images/image_notes/Hourly_Ride_Volume_vs_Temperature.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(rides_weather_df, aes(x = temp, y = rides, color = user_type)) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +\n  scale_color_manual(values = c(\"subscriber\" = \"blue\", \"customer\" = \"red\")) +\n  labs(\n    title = \"Hourly Ride Volume vs Temperature\",\n    x = \"Temperature (°C)\",\n    y = \"Hourly Ride Volume\",\n    color = \"User Type\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.html",
+    "href": "images/image_notes/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(rides_by_hour_season, aes(x = hour, y = ride_count, fill = week_part)) +\n  geom_col(position = \"dodge\") +\n  facet_wrap(~season, ncol = 2) +\n  scale_x_continuous(breaks = 0:23) +\n  scale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\n  labs(\n    title = \"Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)\",\n    x = \"Hour of Day\",\n    y = \"Number of Rides\",\n    fill = \"Day Type\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +\ngeom_col(position = \"dodge\") +\nlabs(\ntitle = \"Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)\",\nx = \"Hour of Day\",\ny = \"Number of Rides\",\nfill = \"Day Type\"\n) +\nscale_x_continuous(breaks = 0:23) +\nscale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\ntheme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Difference_in_Ride_Proportions_Weekday-Weekend.html",
+    "href": "images/image_notes/Difference_in_Ride_Proportions_Weekday-Weekend.html",
+    "title": "",
+    "section": "",
+    "text": "ggplot(prop_wide, aes(x = hour, y = 1, fill = diff)) +\n     geom_tile() +\n     scale_fill_gradient2(low = \"blue\", high = \"red\", mid = \"white\", midpoint = 0) +\n     labs(\n         title = \"Difference in Ride Proportions: Weekday - Weekend\",\n         x = \"Hour of Day\",\n         y = NULL,\n         fill = \"Weekday &gt; Weekend\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Divvy_Stations_table.html",
+    "href": "images/image_notes/Divvy_Stations_table.html",
+    "title": "",
+    "section": "",
+    "text": "This is a screen shot of the Divvy_Stations_2013 table take from QGIS"
+  },
+  {
+    "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket.html",
+    "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket.html",
+    "title": "",
+    "section": "",
+    "text": "set title \"Average hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nset key off\n\n# Simple connected line\nplot \"temp_vs_rides.dat\" using 1:2 with linespoints lw 2 pt 7"
   },
   {
     "objectID": "case-study.html",

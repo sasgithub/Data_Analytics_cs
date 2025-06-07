@@ -43,12 +43,11 @@ leaflet(top_stations_df_offset) %>%
 ##  Tableau dashboard
 
 <div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
-  <a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open interactive map">
-    <img src="images/thumbnails/thumbnail_top_50_stations.png" alt="Top 50 Stations Map" style="width: 100%;">
+  <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization">
+    <img src="images/thumbnails/tableau_thumbnail.png" alt="Tableau Visualization" style="width: 100%;">
   </a>
 </div>
 
-https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1
 
 ## 📸 Screenshots
 
