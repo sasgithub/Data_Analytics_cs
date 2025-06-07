@@ -1,0 +1,22 @@
+project:
+  type: website
+
+Website:  
+  title: "Bike share case-study"
+  navbar:
+    Left:
+      - href: index.qmd
+        text: Home
+      - href: visualizations.qmd
+        text: Visualizations
+      - href: data.qmd
+        text: Data Sources
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    css: styles.css       
+
+
