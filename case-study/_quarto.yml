@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: ../docs
 
-Website:  
+website:  
   title: "Bike share case-study"
   search: true
   navbar:

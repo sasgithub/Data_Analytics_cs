@@ -23,7 +23,7 @@ do
   columns=$( tr ' ,' '_\n' <<< "$RAW")
   columns=${columns,,}
 
-  if [[ "$i" =~ "*[Ss]tation.*" ]]
+  if [[ $i =~ [Ss]tation ]]
   then
     # Station data
     decalre -a new_columns

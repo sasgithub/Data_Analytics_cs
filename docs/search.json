@@ -79,203 +79,203 @@
   {
     "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket.html",
     "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "set title \"Average hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nset key off\n\n# Simple connected line\nplot \"temp_vs_rides.dat\" using 1:2 with linespoints lw 2 pt 7"
   },
   {
     "objectID": "images/image_notes/Divvy_Stations_table.html",
     "href": "images/image_notes/Divvy_Stations_table.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "This is a screen shot of the Divvy_Stations_2013 table take from QGIS"
   },
   {
     "objectID": "images/image_notes/Difference_in_Ride_Proportions_Weekday-Weekend.html",
     "href": "images/image_notes/Difference_in_Ride_Proportions_Weekday-Weekend.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(prop_wide, aes(x = hour, y = 1, fill = diff)) +\n     geom_tile() +\n     scale_fill_gradient2(low = \"blue\", high = \"red\", mid = \"white\", midpoint = 0) +\n     labs(\n         title = \"Difference in Ride Proportions: Weekday - Weekend\",\n         x = \"Hour of Day\",\n         y = NULL,\n         fill = \"Weekday &gt; Weekend\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.html",
     "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +\ngeom_col(position = \"dodge\") +\nlabs(\ntitle = \"Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)\",\nx = \"Hour of Day\",\ny = \"Number of Rides\",\nfill = \"Day Type\"\n) +\nscale_x_continuous(breaks = 0:23) +\nscale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\ntheme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.html",
     "href": "images/image_notes/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_by_hour_season, aes(x = hour, y = ride_count, fill = week_part)) +\n  geom_col(position = \"dodge\") +\n  facet_wrap(~season, ncol = 2) +\n  scale_x_continuous(breaks = 0:23) +\n  scale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\n  labs(\n    title = \"Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)\",\n    x = \"Hour of Day\",\n    y = \"Number of Rides\",\n    fill = \"Day Type\"\n  ) +\n  theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Hourly_Ride_Volume_vs_Temperature.html",
     "href": "images/image_notes/Hourly_Ride_Volume_vs_Temperature.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_weather_df, aes(x = temp, y = rides, color = user_type)) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +\n  scale_color_manual(values = c(\"subscriber\" = \"blue\", \"customer\" = \"red\")) +\n  labs(\n    title = \"Hourly Ride Volume vs Temperature\",\n    x = \"Temperature (°C)\",\n    y = \"Hourly Ride Volume\",\n    color = \"User Type\"\n  ) +\n  theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Ride_Volume_by_Temp_2_bin.html",
     "href": "images/image_notes/Ride_Volume_by_Temp_2_bin.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(aes(x = temp_bin, y = rides, color = user_type)) +\n     geom_line(size = 1) +\n     facet_wrap(~ precip_label, nrow = 1) +\n     labs(\n         title = \"Ride Volume by Temperature and Precipitation\",\n         subtitle = \"2°C temperature bins grouped by rain condition\",\n         x = \"Temperature Bin (°C)\",\n         y = \"Total Rides\",\n         color = \"User Type\"\n     ) +\n     scale_x_continuous(breaks = seq(-30, 40, by = 10)) +\n     theme_minimal(base_size = 14)"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.html",
     "href": "images/image_notes/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(ride_props, aes(x = hour, y = week_part, fill = prop)) +\n     geom_tile() +\n     scale_fill_gradient(low = \"white\", high = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Proportion of Daily Rides by Hour and Day Type\",\n         x = \"Hour of Day\",\n         y = \"Day Type\",\n         fill = \"Ride Proportion\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Month.html",
     "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Month.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = month)) +\n     geom_bar(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Month\",\n         x = \"Month\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Ride_Duration_Density.html",
     "href": "images/image_notes/Ride_Duration_Density.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(ride_durations, aes(x = duration_min, color = user_type, fill = user_type)) +\n     geom_density(alpha = 0.3) +\n     labs(title = \"Ride Duration Density\", x = \"Duration (minutes)\", y = \"Density\") +\n     scale_color_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Divvy_Stations_in_QGIS.html",
     "href": "images/image_notes/Divvy_Stations_in_QGIS.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "This is a screen shot of the Divvy Stations plotted in QGIS."
   },
   {
     "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.html",
     "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "set title  \"Hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nplot \\\n    \"temp_vs_rides.tsv\" using 1:2 with lines lw 2 title \"Total\", \\\n    \"\"                   using 1:3 with lines lw 2 dt 2  title \"Subscribers\", \\\n    \"\"                   using 1:4 with lines lw 2 dt 3  title \"Customers\""
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
     "href": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) \n+\ngeom_histogram(binwidth = 1, position = \"identity\", alpha = 0.5) +\nfacet_wrap(~ hour_local, ncol = 4) +\nlabs(title = \"Loop Ride Length Distribution by Week Part and Time of Day\",\nx = \"Ride Length (minutes)\",\ny = \"Ride Count\",\nfill = \"Week/Time\") +\ntheme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Season.html",
     "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Season.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = season)) +\n     geom_bar(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Season\",\n         x = \"Season\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.html",
     "href": "images/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(daily_avg_df, aes(\n     x = bike_type,\n     y = avg_rides_per_day,\n     fill = fct_recode(as.factor(user_type),\n                       \"Subscriber\" = \"0\",\n                       \"Customer\" = \"1\")\n )) +\n     geom_bar(stat = \"identity\", position = \"dodge\") +\n     labs(\n         title = \"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)\",\n         x = \"Bike Type\",\n         y = \"Average Rides per Day\",\n         fill = \"User Type\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.html",
     "href": "images/image_notes/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(post_electric_rides_df, aes(x = bike_type, y = rides_per_day, fill = user_type)) +\n  geom_bar(stat = \"identity\", position = \"stack\") +\n  labs(\n    title = \"Average Daily Rides by Bike Type and User Type\",\n    x = \"Bike Type\",\n    y = \"Average Rides per Day\",\n    fill = \"User Type\"\n  ) +\n  theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.html",
     "href": "images/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_loop_rides_df, aes(x = distance_km)) + \ngeom_density(fill = \"darkorange\", alpha = 0.6) +\nlabs(\ntitle = \"Non-Tourist_Customer_Distribution of Station-to-Station Distances\",\nx = \"Distance Between Stations (km)\",\ny = \"Density\"\n) +\ntheme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Density.html",
     "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Density.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +\n     geom_density(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration Density\",\n         x = \"Ride Length (minutes)\",\n         y = \"Density\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_smooth.html",
     "href": "images/image_notes/average_hourly_rides_vs_temp_2_bucket_smooth.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "set title \"Average hourly rides vs. temperature\"\nset xlabel \"Temperature (°C)\"\nset ylabel \"Average rides per hour\"\nset grid\nset key off\n\n\n# smoothed curve (Cubic Spline)\nplot \"temp_vs_rides.dat\" using 1:2 smooth csplines lw 2"
   },
   {
     "objectID": "images/image_notes/Ride_Duration_Distribution.html",
     "href": "images/image_notes/Ride_Duration_Distribution.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(ride_durations, aes(x = duration_min, fill = user_type)) +\n     geom_histogram(binwidth = 2, position = \"identity\", alpha = 0.6) +\n     labs(title = \"Ride Duration Distribution\", x = \"Duration (minutes)\", y = \"Ride Count\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) + \n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
     "href": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "group_by(temp_bin, user_type, precip_label) %&gt;%\n     summarise(rides = sum(rides), .groups = \"drop\") %&gt;%\n     ggplot(aes(x = temp_bin, y = rides, color = user_type)) +\n     geom_line(size = 1) +\n     facet_wrap(~ precip_label, nrow = 1) +\n     labs(\n         title = \"Ride Volume by Temperature and Precipitation\",\n         subtitle = \"2°C temperature bins grouped by rain condition\",\n         x = \"Temperature Bin (°C)\",\n         y = \"Total Rides\",\n         color = \"User Type\"\n     ) +\n     scale_x_continuous(breaks = seq(-30, 40, by = 10)) +\n     theme_minimal(base_size = 14)"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Day_of_the_Week.html",
     "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Day_of_the_Week.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = day_of_week)) +\n     geom_bar(fill = \"steelblue\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Day of the Week\",\n         x = \"Day of the Week\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.html",
     "href": "images/image_notes/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(top_non_tourist_stations_named, aes(\n   x = reorder(name, customer_ride_count),\n   y = customer_ride_count\n   )) +\n   geom_col(fill = \"steelblue\") +\n   coord_flip() +\n   labs(\n     title = \"Top 25 Non-Tourist Stations by Customer Ride Count\",\n     x = \"Station\",\n     y = \"Customer Rides\"\n) +\ntheme_minimal()"
   },
   {
     "objectID": "images/image_notes/Temp_vs_Ride_Volume_by_User_Type.html",
     "href": "images/image_notes/Temp_vs_Ride_Volume_by_User_Type.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_weather_df, aes(x = temp, y = rides)) +\n     geom_smooth(method = \"loess\", se = FALSE, color = \"darkgreen\") +\n     scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +\n     facet_wrap(~ user_type) +\n     labs(\n         title = \"Temperature vs Ride Volume by User Type\",\n         x = \"Temperature (°C)\",\n         y = \"Hourly Ride Volume\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Ride_Duration_by_User_Type_box.html",
     "href": "images/image_notes/Ride_Duration_by_User_Type_box.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +\n     geom_boxplot(outlier.alpha = 0.1) +\n     labs(title = \"Ride Duration by User Type\", x = \"\", y = \"Duration (minutes)\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Distribution.html",
     "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_Distribution.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +\n     geom_histogram(binwidth = 5, fill = \"darkorange\", color = \"white\") +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration Distribution\",\n         x = \"Ride Length (minutes)\",\n         y = \"Number of Rides\"\n     ) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Frequency_of_Temp_bins.html",
     "href": "images/image_notes/Frequency_of_Temp_bins.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(aes(x = temp_bin, y = n)) +\n  geom_col(fill = \"gray\") +\n  labs(title = \"Frequency of Temperature Bins\", x = \"Temp (°C)\", y = \"Hours Observed\")"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.html",
     "href": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +\n     geom_col(position = \"dodge\") +\n     labs(\n         title = \"Non-Tourist Customer Rides by Hour of Day\",\n         subtitle = \"Adjusted to Chicago Local Time\",\n         x = \"Hour of Day\",\n         y = \"Ride Count\",\n         fill = \"Day Type\"\n     ) +\n     scale_x_continuous(breaks = 0:23) +\n     theme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.html",
     "href": "images/image_notes/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.html",
-    "title": "",
+    "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min, fill = week_part)) +\n     geom_density(alpha = 0.4) +\n     scale_fill_manual(values = c(\"Weekday\" = \"darkblue\", \"Weekend\" = \"darkorange\")) +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration by Weekday vs Weekend\",\n         x = \"Ride Length (minutes)\",\n         fill = \"Day Type\"\n     ) +\n     theme_minimal()"
   },
