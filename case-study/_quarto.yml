@@ -4,8 +4,9 @@ project:
 
 Website:  
   title: "Bike share case-study"
+  search: true
   navbar:
-    Left:
+    left:
       - href: index.qmd
         text: Home
       - href: visualizations.qmd
