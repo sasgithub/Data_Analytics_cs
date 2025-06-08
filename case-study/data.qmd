@@ -1,0 +1,108 @@
+---
+title: "📦 Data Sources and Cleaning"
+format: html
+---
+
+🚧 **This project is currently a work in progress.**  
+I'm actively building out my case study as part of the Google Data Analytics Capstone.  
+Full write-up, code, and visualizations will be available soon!
+
+## 🗂️ Overview
+
+This project integrates and analyzes Divvy bike-share trip data, station data, and Chicago weather data. The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data.
+
+---
+
+## 📦 Data Sources
+
+- **Divvy Trip Data**: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
+- **Weather Data**: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
+- **Tourist Stations**: Custom dataset created from Google Maps lat/lng queries
+
+See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.html) page for more details and attribution.
+
+---
+
+## 🚟️ Ride Data Cleaning
+
+1. **Removed pandemic-period rides:**
+
+   * Dropped all rides with `start_time > Jan 1, 2020` to avoid skew due to COVID-19 lockdown.
+   * Also removed one late outlier from April 2020.
+
+2. **Removed zero-duration loop rides:**
+
+   * Filtered out rides where `start_time == end_time` **and** `start_station_id == end_station_id`.
+
+3. **Removed "teleportation" rides:**
+
+   * Rides with `start_time == end_time` **but** different start and end stations were eliminated.
+
+4. **Eliminated negative-duration rides ("time travelers"):**
+
+   * Rides where `start_time > end_time` were removed.
+
+5. **Dropped long-duration rides:**
+
+   * Excluded rides longer than 24 hours (`duration > 86400` seconds).
+   * These were excluded from analysis but retained in the database.
+
+6. **Filtered rides missing user type:**
+
+   * Removed 194 rides with `user_type IS NULL`.
+
+7. **Deduplicated rides:**
+
+   * Removed \~2,767 duplicate records where `bike_id`, `start_time`, and `end_time` were identical.
+
+8. **Filtered overlapping rides per bike:**
+
+   * For bikes with multiple overlapping rides, kept the ride with the lowest `ride_id`.
+
+## 📍 Station Data Cleaning
+
+1. **Allowed stations with same name but different coordinates:**
+
+   * Replaced unique constraint on `name` with composite index:
+
+     ```sql
+     CREATE UNIQUE INDEX uniq_vector ON stations(name, lat, long);
+     CREATE INDEX idx_name ON stations(name);
+     ```
+
+2. **Renamed ambiguous duplicates:**
+
+   * Manually added suffixes like " II" to disambiguate repeated station names at different coordinates.
+
+3. **Normalized source formats:**
+
+   * Some station data was manually extracted from Excel, then converted to CSV for uniform processing.
+
+## ☁️ Weather Data Cleaning
+
+1. **Selected Midway Airport station (72534):**
+
+   * Chosen for completeness and consistency across years.
+
+2. **Dropped unused or missing columns:**
+
+   * `snow`, `wpgt`, `tsun`, `pres`, and `datetime` were excluded from final dataset.
+
+3. **Created `epoch` column for joins:**
+
+   * Combined `date` and `hour` fields into datetime, then converted to UNIX epoch to align with ride timestamps.
+
+## 💡 Notes
+
+* All transformations were tracked in versioned scripts and logged in `logs/workLog.md`.
+* Weather data cleaning steps were scripted in `src/load_weather.R`.
+* Station and ride data were validated and transformed via shell scripts and SQLite.
+
+
+---
+
+## 📋 License
+
+Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](Legal/City_of_Chicago_disclaimer.txt).
+
+This case study is © 2025 Scott Sesher and provided under the MIT License. See [LICENSE](LICENSE) for details.
