@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>frequency_of_temp_bins – Bike share case-study</title>
+<title>Findings and Recommendations – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -114,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Bike share case-study</span>
     </a>
   </div>
@@ -125,15 +90,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../visualizations.html"> 
+    <a class="nav-link" href="./visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../data.html"> 
+    <a class="nav-link" href="./data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
 </ul>
@@ -151,14 +116,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Findings and Recommendations</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Temperature Bins"</span>, <span class="at">x =</span> <span class="st">"Temp (°C)"</span>, <span class="at">y =</span> <span class="st">"Hours Observed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>📊 Key Findings</p>
+<ol type="1">
+<li>Distinct Behavioral Patterns by User Type</li>
+</ol>
+<p>Members ride more consistently across the year, with noticeable commuting patterns (peak usage during weekday rush hours).</p>
+<p>Supported by: Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png</p>
+<p>Casual riders are more likely to ride during weekends, midday, and on longer rides, suggesting recreational or tourist use.</p>
+<p>Supported by: Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png, Ride_Duration_by_User_Type_box.png</p>
+<p>Loop rides (same start and end station) are far more common among casual riders.</p>
+<p>Supported by: Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.png</p>
+<ol start="2" type="1">
+<li>Modest Weather Influence</li>
+</ol>
+<p>Contrary to expectations, weather appears to have only a weak correlation with ride volume—especially for casual users.</p>
+<p>Supported by: Ride_Volume_by_Temp_and_Precipitation.png, Hourly_Ride_Volume_vs_Temperature.png</p>
+<p>Ride counts drop off at temperature extremes, but these are rare and account for a small proportion of total rides.</p>
+<p>The differences in riding patterns are not sufficiently explained by weather conditions alone.</p>
+<ol start="3" type="1">
+<li>Station Usage Differences</li>
+</ol>
+<p>Casual riders tend to use stations near tourist attractions and waterfront areas.</p>
+<p>Supported by: Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png, Tourist_Stations_by_Customer_Ride_Count.pdf</p>
+<p>Members make more geographically distributed use of stations, especially those in residential and employment areas.</p>
+<p>The top 50 most used stations by casual riders differ substantially from those used by members.</p>
+<p>Supported by: Top_50_Stations_by_User_Type.html (interactive Leaflet map)</p>
+<p>💡 Recommendations</p>
+<ol type="1">
+<li>Target Casual Riders Who Behave Like Members</li>
+</ol>
+<p>Offer trial memberships or time-limited discounts to casual users with consistent riding patterns.</p>
+<p>Focus marketing on casual riders using stations in residential areas or during weekday commute times.</p>
+<ol start="2" type="1">
+<li>Expand Station Coverage in Underused Member Areas</li>
+</ol>
+<p>Evaluate station availability in key member-heavy corridors.</p>
+<p>Add or rebalance stations in locations where members are under-served.</p>
+<ol start="3" type="1">
+<li>Develop Recreational and Tourist-Focused Promotions</li>
+</ol>
+<p>Bundle ride passes with tourist attractions or offer weekend/family packages.</p>
+<p>Use geofencing or email promotions for riders using top tourist stations.</p>
+<ol start="4" type="1">
+<li>Rethink Weather-Based Assumptions</li>
+</ol>
+<p>Avoid overinvesting in weather-based marketing; seasonality may be more cultural than temperature-driven.</p>
+<p>Consider that casual ridership in mild seasons is not strictly weather-dependent, and may be driven by tourism patterns, events, or schedule availability.</p>
+<p>These findings reflect observed behaviors in the 2020–2025 Divvy dataset, with supplemental weather data from Midway Airport.</p>
 
 
 
