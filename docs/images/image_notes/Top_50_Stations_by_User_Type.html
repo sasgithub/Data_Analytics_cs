@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Visualizations – Bike share case-study</title>
+<title>top_50_stations_by_user_type – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -79,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Bike share case-study</span>
     </a>
   </div>
@@ -90,15 +125,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./visualizations.html" aria-current="page"> 
+    <a class="nav-link" href="../../visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./data.html"> 
+    <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
 </ul>
@@ -117,88 +152,42 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#interactive-visuals" id="toc-interactive-visuals" class="nav-link active" data-scroll-target="#interactive-visuals">📈 Interactive Visuals</a></li>
-  <li><a href="#static-visualizations" id="toc-static-visualizations" class="nav-link" data-scroll-target="#static-visualizations">🖼️ Static Visualizations</a></li>
+  <li><a href="#top_50_stations_by_user_type.html" id="toc-top_50_stations_by_user_type.html" class="nav-link active" data-scroll-target="#top_50_stations_by_user_type.html">Top_50_Stations_by_User_Type.html</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Visualizations</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="interactive-visuals" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-visuals">📈 Interactive Visuals</h2>
-<section id="top-stations-map-leaflet" class="level3">
-<h3 class="anchored" data-anchor-id="top-stations-map-leaflet">🚴 Top Stations Map (Leaflet)</h3>
-<div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
-<p><a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open interactive map"> <img src="images/thumbnails/thumbnail_top_50_stations.png" alt="Top 50 Stations Map" style="width: 100%;"> </a></p>
-</div>
+<section id="top_50_stations_by_user_type.html" class="level1">
+<h1>Top_50_Stations_by_User_Type.html</h1>
 <p>This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.</p>
-<p>It was created in R using Leaflet.</p>
-</section>
-<section id="tableau-sheets" class="level3">
-<h3 class="anchored" data-anchor-id="tableau-sheets">Tableau Sheets</h3>
-<div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
-<p><a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="images/thumbnails/tableau_thumb.png" alt="Tableau Visualization" style="width: 100%;"> </a></p>
-</div>
-<section id="sheet-1-top-10-rides-by-user-type-map-view" class="level4">
-<h4 class="anchored" data-anchor-id="sheet-1-top-10-rides-by-user-type-map-view">Sheet 1: Top 10 Rides by User Type (Map View)</h4>
-<pre><code>This interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.</code></pre>
-<ul>
-<li><p>Each line represents a frequently traveled path, regardless of direction.</p></li>
-<li><p>Line color corresponds to ride volume between those stations.</p></li>
-<li><p>Users can filter by rider type using the control panel on the right.</p>
-<p>This visualization highlights differences in spatial behavior between groups:</p></li>
-<li><p>Customers tend to use routes near the lakefront and popular tourist zones.</p></li>
-<li><p>Subscribers favor more distributed, commuter-oriented paths.</p></li>
-</ul>
-<p>“Station usage differs substantially by rider type, bu not in the expected way.”</p>
-</section>
-<section id="sheet-2-customer-vs-subscriber-rides-by-path-histogram" class="level4">
-<h4 class="anchored" data-anchor-id="sheet-2-customer-vs-subscriber-rides-by-path-histogram">Sheet 2: Customer vs Subscriber Rides by Path (Histogram)</h4>
-<pre><code>This histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.
-
-    Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.
-
-This view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.</code></pre>
-</section>
-<section id="sheet-3-subscriber-ratio-distribution-by-path-histogram" class="level4">
-<h4 class="anchored" data-anchor-id="sheet-3-subscriber-ratio-distribution-by-path-histogram">Sheet 3: Subscriber Ratio Distribution by Path (Histogram)</h4>
-<pre><code>This histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.
-    The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.
-
-    Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).</code></pre>
-<p>The chart can be sorted by:</p>
-<ul>
-<li><p>Path name (alphabetical)</p></li>
-<li><p>Subscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)</p>
-<p>This visualization reveals important asymmetries in how ride paths are used:</p>
-<pre><code>  Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
-  Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.</code></pre></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="static-visualizations" class="level2">
-<h2 class="anchored" data-anchor-id="static-visualizations">🖼️ Static Visualizations</h2>
+<p>Generated with the following R command;</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(top_stations_df_offset) <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addCircleMarkers</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">lng =</span> <span class="sc">~</span>long_offset,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">lat =</span> <span class="sc">~</span>lat,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal</span>(user_type),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">radius =</span> <span class="sc">~</span><span class="fu">pmax</span>(<span class="fu">sqrt</span>(ride_count) <span class="sc">/</span> <span class="dv">50</span>, <span class="dv">4</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">fillOpacity =</span> <span class="fl">0.8</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste0</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>             <span class="st">"&lt;b&gt;"</span>, name, <span class="st">"&lt;/b&gt;&lt;br&gt;"</span>, <span class="st">"Rank: #"</span>, rn, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>             <span class="st">"User Type: "</span>, user_type, <span class="st">"&lt;br&gt;"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Ride Count: "</span>, <span class="fu">format</span>(ride_count, <span class="at">big.mark =</span> <span class="st">","</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">addLegend</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">position =</span> <span class="st">"bottomright"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">pal =</span> pal,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">values =</span> <span class="sc">~</span>user_type,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"User Type"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">opacity =</span> <span class="dv">1</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>     )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

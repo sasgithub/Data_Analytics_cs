@@ -16,31 +16,6 @@ This interactive map of the top 50 stations includes the top 50 stations by numb
 
 It was created in R using Leaflet.
 
-```R
-leaflet(top_stations_df_offset) %>%
-     addTiles() %>%
-     addCircleMarkers(
-         lng = ~long_offset,
-         lat = ~lat,
-         color = ~pal(user_type),
-         radius = ~pmax(sqrt(ride_count) / 50, 4),
-         stroke = FALSE,
-         fillOpacity = 0.8,
-         popup = ~paste0(
-             "<b>", name, "</b><br>", "Rank: #", rn, "<br>",
-             "User Type: ", user_type, "<br>",
-             "Ride Count: ", format(ride_count, big.mark = ",")
-         )
-     ) %>%
-     addLegend(
-         position = "bottomright",
-         pal = pal,
-         values = ~user_type,
-         title = "User Type",
-         opacity = 1
-     )
-```
-
 
 
 ###  Tableau Sheets
@@ -55,16 +30,13 @@ leaflet(top_stations_df_offset) %>%
     This interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.
 
 - Each line represents a frequently traveled path, regardless of direction.
-
 - Line color corresponds to ride volume between those stations.
-
 - Users can filter by rider type using the control panel on the right.
 
     This visualization highlights differences in spatial behavior between groups:
 
-        Customers tend to use routes near the lakefront and popular tourist zones.
-
-        Subscribers favor more distributed, commuter-oriented paths.
+- Customers tend to use routes near the lakefront and popular tourist zones.
+- Subscribers favor more distributed, commuter-oriented paths.
 
 “Station usage differs substantially by rider type, bu not in the expected way.”
 
@@ -86,13 +58,11 @@ leaflet(top_stations_df_offset) %>%
 The chart can be sorted by:
 
 - Path name (alphabetical)
-
 - Subscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)
 
     This visualization reveals important asymmetries in how ride paths are used:
 
         Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
-
         Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.
 
 ## 🖼️ Static Visualizations
