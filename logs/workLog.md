@@ -17,20 +17,23 @@ Looking at the data I see a good chunk of it's is the repeated station
 names (start_station_name and end_station_name). Let's see how many
 there are;
 
-*\$ tail +2 202004-divvy-tripdata.csv \| cut -f6 -d, \| sort -u \| wc
--l*
-
-*602*
+```bash
+$ tail +2 202004-divvy-tripdata.csv | cut -f6 -d, | sort -u | wc -l
+```
+```text
+602
+```
 
 So 602 unique station IDs
 
 Let check the unique station names while were at it.
 
-*\$ tail +2 202004-divvy-tripdata.csv \| cut -f5 -d, \| sort -u \| wc
--l*
-
-*602*
-
+```bash
+$ tail +2 202004-divvy-tripdata.csv | cut -f5 -d, | sort -u | wc -l
+```
+```text
+602
+```
 Good 602 for each. Looks like there is are GPS coordinates (start_lat,
 start_lng, end_lat, end_lng) which appear to match up perfectly with the
 start and end station (what? Every start_station_id always has the same
@@ -99,8 +102,7 @@ Archive:  Divvy_Stations_Trips_2013.zip
  93427432                     4 files
  ```
 
-Not the same at all, let's have a look at the **README.txt** (if that's
-not a hyperlink I'm lazy).
+Not the same at all, let's have a look at the [README.txt](../data/Divvy_Stations_Trips_2013_README.txt).
 
 So the rides (now called trips) table format is a little different and
 there is some additional data. There is now a separate station table,
@@ -168,7 +170,7 @@ Was someone really using database software from the late 80s in 2013?
 **Understanding dBASE III Plus** by Alan Simpson (Sybex Computer Books,
 1st Ed. Jan 1986) on the shelf behind Peter.)
 
-Looks like file didn't recognize the .prj file, it's small let's take a
+Looks like **file** didn't recognize the .prj file, it's small let's take a
 look at it;
 
 ```bash
@@ -197,9 +199,7 @@ Turns out it's a
 
 I dug in a little further and it's really interesting (I don't' know
 much about GIS stuff) but I resisted the urge to explore it further.
-However what I did not resist was the **side quest **(if that's not a
-hyperlink then I'm lazy) to fix file so that it would recognize .prj
-files.
+However what I did not resist was the [side quest](../docs/side-quest/prj-quest.html) to fix **file** so that it would recognize .prj files.
 
 ```bash
 $ file Divvy_Stations_2013.prj
@@ -223,13 +223,13 @@ dBase III .dbf format when working with ERSI (Environmental Systems
 Research Institute) shape files. Which means we can actually open this
 stuff up and have a look at it.
 
-[Divvy_Stations_in_QGIS.png](images/Divvy_Stations_in_QGIS.png)
+[Divvy_Stations_in_QGIS.png](../images/Divvy_Stations_in_QGIS.png)
 
 The above shows all the Divvy Stations from 2013, it's the only layer,
 so not too interesting but if we right click on Divvy_Stations_2013 in
 the Layers pane and select Open Attribute Table we get
 
-[Divvy_Stations_table.png](images/Divvy_Stations_table.png)
+[Divvy_Stations_table.png](../images/Divvy_Stations_table.png)
 
 and there is the station data we already had, except now we get the
 additional dpcapacity field.
@@ -582,8 +582,7 @@ pandemic data now. The "Emergency" officially ended May 11, 2023, we'll
 grab the data starting in June of 2023.
 
 With these "smaller" files it was nice to just add the following zip
-file names to rideFiles and then let load_rides.sh (if this is not a
-hyperlink then I'm lazy) do all the work
+file names to rideFiles and then let [load_rides.sh](../src/load_rides.sh) do all the work
 
 202306-divvy-tripdata.zip
 202307-divvy-tripdata.zip

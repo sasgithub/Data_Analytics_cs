@@ -1,0 +1,198 @@
+---
+title: ".PRJ Side Quest"
+format: html
+---
+
+### Introduction
+
+The soft hum of your GPU fans is a soothing backdrop as you monitor a complex data extraction, a mountain of zipped archives, purportedly filled with nothing but clean CSVs, is steadily being processed. You've automated most of it, trusting your script fu to handle the grunt work. But then, a subtle deviation, 
+
+```text
+File not found: Divvy_Stations_2013.shp.csv
+```
+ that wasn't expected.  You curse yourself for not having better error handling, but these files were suppose to all follow the same naming convention.  "Dot-s-h-p-dot-c-s-v" you mumble.  What the hell is that?  So you go looking for Divvy_Stations_2013.shp.zip, as that's what would have been needed for it to be looking for Divvy_Stations_2013.shp.csv, to see what's up.
+
+You find it and it looks like it's contents have been extracted into a directory named Divvy_Stations_2013.shp
+
+You lean closer, a frown creasing your brow. Not a log, not a CSV file in sie and a bunch of files with extensions do recognize. You call upon your most reliable digital ally, the venerable **file** command, for its infallible wisdom.
+
+You (to yourself, a quiet murmur): "Alright, **file**, old friend. Time to shed some light on this mystery."
+
+(You type the command, the bytes of the file streaming through your discerning companion.)
+
+```bash
+$ file *
+```
+
+The response appears, but it's not the confident classification you expected. Instead, the file command's output seems to be a slightly perplexed, glowing text on your screen, its usual stoic confidence replaced by a rare flicker of uncertainty.
+
+```text
+Divvy_Stations_2013.dbf: FoxBase+/dBase III DBF, 300 records * 319, update-date 114-2-6, codepage ID=0x57, at offset 193 1st record "        5.000000State St & Harrison St                                                                                         "
+Divvy_Stations_2013.prj: ASCII text, with no line terminators
+Divvy_Stations_2013.sbn: ESRI Shapefile version 738263040 length 1598
+Divvy_Stations_2013.sbx: ESRI Shapefile version 738263040 length 170
+Divvy_Stations_2013.shp: ESRI Shapefile version 1000 length 4250 type Point
+Divvy_Stations_2013.shx: ESRI Shapefile version 1000 length 1250 type Point
+```
+
+"ASCII text, with no line terminators", **file** didn't know what it was I think to myself.
+
+UNIX **file** Command (its glowing text box pulsing faintly): "Hmph. Divvy_Stations_2013.prj: ASCII text. That's all I've got. I pride myself on recognizing the very soul of a file, its intrinsic nature, regardless of its flimsy namesake suffix. I know what a .csv is by its comma-separated heart, a .json by its curly-bracketed spirit, even a .tar.gz by its compressed archiveyness. But this... this .prj file. Its contents whisper of structure, of a world's placement, of coordinates and projections... yet, my internal knowledge base, vast as it is, draws a blank when I analyze its raw essence alone. I can only infer it's 'ASCII text' But it feels like so much more."
+
+The **file** command's manifestation seems to sigh, its light dimming slightly in digital frustration. Suddenly, a new option pops up on your screen, a prompt for a deeper interaction: "Help **file** Recognize .prj?"
+
+UNIX **file** Command (its glow returning with renewed purpose): "If you, astute data wrangler, could delve into its depths and help me understand this .prj type – not merely by its extension, but by its very content, its internal patterns, its Well-Known Text signature... it would be an invaluable addition to my wisdom. It would empower me to instantly classify such files for all your future data extractions, making me truly complete in the realm of geospatial information. Will you embark on this small, yet intellectually profound, Quest for .prj Enlightenment?"
+
+This quest will challenge you to apply your knowledge of GIS data structures and delve into the specifics of .prj files to enhance your trusted command-line companion's capabilities.
+
+You of course accept the quest as your always up for a challenge, but where to start.  Well **file** said it was ASCII so let's have a look at it with **cat**.  Wait first we should see how big it is.
+
+```bash
+$ ls -l Divvy_Stations_2013.prj 
+```
+```text
+-rw-rw-r-- 1 sas sas 145 Feb  6  2014 Divvy_Stations_2013.prj
+```
+
+It's small so ...
+
+```bash
+$ cat Divvy_Stations_2013.prj
+```
+```text 
+GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]
+```
+That looks a little bit like GIS stuff, I don't know much about that (if that's what it is).  Let's consult one of the modern day oracles. So a quick trip on the Internet takes us to the Temple of OpenAI where we ask the oracle ChatGPT.  Together with an offering of tokens you submit this prompt to the oracle.
+
+```text
+what does this look like, it's in a filename with the .prj extension?
+GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]
+```
+
+After what seems like a long time the oracle responds
+
+> That .prj file is simply the Well-Known Text (WKT) definition of the dataset’s coordinate reference system. In your > case it tells you that everything is in plain latitude/longitude on the WGS 84 datum. Here’s what each bit means:
+> 
+> *  **GEOGCS["GCS_WGS_1984"]
+>    This declares a Geographic Coordinate System called “WGS 1984” (i.e. not a projected system).
+>
+> * DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]]**
+>  Defines the **datum** (“D_WGS_1984”) and its reference ellipsoid (“WGS_1984”) with
+>
+> * Semi-major axis = 6 378 137.0 m
+> 
+>   * Inverse flattening = 298.257223563
+> 
+> * **PRIMEM["Greenwich",0.0]**
+>   Sets the prime meridian at Greenwich (0° longitude).
+> 
+> * **UNIT["Degree",0.0174532925199433]**
+>   Says coordinates are measured in degrees, where 1 degree = 0.01745… radians.
+> 
+> **In practice:** any GIS or mapping tool reading that .prj will know your data’s points are in un-projected WGS84 lat/long. If you need to display or analyze it alongside data in another CRS (say UTM or Web Mercator), you’d re-project using that definition as the source.
+
+"Oracles speak in riddles because the gods do not tell plain truths to mortals."  Well, it confirms my hunch that this is GIS related, but now we have more questions and how can we possible tell **file** he didn't know what something that was "Well-Known Text" was.  The shame would be too much.
+
+My tokens exhausted I leave the temple to find more answers, since now I have more questions now.
+
+Walking along wonder how to proceed, I mentally kick myself even getting into the thing. Then it hits me I don't need to know all this GIS stuff, I just need to know enough to help **file** out.  I might not have any more tokens but I do have a digital assistant at my disposal.  
+So I ask my digital assistant Gemini to find out what the hell "WGS 84 datum" means. while I get to work restating my purpose so I can know this out and get back to importing those CSV files.
+
+### 🎯 Purpose
+
+Enable the UNIX **file** utility to recognize ESRI .prj projection files based on their content (not file extension), which follow a Well-Known Text (WKT) format.
+
+### 🔷 Gemini Returns
+
+Well Gemini what did you find out?
+
+> The **World Geodetic System 1984 (WGS 84)** is the global standard for defining the Earth's size and shape and for precisely locating positions on its surface. It's much more than just a coordinate system; it's a comprehensive geodetic datum that serves as the fundamental reference for almost all modern geospatial applications, most notably the Global Positioning System (GPS).
+> 
+> Here's a breakdown of what WGS 84 encompasses and its key characteristics:
+> 
+> #### What is a Geodetic Datum?
+> 
+> Before diving into WGS 84, it's helpful to understand what a "geodetic datum" is. A geodetic datum is a reference system that defines how positions are represented on the Earth. It includes:
+> 
+> *  A Coordinate System: A framework (like latitude, longitude, and height) for specifying locations.
+> 
+> *  A Reference Ellipsoid (or Spheroid): A smooth, mathematical model of the Earth's shape, which is an oblate spheroid (a sphere flattened at the poles and bulging at the equator). This ellipsoid is used as the surface on which latitude and longitude are defined.
+> *  An Origin and Orientation: Defines where the coordinate system starts and how it's aligned in space relative to the Earth.
+> 
+> #### Key Characteristics of WGS 84
+> 
+> WGS 84 is defined and maintained by the United States National Geospatial-Intelligence Agency (NGA) and has several important characteristics:
+> 
+> 1  Earth-Centered, Earth-Fixed (ECEF):
+>    *  Its origin (0,0,0) is located at the Earth's geometric center of mass, including oceans and atmosphere.
+> 
+>    *  Its axes are fixed relative to the Earth's crust, meaning they rotate with the Earth. This makes it ideal for global positioning as it provides a consistent reference frame for points on the moving Earth.
+> 
+> 2  Global Coverage:
+> 
+>    *  Unlike older, local datums (which were optimized for specific regions and could have significant discrepancies when moving across boundaries), WGS 84 provides a seamless, consistent reference frame for the entire globe.
+> 
+> 3  Reference Ellipsoid:
+> 
+>    *  WGS 84 uses its own specific reference ellipsoid (also called WGS 84 ellipsoid) with defined semi-major and semi-minor axes, and a flattening factor. This ellipsoid provides the mathematical surface for defining latitude and longitude.
+> 
+> 4  Reference for GPS:
+> 
+>    *  WGS 84 is the primary geodetic datum used by the Global Positioning System (GPS). All GPS receivers output coordinates in WGS 84 latitude, longitude, and ellipsoidal height by default. This makes it universally compatible with GPS devices and applications worldwide.
+> 
+> 5  Dynamic Nature (with Realizations):
+> 
+>    *  While WGS 84 is defined by a fixed set of parameters, the Earth's surface is constantly changing due to tectonic plate movement, post-glacial rebound, and other geological processes.
+> 
+>    *  To maintain high accuracy, WGS 84 is periodically updated through "realizations" (e.g., WGS 84 (G1762) being a more recent realization). These updates align WGS 84 with the International Terrestrial Reference Frame (ITRF), which incorporates global geodetic observations with very high precision. For most common uses, the differences between WGS 84 realizations are negligible, but for very high-precision applications, the specific realization used is important.
+> 
+> 6  Components: WGS 84 technically comprises:
+> 
+> *  An ellipsoid
+> *  A horizontal datum (for latitude and longitude)
+> *  A vertical datum (for ellipsoidal height)
+> *  A coordinate system
+> 
+> 7  Associated Models: WGS 84 also includes associated models like the Earth Gravitational Model (EGM) and the World Magnetic Model (WMM), which describe Earth's gravity and magnetic fields, respectively.
+> 
+> #### Purpose and Importance
+> 
+> The main purposes of WGS 84 are:
+> 
+> *  Standardization: To provide a single, consistent, and globally applicable reference system for geospatial information, enabling seamless data exchange and interoperability across different countries, organizations, and applications.
+> 
+> *  Navigation: To serve as the foundation for satellite navigation systems like GPS, allowing accurate positioning and navigation worldwide.
+> Mapping and GIS: To provide a fundamental framework for creating maps, charts, and Geographic Information Systems (GIS) data that are globally consistent.
+> 
+> *  Scientific Research: To support various geoscientific studies, including monitoring Earth's gravity field, sea level changes, and tectonic plate movements.
+> 
+> In essence, WGS 84 is the invisible framework that underpins much of our modern world's location-based technologies and understanding of the Earth.
+> 
+
+
+
+
+### 📄 Custom magic File Snippet
+
+Filename: .magic or magic.local
+```diff
+0   string  GEOGCS[        ESRI WKT projection file (geographic)
+0   string  PROJCS[        ESRI WKT projection file (projected)
+0   string  LOCAL_CS[      ESRI WKT projection file (local coordinate system)
+>0  string  DATUM[         (with DATUM)
+>0  string  SPHEROID[      (with SPHEROID)
+
+0   search/20   DATUM[     ESRI WKT projection file (WKT with DATUM)
+0   search/20   SPHEROID[  ESRI WKT projection file (WKT with SPHEROID)
+
+!:mime  text/plain
+```
+Usage:
+
+```bash
+file -m ~/.magic somefile
+```
+
+Supports detection even if the file has no .prj extension.
+
+

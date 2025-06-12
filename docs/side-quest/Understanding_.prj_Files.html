@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gemini (as your AI assistant)">
+<meta name="dcterms.date" content="2025-06-07">
 
-<title>.PRJ Side Quest – Bike share case-study</title>
+<title>Understanding .prj Files in GIS: Your Geospatial Data’s Silent Interpreter – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -155,14 +122,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">.PRJ Side Quest</h1>
+<h1 class="title">Understanding .prj Files in GIS: Your Geospatial Data’s Silent Interpreter</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gemini (as your AI assistant) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 7, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -172,132 +151,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>The soft hum of your GPU fans is a soothing backdrop as you monitor a complex data extraction, a mountain of zipped archives, purportedly filled with nothing but clean CSVs, is steadily being processed. You’ve automated most of it, trusting your script fu to handle the grunt work. But then, a subtle deviation,</p>
-<pre class="text"><code>File not found: Divvy_Stations_2013.shp.csv</code></pre>
-<p>that wasn’t expected. You curse yourself for not having better error handling, but these files were suppose to all follow the same naming convention. “Dot-s-h-p-dot-c-s-v” you mumble. What the hell is that? So you go looking for Divvy_Stations_2013.shp.zip, as that’s what would have been needed for it to be looking for Divvy_Stations_2013.shp.csv, to see what’s up.</p>
-<p>You find it and it looks like it’s contents have been extracted into a directory named Divvy_Stations_2013.shp</p>
-<p>You lean closer, a frown creasing your brow. Not a log, not a CSV file in sie and a bunch of files with extensions do recognize. You call upon your most reliable digital ally, the venerable <strong>file</strong> command, for its infallible wisdom.</p>
-<p>You (to yourself, a quiet murmur): “Alright, <strong>file</strong>, old friend. Time to shed some light on this mystery.”</p>
-<p>(You type the command, the bytes of the file streaming through your discerning companion.)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> file <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The response appears, but it’s not the confident classification you expected. Instead, the file command’s output seems to be a slightly perplexed, glowing text on your screen, its usual stoic confidence replaced by a rare flicker of uncertainty.</p>
-<pre class="text"><code>Divvy_Stations_2013.dbf: FoxBase+/dBase III DBF, 300 records * 319, update-date 114-2-6, codepage ID=0x57, at offset 193 1st record "        5.000000State St &amp; Harrison St                                                                                         "
-Divvy_Stations_2013.prj: ASCII text, with no line terminators
-Divvy_Stations_2013.sbn: ESRI Shapefile version 738263040 length 1598
-Divvy_Stations_2013.sbx: ESRI Shapefile version 738263040 length 170
-Divvy_Stations_2013.shp: ESRI Shapefile version 1000 length 4250 type Point
-Divvy_Stations_2013.shx: ESRI Shapefile version 1000 length 1250 type Point</code></pre>
-<p>“ASCII text, with no line terminators”, <strong>file</strong> didn’t know what it was, I think to myself.</p>
-<p>UNIX <strong>file</strong> Command (its glowing text box pulsing faintly): “Hmph. Divvy_Stations_2013.prj: ASCII text. That’s all I’ve got. I pride myself on recognizing the very soul of a file, its intrinsic nature, regardless of its flimsy namesake suffix. I know what a .csv is by its comma-separated heart, a .json by its curly-bracketed spirit, even a .tar.gz by its compressed archiveyness. But this… this .prj file. Its contents whisper of structure, of a world’s placement, of coordinates and projections… yet, my internal knowledge base, vast as it is, draws a blank when I analyze its raw essence alone. I can only infer it’s ‘ASCII text’ But it feels like so much more.”</p>
-<p>The <strong>file</strong> command’s manifestation seems to sigh, its light dimming slightly in digital frustration. Suddenly, a new option pops up on your screen, a prompt for a deeper interaction: “Help <strong>file</strong> Recognize .prj?”</p>
-<p>UNIX <strong>file</strong> Command (its glow returning with renewed purpose): “If you, astute data wrangler, could delve into its depths and help me understand this .prj type – not merely by its extension, but by its very content, its internal patterns, its Well-Known Text signature… it would be an invaluable addition to my wisdom. It would empower me to instantly classify such files for all your future data extractions, making me truly complete in the realm of geospatial information. Will you embark on this small, yet intellectually profound, Quest for .prj Enlightenment?”</p>
-<p>This quest will challenge you to apply your knowledge of GIS data structures and delve into the specifics of .prj files to enhance your trusted command-line companion’s capabilities.</p>
-<p>You of course accept the quest as your always up for a challenge, but where to start. Well <strong>file</strong> said it was ASCII so let’s have a look at it with <strong>cat</strong>. Wait first we should see how big it is.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> Divvy_Stations_2013.prj </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="text"><code>-rw-rw-r-- 1 sas sas 145 Feb  6  2014 Divvy_Stations_2013.prj</code></pre>
-<p>It’s small so …</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat Divvy_Stations_2013.prj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="text"><code>GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]</code></pre>
-<p>That looks a little bit like GIS stuff, I don’t know much about that (if that’s what it is). Let’s consult one of the modern day oracles. So a quick trip on the Internet takes us to the Temple of OpenAI where we ask the oracle ChatGPT. Together with an offering of tokens you submit this prompt to the oracle.</p>
-<pre class="text"><code>what does this look like, it's in a filename with the .prj extension?
-GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]</code></pre>
-<p>After what seems like a long time the oracle responds</p>
-<blockquote class="blockquote">
-<p>That .prj file is simply the Well-Known Text (WKT) definition of the dataset’s coordinate reference system. In your &gt; case it tells you that everything is in plain latitude/longitude on the WGS 84 datum. Here’s what each bit means:</p>
+<p>In the world of Geographic Information Systems (GIS), data isn’t just about points, lines, and polygons; it’s also about <em>where</em> those features exist on Earth. This is where the <strong><code>.prj</code> file</strong> comes in. A <code>.prj</code> file is a fundamental component of many geospatial datasets, particularly <strong>ESRI Shapefiles</strong>. It’s a plain text file that acts as the essential blueprint, defining the <strong>coordinate system and projection information</strong> for the accompanying spatial data.</p>
+<section id="whats-inside-a-.prj-file" class="level3">
+<h3 class="anchored" data-anchor-id="whats-inside-a-.prj-file">What’s Inside a <code>.prj</code> File?</h3>
+<p>The <code>.prj</code> file contains a precise, machine-readable description of the spatial reference system. This description is typically formatted in <strong>Well-Known Text (WKT)</strong>, a standardized string that details how the data’s coordinates relate to a real-world location and how they are displayed on a flat map.</p>
+<p>A WKT string can specify both <strong>Geographic Coordinate Systems (GCS)</strong> and <strong>Projected Coordinate Systems (PCS)</strong>:</p>
 <ul>
-<li><p>**GEOGCS[“GCS_WGS_1984”] This declares a Geographic Coordinate System called “WGS 1984” (i.e.&nbsp;not a projected system).</p></li>
-<li><p>DATUM[“D_WGS_1984”,SPHEROID[“WGS_1984”,6378137.0,298.257223563]]<strong> Defines the </strong>datum** (“D_WGS_1984”) and its reference ellipsoid (“WGS_1984”) with</p></li>
-<li><p>Semi-major axis = 6 378 137.0 m</p>
+<li><p><strong>Geographic Coordinate System (GCS):</strong> This defines the global, spherical coordinate system. It includes:</p>
 <ul>
-<li>Inverse flattening = 298.257223563</li>
+<li><p><strong>Datum:</strong> The model of the Earth’s shape (an ellipsoid or spheroid) and its position relative to the Earth’s center (e.g., WGS84, NAD83).</p></li>
+<li><p><strong>Spheroid/Ellipsoid:</strong> The specific mathematical model of the Earth’s shape used by the datum.</p></li>
+<li><p><strong>Prime Meridian:</strong> The reference longitude (usually Greenwich).</p></li>
+<li><p><strong>Angular Unit:</strong> The unit for latitude and longitude (e.g., degrees).</p></li>
 </ul></li>
-<li><p><strong>PRIMEM[“Greenwich”,0.0]</strong> Sets the prime meridian at Greenwich (0° longitude).</p></li>
-<li><p><strong>UNIT[“Degree”,0.0174532925199433]</strong> Says coordinates are measured in degrees, where 1 degree = 0.01745… radians.</p></li>
+<li><p><strong>Projected Coordinate System (PCS):</strong> This defines how the 3D GCS coordinates are transformed onto a 2D flat plane, enabling measurement and mapping on a flat surface. It includes:</p>
+<ul>
+<li><p><strong>Projection Type:</strong> The mathematical method used for the transformation (e.g., Transverse Mercator, Lambert Conformal Conic, Universal Transverse Mercator (UTM)).</p></li>
+<li><p><strong>Projection Parameters:</strong> Specific values needed by the chosen projection, such as False Easting, False Northing, Central Meridian, Scale Factor, and Latitude of Origin.</p></li>
+<li><p><strong>Linear Unit:</strong> The unit of measurement for the projected coordinates (e.g., meters, US survey feet).</p></li>
+</ul></li>
+<li><p>Authority: Often includes an EPSG code (e.g., AUTHORITY[“EPSG”,“4326”] for WGS84 Geographic Coordinate System), which is a standardized code for a specific coordinate system definition.</p></li>
 </ul>
-<p><strong>In practice:</strong> any GIS or mapping tool reading that .prj will know your data’s points are in un-projected WGS84 lat/long. If you need to display or analyze it alongside data in another CRS (say UTM or Web Mercator), you’d re-project using that definition as the source.</p>
-</blockquote>
-<p>“Oracles speak in riddles because the gods do not tell plain truths to mortals.” Well, it confirms my hunch that this is GIS related, but now we have more questions and how can we possible tell <strong>file</strong> he didn’t know what something that was “Well-Known Text” was. The shame would be too much.</p>
-<p>My tokens exhausted I leave the temple to find more answers, since now I have more questions now.</p>
-<p>Walking along wonder how to proceed, I mentally kick myself even getting into the thing. Then it hits me I don’t need to know all this GIS stuff, I just need to know enough to help <strong>file</strong> out. I might not have any more tokens but I do have a digital assistant at my disposal.<br>
-So I ask my digital assistant Gemini to find out what the hell “WGS 84 datum” means. while I get to work restating my purpose, because I’m getting off track and I want to knock this out and get back to importing those CSV files.</p>
+<p><code>.prj</code> files often also include an <strong>EPSG code</strong>, which is a standardized identifier for a specific coordinate system definition, allowing software to easily recognize and apply it.</p>
+<p>Example of a (simplified) .prj file content:</p>
+<pre class="text"><code>PROJCS["NAD_1983_StatePlane_Washington_South_FIPS_4602_Ft_US",GEOGCS["GCS_NAD_1983",DATUM["D_NAD_1983",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",1640416.666666667],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",-120.5833333333333],PARAMETER["Standard_Parallel_1",45.83333333333334],PARAMETER["Standard_Parallel_2",47.33333333333334],PARAMETER["Latitude_Of_Origin",45.33333333333334],UNIT["Foot_US",0.3048006096012192]]</code></pre>
+<p>(Note: In actual files, this is often a single, very long line with no extra spaces for compactness.)</p>
 </section>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">🎯 Purpose</h3>
-<p>Enable the UNIX <strong>file</strong> utility to recognize ESRI .prj projection files based on their content (not file extension), which follow a Well-Known Text (WKT) format. I don’t need to know everything about GIS, just enough to give <strong>file</strong> the info it needs.</p>
+<section id="why-is-a-.prj-file-important-in-gis" class="level3">
+<h3 class="anchored" data-anchor-id="why-is-a-.prj-file-important-in-gis">Why is a <code>.prj</code> File Important in GIS?</h3>
+<p>The <code>.prj</code> file is <strong>critically important</strong> because it provides the necessary context for GIS software to correctly interpret, display, and analyze your spatial data. Without it, the software lacks the crucial information needed to understand where on Earth your data is located or how it should be presented.</p>
+<p>Here’s why it’s so vital:</p>
+<ul>
+<li><p><strong>Accurate Display and Alignment:</strong> Without the <code>.prj</code> file, GIS software cannot correctly position your data on a map. Data might appear in the wrong location, be severely stretched or compressed, or even be completely invisible when overlaid with other layers.</p></li>
+<li><p><strong>Reliable Analysis:</strong> All spatial analysis operations (like calculating areas, distances, buffers, or performing overlays) depend on accurate coordinate system information. An incorrect or missing <code>.prj</code> file will lead to erroneous analytical results.</p></li>
+<li><p><strong>Interoperability:</strong> GIS involves combining datasets from many sources. The <code>.prj</code> file enables “on-the-fly” projection, allowing GIS software to transform data from different coordinate systems into a common system for seamless integration and comparison.</p></li>
+<li><p><strong>Data Integrity:</strong> It ensures that your data retains its spatial meaning and integrity as it’s moved between different systems or shared with other users.</p></li>
+</ul>
+<p>While some older GIS software or workflows might allow you to work without a <code>.prj</code> file (by making assumptions), this is highly discouraged. A missing or incorrect <code>.prj</code> file is a common source of error and frustration in GIS.</p>
 </section>
-<section id="gemini-returns" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-returns">🔷 Gemini Returns</h3>
-<p>Well Gemini what did you find out?</p>
-<blockquote class="blockquote">
-<p>The <strong>World Geodetic System 1984 (WGS 84)</strong> is the global standard for defining the Earth’s size and shape and for precisely locating positions on its surface. It’s much more than just a coordinate system; it’s a comprehensive geodetic datum that serves as the fundamental reference for almost all modern geospatial applications, most notably the Global Positioning System (GPS).</p>
-<p>Here’s a breakdown of what WGS 84 encompasses and its key characteristics:</p>
-<h4 id="what-is-a-geodetic-datum" class="anchored">What is a Geodetic Datum?</h4>
-<p>Before diving into WGS 84, it’s helpful to understand what a “geodetic datum” is. A geodetic datum is a reference system that defines how positions are represented on the Earth. It includes:</p>
+<section id="how-.prj-files-are-typically-used" class="level3">
+<h3 class="anchored" data-anchor-id="how-.prj-files-are-typically-used">How <code>.prj</code> Files are Typically Used</h3>
 <ul>
-<li><p>A Coordinate System: A framework (like latitude, longitude, and height) for specifying locations.</p></li>
-<li><p>A Reference Ellipsoid (or Spheroid): A smooth, mathematical model of the Earth’s shape, which is an oblate spheroid (a sphere flattened at the poles and bulging at the equator). This ellipsoid is used as the surface on which latitude and longitude are defined.</p></li>
-<li><p>An Origin and Orientation: Defines where the coordinate system starts and how it’s aligned in space relative to the Earth.</p></li>
+<li><p><strong>Companion File:</strong> For formats like the ESRI Shapefile, the <code>.prj</code> file is a companion file that carries the <strong>same base filename</strong> as the main data files (e.g., <code>rivers.shp</code>, <code>rivers.dbf</code>, <code>rivers.shx</code>, and <code>rivers.prj</code>) and resides in the <strong>same directory</strong>. GIS software automatically looks for it when loading the dataset.</p></li>
+<li><p><strong>Metadata:</strong> It serves as vital metadata, explicitly defining the spatial reference properties that are not stored within the primary data file itself.</p></li>
+<li><p><strong>Programmatic Use:</strong> GIS software and libraries (like <code>GDAL/OGR</code> or <code>ArcPy</code>) can read, parse, and generate <code>.prj</code> files to ensure proper data handling and transformations.</p></li>
 </ul>
-<h4 id="key-characteristics-of-wgs-84" class="anchored">Key Characteristics of WGS 84</h4>
-<p>WGS 84 is defined and maintained by the United States National Geospatial-Intelligence Agency (NGA) and has several important characteristics:</p>
-<p>1 Earth-Centered, Earth-Fixed (ECEF): * Its origin (0,0,0) is located at the Earth’s geometric center of mass, including oceans and atmosphere.</p>
-<ul>
-<li>Its axes are fixed relative to the Earth’s crust, meaning they rotate with the Earth. This makes it ideal for global positioning as it provides a consistent reference frame for points on the moving Earth.</li>
-</ul>
-<p>2 Global Coverage:</p>
-<ul>
-<li>Unlike older, local datums (which were optimized for specific regions and could have significant discrepancies when moving across boundaries), WGS 84 provides a seamless, consistent reference frame for the entire globe.</li>
-</ul>
-<p>3 Reference Ellipsoid:</p>
-<ul>
-<li>WGS 84 uses its own specific reference ellipsoid (also called WGS 84 ellipsoid) with defined semi-major and semi-minor axes, and a flattening factor. This ellipsoid provides the mathematical surface for defining latitude and longitude.</li>
-</ul>
-<p>4 Reference for GPS:</p>
-<ul>
-<li>WGS 84 is the primary geodetic datum used by the Global Positioning System (GPS). All GPS receivers output coordinates in WGS 84 latitude, longitude, and ellipsoidal height by default. This makes it universally compatible with GPS devices and applications worldwide.</li>
-</ul>
-<p>5 Dynamic Nature (with Realizations):</p>
-<ul>
-<li><p>While WGS 84 is defined by a fixed set of parameters, the Earth’s surface is constantly changing due to tectonic plate movement, post-glacial rebound, and other geological processes.</p></li>
-<li><p>To maintain high accuracy, WGS 84 is periodically updated through “realizations” (e.g., WGS 84 (G1762) being a more recent realization). These updates align WGS 84 with the International Terrestrial Reference Frame (ITRF), which incorporates global geodetic observations with very high precision. For most common uses, the differences between WGS 84 realizations are negligible, but for very high-precision applications, the specific realization used is important.</p></li>
-</ul>
-<p>6 Components: WGS 84 technically comprises:</p>
-<ul>
-<li>An ellipsoid</li>
-<li>A horizontal datum (for latitude and longitude)</li>
-<li>A vertical datum (for ellipsoidal height)</li>
-<li>A coordinate system</li>
-</ul>
-<p>7 Associated Models: WGS 84 also includes associated models like the Earth Gravitational Model (EGM) and the World Magnetic Model (WMM), which describe Earth’s gravity and magnetic fields, respectively.</p>
-<h4 id="purpose-and-importance" class="anchored">Purpose and Importance</h4>
-<p>The main purposes of WGS 84 are:</p>
-<ul>
-<li><p>Standardization: To provide a single, consistent, and globally applicable reference system for geospatial information, enabling seamless data exchange and interoperability across different countries, organizations, and applications.</p></li>
-<li><p>Navigation: To serve as the foundation for satellite navigation systems like GPS, allowing accurate positioning and navigation worldwide. Mapping and GIS: To provide a fundamental framework for creating maps, charts, and Geographic Information Systems (GIS) data that are globally consistent.</p></li>
-<li><p>Scientific Research: To support various geoscientific studies, including monitoring Earth’s gravity field, sea level changes, and tectonic plate movements.</p></li>
-</ul>
-<p>In essence, WGS 84 is the invisible framework that underpins much of our modern world’s location-based technologies and understanding of the Earth.</p>
-</blockquote>
-<p>Well, I think I’m starting to understand that this GIS stuff is a little complicated. We need to hone in on the info we need a little more. Can you create a report for me about .prj files in the context of GIS? While I figure out what has to be done to get <strong>file</strong> to recognize these files once we have the information. I’ll ask my friend <strong>man</strong>, he knows about almost all the commands.</p>
+<p>In essence, the <code>.prj</code> file is the unsung hero of GIS data, providing the crucial spatial context that allows your maps to be accurate, your analyses to be valid, and your data to be truly meaningful in the real world.</p>
 </section>
-<section id="custom-magic-file-snippet" class="level3">
-<h3 class="anchored" data-anchor-id="custom-magic-file-snippet">📄 Custom magic File Snippet</h3>
-<p>Filename: .magic or magic.local</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  GEOGCS[        ESRI WKT projection file (geographic)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  PROJCS[        ESRI WKT projection file (projected)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  LOCAL_CS[      ESRI WKT projection file (local coordinate system)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">&gt;0  string  DATUM[         (with DATUM)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="va">&gt;0  string  SPHEROID[      (with SPHEROID)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">0   search/20   DATUM[     ESRI WKT projection file (WKT with DATUM)</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dt">0   search/20   SPHEROID[  ESRI WKT projection file (WKT with SPHEROID)</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">!:mime  text/plain</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Usage:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file</span> <span class="at">-m</span> ~/.magic somefile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Supports detection even if the file has no .prj extension.</p>
+<section id="sources" class="level3">
+<h3 class="anchored" data-anchor-id="sources">Sources</h3>
+<ul>
+<li><p><a href="https://www.talend.com/resources/data-mapping/">What is Data Mapping? Definition and Examples | Talend</a></p></li>
+<li><p><a href="https://www.informatica.com/resources/articles/data-mapping.html">What is Data Mapping? | Informatica</a></p></li>
+<li><p><a href="https://amplitude.com/explore/data/what-is-data-mapping">What is Data Mapping? The Ultimate Guide | Amplitude</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Data_mapping">Data mapping - Wikipedia</a></p></li>
+<li><p><a href="https://support.esri.com/en-us/gis-dictionary/prj">PRJ Definition | GIS Dictionary - Esri Support</a></p></li>
+<li><p><a href="https://vsp.pnnl.gov/help/vsample/ESRI_PRJ_File.htm">ESRI PRJ File</a></p></li>
+<li><p><a href="https://gis.stackexchange.com/questions/360948/what-the-prj-file-stands-for">What the prj-file stands for? - GIS StackExchange</a></p></li>
+</ul>
+<p><em>Attribution: Generated by Gemini (as your AI assistant)</em></p>
 
 
 </section>

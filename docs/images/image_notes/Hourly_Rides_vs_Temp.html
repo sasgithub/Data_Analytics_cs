@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>.PRJ Side Quest – Bike share case-study</title>
+<title>hourly_rides_vs_temp – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,23 +58,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Bike share case-study</span>
     </a>
   </div>
@@ -125,15 +125,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../visualizations.html"> 
+    <a class="nav-link" href="../../visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html"> 
+    <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
 </ul>
@@ -151,155 +151,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">.PRJ Side Quest</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>The soft hum of your GPU fans is a soothing backdrop as you monitor a complex data extraction, a mountain of zipped archives, purportedly filled with nothing but clean CSVs, is steadily being processed. You’ve automated most of it, trusting your script fu to handle the grunt work. But then, a subtle deviation,</p>
-<pre class="text"><code>File not found: Divvy_Stations_2013.shp.csv</code></pre>
-<p>that wasn’t expected. You curse yourself for not having better error handling, but these files were suppose to all follow the same naming convention. “Dot-s-h-p-dot-c-s-v” you mumble. What the hell is that? So you go looking for Divvy_Stations_2013.shp.zip, as that’s what would have been needed for it to be looking for Divvy_Stations_2013.shp.csv, to see what’s up.</p>
-<p>You find it and it looks like it’s contents have been extracted into a directory named Divvy_Stations_2013.shp</p>
-<p>You lean closer, a frown creasing your brow. Not a log, not a CSV file in sie and a bunch of files with extensions do recognize. You call upon your most reliable digital ally, the venerable <strong>file</strong> command, for its infallible wisdom.</p>
-<p>You (to yourself, a quiet murmur): “Alright, <strong>file</strong>, old friend. Time to shed some light on this mystery.”</p>
-<p>(You type the command, the bytes of the file streaming through your discerning companion.)</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> file <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The response appears, but it’s not the confident classification you expected. Instead, the file command’s output seems to be a slightly perplexed, glowing text on your screen, its usual stoic confidence replaced by a rare flicker of uncertainty.</p>
-<pre class="text"><code>Divvy_Stations_2013.dbf: FoxBase+/dBase III DBF, 300 records * 319, update-date 114-2-6, codepage ID=0x57, at offset 193 1st record "        5.000000State St &amp; Harrison St                                                                                         "
-Divvy_Stations_2013.prj: ASCII text, with no line terminators
-Divvy_Stations_2013.sbn: ESRI Shapefile version 738263040 length 1598
-Divvy_Stations_2013.sbx: ESRI Shapefile version 738263040 length 170
-Divvy_Stations_2013.shp: ESRI Shapefile version 1000 length 4250 type Point
-Divvy_Stations_2013.shx: ESRI Shapefile version 1000 length 1250 type Point</code></pre>
-<p>“ASCII text, with no line terminators”, <strong>file</strong> didn’t know what it was, I think to myself.</p>
-<p>UNIX <strong>file</strong> Command (its glowing text box pulsing faintly): “Hmph. Divvy_Stations_2013.prj: ASCII text. That’s all I’ve got. I pride myself on recognizing the very soul of a file, its intrinsic nature, regardless of its flimsy namesake suffix. I know what a .csv is by its comma-separated heart, a .json by its curly-bracketed spirit, even a .tar.gz by its compressed archiveyness. But this… this .prj file. Its contents whisper of structure, of a world’s placement, of coordinates and projections… yet, my internal knowledge base, vast as it is, draws a blank when I analyze its raw essence alone. I can only infer it’s ‘ASCII text’ But it feels like so much more.”</p>
-<p>The <strong>file</strong> command’s manifestation seems to sigh, its light dimming slightly in digital frustration. Suddenly, a new option pops up on your screen, a prompt for a deeper interaction: “Help <strong>file</strong> Recognize .prj?”</p>
-<p>UNIX <strong>file</strong> Command (its glow returning with renewed purpose): “If you, astute data wrangler, could delve into its depths and help me understand this .prj type – not merely by its extension, but by its very content, its internal patterns, its Well-Known Text signature… it would be an invaluable addition to my wisdom. It would empower me to instantly classify such files for all your future data extractions, making me truly complete in the realm of geospatial information. Will you embark on this small, yet intellectually profound, Quest for .prj Enlightenment?”</p>
-<p>This quest will challenge you to apply your knowledge of GIS data structures and delve into the specifics of .prj files to enhance your trusted command-line companion’s capabilities.</p>
-<p>You of course accept the quest as your always up for a challenge, but where to start. Well <strong>file</strong> said it was ASCII so let’s have a look at it with <strong>cat</strong>. Wait first we should see how big it is.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span> Divvy_Stations_2013.prj </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="text"><code>-rw-rw-r-- 1 sas sas 145 Feb  6  2014 Divvy_Stations_2013.prj</code></pre>
-<p>It’s small so …</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat Divvy_Stations_2013.prj</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre class="text"><code>GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]</code></pre>
-<p>That looks a little bit like GIS stuff, I don’t know much about that (if that’s what it is). Let’s consult one of the modern day oracles. So a quick trip on the Internet takes us to the Temple of OpenAI where we ask the oracle ChatGPT. Together with an offering of tokens you submit this prompt to the oracle.</p>
-<pre class="text"><code>what does this look like, it's in a filename with the .prj extension?
-GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]]</code></pre>
-<p>After what seems like a long time the oracle responds</p>
-<blockquote class="blockquote">
-<p>That .prj file is simply the Well-Known Text (WKT) definition of the dataset’s coordinate reference system. In your &gt; case it tells you that everything is in plain latitude/longitude on the WGS 84 datum. Here’s what each bit means:</p>
+<section id="hourly-rides-vs.-temperature" class="level3">
+<h3 class="anchored" data-anchor-id="hourly-rides-vs.-temperature">Hourly Rides vs.&nbsp;Temperature</h3>
+<p>This chart illustrates the relationship between <strong>ambient temperature (°C)</strong> and the <strong>number of rides per hour</strong>, with data grouped into <strong>2°C bins</strong> to smooth short-term fluctuations and reveal broader trends..</p>
 <ul>
-<li><p>**GEOGCS[“GCS_WGS_1984”] This declares a Geographic Coordinate System called “WGS 1984” (i.e.&nbsp;not a projected system).</p></li>
-<li><p>DATUM[“D_WGS_1984”,SPHEROID[“WGS_1984”,6378137.0,298.257223563]]<strong> Defines the </strong>datum** (“D_WGS_1984”) and its reference ellipsoid (“WGS_1984”) with</p></li>
-<li><p>Semi-major axis = 6 378 137.0 m</p>
-<ul>
-<li>Inverse flattening = 298.257223563</li>
-</ul></li>
-<li><p><strong>PRIMEM[“Greenwich”,0.0]</strong> Sets the prime meridian at Greenwich (0° longitude).</p></li>
-<li><p><strong>UNIT[“Degree”,0.0174532925199433]</strong> Says coordinates are measured in degrees, where 1 degree = 0.01745… radians.</p></li>
+<li>The <strong>x-axis</strong> shows temperature in degrees Celsius.</li>
+<li>The <strong>y-axis</strong> displays the average number of rides per hour, formatted with metric suffixes (e.g., 1k, 10k).</li>
+<li>Grid lines and a clear legend outside the plot area aid interpretability.</li>
 </ul>
-<p><strong>In practice:</strong> any GIS or mapping tool reading that .prj will know your data’s points are in un-projected WGS84 lat/long. If you need to display or analyze it alongside data in another CRS (say UTM or Web Mercator), you’d re-project using that definition as the source.</p>
-</blockquote>
-<p>“Oracles speak in riddles because the gods do not tell plain truths to mortals.” Well, it confirms my hunch that this is GIS related, but now we have more questions and how can we possible tell <strong>file</strong> he didn’t know what something that was “Well-Known Text” was. The shame would be too much.</p>
-<p>My tokens exhausted I leave the temple to find more answers, since now I have more questions now.</p>
-<p>Walking along wonder how to proceed, I mentally kick myself even getting into the thing. Then it hits me I don’t need to know all this GIS stuff, I just need to know enough to help <strong>file</strong> out. I might not have any more tokens but I do have a digital assistant at my disposal.<br>
-So I ask my digital assistant Gemini to find out what the hell “WGS 84 datum” means. while I get to work restating my purpose, because I’m getting off track and I want to knock this out and get back to importing those CSV files.</p>
+<p>Three ride categories are plotted:</p>
+<ul>
+<li><strong>Total Rides</strong> (all users)</li>
+<li><strong>Subscribers</strong> (dark blue line)</li>
+<li><strong>Customers</strong> (dark orange line)</li>
+</ul>
+<section id="insights" class="level4">
+<h4 class="anchored" data-anchor-id="insights">Insights:</h4>
+<ul>
+<li>Bike usage increases with warmer weather, peaking for both Subscribers and Customers at 26°C (78.8∘F) temperatures.</li>
+<li><strong>Subscribers</strong> tend to ride consistently across a wider temperature range.</li>
+<li><strong>Customers</strong> show a sharper increase in usage with warmth, indicating stronger sensitivity to weather.</li>
+</ul>
+<p>These trends can inform operational decisions and user engagement strategies, particularly around marketing and bike redistribution efforts during seasonal changes.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.tsv</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (                          <span class="co">-- 2 °C comfort‑oriented buckets</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span>              <span class="kw">AS</span> temp_bin,         <span class="co">-- –10,‑8,…,34</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(r.rides)                             <span class="kw">AS</span> rides</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides_per_hour_tbl   <span class="kw">AS</span> r</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> hourly_weather       <span class="kw">AS</span> w  <span class="kw">ON</span> w.epoch <span class="op">=</span> r.epoch</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, r.user_type</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (                             <span class="co">-- turn rows into columns</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        temp_bin,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(rides)                                  <span class="kw">AS</span> total,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'customer'</span>   <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> binned</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="gnuplot"><code>set format y "%.0s%c"
+set term wxt           
+set title "Hourly Rides vs. Temperature"
+set xlabel "Temperature (°C)"
+set ylabel "Rides per hour"
+set grid
+set datafile separator '\t'   
+set key outside
+plot \
+    "temp_vs_rides.tsv" every ::1::34 using 1:2 with lines lw 2 lc rgb "black" title "Total", \
+    ""      every ::1::34 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Subscribers", \
+    ""      every ::1::34 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Customers"</code></pre>
+
+
 </section>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">🎯 Purpose</h3>
-<p>Enable the UNIX <strong>file</strong> utility to recognize ESRI .prj projection files based on their content (not file extension), which follow a Well-Known Text (WKT) format. I don’t need to know everything about GIS, just enough to give <strong>file</strong> the info it needs.</p>
-</section>
-<section id="gemini-returns" class="level3">
-<h3 class="anchored" data-anchor-id="gemini-returns">🔷 Gemini Returns</h3>
-<p>Well Gemini what did you find out?</p>
-<blockquote class="blockquote">
-<p>The <strong>World Geodetic System 1984 (WGS 84)</strong> is the global standard for defining the Earth’s size and shape and for precisely locating positions on its surface. It’s much more than just a coordinate system; it’s a comprehensive geodetic datum that serves as the fundamental reference for almost all modern geospatial applications, most notably the Global Positioning System (GPS).</p>
-<p>Here’s a breakdown of what WGS 84 encompasses and its key characteristics:</p>
-<h4 id="what-is-a-geodetic-datum" class="anchored">What is a Geodetic Datum?</h4>
-<p>Before diving into WGS 84, it’s helpful to understand what a “geodetic datum” is. A geodetic datum is a reference system that defines how positions are represented on the Earth. It includes:</p>
-<ul>
-<li><p>A Coordinate System: A framework (like latitude, longitude, and height) for specifying locations.</p></li>
-<li><p>A Reference Ellipsoid (or Spheroid): A smooth, mathematical model of the Earth’s shape, which is an oblate spheroid (a sphere flattened at the poles and bulging at the equator). This ellipsoid is used as the surface on which latitude and longitude are defined.</p></li>
-<li><p>An Origin and Orientation: Defines where the coordinate system starts and how it’s aligned in space relative to the Earth.</p></li>
-</ul>
-<h4 id="key-characteristics-of-wgs-84" class="anchored">Key Characteristics of WGS 84</h4>
-<p>WGS 84 is defined and maintained by the United States National Geospatial-Intelligence Agency (NGA) and has several important characteristics:</p>
-<p>1 Earth-Centered, Earth-Fixed (ECEF): * Its origin (0,0,0) is located at the Earth’s geometric center of mass, including oceans and atmosphere.</p>
-<ul>
-<li>Its axes are fixed relative to the Earth’s crust, meaning they rotate with the Earth. This makes it ideal for global positioning as it provides a consistent reference frame for points on the moving Earth.</li>
-</ul>
-<p>2 Global Coverage:</p>
-<ul>
-<li>Unlike older, local datums (which were optimized for specific regions and could have significant discrepancies when moving across boundaries), WGS 84 provides a seamless, consistent reference frame for the entire globe.</li>
-</ul>
-<p>3 Reference Ellipsoid:</p>
-<ul>
-<li>WGS 84 uses its own specific reference ellipsoid (also called WGS 84 ellipsoid) with defined semi-major and semi-minor axes, and a flattening factor. This ellipsoid provides the mathematical surface for defining latitude and longitude.</li>
-</ul>
-<p>4 Reference for GPS:</p>
-<ul>
-<li>WGS 84 is the primary geodetic datum used by the Global Positioning System (GPS). All GPS receivers output coordinates in WGS 84 latitude, longitude, and ellipsoidal height by default. This makes it universally compatible with GPS devices and applications worldwide.</li>
-</ul>
-<p>5 Dynamic Nature (with Realizations):</p>
-<ul>
-<li><p>While WGS 84 is defined by a fixed set of parameters, the Earth’s surface is constantly changing due to tectonic plate movement, post-glacial rebound, and other geological processes.</p></li>
-<li><p>To maintain high accuracy, WGS 84 is periodically updated through “realizations” (e.g., WGS 84 (G1762) being a more recent realization). These updates align WGS 84 with the International Terrestrial Reference Frame (ITRF), which incorporates global geodetic observations with very high precision. For most common uses, the differences between WGS 84 realizations are negligible, but for very high-precision applications, the specific realization used is important.</p></li>
-</ul>
-<p>6 Components: WGS 84 technically comprises:</p>
-<ul>
-<li>An ellipsoid</li>
-<li>A horizontal datum (for latitude and longitude)</li>
-<li>A vertical datum (for ellipsoidal height)</li>
-<li>A coordinate system</li>
-</ul>
-<p>7 Associated Models: WGS 84 also includes associated models like the Earth Gravitational Model (EGM) and the World Magnetic Model (WMM), which describe Earth’s gravity and magnetic fields, respectively.</p>
-<h4 id="purpose-and-importance" class="anchored">Purpose and Importance</h4>
-<p>The main purposes of WGS 84 are:</p>
-<ul>
-<li><p>Standardization: To provide a single, consistent, and globally applicable reference system for geospatial information, enabling seamless data exchange and interoperability across different countries, organizations, and applications.</p></li>
-<li><p>Navigation: To serve as the foundation for satellite navigation systems like GPS, allowing accurate positioning and navigation worldwide. Mapping and GIS: To provide a fundamental framework for creating maps, charts, and Geographic Information Systems (GIS) data that are globally consistent.</p></li>
-<li><p>Scientific Research: To support various geoscientific studies, including monitoring Earth’s gravity field, sea level changes, and tectonic plate movements.</p></li>
-</ul>
-<p>In essence, WGS 84 is the invisible framework that underpins much of our modern world’s location-based technologies and understanding of the Earth.</p>
-</blockquote>
-<p>Well, I think I’m starting to understand that this GIS stuff is a little complicated. We need to hone in on the info we need a little more. Can you create a report for me about .prj files in the context of GIS? While I figure out what has to be done to get <strong>file</strong> to recognize these files once we have the information. I’ll ask my friend <strong>man</strong>, he knows about almost all the commands.</p>
-</section>
-<section id="custom-magic-file-snippet" class="level3">
-<h3 class="anchored" data-anchor-id="custom-magic-file-snippet">📄 Custom magic File Snippet</h3>
-<p>Filename: .magic or magic.local</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  GEOGCS[        ESRI WKT projection file (geographic)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  PROJCS[        ESRI WKT projection file (projected)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dt">0   string  LOCAL_CS[      ESRI WKT projection file (local coordinate system)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="va">&gt;0  string  DATUM[         (with DATUM)</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="va">&gt;0  string  SPHEROID[      (with SPHEROID)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dt">0   search/20   DATUM[     ESRI WKT projection file (WKT with DATUM)</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dt">0   search/20   SPHEROID[  ESRI WKT projection file (WKT with SPHEROID)</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">!:mime  text/plain</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Usage:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file</span> <span class="at">-m</span> ~/.magic somefile</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Supports detection even if the file has no .prj extension.</p>
-
-
 </section>
 
 </main> <!-- /main -->
