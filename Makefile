@@ -33,7 +33,7 @@ lint-src:
 	@find $(SRC_DIR) -name "*.py" -exec python3 -m py_compile {} \;
 	@find $(SRC_DIR) -name "*.r" -exec Rscript -e "tools::parse_Rd('{}')" \; 2>/dev/null || true
 	@find $(SRC_DIR) -name "*.sh" -exec shellcheck {} \;
-	@find $(SRC_DIR) -name "*.awk" -exec gawk -f {} /dev/null \;
+	@find $(SRC_DIR) -name "*.awk" -exec awk -f {} /dev/null \;
 
 ## Check for broken links in rendered HTML
 check-links:
