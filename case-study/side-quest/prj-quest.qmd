@@ -35,7 +35,7 @@ Divvy_Stations_2013.shp: ESRI Shapefile version 1000 length 4250 type Point
 Divvy_Stations_2013.shx: ESRI Shapefile version 1000 length 1250 type Point
 ```
 
-"ASCII text, with no line terminators", **file** didn't know what it was I think to myself.
+"ASCII text, with no line terminators", **file** didn't know what it was, I think to myself.
 
 UNIX **file** Command (its glowing text box pulsing faintly): "Hmph. Divvy_Stations_2013.prj: ASCII text. That's all I've got. I pride myself on recognizing the very soul of a file, its intrinsic nature, regardless of its flimsy namesake suffix. I know what a .csv is by its comma-separated heart, a .json by its curly-bracketed spirit, even a .tar.gz by its compressed archiveyness. But this... this .prj file. Its contents whisper of structure, of a world's placement, of coordinates and projections... yet, my internal knowledge base, vast as it is, draws a blank when I analyze its raw essence alone. I can only infer it's 'ASCII text' But it feels like so much more."
 
@@ -96,11 +96,11 @@ After what seems like a long time the oracle responds
 My tokens exhausted I leave the temple to find more answers, since now I have more questions now.
 
 Walking along wonder how to proceed, I mentally kick myself even getting into the thing. Then it hits me I don't need to know all this GIS stuff, I just need to know enough to help **file** out.  I might not have any more tokens but I do have a digital assistant at my disposal.  
-So I ask my digital assistant Gemini to find out what the hell "WGS 84 datum" means. while I get to work restating my purpose so I can know this out and get back to importing those CSV files.
+So I ask my digital assistant Gemini to find out what the hell "WGS 84 datum" means. while I get to work restating my purpose, because I'm getting off track and I want to knock this out and get back to importing those CSV files.
 
 ### 🎯 Purpose
 
-Enable the UNIX **file** utility to recognize ESRI .prj projection files based on their content (not file extension), which follow a Well-Known Text (WKT) format.
+Enable the UNIX **file** utility to recognize ESRI .prj projection files based on their content (not file extension), which follow a Well-Known Text (WKT) format.  I don't need to know everything about GIS, just enough to give **file** the info it needs.
 
 ### 🔷 Gemini Returns
 
@@ -169,7 +169,7 @@ Well Gemini what did you find out?
 > In essence, WGS 84 is the invisible framework that underpins much of our modern world's location-based technologies and understanding of the Earth.
 > 
 
-
+Well, I think I'm starting to understand that this GIS stuff is a little complicated.  We need to hone in on the info we need a little more. Can you create a report for me about .prj files in the context of GIS?  While I figure out what has to be done to get **file** to recognize these files once we have the information.  I'll ask my friend **man**, he knows about almost all the commands. 
 
 
 ### 📄 Custom magic File Snippet

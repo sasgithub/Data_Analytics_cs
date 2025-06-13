@@ -1,0 +1,44 @@
+---
+title: ".prj Grammar"
+---
+
+Is there a grammar for these .prj files?
+
+Yes, there is a formal grammar for the Well-Known Text (WKT) that forms the content of ESRI .prj files. It's a structured, machine-readable, and human-readable text markup language.
+
+The WKT format was originally defined by the Open Geospatial Consortium (OGC), and these specifications often include a formal grammar, typically in Extended Backus-Naur Form (EBNF). ESRI's implementation, while largely adhering to these OGC standards (specifically WKT 1 for most .prj files), has had some minor variations or stricter interpretations.
+
+### The OGC WKT Standard and its Grammar
+
+The definitive grammar for WKT (both WKT 1 and the newer WKT 2) comes from the OGC.
+
+*  **WKT 1 (OGC Abstract Specification Topic 2:** Spatial Reference Systems, 1999/2001): This is the version most commonly found in older .prj files. The specification details the syntax using a formal grammar (often expressed in EBNF). It defines keywords like GEOGCS, PROJCS, DATUM, SPHEROID, PRIMEM, UNIT, and PARAMETER, along with the rules for nesting them and their arguments.
+
+*  **WKT 2 (ISO 19162:2015 and ISO 19162:2019):** This is the more recent standard, aiming to be more robust, less ambiguous, and to fully align with the ISO 19111 conceptual model for Coordinate Reference Systems. It introduces new keywords (e.g., GEODCRS, PROJCRS) and a more explicit structure for elements like units and coordinate operations. Many modern GIS software and libraries are moving towards WKT 2.
+
+### How to Find the Grammar
+
+You can typically find the formal grammar (EBNF) within the official OGC specifications themselves. These documents are publicly available from the OGC website. For instance, searching for "OGC WKT grammar EBNF" or "ISO 19162 EBNF" will lead you to relevant parts of these standards.
+
+###Key Aspects of the WKT Grammar
+
+The grammar defines:
+
+*  **Keywords:** Specific capitalized terms (e.g., PROJCS, GEOGCS, DATUM, SPHEROID, UNIT, PARAMETER).
+*  **Structure:** How these keywords are nested using parentheses () or square brackets [] (historically, some implementations were flexible with these).
+*  **Parameters/Arguments:** The types of values associated with each keyword (e.g., string names in double quotes "", floating-point numbers for values like semi-major axis, inverse flattening, parameter values, or angular/linear unit conversion factors).
+*  **Separators:** Commas , are used to separate elements within a keyword's definition.
+*  **Order:** The order of elements within a keyword's definition is strictly defined by the grammar (e.g., for SPHEROID, the name comes first, then the semi-major axis, then inverse flattening).
+
+### ESRI's Interpretation
+
+ESRI's software (like ArcGIS Pro, ArcMap) reads and writes .prj files that adhere to a specific WKT syntax. While it largely matches OGC WKT 1, there have been historical nuances:
+
+*  **Case Sensitivity:** ESRI's WKT is generally case-sensitive for keywords.
+*  **Whitespace:** While the OGC standard technically allows for minimal whitespace, ESRI .prj files are typically written as a single, continuous string without line breaks for maximum compatibility, though parsing software is often forgiving.
+*  **Names:** ESRI often uses specific naming conventions for internal identifiers within the WKT string (e.g., GCS_WGS_1984 instead of just WGS 84 for the GCS name).
+*  **TOWGS84 Clause:** As mentioned before, this clause was sometimes used in ESRI WKT 1 to embed datum transformation parameters. However, ESRI's projection engine usually handles transformations dynamically rather than solely relying on this embedded information.
+
+In essence, while ESRI .prj files adhere to a WKT grammar, it's best to consider them as following the OGC WKT 1 specification, with ESRI's specific naming conventions and occasional minor deviations. When dealing with WKT from different sources, it's always good practice to use a robust geospatial library (like GDAL/PROJ) that can parse various WKT flavors and perform transformations accurately.
+
+

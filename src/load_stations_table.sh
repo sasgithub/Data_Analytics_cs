@@ -4,8 +4,8 @@
 
 
 # Constants
-STATION_FIELDS="station_id, name, short_name, lat, long, dbcap, online_date"
-RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_station_id, user_type, gender, birth_year"
+#STATION_FIELDS="station_id, name, short_name, lat, long, dbcap, online_date"
+#RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_station_id, user_type, gender, birth_year"
 DB=/home/sas/classes/Google/data-analytics/data/caseStudy.db
 declare -a new_columns
 file="/home/sas/classes/Google/data-analytics/data/stfiles"

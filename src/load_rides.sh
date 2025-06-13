@@ -11,7 +11,7 @@
 # Notes: This script uses bsdtar so if it's not already installed ...
 
 # constants
-RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_station_id, user_type, gender, birth_year"
+#RIDES_FIELDS="ride_id, bike_type, start_time, end_time, start_station_id, end_station_id, user_type, gender, birth_year"
 # gender: 0 = male, 1 = female, NULL = unknown
 # user_type: 0 = customer, 1 = member, NULL = unknown
 DB=/home/sas/classes/Google/data-analytics/data/caseStudy.db
