@@ -1,9 +1,15 @@
 ### Average Hourly Rides vs. Temperature
 
+<div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
+  <a href="../avg_hourly_rides_vs_temp.svg" target="_blank" title="Select image to open full sized chart">
+    <img src="../avg_hourly_rides_vs_temp.svg" alt="Average Hourly Rides vs. Temperature" style="width: 100%;">
+  </a>
+</div>
+
 This chart illustrates the relationship between **ambient temperature (°C)** and the **average number of rides per hour**, with data grouped into **2°C bins** to smooth short-term fluctuations and reveal broader trends..
 
 - The **x-axis** shows temperature in degrees Celsius.
-- The **y-axis** displays the average number of rides per hour, formatted with metric suffixes (e.g., 1k, 1m, etc).
+- The **y-axis** displays the average number of rides per hour.
 - Grid lines and a clear legend outside the plot area aid interpretability.
 
 Three ride categories are plotted:
@@ -43,6 +49,33 @@ plot \
 ```
 
 '''SQL
+```SQL
+.headers off
+.mode tabs
+.output avg_temp_vs_rides.tsv
 
+WITH binned AS (                          -- 2 °C comfort‑oriented buckets
+    SELECT
+        CAST(temp / 2.0 AS INT) * 2              AS temp_bin,         -- –10,‑8,…,34
+        r.user_type,
+        SUM(r.rides)                             AS rides
+    FROM rides_per_hour_tbl   AS r
+    JOIN hourly_weather       AS w  ON w.epoch = r.epoch
+    GROUP BY temp_bin, r.user_type
+), pivot AS (                             -- turn rows into columns
+    SELECT
+        temp_bin,
+        AVG(rides)                                  AS total,
+        AVG(CASE WHEN user_type='subscriber' THEN rides END) AS subs,
+        AVG(CASE WHEN user_type='customer'   THEN rides END) AS cust
+    FROM binned
+    GROUP BY temp_bin
+    ORDER BY temp_bin
+)
+SELECT temp_bin, total, subs, cust
+FROM pivot;
+
+.output stdout
 ```
 
+```
