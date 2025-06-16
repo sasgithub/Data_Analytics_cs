@@ -158,8 +158,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="average-hourly-rides-vs.-temperature" class="level3">
 <h3 class="anchored" data-anchor-id="average-hourly-rides-vs.-temperature">Average Hourly Rides vs.&nbsp;Temperature</h3>
-<figure class="floater figure">
-<a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart"> <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C." class="imgfloat figure-img"> </a>
+<figure class="chartbox figure">
+<a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart"> <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C." class="figure-img"> </a>
 <figcaption class="small-caption">
 Average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; subscribers remain steadier.
 </figcaption>
@@ -184,7 +184,7 @@ Average hourly rides by temperature (°C), showing subscriber, customer, and tot
 <li><strong>Customers</strong> show a sharper increase in usage with warmth, indicating stronger sensitivity to weather.</li>
 </ul>
 <p>These trends can inform operational decisions and user engagement strategies, particularly around marketing and bike redistribution efforts during seasonal changes.</p>
-<p>Below is the the SQL command used to gather data for this chart.</p>
+<p>Below is the gnuplot command used to generate the chart.</p>
 <pre class="gnuplot"><code>set title "Average Hourly Rides vs. Temperature (2°C Bins)"
 set xlabel "Temperature (°C)"
 set ylabel "Average Rides per Hour"
@@ -201,7 +201,7 @@ plot \
     "temp_vs_rides.tsv" every ::35::68 using 1:2 with lines lw 2 lc rgb "black" title "Avg Total", \
     "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
     "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"</code></pre>
-<p>’’’SQL</p>
+<p>Below is the the SQL command used to gather data for this chart.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>.output avg_temp_vs_rides.tsv</span>
