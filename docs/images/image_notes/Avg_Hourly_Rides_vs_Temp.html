@@ -159,11 +159,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="average-hourly-rides-vs.-temperature" class="level3">
 <h3 class="anchored" data-anchor-id="average-hourly-rides-vs.-temperature">Average Hourly Rides vs.&nbsp;Temperature</h3>
 <figure style="float: right; max-width: 70%; margin-left: 5px; margin-bottom: 1px;" class="figure">
-<a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart"> <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C." class="figure-img"> </a>
-<figcaption>
+<div class="tightbox">
+<pre><code>&lt;a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart"&gt;
+  &lt;img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C."&gt;
+&lt;/a&gt;
+&lt;figcaption style="font-size: 0.5em; text-align: center; color: #555;"&gt;</code></pre>
 Average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; subscribers remain steadier.
-</figcaption>
-</figure>
+
+
+</div></figure>
 <p>This chart illustrates the relationship between <strong>ambient temperature (°C)</strong> and the <strong>average number of rides per hour</strong>, with data grouped into <strong>2°C bins</strong> to smooth short-term fluctuations and reveal broader trends..</p>
 <ul>
 <li>The <strong>x-axis</strong> shows temperature in degrees Celsius.</li>
@@ -202,38 +206,39 @@ plot \
     "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
     "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"</code></pre>
 <p>Below is the the SQL command used to gather data for this chart.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>.output avg_temp_vs_rides.tsv</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (                          <span class="co">-- 2 °C comfort‑oriented buckets</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span>              <span class="kw">AS</span> temp_bin,         <span class="co">-- –10,‑8,…,34</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(r.rides)                             <span class="kw">AS</span> rides</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides_per_hour_tbl   <span class="kw">AS</span> r</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> hourly_weather       <span class="kw">AS</span> w  <span class="kw">ON</span> w.epoch <span class="op">=</span> r.epoch</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, r.user_type</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (                             <span class="co">-- turn rows into columns</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        temp_bin,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(rides)                                  <span class="kw">AS</span> total,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'customer'</span>   <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> binned</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>.output avg_temp_vs_rides.tsv</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (                          <span class="co">-- 2 °C comfort‑oriented buckets</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span>              <span class="kw">AS</span> temp_bin,         <span class="co">-- –10,‑8,…,34</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(r.rides)                             <span class="kw">AS</span> rides</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides_per_hour_tbl   <span class="kw">AS</span> r</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> hourly_weather       <span class="kw">AS</span> w  <span class="kw">ON</span> w.epoch <span class="op">=</span> r.epoch</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, r.user_type</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (                             <span class="co">-- turn rows into columns</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        temp_bin,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(rides)                                  <span class="kw">AS</span> total,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'customer'</span>   <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> binned</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
-</section>
+</section></main></div>
 
-</main> <!-- /main -->
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -633,7 +638,7 @@ plot \
     }
   });
   </script>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 

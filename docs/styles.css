@@ -21,4 +21,7 @@ figure.floater figcaption {
   text-align: center;
 }
 
+.tightbox {
+  display: block;
+}
 
