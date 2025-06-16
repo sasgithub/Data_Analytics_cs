@@ -1,5 +1,22 @@
 /* Custom styling */
 body {
-  font-size: 16px;
+  font-size: 12px;
+}
+
+.floater {
+  float: right;
+  width: 50%;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.floater img {
+  width: 100%;
+}
+
+figcaption.small-caption {
+  font-size: 0.7em;
+  color: #555;
+  margin-top: 0.5em;
 }
 
