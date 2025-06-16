@@ -24,6 +24,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
 ## 📁 Repository Structure
 
+```text
 ├── case-study/ # Quarto source files (index.qmd, etc.)
 ├── docs/ # Rendered site (GitHub Pages target)
 ├── data/ # Sample CSVs and data README
@@ -32,8 +33,16 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 ├── schema/ # SQL schema for rides database
 ├── src/ # Cleaning and transformation scripts
 └── README.md # This file
+```
 
 ---
+
+## 🧠 Key Technologies
+
+- R / SQLite / Bash / Python – Data processing
+- ggplot2 / gnuplot / Tableau / Leaflet – Visualizations
+- Quarto – Site generation and publishing
+- GitHub Pages – Free portfolio hosting
 
 ## 🛠️ Build Instructions
 
@@ -49,13 +58,6 @@ To build the site locally:
    ```bash
    quarto render
    ```
-
-## 🧠 Key Technologies
-
-- R / SQLite / Bash / Python – Data processing
-- ggplot2 / gnuplot / Tableau / Leaflet – Visualizations
-- Quarto – Site generation and publishing
-- GitHub Pages – Free portfolio hosting
 
 ## 📋 License
 

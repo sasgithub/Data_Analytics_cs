@@ -1,6 +1,6 @@
 # Data Overview
 
-This project uses multiple datasets related to Divvy bike share rides and historical weather in Chicago. Due to size constraints and licensing, raw data is not stored in this repository. This document explains how to acquire, clean, and load the data.
+This project uses multiple datasets related to Divvy bike share rides and historical weather in Chicago. Due to size constraints and licensing, very little raw data is not stored in this repository. This document explains how to acquire, clean, and load the data.
 
 ## Stations Data
 
@@ -28,18 +28,16 @@ Although the name would imply it has data up to 2025 the data ends 09/30/2019
 
 ### Processing Steps
 
-
-
 Due to inconsistencies across formats and years, rides and stations data are imported and cleaned using a multi-step process:
 
-1. **Shell Script** [load_rides.sh] (../src/load_rides.sh) performs:
+1. **Shell Script** [load_rides.sh](../src/load_rides.sh) performs:
    - Download of zip files from S3
    - Validation and filtering of raw CSVs
    - Normalization of station names and coordinates
    - Data transformation before loading
 
 2. **SQLite Schema**:
-   - Stations and rides are loaded into a normalized schema (see [schema.sql] (../schema/schema.sql))
+   - Stations and rides are loaded into a normalized schema (see [schema.sql](../schema/schema.sql))
    - Further cleaning (e.g., deduplication, null handling, date normalization) is done directly in SQLite
 
 3. **Data Matching**:
@@ -56,11 +54,11 @@ Due to inconsistencies across formats and years, rides and stations data are imp
 
 **Source:** [Meteostat Bulk Hourly Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)  
 **Station:** Chicago Midway Airport (WMO ID: 72534)
- The weather data start in 1973 and runs to a date close to when it was downloaded (in my case it was the day before it was downloaded)  One anaomaly I found with the data is that it appears to switch to only being every six hours at 2025-05-11 18:00 but since we'll only using data up to 2025-04-30 that won't be an issue.  Times before 2013-06-27 were manually deleted prior to import.
+ The weather data starts in 1973 and runs to a date close to when it was downloaded (in my case it was the day before it was downloaded)  One anaomaly I found with the data is that it appears to switch to only being every six hours at 2025-05-11 18:00 but since we'll only using data up to 2025-04-30 that won't be an issue.  Times before 2013-06-27 were manually deleted prior to import.
 
 ### Script
 
-Use the R script, [load_weather.R] (../src/load_weather.R) to:
+Use the R script, [load_weather.R](../src/load_weather.R) to:
 
 - Load the hourly weather data CSV
 - Clean and normalize the data

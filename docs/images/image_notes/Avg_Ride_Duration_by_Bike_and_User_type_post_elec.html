@@ -156,15 +156,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_electric_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> bike_type, <span class="at">y =</span> rides_per_day, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"User Type"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The chart titled “Average Ride Duration by Bike Type and User Type” visualizes the average duration (in minutes) of rides for different bike types, segmented by user type (Subscriber vs Customer).</p>
+<p>*** Key observations:</p>
+<pre><code>Bike Types: The chart includes classic_bike, docked_bike, electric_bike, and electric_scooter.
+User Types:
+    Subscribers (in red)
+    Customers (in blue/turquoise)</code></pre>
+<p>*** Findings:</p>
+<pre><code>Docked Bike:
+    Customers have by far the highest average ride duration (over 200 minutes, with a large error bar indicating significant variability).
+    Subscribers do not appear to use docked bikes (no red bar for this category).
+
+Classic Bike:
+    Customers have a higher average ride duration than subscribers.
+    Both user types' durations are much lower than for docked bikes, with customers averaging around 30-40 minutes and subscribers around 15 minutes.
+
+Electric Bike and Electric Scooter:
+    Both user types have similar, relatively low average durations (around 10-15 minutes), with customers slightly higher than subscribers.</code></pre>
+<p>*** General Insight:</p>
+<pre><code>Customers (non-subscribers) tend to take much longer rides than subscribers, especially on docked bikes.
+Subscribers generally have shorter, more consistent ride durations across all bike types.
+The variability (as shown by the error bars) is particularly large for docked bikes used by customers.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_electric_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> bike_type, <span class="at">y =</span> rides_per_day, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"User Type"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
