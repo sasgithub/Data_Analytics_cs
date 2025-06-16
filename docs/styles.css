@@ -1,16 +1,16 @@
 /* Custom styling */
 body {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .floater {
   float: right;
   width: 50%;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
-.floater img {
+.imgfloat img {
   width: 100%;
 }
 

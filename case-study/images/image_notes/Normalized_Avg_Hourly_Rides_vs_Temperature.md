@@ -5,7 +5,7 @@
     <img
       src="../Avg_Hourly_Rides_vs_Temp.svg"
       alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius"
-      style="width: 100%;">
+      class="imgfloat">
   </a>
   <figcaption class="small-caption">
     Normalized average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C.
