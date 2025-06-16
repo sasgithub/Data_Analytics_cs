@@ -1,7 +1,11 @@
 #
 # author: sas
 # purpose:  extracts info from a UUID
-#
+#   Takes a UUID v1 string as input (via the command line).
+#   Extracts the timestamp and the MAC address embedded within the UUID.
+#   Optionally looks up the MAC address to determine its vendor using an online API.
+#   Outputs the UUID string, the extracted timestamp, the MAC address, and the MAC vendor.
+
 
 import uuid
 import datetime

@@ -3,20 +3,32 @@ body {
   font-size: 16px;
 }
 
+.chartbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 700px;
+  margin: 2em auto;
+}
+
+.chartbox img {
+  max-width: 100%;
+  height: auto;
+}
+
+.chartbox figcaption {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #444;
+  text-align: center;
+}
+
+
 .floater {
   float: right;
   width: 50%;
   margin-left: 10px;
   margin-bottom: 2px;
-}
-
-figure.floater figcaption {
-  clear: both;
-  margin-top: 0.5em;
-}
-
-.imgfloat img {
-  width: 100%;
 }
 
 figcaption.small-caption {
