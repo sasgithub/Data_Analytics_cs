@@ -3,15 +3,9 @@ body {
   font-size: 16px;
 }
 
-figure.floater {
-  float: right;
-  width: 50%;
-  margin-left: 1em;
-  margin-bottom: 1em;
-}
-
 figure.floater a {
-  display: block;
+  display: inline-block;
+  width: 100%;
 }
 
 figure.floater img {
@@ -20,11 +14,10 @@ figure.floater img {
   height: auto;
 }
 
-figure.floater figcaption,
-.floater.figure figcaption {
+figure.floater figcaption {
+  margin-top: 0.5em;
   font-size: 0.8em;
   color: #555;
-  margin-top: 0.5em;
   text-align: center;
 }
 
