@@ -1,8 +1,8 @@
 ### Average Hourly Rides vs. Temperature
 
-<figure class="floater">
+<figure class="chartbox">
   <a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
-    <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C." class="imgfloat">
+    <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C.">
   </a>
   <figcaption class="small-caption">
     Average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; subscribers remain steadier.
@@ -29,8 +29,7 @@ Three ride categories are plotted:
 
 These trends can inform operational decisions and user engagement strategies, particularly around marketing and bike redistribution efforts during seasonal changes.
 
-Below is the the SQL command used to gather data for this chart.
-
+Below is the gnuplot command used to generate the chart.
 
 ```gnuplot
 set title "Average Hourly Rides vs. Temperature (2°C Bins)"
@@ -51,7 +50,8 @@ plot \
     "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"
 ```
 
-'''SQL
+Below is the the SQL command used to gather data for this chart.
+
 ```SQL
 .headers off
 .mode tabs

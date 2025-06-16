@@ -24,13 +24,6 @@ body {
 }
 
 
-.floater {
-  float: right;
-  width: 50%;
-  margin-left: 10px;
-  margin-bottom: 2px;
-}
-
 figcaption.small-caption {
   font-size: 0.7em;
   color: #555;
