@@ -28,13 +28,4 @@ figure.floater figcaption,
   text-align: center;
 }
 
-figcaption.small-caption {
-  display: table-caption;
-  caption-side: bottom;
-  font-size: 0.7em;
-  color: #555;
-  margin-top: 0.5em;  /* small spacing if needed */
-  text-align: center;
-}
-
 
