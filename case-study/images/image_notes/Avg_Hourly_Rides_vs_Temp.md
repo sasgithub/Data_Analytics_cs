@@ -8,7 +8,7 @@
     <figcaption style="font-size: 0.5em; text-align: center; color: #555;">
   Average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; subscribers remain steadier.
     </figcaption>
-  </dev>
+  </div>
 </figure>
 
 This chart illustrates the relationship between **ambient temperature (°C)** and the **average number of rides per hour**, with data grouped into **2°C bins** to smooth short-term fluctuations and reveal broader trends..
