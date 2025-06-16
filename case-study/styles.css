@@ -1,16 +1,21 @@
 /* Custom styling */
 body {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .floater {
   float: right;
   width: 50%;
   margin-left: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
-.floater img {
+figure.floater figcaption {
+  clear: both;
+  margin-top: 0.5em;
+}
+
+.imgfloat img {
   width: 100%;
 }
 
@@ -19,4 +24,5 @@ figcaption.small-caption {
   color: #555;
   margin-top: 0.5em;
 }
+
 
