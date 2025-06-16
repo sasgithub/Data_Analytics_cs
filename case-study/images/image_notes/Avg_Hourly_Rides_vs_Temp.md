@@ -1,6 +1,6 @@
 ### Average Hourly Rides vs. Temperature
 
-<figure class="chartbox">
+<figure class="floater">
   <a href="../Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
     <img src="../Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C.">
   </a>
@@ -81,4 +81,3 @@ FROM pivot;
 .output stdout
 ```
 
-```
