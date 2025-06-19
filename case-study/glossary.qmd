@@ -1,0 +1,56 @@
+---
+title: "Glossary"
+format: html
+css: ../styles.css
+---
+
+# Glossary of Terms
+
+This glossary defines key terms used throughout the case study. 
+
+---
+
+Average Daily Rides
+:   The total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.
+
+
+Bucket
+:   A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.
+
+Cluster (Ride Duration Cluster)
+:   A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into **Short**, **Medium**, and **Long** clusters to distinguish different usage behaviors.
+
+Customer
+:   A non-subscriber user of the bike-sharing system. Customers typically use the service occasionally, such as one-time or pay-per-ride users.
+
+Density Plot (Kernel Density Plot)
+:   A smoothed visualization of the distribution of a continuous variable, such as ride distance. It estimates the probability density function and often provides clearer insight than a histogram by reducing noise through smoothing.
+
+Kernel
+:   A mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.
+
+Loop Ride
+:   A bike ride that starts and ends at the same station. Often used as a proxy for recreational or tourist behavior. These rides are excluded from this analysis.
+
+Non-Tourist Ride
+:   A ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.
+
+Normalization (Normalized Ride Volume)
+:   The process of scaling data, typically between 0 and 1, to allow for comparisons across categories with different absolute values. For example, normalized ride volume allows temperature-based comparisons regardless of the overall number of rides.
+
+Ride Count per Bike
+:   The total number of rides recorded for an individual bike over the dataset’s time span. Used to evaluate fleet utilization and wear.
+
+
+Ride Distance (km)
+:   The linear or estimated distance covered during a bike ride, measured in kilometers. Used as a proxy for trip length and user intent.
+
+Station
+:   A docking location where bikes or scooters can be picked up or returned. Used in geographic and behavioral analyses.
+
+User Type
+:   A classification of users based on their relationship with the bike-share system, typically as **Subscribers** or **Customers**.
+
+Visualization
+:   A graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset.
+

@@ -1,6 +1,6 @@
 ## Distribution of Ride Counts per Bike
 
-<figure class="float-rigth">
+<figure class="float-right">
   <a href="../bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart">
   <img src="../bike_ride_bucket_histogram.png" alt="ALT_TEXT">
   </a>

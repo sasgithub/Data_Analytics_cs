@@ -1,6 +1,6 @@
 ## Average Hourly Rides vs Temperature (2° Buckets with cubic spline interpolation)
 
-<figure class="float-rigth">
+<figure class="float-right">
   <a href="../average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="ALT_TEXT">
   </a>

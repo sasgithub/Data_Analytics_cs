@@ -1,6 +1,6 @@
 ### Hourly rides vs. temperature
 
-<figure class="float-rigth">
+<figure class="float-right">
   <a href="../Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../Hourly_Rides_vs_Temp.svg" alt="A Graph showing the total rides per hour vs temperature, with lines for total rides, subscriber rides and Customer rides.">
   </a>

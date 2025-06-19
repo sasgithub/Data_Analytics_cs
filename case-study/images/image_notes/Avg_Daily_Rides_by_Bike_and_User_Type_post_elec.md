@@ -1,6 +1,6 @@
 ## Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)
 
-<figure class="float-rigth">
+<figure class="float-right">
   <a href="../Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart">
   <img src="../Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="ALT_TEXT">
   </a>

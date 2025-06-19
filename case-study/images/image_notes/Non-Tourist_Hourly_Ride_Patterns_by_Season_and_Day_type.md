@@ -1,3 +1,15 @@
+## TITLE
+
+<figure class="float-right">
+  <a href="../Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
+
 
 
 ```R

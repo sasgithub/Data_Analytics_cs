@@ -1,6 +1,6 @@
 ### 🗺️ Screenshot: 2025 Divvy Stations Map
 
-<figure class="float-rigth">
+<figure class="float-right">
   <a href="../2025_Divvy_Stations" target="_blank" title="Select image to open full sized chart">
   <img src="../2025_Divvy_Stations" alt="Screenshot of a map of the Divvy Bicycle Stations Map from the City of Chicago Transportation web site showing hundreds of stations concentrated in the downtown and along the waterfront spreading out across the city.">
   </a>
