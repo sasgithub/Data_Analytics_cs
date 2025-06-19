@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -156,6 +160,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="hourly-rides-vs.-temperature" class="level3">
+<h3 class="anchored" data-anchor-id="hourly-rides-vs.-temperature">Hourly rides vs.&nbsp;temperature</h3>
+<figure class="float-right figure">
+<a href="../Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart"> <img src="../Hourly_Rides_vs_Temp.svg" alt="A Graph showing the total rides per hour vs temperature, with lines for total rides, subscriber rides and Customer rides." class="figure-img"> </a>
+<figcaption>
+This graph show the number of rides starting at a given at a given temperature. Temperature data is recorded hourly.
+</figcaption>
+</figure>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>set title  <span class="st">"Hourly rides vs. temperature"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>set xlabel <span class="st">"Temperature (°C)"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>set ylabel <span class="st">"Average rides per hour"</span></span>
@@ -166,6 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>                   using <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span> with lines lw <span class="dv">2</span> dt <span class="dv">3</span>  title <span class="st">"Customers"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Findings and Recommendations – Bike share case-study</title>
+<title>Glossary – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -101,6 +102,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./glossary.html" aria-current="page"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -112,15 +117,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#glossary-of-terms" id="toc-glossary-of-terms" class="nav-link active" data-scroll-target="#glossary-of-terms">Glossary of Terms</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Findings and Recommendations</h1>
+<h1 class="title">Glossary</h1>
 </div>
 
 
@@ -137,55 +148,83 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>📊 Key Findings</p>
-<ol type="1">
-<li>Distinct Behavioral Patterns by User Type</li>
-</ol>
-<p>Members ride more consistently across the year, with noticeable commuting patterns (peak usage during weekday rush hours).</p>
-<p>Supported by: Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png</p>
-<p>Casual riders are more likely to ride during weekends, midday, and on longer rides, suggesting recreational or tourist use.</p>
-<p>Supported by: Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png, Ride_Duration_by_User_Type_box.png</p>
-<p>Loop rides (same start and end station) are far more common among casual riders.</p>
-<p>Supported by: Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.png</p>
-<ol start="2" type="1">
-<li>Modest Weather Influence</li>
-</ol>
-<p>Contrary to expectations, weather appears to have only a weak correlation with ride volume—especially for casual users.</p>
-<p>Supported by: Ride_Volume_by_Temp_and_Precipitation.png, Hourly_Ride_Volume_vs_Temperature.png</p>
-<p>Ride counts drop off at temperature extremes, but these are rare and account for a small proportion of total rides.</p>
-<p>The differences in riding patterns are not sufficiently explained by weather conditions alone.</p>
-<ol start="3" type="1">
-<li>Station Usage Differences</li>
-</ol>
-<p>Casual riders tend to use stations near tourist attractions and waterfront areas.</p>
-<p>Supported by: Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png, Tourist_Stations_by_Customer_Ride_Count.pdf</p>
-<p>Members make more geographically distributed use of stations, especially those in residential and employment areas.</p>
-<p>The top 50 most used stations by casual riders differ substantially from those used by members.</p>
-<p>Supported by: Top_50_Stations_by_User_Type.html (interactive Leaflet map)</p>
-<p>💡 Recommendations</p>
-<ol type="1">
-<li>Target Casual Riders Who Behave Like Members</li>
-</ol>
-<p>Offer trial memberships or time-limited discounts to casual users with consistent riding patterns.</p>
-<p>Focus marketing on casual riders using stations in residential areas or during weekday commute times.</p>
-<ol start="2" type="1">
-<li>Expand Station Coverage in Underused Member Areas</li>
-</ol>
-<p>Evaluate station availability in key member-heavy corridors.</p>
-<p>Add or rebalance stations in locations where members are under-served.</p>
-<ol start="3" type="1">
-<li>Develop Recreational and Tourist-Focused Promotions</li>
-</ol>
-<p>Bundle ride passes with tourist attractions or offer weekend/family packages.</p>
-<p>Use geofencing or email promotions for riders using top tourist stations.</p>
-<ol start="4" type="1">
-<li>Rethink Weather-Based Assumptions</li>
-</ol>
-<p>Avoid overinvesting in weather-based marketing; seasonality may be more cultural than temperature-driven.</p>
-<p>Consider that casual ridership in mild seasons is not strictly weather-dependent, and may be driven by tourism patterns, events, or schedule availability.</p>
-<p>These findings reflect observed behaviors in the 2020–2025 Divvy dataset, with supplemental weather data from Midway Airport.</p>
+<section id="glossary-of-terms" class="level1">
+<h1>Glossary of Terms</h1>
+<p>This glossary defines key terms used throughout the case study.</p>
+<hr>
+<dl>
+<dt>Average Daily Rides</dt>
+<dd>
+The total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.
+</dd>
+<dt>Bucket</dt>
+<dd>
+A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.
+</dd>
+<dt>Cluster (Ride Duration Cluster)</dt>
+<dd>
+A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into <strong>Short</strong>, <strong>Medium</strong>, and <strong>Long</strong> clusters to distinguish different usage behaviors.
+</dd>
+<dt>Customer</dt>
+<dd>
+A user who does not have an annual or recurring membership. Customers include Day Pass riders, single-ride users, and other casual or pay-per-use riders. All non-subscriber users are classified as customers. The term casual rider might also be used for customers, but for this case study only the term customer is used.
+</dd>
+<dt>Density Plot (Kernel Density Plot)</dt>
+<dd>
+A smoothed visualization of the distribution of a continuous variable, such as ride distance. It estimates the probability density function and often provides clearer insight than a histogram by reducing noise through smoothing.
+</dd>
+<dt>Kernel</dt>
+<dd>
+A mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.
+</dd>
+<dt>Loop Ride</dt>
+<dd>
+A bike ride that starts and ends at the same station. Often used as a proxy for recreational or tourist behavior. These rides are excluded from this analysis.
+</dd>
+<dt>Maximum Simultaneous Rides</dt>
+<dd>
+The maximum number of rides that were active at the same time during a given period (e.g., a year). Calculated by tracking ride start and end events, computing a running total of concurrent rides, and taking the peak value. This metric is used to assess fleet load and system demand during peak usage periods. Also know as <strong>peak concurrency</strong>
+</dd>
+<dt>Non-Tourist Ride</dt>
+<dd>
+A ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.
+</dd>
+<dt>Normalization (Normalized Ride Volume)</dt>
+<dd>
+The process of scaling data, typically between 0 and 1, to allow for comparisons across categories with different absolute values. For example, normalized ride volume allows temperature-based comparisons regardless of the overall number of rides.
+</dd>
+<dt>Peak Concurrency</dt>
+<dd>
+The highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times. Also referred to as <strong>max simultaneous rides</strong>. This metric helps assess system load, infrastructure limits, and usage spikes.
+</dd>
+<dt>Ride Count per Bike</dt>
+<dd>
+The total number of rides recorded for an individual bike over the dataset’s time span. Used to evaluate fleet utilization and wear.
+</dd>
+<dt>Ride Distance (km)</dt>
+<dd>
+The linear or estimated distance covered during a bike ride, measured in kilometers. Used as a proxy for trip length and user intent.
+</dd>
+<dt>Station</dt>
+<dd>
+A docking location where bikes or scooters can be picked up or returned. Used in geographic and behavioral analyses.
+</dd>
+<dt>Subscriber</dt>
+<dd>
+A user who holds an annual or annual-billed-monthly membership with the bike-sharing service. Subscribers might also be know as members, but for the purpose of this case study only the term Subscriber is used.
+</dd>
+<dt>User Type</dt>
+<dd>
+A classification of users based on their relationship with the bike-share system, for the purpose of this case study the are devided into two groups, <strong>Subscribers</strong> or <strong>Customers</strong>.
+</dd>
+<dt>Visualization</dt>
+<dd>
+A graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset.
+</dd>
+</dl>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

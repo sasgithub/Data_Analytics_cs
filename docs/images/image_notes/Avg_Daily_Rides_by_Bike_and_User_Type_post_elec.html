@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -147,8 +151,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" id="toc-image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" class="nav-link active" data-scroll-target="#image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch">Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -156,23 +166,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(daily_avg_df, <span class="fu">aes</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> bike_type,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> avg_rides_per_day,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">fill =</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(user_type),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> )) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"User Type"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" class="level2">
+<h2 class="anchored" data-anchor-id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch">Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)</h2>
+<figure class="float-right figure">
+<a href="../Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart"> <img src="../Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>This bar chart displays the <strong>average number of daily rides</strong> by <strong>bike type</strong>, grouped by <strong>user type</strong> (Subscriber vs.&nbsp;Customer), for the period after the introduction of electric bikes and scooters.</p>
+</section>
+<section id="axes-and-groupings" class="level3">
+<h3 class="anchored" data-anchor-id="axes-and-groupings">Axes and Groupings</h3>
+<ul>
+<li><strong>X-Axis (Bike Type)</strong>:
+<ul>
+<li><code>classic_bike</code></li>
+<li><code>docked_bike</code></li>
+<li><code>electric_bike</code></li>
+<li><code>electric_scooter</code></li>
+</ul></li>
+<li><strong>Y-Axis (Average Rides per Day)</strong>:
+<ul>
+<li>Ranges from 0 to over 4,500 rides per day.</li>
+</ul></li>
+<li><strong>Color Legend</strong>:
+<ul>
+<li><strong>Red</strong> = Subscriber</li>
+<li><strong>Teal</strong> = Customer</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level3">
+<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<ul>
+<li><strong>Classic Bikes</strong>:
+<ul>
+<li>Most used overall.</li>
+<li>Subscribers (red) significantly outnumber Customers in ride volume.</li>
+</ul></li>
+<li><strong>Docked Bikes</strong>:
+<ul>
+<li>Very low usage overall.</li>
+<li>Only Customers use docked bikes in this dataset — Subscribers have no visible rides.</li>
+</ul></li>
+<li><strong>Electric Bikes</strong>:
+<ul>
+<li>Popular among both user types.</li>
+<li>Subscribers still dominate, but the Customer share is substantial.</li>
+</ul></li>
+<li><strong>Electric Scooters</strong>:
+<ul>
+<li>Slightly more popular with Customers than Subscribers.</li>
+<li>Total volume is lower than bikes but non-trivial.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li><strong>Subscriber Preference</strong>:
+<ul>
+<li>Strongly favors classic and electric bikes.</li>
+<li>Likely reflects commuting and utilitarian travel patterns.</li>
+</ul></li>
+<li><strong>Customer Preference</strong>:
+<ul>
+<li>More evenly spread across bike types.</li>
+<li>Higher share of docked bike and scooter usage, suggesting casual or occasional use.</li>
+</ul></li>
+<li><strong>Modal Shift</strong>:
+<ul>
+<li>The presence of electric modes (bike and scooter) introduces significant usage from both user groups, possibly pulling some traffic away from classic bikes.</li>
+</ul></li>
+</ul>
+</section>
+<section id="use-case" class="level3">
+<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<p>This visualization supports: - Infrastructure planning (e.g., expansion of electric charging or docking stations), - Marketing strategy (targeting modal preferences by user type), - Evaluating post-launch success of electric mobility options.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">   bike_type,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">   COUNT(*) AS ride_count,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') --first e-bike appeared</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_rides_per_day =</span> <span class="fu">mean</span>(ride_count),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(daily_avg_df, <span class="fu">aes</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> bike_type,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> avg_rides_per_day,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">fill =</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(user_type),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> )) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"User Type"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

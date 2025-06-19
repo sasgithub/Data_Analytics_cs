@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -101,6 +136,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -112,8 +151,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#distribution-of-ride-counts-per-bike" id="toc-distribution-of-ride-counts-per-bike" class="nav-link active" data-scroll-target="#distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -121,8 +166,122 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="distribution-of-ride-counts-per-bike" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</h2>
+<figure class="float-right figure">
+<a href="../bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart"> <img src="../bike_ride_bucket_histogram.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
+</section>
+<section id="axes" class="level3">
+<h3 class="anchored" data-anchor-id="axes">Axes</h3>
+<ul>
+<li><strong>X-Axis (Ride Count Range)</strong>:
+<ul>
+<li>Labeled in bins of 100 rides (e.g., <code>0-99</code>, <code>100-199</code>, …, <code>5500-5599</code>).</li>
+<li>Represents the total number of rides associated with each bike.</li>
+</ul></li>
+<li><strong>Y-Axis (Number of Bikes)</strong>:
+<ul>
+<li>Indicates how many bikes fall within each ride count range.</li>
+<li>Peaks near 300 bikes in the most frequently occurring bins.</li>
+</ul></li>
+</ul>
+</section>
+<section id="visual-elements" class="level3">
+<h3 class="anchored" data-anchor-id="visual-elements">Visual Elements</h3>
+<ul>
+<li><strong>Bars</strong>:
+<ul>
+<li>Colored purple with black borders.</li>
+<li>Uniform width, covering each 100-ride range.</li>
+<li>Distribution forms a roughly symmetric bell-shaped curve centered around the <code>2700–3499</code> range.</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level3">
+<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<ul>
+<li><strong>Low-end Outliers</strong>:
+<ul>
+<li>A noticeable spike in the <code>0–99</code> bin (~130 bikes), suggesting a set of bikes with extremely limited or no use.</li>
+<li>May include stolen, damaged, or new bikes added near the end of the data collection period.</li>
+</ul></li>
+<li><strong>Core Distribution</strong>:
+<ul>
+<li>The majority of bikes (~200–280 per bin) fall between <code>2200–3999</code> rides.</li>
+<li>Indicates typical usage patterns and operational consistency.</li>
+</ul></li>
+<li><strong>High-end Tail</strong>:
+<ul>
+<li>Usage drops off steadily after ~4000 rides per bike.</li>
+<li>Very few bikes exceed 5000 rides.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li>The chart implies a relatively well-utilized fleet with a <strong>normal distribution</strong> centered around ~3000 rides per bike.</li>
+<li>The left-side spike at <code>0–99</code> highlights potential outliers worth investigating:
+<ul>
+<li>Underused bikes,</li>
+<li>Possible malfunctions,</li>
+<li>Seasonal deployments,</li>
+<li>Recent fleet additions.</li>
+</ul></li>
+<li>The right tail shows some high-mileage bikes that may be candidates for maintenance or replacement soon.</li>
+</ul>
+</section>
+<section id="use-case" class="level3">
+<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<p>This visualization is valuable for: - <strong>Fleet maintenance planning</strong> (identify overused/underused bikes), - <strong>Lifecycle analysis</strong> (detect uneven distribution of wear), - <strong>Deployment strategy</strong> (optimize rotation or redistribution).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> bucketed <span class="kw">AS</span> (</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (ride_count <span class="op">/</span> <span class="dv">100</span>) <span class="op">*</span> <span class="dv">100</span> <span class="kw">AS</span> bucket_start,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> bike_count</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> (</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> bike_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> bike_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> bike_id</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  bucket_start,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  bucket_start <span class="op">+</span> <span class="dv">99</span> <span class="kw">AS</span> bucket_end,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="gnuplot"><code>set datafile separator ","
+set terminal pngcairo size 1000,600 enhanced font 'Verdana,10'
+set output 'bike_ride_bucket_histogram.png'
+
+set title "Distribution of Ride Counts per Bike"
+set xlabel "Ride Count Range"
+set ylabel "Number of Bikes"
+set style fill solid 1.0 border -1
+set boxwidth 0.9
+set grid ytics
+unset key
+set xtics rotate by -45
+
+# Format x-tics with the bucket label, like "0–99"
+plot 'bike_ride_buckets.csv' using ($0):3:xtic(strcol(1)."-".strcol(2)) with boxes</code></pre>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

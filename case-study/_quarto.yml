@@ -1,7 +1,12 @@
 project:
   type: website
   output-dir: ../docs
-
+  render:
+    - "*.qmd"
+    - "**/*.qmd"
+    - "**/*.md"
+    - "!drafts/*"
+  
 website:  
   title: "Bike share case-study"
   search: true

@@ -101,6 +101,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -112,8 +116,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" id="toc-ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="nav-link active" data-scroll-target="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers">Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -121,8 +131,98 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="level2">
+<h2 class="anchored" data-anchor-id="ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers">Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)</h2>
+<figure class="float-right figure">
+<a href="../Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" target="_blank" title="Select image to open full sized chart"> <img src="../Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" alt="Density plot showing the distribution of ride distances in kilometers for non-tourist, non-loop customer rides, grouped into Short, Medium, and Long duration clusters. Short rides peak around 1–2 km, Medium rides span 2–6 km, and Long rides extend beyond 6 km." class="figure-img"> </a>
+<figcaption>
+Ride Distance Distribution by Duration Cluster (Customer Rides Only) This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
+</figcaption>
+</figure>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled as Short, Medium, and Long.</p>
+</section>
+<section id="axes" class="level3">
+<h3 class="anchored" data-anchor-id="axes">Axes</h3>
+<ul>
+<li><strong>X-Axis (Distance in km)</strong>:
+<ul>
+<li>Ranges from 0 to 10 km.</li>
+<li>Represents the straight-line distance from the start stations to the end stations (the minimum possilbe distatnce covered). Do not confuse this with the actual distance ridden, we have no way of knowing that from the currently available data.</li>
+</ul></li>
+<li><strong>Y-Axis (Density)</strong>:
+<ul>
+<li>Represents the probability density of ride distances within each cluster.</li>
+<li>Higher peaks indicate more common distances in that cluster.</li>
+</ul></li>
+</ul>
+</section>
+<section id="cluster-colors" class="level3">
+<h3 class="anchored" data-anchor-id="cluster-colors">Cluster Colors</h3>
+<ul>
+<li><strong>Short (Blue)</strong>:
+<ul>
+<li>Peaks sharply between 0.5–2.5 km.</li>
+<li>Characterized by high density at shorter distances and a quick drop-off after 3 km.</li>
+</ul></li>
+<li><strong>Medium (Green)</strong>:
+<ul>
+<li>Peaks broadly from ~2.5 km to 6 km.</li>
+<li>Forms a wider and flatter distribution, indicating greater variability in ride lengths.</li>
+</ul></li>
+<li><strong>Long (Red/Pink)</strong>:
+<ul>
+<li>Starts lower but maintains a relatively even presence across 3–10 km.</li>
+<li>Longest tail, with density extending up to the maximum distance shown (10 km).</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level3">
+<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<ul>
+<li><strong>Short Cluster</strong>:
+<ul>
+<li>Highest density of all clusters.</li>
+<li>Indicates that most customer rides classified as “short” are under 3 km.</li>
+<li>May reflect last-mile or station-to-neighborhood travel.</li>
+</ul></li>
+<li><strong>Medium Cluster</strong>:
+<ul>
+<li>Broadest range of distances.</li>
+<li>Overlaps with both short and long clusters, suggesting transitional ride behavior.</li>
+</ul></li>
+<li><strong>Long Cluster</strong>:
+<ul>
+<li>Less frequent but not rare.</li>
+<li>Ride distances in this group begin at approximatley 1.5 km and extend up to 10 km.</li>
+<li>Possibly includes destination-oriented or special-purpose trips.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li><strong>Behavioral Insights</strong>:
+<ul>
+<li>The sharp peak of the short cluster implies highly consistent short-distance use, likely for errands or short hops.</li>
+<li>The medium cluster suggests a flexible usage pattern, potentially including both commuting and recreational trips.</li>
+<li>Long-duration rides, although less common, cover the widest distance range, reflecting diverse travel purposes.</li>
+</ul></li>
+<li><strong>Data Characteristics</strong>:
+<ul>
+<li>Rides were filtered to exclude tourist, subscribers and loop rides, increasing the likelihood that these reflect <strong>practical</strong> customer travel behavior (e.g., commuting, errands).</li>
+<li>Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.</li>
+</ul></li>
+</ul>
+</section>
+<section id="use-case" class="level3">
+<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<p>This chart helps: - Understand ride behavior by duration across distance ranges. - Support clustering-based segmentation strategies. - Inform infrastructure placement, pricing models, or service design for non-tourist use cases.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

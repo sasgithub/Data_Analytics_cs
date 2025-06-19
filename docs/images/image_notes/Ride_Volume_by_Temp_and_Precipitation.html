@@ -136,6 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -147,8 +151,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ride-volume-by-temperature-and-precipitation" id="toc-ride-volume-by-temperature-and-precipitation" class="nav-link active" data-scroll-target="#ride-volume-by-temperature-and-precipitation">Ride Volume by Temperature and Precipitation</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -156,6 +166,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="ride-volume-by-temperature-and-precipitation" class="level2">
+<h2 class="anchored" data-anchor-id="ride-volume-by-temperature-and-precipitation">Ride Volume by Temperature and Precipitation</h2>
+Ride_Volume_by_Temp_and_Precipitation.png
+<figure class="float-right figure">
+<a href="../Ride_Volume_by_Temp_and_Precipitation.png" target="_blank" title="Select image to open full sized chart"> <img src="../Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types." class="figure-img"> </a>
+<figcaption>
+Ride Volume by Temperature and Rain Condition This panel chart shows total ride volume for subscribers and customers, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+</figcaption>
+</figure>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>This line chart panel shows the total ride volume across 2°C temperature bins, broken down by <strong>user type</strong> (Customer vs.&nbsp;Subscriber) and grouped by <strong>rain condition</strong> (Dry, Wet, No data). Each panel represents a different precipitation category, allowing direct comparison of behavior under different weather conditions.</p>
+</section>
+<section id="chart-structure" class="level3">
+<h3 class="anchored" data-anchor-id="chart-structure">Chart Structure</h3>
+<ul>
+<li><strong>X-Axis (Temperature Bin °C)</strong>:
+<ul>
+<li>Temperature ranges from -30°C to +30°C.</li>
+<li>Binned in 2°C increments.</li>
+</ul></li>
+<li><strong>Y-Axis (Total Rides)</strong>:
+<ul>
+<li>Number of rides recorded within each temperature bin.</li>
+</ul></li>
+<li><strong>Facets (Panels)</strong>:
+<ul>
+<li><strong>Dry</strong>: Rides that occurred with no recorded rain.</li>
+<li><strong>No data</strong>: Weather data was missing.</li>
+<li><strong>Wet</strong>: Rides that occurred during rain conditions.</li>
+</ul></li>
+<li><strong>Lines</strong>:
+<ul>
+<li><strong>Red</strong>: Customer ride volume.</li>
+<li><strong>Cyan</strong>: Subscriber ride volume.</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level3">
+<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="dry-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="dry-conditions">Dry Conditions</h4>
+<ul>
+<li><strong>Most ride volume occurs here</strong>, peaking between 20–26°C.</li>
+<li>Subscribers consistently log more rides than customers across all temperature bins.</li>
+<li>Clear bell-shaped distribution centered around optimal riding weather (20–25°C).</li>
+</ul>
+</section>
+<section id="no-data" class="level4">
+<h4 class="anchored" data-anchor-id="no-data">No Data</h4>
+<ul>
+<li>Very little volume, but patterns still mirror the dry curve.</li>
+<li>Could include early data before weather tracking began or corrupted weather records.</li>
+</ul>
+</section>
+<section id="wet-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="wet-conditions">Wet Conditions</h4>
+<ul>
+<li>Dramatic decrease in ride volume for both user types.</li>
+<li>Subscriber and customer patterns flatten and converge, showing less variance in behavior when it’s raining.</li>
+</ul>
+</section>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<ul>
+<li><strong>Temperature strongly influences ridership</strong>, with optimal weather (20–25°C) showing the highest activity.</li>
+<li><strong>Precipitation is a major deterrent</strong>, suppressing ride volume across all temperatures.</li>
+<li><strong>Subscribers</strong> ride more often and in a wider temperature range than customers, especially when conditions are dry.</li>
+</ul>
+</section>
+<section id="use-case" class="level3">
+<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<p>This visualization helps: - Quantify the impact of weather on bike share demand. - Support decisions around dynamic pricing, rebalancing, or user alerts based on forecasted weather. - Segment usage patterns based on environmental conditions, without requiring detailed user data beyond type.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(temp_bin, user_type, precip_label) <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">summarise</span>(<span class="at">rides =</span> <span class="fu">sum</span>(rides), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
@@ -172,6 +256,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
