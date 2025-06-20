@@ -1,0 +1,10 @@
+---
+title: "Lessons Learned"
+format: html
+date: 2025-05-20
+copyright: 
+  holder: Scott Sesher
+  year: 2025
+---
+
+

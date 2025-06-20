@@ -49,6 +49,20 @@
     "text": "ggplot(top_non_tourist_stations_named, aes(\n   x = reorder(name, customer_ride_count),\n   y = customer_ride_count\n   )) +\n   geom_col(fill = \"steelblue\") +\n   coord_flip() +\n   labs(\n     title = \"Top 25 Non-Tourist Stations by Customer Ride Count\",\n     x = \"Station\",\n     y = \"Customer Rides\"\n) +\ntheme_minimal()"
   },
   {
+    "objectID": "images/image_notes/Top_20_Most_Asymmetric_Paths.html",
+    "href": "images/image_notes/Top_20_Most_Asymmetric_Paths.html",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "FIGCAPTION"
+  },
+  {
+    "objectID": "images/image_notes/Top_20_Most_Asymmetric_Paths.html#title",
+    "href": "images/image_notes/Top_20_Most_Asymmetric_Paths.html#title",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "FIGCAPTION"
+  },
+  {
     "objectID": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
     "href": "images/image_notes/Ride_Volume_by_Temp_and_Precipitation.html",
     "title": "Bike share case-study",
@@ -70,8 +84,8 @@
     "text": "FIGCAPTION\n\n\n# Connect to the SQLite database\ncon &lt;- dbConnect(RSQLite::SQLite(), \"caseStudy.db\")\n\n# Pull ride durations for valid subscriber/customer rides under 60 min\nride_durations &lt;- dbGetQuery(con, \"\n  SELECT\n    CASE user_type\n      WHEN 0 THEN 'subscriber'\n      WHEN 1 THEN 'customer'\n    END AS user_type,\n    (end_time - start_time) / 60.0 AS duration_min\n  FROM rides\n  WHERE user_type IN (0, 1)\n    AND end_time &gt; start_time\n    AND (end_time - start_time) &lt; 12000\n\")\n\n# Disconnect\n dbDisconnect(con)\nggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +\n     geom_boxplot(outlier.alpha = 0.1) +\n     labs(title = \"Ride Duration by User Type\", x = \"\", y = \"Duration (minutes)\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
   },
   {
-    "objectID": "images/image_notes/Ride_Duration_by_User_Type_box.html#title",
-    "href": "images/image_notes/Ride_Duration_by_User_Type_box.html#title",
+    "objectID": "images/image_notes/Ride_Duration_by_User_Type_box.html#ride-duration-by-user-type-box-plot",
+    "href": "images/image_notes/Ride_Duration_by_User_Type_box.html#ride-duration-by-user-type-box-plot",
     "title": "Bike share case-study",
     "section": "",
     "text": "FIGCAPTION\n\n\n# Connect to the SQLite database\ncon &lt;- dbConnect(RSQLite::SQLite(), \"caseStudy.db\")\n\n# Pull ride durations for valid subscriber/customer rides under 60 min\nride_durations &lt;- dbGetQuery(con, \"\n  SELECT\n    CASE user_type\n      WHEN 0 THEN 'subscriber'\n      WHEN 1 THEN 'customer'\n    END AS user_type,\n    (end_time - start_time) / 60.0 AS duration_min\n  FROM rides\n  WHERE user_type IN (0, 1)\n    AND end_time &gt; start_time\n    AND (end_time - start_time) &lt; 12000\n\")\n\n# Disconnect\n dbDisconnect(con)\nggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +\n     geom_boxplot(outlier.alpha = 0.1) +\n     labs(title = \"Ride Duration by User Type\", x = \"\", y = \"Duration (minutes)\") +\n     scale_fill_manual(values = c(\"subscriber\" = \"#1f77b4\", \"customer\" = \"#ff7f0e\")) +\n     theme_minimal()"
@@ -161,11 +175,18 @@
     "text": "ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +\n     geom_density(fill = \"darkorange\") +\n     labs(\n         title = \"Non-Tourist Customer Ride Duration Density\",\n         x = \"Ride Length (minutes)\",\n         y = \"Density\"\n     ) +\n     theme_minimal()"
   },
   {
-    "objectID": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
-    "href": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Lendth_Distribution.html",
+    "objectID": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Length_Distribution.html",
+    "href": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Length_Distribution.html",
     "title": "Bike share case-study",
     "section": "",
-    "text": "ggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) \n+\ngeom_histogram(binwidth = 1, position = \"identity\", alpha = 0.5) +\nfacet_wrap(~ hour_local, ncol = 4) +\nlabs(title = \"Loop Ride Length Distribution by Week Part and Time of Day\",\nx = \"Ride Length (minutes)\",\ny = \"Ride Count\",\nfill = \"Week/Time\") +\ntheme_minimal()"
+    "text": "Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend. Ride length is typically short, with a rapid drop-off in frequency after the first 10–15 minutes across all hourly intervals.\n\n\n\n\nTitle: Loop Ride Length Distribution by Week Part and Time of Day Source: Non-tourist customer rides classified as “loop rides” (start and end at the same station) X-Axis: Ride Length (minutes) Y-Axis: Ride Count Faceting: 24 hourly bins (0–23), each split by weekday/weekend Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g., Weekend.0, Weekday.14) shown in the legend\n\n\n\nConsistent Right Skew: In every hourly panel, ride length distributions are heavily skewed right, peaking in the 0–10 minute range and tapering off sharply.\n\nNo Strong Time-of-Day Effect: There is no significant shift in distribution shape across hours, though some hour blocks (e.g., mid-afternoon) show more total rides.\n\nLoop Behavior: This pattern reinforces the idea that many loop rides — likely recreational — are short and time-insensitive.\n\nWeekend vs. Weekday: Although both categories are shown, the duration distributions remain similar, suggesting time of day may be less influential for loop ride length than ride purpose or rider type.\nggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) \n+\ngeom_histogram(binwidth = 1, position = \"identity\", alpha = 0.5) +\nfacet_wrap(~ hour_local, ncol = 4) +\nlabs(title = \"Loop Ride Length Distribution by Week Part and Time of Day\",\nx = \"Ride Length (minutes)\",\ny = \"Ride Count\",\nfill = \"Week/Time\") +\ntheme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Length_Distribution.html#loop-ride-length-distribution-by-week-part-and-time-of-day",
+    "href": "images/image_notes/Non-Tourist_Customer_Loop_Ride_Length_Distribution.html#loop-ride-length-distribution-by-week-part-and-time-of-day",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend. Ride length is typically short, with a rapid drop-off in frequency after the first 10–15 minutes across all hourly intervals.\n\n\n\n\nTitle: Loop Ride Length Distribution by Week Part and Time of Day Source: Non-tourist customer rides classified as “loop rides” (start and end at the same station) X-Axis: Ride Length (minutes) Y-Axis: Ride Count Faceting: 24 hourly bins (0–23), each split by weekday/weekend Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g., Weekend.0, Weekday.14) shown in the legend\n\n\n\nConsistent Right Skew: In every hourly panel, ride length distributions are heavily skewed right, peaking in the 0–10 minute range and tapering off sharply.\n\nNo Strong Time-of-Day Effect: There is no significant shift in distribution shape across hours, though some hour blocks (e.g., mid-afternoon) show more total rides.\n\nLoop Behavior: This pattern reinforces the idea that many loop rides — likely recreational — are short and time-insensitive.\n\nWeekend vs. Weekday: Although both categories are shown, the duration distributions remain similar, suggesting time of day may be less influential for loop ride length than ride purpose or rider type.\nggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) \n+\ngeom_histogram(binwidth = 1, position = \"identity\", alpha = 0.5) +\nfacet_wrap(~ hour_local, ncol = 4) +\nlabs(title = \"Loop Ride Length Distribution by Week Part and Time of Day\",\nx = \"Ride Length (minutes)\",\ny = \"Ride Count\",\nfill = \"Week/Time\") +\ntheme_minimal()"
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.html",
@@ -222,6 +243,83 @@
     "title": "Understanding .prj Files in GIS: Your Geospatial Data’s Silent Interpreter",
     "section": "",
     "text": "In the world of Geographic Information Systems (GIS), data isn’t just about points, lines, and polygons; it’s also about where those features exist on Earth. This is where the .prj file comes in. A .prj file is a fundamental component of many geospatial datasets, particularly ESRI Shapefiles. It’s a plain text file that acts as the essential blueprint, defining the coordinate system and projection information for the accompanying spatial data.\n\nWhat’s Inside a .prj File?\nThe .prj file contains a precise, machine-readable description of the spatial reference system. This description is typically formatted in Well-Known Text (WKT), a standardized string that details how the data’s coordinates relate to a real-world location and how they are displayed on a flat map.\nA WKT string can specify both Geographic Coordinate Systems (GCS) and Projected Coordinate Systems (PCS):\n\nGeographic Coordinate System (GCS): This defines the global, spherical coordinate system. It includes:\n\nDatum: The model of the Earth’s shape (an ellipsoid or spheroid) and its position relative to the Earth’s center (e.g., WGS84, NAD83).\nSpheroid/Ellipsoid: The specific mathematical model of the Earth’s shape used by the datum.\nPrime Meridian: The reference longitude (usually Greenwich).\nAngular Unit: The unit for latitude and longitude (e.g., degrees).\n\nProjected Coordinate System (PCS): This defines how the 3D GCS coordinates are transformed onto a 2D flat plane, enabling measurement and mapping on a flat surface. It includes:\n\nProjection Type: The mathematical method used for the transformation (e.g., Transverse Mercator, Lambert Conformal Conic, Universal Transverse Mercator (UTM)).\nProjection Parameters: Specific values needed by the chosen projection, such as False Easting, False Northing, Central Meridian, Scale Factor, and Latitude of Origin.\nLinear Unit: The unit of measurement for the projected coordinates (e.g., meters, US survey feet).\n\nAuthority: Often includes an EPSG code (e.g., AUTHORITY[“EPSG”,“4326”] for WGS84 Geographic Coordinate System), which is a standardized code for a specific coordinate system definition.\n\n.prj files often also include an EPSG code, which is a standardized identifier for a specific coordinate system definition, allowing software to easily recognize and apply it.\nExample of a (simplified) .prj file content:\nPROJCS[\"NAD_1983_StatePlane_Washington_South_FIPS_4602_Ft_US\",GEOGCS[\"GCS_NAD_1983\",DATUM[\"D_NAD_1983\",SPHEROID[\"GRS_1980\",6378137.0,298.257222101]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Lambert_Conformal_Conic\"],PARAMETER[\"False_Easting\",1640416.666666667],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-120.5833333333333],PARAMETER[\"Standard_Parallel_1\",45.83333333333334],PARAMETER[\"Standard_Parallel_2\",47.33333333333334],PARAMETER[\"Latitude_Of_Origin\",45.33333333333334],UNIT[\"Foot_US\",0.3048006096012192]]\n(Note: In actual files, this is often a single, very long line with no extra spaces for compactness.)\n\n\nWhy is a .prj File Important in GIS?\nThe .prj file is critically important because it provides the necessary context for GIS software to correctly interpret, display, and analyze your spatial data. Without it, the software lacks the crucial information needed to understand where on Earth your data is located or how it should be presented.\nHere’s why it’s so vital:\n\nAccurate Display and Alignment: Without the .prj file, GIS software cannot correctly position your data on a map. Data might appear in the wrong location, be severely stretched or compressed, or even be completely invisible when overlaid with other layers.\nReliable Analysis: All spatial analysis operations (like calculating areas, distances, buffers, or performing overlays) depend on accurate coordinate system information. An incorrect or missing .prj file will lead to erroneous analytical results.\nInteroperability: GIS involves combining datasets from many sources. The .prj file enables “on-the-fly” projection, allowing GIS software to transform data from different coordinate systems into a common system for seamless integration and comparison.\nData Integrity: It ensures that your data retains its spatial meaning and integrity as it’s moved between different systems or shared with other users.\n\nWhile some older GIS software or workflows might allow you to work without a .prj file (by making assumptions), this is highly discouraged. A missing or incorrect .prj file is a common source of error and frustration in GIS.\n\n\nHow .prj Files are Typically Used\n\nCompanion File: For formats like the ESRI Shapefile, the .prj file is a companion file that carries the same base filename as the main data files (e.g., rivers.shp, rivers.dbf, rivers.shx, and rivers.prj) and resides in the same directory. GIS software automatically looks for it when loading the dataset.\nMetadata: It serves as vital metadata, explicitly defining the spatial reference properties that are not stored within the primary data file itself.\nProgrammatic Use: GIS software and libraries (like GDAL/OGR or ArcPy) can read, parse, and generate .prj files to ensure proper data handling and transformations.\n\nIn essence, the .prj file is the unsung hero of GIS data, providing the crucial spatial context that allows your maps to be accurate, your analyses to be valid, and your data to be truly meaningful in the real world.\n\n\nSources\n\nWhat is Data Mapping? Definition and Examples | Talend\nWhat is Data Mapping? | Informatica\nWhat is Data Mapping? The Ultimate Guide | Amplitude\nData mapping - Wikipedia\nPRJ Definition | GIS Dictionary - Esri Support\nESRI PRJ File\nWhat the prj-file stands for? - GIS StackExchange\n\nAttribution: Generated by Gemini (as your AI assistant)"
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
+    "section": "",
+    "text": "Glossary of Terms\nThis glossary defines key terms used throughout the case study.\n\n\n\nAverage Daily Rides\n\nThe total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.\n\n\n\n\n\nBucket\n\nA predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.\n\n\n\n\n\nCluster (Ride Duration Cluster)\n\nA grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into Short, Medium, and Long clusters to distinguish different usage behaviors.\n\n\n\n\n\nCustomer\n\nA user who does not have an annual or recurring membership. Customers include Day Pass riders, single-ride users, and other casual or pay-per-use riders. All non-subscriber users are classified as customers. The term casual rider might also be used for customers, but for this case study only the term customer is used.\n\n\n\n\n\nDensity Plot (Kernel Density Plot)\n\nA smoothed visualization of the distribution of a continuous variable, such as ride distance. It estimates the probability density function and often provides clearer insight than a histogram by reducing noise through smoothing.\n\n\n\n\n\nHaversine formula\n\nA mathematical formula used to cacluate the distance between any two points on a sphere along the great-arc going through both points.\n\n\n\n\n\nKernel\n\nA mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.\n\n\n\n\n\nLoop Ride\n\nA bike ride that starts and ends at the same station. Often used as a proxy for recreational or tourist behavior. These rides are excluded from this analysis.\n\n\n\n\n\nMaximum Simultaneous Rides\n\nThe maximum number of rides that were active at the same time during a given period (e.g., a year). Calculated by tracking ride start and end events, computing a running total of concurrent rides, and taking the peak value. This metric is used to assess fleet load and system demand during peak usage periods. Also know as peak concurrency\n\n\n\n\n\nNon-Tourist Ride\n\nA ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.\n\n\n\n\n\nNon-Tourist Station\n\nA station not in or near a designated tourist destinations. These stations are considered to be more frequented by commuters.\n\n\n\n\n\nNormalization (Normalized Ride Volume)\n\nThe process of scaling data, typically between 0 and 1, to allow for comparisons across categories with different absolute values. For example, normalized ride volume allows temperature-based comparisons regardless of the overall number of rides.\n\n\n\n\n\nPeak Concurrency\n\nThe highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times. Also referred to as max simultaneous rides. This metric helps assess system load, infrastructure limits, and usage spikes.\n\n\n\n\n\nRide Count per Bike\n\nThe total number of rides recorded for an individual bike over the dataset’s time span. Used to evaluate fleet utilization and wear.\n\n\n\n\n\nRide Distance (km)\n\nThe distance between start and end stations, caclulated using the Haversine formula, and measured in kilometers. Used as a proxy for trip length and user intent.\n\n\n\n\n\nRide Duration\n\nThe difference between ride end_time and start_time.\n\n\n\n\n\nStation\n\nA docking location where bikes or scooters can be picked up or returned. Used in geographic and behavioral analyses.\n\n\n\n\n\nSubscriber\n\nA user who holds an annual or annual-billed-monthly membership with the bike-sharing service. Subscribers might also be know as members, but for the purpose of this case study only the term Subscriber is used.\n\n\n\n\n\nUser Type\n\nA classification of users based on their relationship with the bike-share system, for the purpose of this case study the are devided into two groups, Subscribers or Customers.\n\n\n\n\n\nVisualization\n\nA graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset."
+  },
+  {
+    "objectID": "case-study.html",
+    "href": "case-study.html",
+    "title": "case-study",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "case-study.html#quarto",
+    "href": "case-study.html#quarto",
+    "title": "case-study",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "",
+    "text": "🚧 This project is currently a work in progress.\nI’m actively building out my case study as part of the Google Data Analytics Capstone.\nFull write-up, code, and visualizations will be available soon!"
+  },
+  {
+    "objectID": "data.html#overview",
+    "href": "data.html#overview",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "🗂️ Overview",
+    "text": "🗂️ Overview\nThis project integrates and analyzes Divvy bike-share trip data, station data, and Chicago weather data. The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data."
+  },
+  {
+    "objectID": "data.html#data-sources",
+    "href": "data.html#data-sources",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "📦 Data Sources",
+    "text": "📦 Data Sources\n\nDivvy Trip Data: Divvy Trip Archive and City of Chicago Data Portal\nWeather Data: Meteostat Hourly Bulk Data\nTourist Stations: Custom dataset created from Google Maps lat/lng queries\n\nSee the 📦 Data Sources page for more details and attribution."
+  },
+  {
+    "objectID": "data.html#ride-data-cleaning",
+    "href": "data.html#ride-data-cleaning",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "🚟️ Ride Data Cleaning",
+    "text": "🚟️ Ride Data Cleaning\n\nRemoved pandemic-period rides:\n\nDropped all rides with start_time &gt; Jan 1, 2020 to avoid skew due to COVID-19 lockdown.\nAlso removed one late outlier from April 2020.\n\nRemoved zero-duration loop rides:\n\nFiltered out rides where start_time == end_time and start_station_id == end_station_id.\n\nRemoved “teleportation” rides:\n\nRides with start_time == end_time but different start and end stations were eliminated.\n\nEliminated negative-duration rides (“time travelers”):\n\nRides where start_time &gt; end_time were removed.\n\nDropped long-duration rides:\n\nExcluded rides longer than 24 hours (duration &gt; 86400 seconds).\nThese were excluded from analysis but retained in the database.\n\nFiltered rides missing user type:\n\nRemoved 194 rides with user_type IS NULL.\n\nDeduplicated rides:\n\nRemoved ~2,767 duplicate records where bike_id, start_time, and end_time were identical.\n\nFiltered overlapping rides per bike:\n\nFor bikes with multiple overlapping rides, kept the ride with the lowest ride_id."
+  },
+  {
+    "objectID": "data.html#station-data-cleaning",
+    "href": "data.html#station-data-cleaning",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "📍 Station Data Cleaning",
+    "text": "📍 Station Data Cleaning\n\nAllowed stations with same name but different coordinates:\n\nReplaced unique constraint on name with composite index:\nCREATE UNIQUE INDEX uniq_vector ON stations(name, lat, long);\nCREATE INDEX idx_name ON stations(name);\n\nRenamed ambiguous duplicates:\n\nManually added suffixes like ” II” to disambiguate repeated station names at different coordinates.\n\nNormalized source formats:\n\nSome station data was manually extracted from Excel, then converted to CSV for uniform processing."
+  },
+  {
+    "objectID": "data.html#weather-data-cleaning",
+    "href": "data.html#weather-data-cleaning",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "☁️ Weather Data Cleaning",
+    "text": "☁️ Weather Data Cleaning\n\nSelected Midway Airport station (72534):\n\nChosen for completeness and consistency across years.\n\nDropped unused or missing columns:\n\nsnow, wpgt, tsun, pres, and datetime were excluded from final dataset.\n\nCreated epoch column for joins:\n\nCombined date and hour fields into datetime, then converted to UNIX epoch to align with ride timestamps."
+  },
+  {
+    "objectID": "data.html#notes",
+    "href": "data.html#notes",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "💡 Notes",
+    "text": "💡 Notes\n\nAll transformations were tracked in versioned scripts and logged in logs/workLog.md.\nWeather data cleaning steps were scripted in src/load_weather.R.\nStation and ride data were validated and transformed via shell scripts and SQLite."
+  },
+  {
+    "objectID": "data.html#license",
+    "href": "data.html#license",
+    "title": "📦 Data Sources and Cleaning",
+    "section": "📋 License",
+    "text": "📋 License\nDivvy and City of Chicago data is subject to the City of Chicago Terms of Use.\nThis case study is © 2025 Scott Sesher and provided under the MIT License. See LICENSE for details."
   },
   {
     "objectID": "index.html",
@@ -287,83 +385,6 @@
     "text": "Footnotes\n\n\nDivvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.↩︎"
   },
   {
-    "objectID": "data.html",
-    "href": "data.html",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "",
-    "text": "🚧 This project is currently a work in progress.\nI’m actively building out my case study as part of the Google Data Analytics Capstone.\nFull write-up, code, and visualizations will be available soon!"
-  },
-  {
-    "objectID": "data.html#overview",
-    "href": "data.html#overview",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "🗂️ Overview",
-    "text": "🗂️ Overview\nThis project integrates and analyzes Divvy bike-share trip data, station data, and Chicago weather data. The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data."
-  },
-  {
-    "objectID": "data.html#data-sources",
-    "href": "data.html#data-sources",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "📦 Data Sources",
-    "text": "📦 Data Sources\n\nDivvy Trip Data: Divvy Trip Archive and City of Chicago Data Portal\nWeather Data: Meteostat Hourly Bulk Data\nTourist Stations: Custom dataset created from Google Maps lat/lng queries\n\nSee the 📦 Data Sources page for more details and attribution."
-  },
-  {
-    "objectID": "data.html#ride-data-cleaning",
-    "href": "data.html#ride-data-cleaning",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "🚟️ Ride Data Cleaning",
-    "text": "🚟️ Ride Data Cleaning\n\nRemoved pandemic-period rides:\n\nDropped all rides with start_time &gt; Jan 1, 2020 to avoid skew due to COVID-19 lockdown.\nAlso removed one late outlier from April 2020.\n\nRemoved zero-duration loop rides:\n\nFiltered out rides where start_time == end_time and start_station_id == end_station_id.\n\nRemoved “teleportation” rides:\n\nRides with start_time == end_time but different start and end stations were eliminated.\n\nEliminated negative-duration rides (“time travelers”):\n\nRides where start_time &gt; end_time were removed.\n\nDropped long-duration rides:\n\nExcluded rides longer than 24 hours (duration &gt; 86400 seconds).\nThese were excluded from analysis but retained in the database.\n\nFiltered rides missing user type:\n\nRemoved 194 rides with user_type IS NULL.\n\nDeduplicated rides:\n\nRemoved ~2,767 duplicate records where bike_id, start_time, and end_time were identical.\n\nFiltered overlapping rides per bike:\n\nFor bikes with multiple overlapping rides, kept the ride with the lowest ride_id."
-  },
-  {
-    "objectID": "data.html#station-data-cleaning",
-    "href": "data.html#station-data-cleaning",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "📍 Station Data Cleaning",
-    "text": "📍 Station Data Cleaning\n\nAllowed stations with same name but different coordinates:\n\nReplaced unique constraint on name with composite index:\nCREATE UNIQUE INDEX uniq_vector ON stations(name, lat, long);\nCREATE INDEX idx_name ON stations(name);\n\nRenamed ambiguous duplicates:\n\nManually added suffixes like ” II” to disambiguate repeated station names at different coordinates.\n\nNormalized source formats:\n\nSome station data was manually extracted from Excel, then converted to CSV for uniform processing."
-  },
-  {
-    "objectID": "data.html#weather-data-cleaning",
-    "href": "data.html#weather-data-cleaning",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "☁️ Weather Data Cleaning",
-    "text": "☁️ Weather Data Cleaning\n\nSelected Midway Airport station (72534):\n\nChosen for completeness and consistency across years.\n\nDropped unused or missing columns:\n\nsnow, wpgt, tsun, pres, and datetime were excluded from final dataset.\n\nCreated epoch column for joins:\n\nCombined date and hour fields into datetime, then converted to UNIX epoch to align with ride timestamps."
-  },
-  {
-    "objectID": "data.html#notes",
-    "href": "data.html#notes",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "💡 Notes",
-    "text": "💡 Notes\n\nAll transformations were tracked in versioned scripts and logged in logs/workLog.md.\nWeather data cleaning steps were scripted in src/load_weather.R.\nStation and ride data were validated and transformed via shell scripts and SQLite."
-  },
-  {
-    "objectID": "data.html#license",
-    "href": "data.html#license",
-    "title": "📦 Data Sources and Cleaning",
-    "section": "📋 License",
-    "text": "📋 License\nDivvy and City of Chicago data is subject to the City of Chicago Terms of Use.\nThis case study is © 2025 Scott Sesher and provided under the MIT License. See LICENSE for details."
-  },
-  {
-    "objectID": "case-study.html",
-    "href": "case-study.html",
-    "title": "case-study",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "case-study.html#quarto",
-    "href": "case-study.html#quarto",
-    "title": "case-study",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "glossary.html",
-    "href": "glossary.html",
-    "title": "Glossary",
-    "section": "",
-    "text": "Glossary of Terms\nThis glossary defines key terms used throughout the case study.\n\n\nAverage Daily Rides\n\nThe total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.\n\nBucket\n\nA predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.\n\nCluster (Ride Duration Cluster)\n\nA grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into Short, Medium, and Long clusters to distinguish different usage behaviors.\n\nCustomer\n\nA user who does not have an annual or recurring membership. Customers include Day Pass riders, single-ride users, and other casual or pay-per-use riders. All non-subscriber users are classified as customers. The term casual rider might also be used for customers, but for this case study only the term customer is used.\n\nDensity Plot (Kernel Density Plot)\n\nA smoothed visualization of the distribution of a continuous variable, such as ride distance. It estimates the probability density function and often provides clearer insight than a histogram by reducing noise through smoothing.\n\nKernel\n\nA mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.\n\nLoop Ride\n\nA bike ride that starts and ends at the same station. Often used as a proxy for recreational or tourist behavior. These rides are excluded from this analysis.\n\nMaximum Simultaneous Rides\n\nThe maximum number of rides that were active at the same time during a given period (e.g., a year). Calculated by tracking ride start and end events, computing a running total of concurrent rides, and taking the peak value. This metric is used to assess fleet load and system demand during peak usage periods. Also know as peak concurrency\n\nNon-Tourist Ride\n\nA ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.\n\nNormalization (Normalized Ride Volume)\n\nThe process of scaling data, typically between 0 and 1, to allow for comparisons across categories with different absolute values. For example, normalized ride volume allows temperature-based comparisons regardless of the overall number of rides.\n\nPeak Concurrency\n\nThe highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times. Also referred to as max simultaneous rides. This metric helps assess system load, infrastructure limits, and usage spikes.\n\nRide Count per Bike\n\nThe total number of rides recorded for an individual bike over the dataset’s time span. Used to evaluate fleet utilization and wear.\n\nRide Distance (km)\n\nThe linear or estimated distance covered during a bike ride, measured in kilometers. Used as a proxy for trip length and user intent.\n\nStation\n\nA docking location where bikes or scooters can be picked up or returned. Used in geographic and behavioral analyses.\n\nSubscriber\n\nA user who holds an annual or annual-billed-monthly membership with the bike-sharing service. Subscribers might also be know as members, but for the purpose of this case study only the term Subscriber is used.\n\nUser Type\n\nA classification of users based on their relationship with the bike-share system, for the purpose of this case study the are devided into two groups, Subscribers or Customers.\n\nVisualization\n\nA graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset."
-  },
-  {
     "objectID": "side-quest/NAD83andGRS1980.html",
     "href": "side-quest/NAD83andGRS1980.html",
     "title": "Bike share case-study",
@@ -382,14 +403,14 @@
     "href": "visualizations.html",
     "title": "Visualizations",
     "section": "",
-    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet.\n\n\n\n\n  \n\n\n\nThis interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.\n\nEach line represents a frequently traveled path, regardless of direction.\nLine color corresponds to ride volume between those stations.\nUsers can filter by rider type using the control panel on the right.\nThis visualization highlights differences in spatial behavior between groups:\nCustomers tend to use routes near the lakefront and popular tourist zones.\nSubscribers favor more distributed, commuter-oriented paths.\n\n“Station usage differs substantially by rider type, bu not in the expected way.”\n\n\n\nThis histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.\n\n    Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.\n\nThis view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.\n\n\n\nThis histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.\n    The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.\n\n    Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).\nThe chart can be sorted by:\n\nPath name (alphabetical)\nSubscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)\nThis visualization reveals important asymmetries in how ride paths are used:\n  Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.\n  Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas."
+    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet.\n\n\n\n\n  \n\nThis interactive map shows the top 10 most frequently traveled station-to-station ride paths for a selected rider group—All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.\n\n\n\n\nThis interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.\n\nEach line represents a frequently traveled path, regardless of direction.\nLine color corresponds to ride volume between those stations.\nUsers can filter by rider type using the control panel on the right.\n\nThis visualization highlights differences in spatial behavior between groups:\n\nCustomers tend to use routes near the lakefront and popular tourist zones.\nSubscribers favor more distributed, commuter-oriented paths.\n\n“Station usage differs substantially by rider type, bu not in the expected way.”\n\n  \n\nFIGCAPTION\n\n\n\n\n\nThis histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.\nEach bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.\nThis view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.\n\n  \n\nFIGCAPTION\n\n\n\n\n\nThis histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path. - The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.\n\nEach path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).\n\nThe chart can be sorted by:\n\nPath name (alphabetical)\nSubscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)\n\nThis visualization reveals important asymmetries in how ride paths are used:\n\nPaths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.\nPaths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas."
   },
   {
     "objectID": "visualizations.html#interactive-visuals",
     "href": "visualizations.html#interactive-visuals",
     "title": "Visualizations",
     "section": "",
-    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet.\n\n\n\n\n  \n\n\n\nThis interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.\n\nEach line represents a frequently traveled path, regardless of direction.\nLine color corresponds to ride volume between those stations.\nUsers can filter by rider type using the control panel on the right.\nThis visualization highlights differences in spatial behavior between groups:\nCustomers tend to use routes near the lakefront and popular tourist zones.\nSubscribers favor more distributed, commuter-oriented paths.\n\n“Station usage differs substantially by rider type, bu not in the expected way.”\n\n\n\nThis histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.\n\n    Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.\n\nThis view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.\n\n\n\nThis histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.\n    The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.\n\n    Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).\nThe chart can be sorted by:\n\nPath name (alphabetical)\nSubscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)\nThis visualization reveals important asymmetries in how ride paths are used:\n  Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.\n  Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas."
+    "text": "This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in blue and the dots for customer stations rendered in red. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.\nIt was created in R using Leaflet.\n\n\n\n\n  \n\nThis interactive map shows the top 10 most frequently traveled station-to-station ride paths for a selected rider group—All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.\n\n\n\n\nThis interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.\n\nEach line represents a frequently traveled path, regardless of direction.\nLine color corresponds to ride volume between those stations.\nUsers can filter by rider type using the control panel on the right.\n\nThis visualization highlights differences in spatial behavior between groups:\n\nCustomers tend to use routes near the lakefront and popular tourist zones.\nSubscribers favor more distributed, commuter-oriented paths.\n\n“Station usage differs substantially by rider type, bu not in the expected way.”\n\n  \n\nFIGCAPTION\n\n\n\n\n\nThis histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.\nEach bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.\nThis view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.\n\n  \n\nFIGCAPTION\n\n\n\n\n\nThis histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path. - The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.\n\nEach path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).\n\nThe chart can be sorted by:\n\nPath name (alphabetical)\nSubscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)\n\nThis visualization reveals important asymmetries in how ride paths are used:\n\nPaths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.\nPaths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas."
   },
   {
     "objectID": "visualizations.html#static-visualizations",
@@ -402,8 +423,8 @@
     "objectID": "visualizations.html#screenshots",
     "href": "visualizations.html#screenshots",
     "title": "Visualizations",
-    "section": "ScreenShots",
-    "text": "ScreenShots"
+    "section": "🖥️ ScreenShots",
+    "text": "🖥️ ScreenShots"
   },
   {
     "objectID": "images/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.html",
@@ -431,7 +452,14 @@
     "href": "images/image_notes/Divvy_Stations_in_QGIS.html",
     "title": "Bike share case-study",
     "section": "",
-    "text": "This is a screen shot of the Divvy Stations plotted in QGIS."
+    "text": "Divvy Stations in QGIS\n\n\nThis is a screen shot of the Divvy Stations plotted in QGIS. This was found in Divvy_Stations_2013.shp.zip which was included in the Divvy_Stations_Trips_2013.zip file."
+  },
+  {
+    "objectID": "images/image_notes/Divvy_Stations_in_QGIS.html#divvy-stations-in-qgis",
+    "href": "images/image_notes/Divvy_Stations_in_QGIS.html#divvy-stations-in-qgis",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "Divvy Stations in QGIS\n\n\nThis is a screen shot of the Divvy Stations plotted in QGIS. This was found in Divvy_Stations_2013.shp.zip which was included in the Divvy_Stations_Trips_2013.zip file."
   },
   {
     "objectID": "images/image_notes/Frequency_of_Temp_bins.html",
@@ -501,14 +529,14 @@
     "href": "images/image_notes/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.html",
     "title": "Bike share case-study",
     "section": "",
-    "text": "FIGCAPTION"
+    "text": "Hourly customer ride patterns by season at non-tourist stations. Weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.\n\n\n\n\nTitle: Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)\nX-axis: Hour of Day (0–23)\nY-axis: Ride Count\nLine Colors:\n- Blue: Weekday\n- Orange: Weekend\nFacets (Panels):\n- Spring: Moderate ride volume, single afternoon peak around 17:00\n- Summer: Highest ride volume overall, with a sharp weekday peak from 16:00–18:00\n- Fall: Similar to spring but with slightly lower volume\n- Winter: Subdued ride activity, flatter distribution\n\n\n\n\n\nCommuting Behavior: The sharp weekday peaks in summer and fall suggest commuter-driven use around 17:00, especially among customers using the system for one-way travel home from work or transit.\nSeasonal Sensitivity: Weekend ride patterns are flatter across the day and more seasonally stable, while weekday patterns show strong seasonal variation.\nCold Weather Impact: Winter reduces both weekday and weekend ride volumes significantly, confirming seasonality in casual rider behavior.\n\nLet me know if you’d like to cross-reference this with subscriber behavior or include summary stats in the image notes."
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.html#customer-rides-by-hour-faceted-by-season-non-tourist-stations",
     "href": "images/image_notes/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.html#customer-rides-by-hour-faceted-by-season-non-tourist-stations",
     "title": "Bike share case-study",
     "section": "",
-    "text": "FIGCAPTION"
+    "text": "Hourly customer ride patterns by season at non-tourist stations. Weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.\n\n\n\n\nTitle: Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)\nX-axis: Hour of Day (0–23)\nY-axis: Ride Count\nLine Colors:\n- Blue: Weekday\n- Orange: Weekend\nFacets (Panels):\n- Spring: Moderate ride volume, single afternoon peak around 17:00\n- Summer: Highest ride volume overall, with a sharp weekday peak from 16:00–18:00\n- Fall: Similar to spring but with slightly lower volume\n- Winter: Subdued ride activity, flatter distribution\n\n\n\n\n\nCommuting Behavior: The sharp weekday peaks in summer and fall suggest commuter-driven use around 17:00, especially among customers using the system for one-way travel home from work or transit.\nSeasonal Sensitivity: Weekend ride patterns are flatter across the day and more seasonally stable, while weekday patterns show strong seasonal variation.\nCold Weather Impact: Winter reduces both weekday and weekend ride volumes significantly, confirming seasonality in casual rider behavior.\n\nLet me know if you’d like to cross-reference this with subscriber behavior or include summary stats in the image notes."
   },
   {
     "objectID": "images/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.html",
@@ -593,6 +621,20 @@
     "title": "Bike share case-study",
     "section": "",
     "text": "ggplot(rides_weather_df, aes(x = temp, y = rides)) +\n     geom_smooth(method = \"loess\", se = FALSE, color = \"darkgreen\") +\n     scale_y_continuous(labels = label_number(scale_cut = cut_short_scale())) +\n     facet_wrap(~ user_type) +\n     labs(\n         title = \"Temperature vs Ride Volume by User Type\",\n         x = \"Temperature (°C)\",\n         y = \"Hourly Ride Volume\"\n     ) +\n     theme_minimal()"
+  },
+  {
+    "objectID": "images/image_notes/Top_20_Most_Asymmetric_Paths_by_User_Type.html",
+    "href": "images/image_notes/Top_20_Most_Asymmetric_Paths_by_User_Type.html",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.\n\n\n\n\nTitle: Top 20 Most Asymmetric Paths by User Type X-Axis: Asymmetry Ratio (from 0.0 to ~0.7) Panels: Two side-by-side bar charts\n\nLeft panel: Top asymmetric paths for Customers\nRight panel: Top asymmetric paths for Subscribers\n\n\n\n\n\nAsymmetry Ratio\n\nA value approaching 1 indicates heavy one-way usage between a pair of stations. Rides commonly occur in one direction but rarely the other.\n\nCustomer Patterns\n\nConcentrated near transit stations and central business districts. Reflect unidirectional use, possibly due to nearby public transit hubs, tourism drop-offs, or lack of return trips.\n\nSubscriber Patterns\n\nFocus on lakefront access (e.g., Streeter Dr, Lake Shore Dr) and commuter endpoints. Suggest consistent commuting flows where riders may use other transportation methods for return trips (e.g., walking or transit).\n\nContrast\n\nWhile customers show asymmetry in the urban core, subscribers show it around recreational or edge areas."
+  },
+  {
+    "objectID": "images/image_notes/Top_20_Most_Asymmetric_Paths_by_User_Type.html#top-20-most-asymmetric-paths-by-user-type",
+    "href": "images/image_notes/Top_20_Most_Asymmetric_Paths_by_User_Type.html#top-20-most-asymmetric-paths-by-user-type",
+    "title": "Bike share case-study",
+    "section": "",
+    "text": "Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.\n\n\n\n\nTitle: Top 20 Most Asymmetric Paths by User Type X-Axis: Asymmetry Ratio (from 0.0 to ~0.7) Panels: Two side-by-side bar charts\n\nLeft panel: Top asymmetric paths for Customers\nRight panel: Top asymmetric paths for Subscribers\n\n\n\n\n\nAsymmetry Ratio\n\nA value approaching 1 indicates heavy one-way usage between a pair of stations. Rides commonly occur in one direction but rarely the other.\n\nCustomer Patterns\n\nConcentrated near transit stations and central business districts. Reflect unidirectional use, possibly due to nearby public transit hubs, tourism drop-offs, or lack of return trips.\n\nSubscriber Patterns\n\nFocus on lakefront access (e.g., Streeter Dr, Lake Shore Dr) and commuter endpoints. Suggest consistent commuting flows where riders may use other transportation methods for return trips (e.g., walking or transit).\n\nContrast\n\nWhile customers show asymmetry in the urban core, subscribers show it around recreational or edge areas."
   },
   {
     "objectID": "images/image_notes/Top_50_Stations_by_User_Type.html",

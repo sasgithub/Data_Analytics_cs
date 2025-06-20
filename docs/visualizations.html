@@ -123,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#interactive-visuals" id="toc-interactive-visuals" class="nav-link active" data-scroll-target="#interactive-visuals">📈 Interactive Visuals</a></li>
   <li><a href="#static-visualizations" id="toc-static-visualizations" class="nav-link" data-scroll-target="#static-visualizations">🖼️ Static Visualizations</a></li>
-  <li><a href="#screenshots" id="toc-screenshots" class="nav-link" data-scroll-target="#screenshots">ScreenShots</a></li>
+  <li><a href="#screenshots" id="toc-screenshots" class="nav-link" data-scroll-target="#screenshots">🖥️ ScreenShots</a></li>
   </ul>
 </nav>
     </div>
@@ -161,43 +161,60 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="tableau-sheets" class="level3">
 <h3 class="anchored" data-anchor-id="tableau-sheets">Tableau Sheets</h3>
-<div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
-<p><a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="images/thumbnails/tableau_thumb.png" alt="Tableau Visualization" style="width: 100%;"> </a></p>
-</div>
+<figure class="float-right figure">
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored lines between bike stations, representing top 10 ride paths by user type" class="figure-img"> </a>
+<figcaption>
+This interactive map shows the top 10 most frequently traveled station-to-station ride paths for a selected rider group—All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
+</figcaption>
+</figure>
 <section id="sheet-1-top-10-rides-by-user-type-map-view" class="level4">
 <h4 class="anchored" data-anchor-id="sheet-1-top-10-rides-by-user-type-map-view">Sheet 1: Top 10 Rides by User Type (Map View)</h4>
-<pre><code>This interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.</code></pre>
+<p>This interactive map displays the top 10 most common ride paths (station-to-station pairs) for a selected user group: All Riders, Subscribers, or Customers.</p>
 <ul>
-<li><p>Each line represents a frequently traveled path, regardless of direction.</p></li>
-<li><p>Line color corresponds to ride volume between those stations.</p></li>
-<li><p>Users can filter by rider type using the control panel on the right.</p>
-<p>This visualization highlights differences in spatial behavior between groups:</p></li>
-<li><p>Customers tend to use routes near the lakefront and popular tourist zones.</p></li>
-<li><p>Subscribers favor more distributed, commuter-oriented paths.</p></li>
+<li>Each line represents a frequently traveled path, regardless of direction.</li>
+<li>Line color corresponds to ride volume between those stations.</li>
+<li>Users can filter by rider type using the control panel on the right.</li>
+</ul>
+<p>This visualization highlights differences in spatial behavior between groups:</p>
+<ul>
+<li>Customers tend to use routes near the lakefront and popular tourist zones.</li>
+<li>Subscribers favor more distributed, commuter-oriented paths.</li>
 </ul>
 <p>“Station usage differs substantially by rider type, bu not in the expected way.”</p>
+<figure class="float-right figure">
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="images/thumbnails/tableau_thumb_sheet2.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
 </section>
 <section id="sheet-2-customer-vs-subscriber-rides-by-path-histogram" class="level4">
 <h4 class="anchored" data-anchor-id="sheet-2-customer-vs-subscriber-rides-by-path-histogram">Sheet 2: Customer vs Subscriber Rides by Path (Histogram)</h4>
-<pre><code>This histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.
-
-    Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.
-
-This view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.</code></pre>
+<p>This histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.</p>
+<p>Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.</p>
+<p>This view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.</p>
+<figure class="float-right figure">
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet3" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="images/thumbnails/tableau_thumb_sheet3.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
 </section>
 <section id="sheet-3-subscriber-ratio-distribution-by-path-histogram" class="level4">
 <h4 class="anchored" data-anchor-id="sheet-3-subscriber-ratio-distribution-by-path-histogram">Sheet 3: Subscriber Ratio Distribution by Path (Histogram)</h4>
-<pre><code>This histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.
-    The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.
-
-    Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).</code></pre>
+<p>This histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path. - The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.</p>
+<ul>
+<li>Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).</li>
+</ul>
 <p>The chart can be sorted by:</p>
 <ul>
-<li><p>Path name (alphabetical)</p></li>
-<li><p>Subscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)</p>
+<li>Path name (alphabetical)</li>
+<li>Subscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)</li>
+</ul>
 <p>This visualization reveals important asymmetries in how ride paths are used:</p>
-<pre><code>  Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
-  Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.</code></pre></li>
+<ul>
+<li>Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.</li>
+<li>Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.</li>
 </ul>
 </section>
 </section>
@@ -206,7 +223,7 @@ This view emphasizes which ride paths are dominated by Subscribers (often commut
 <h2 class="anchored" data-anchor-id="static-visualizations">🖼️ Static Visualizations</h2>
 </section>
 <section id="screenshots" class="level2">
-<h2 class="anchored" data-anchor-id="screenshots">ScreenShots</h2>
+<h2 class="anchored" data-anchor-id="screenshots">🖥️ ScreenShots</h2>
 
 
 </section>

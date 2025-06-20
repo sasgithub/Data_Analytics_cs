@@ -10,56 +10,103 @@ This glossary defines key terms used throughout the case study.
 
 ---
 
+:::{#glossary-ADR}
 Average Daily Rides
 :   The total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.
+:::
 
-
+:::{#glossary-bucket}
 Bucket
 :   A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.
+:::
 
+:::{#glossary-cluster}
 Cluster (Ride Duration Cluster)
 :   A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into **Short**, **Medium**, and **Long** clusters to distinguish different usage behaviors.
+:::
 
+:::{#glossary-customer}
 Customer
 :   A user who does not have an annual or recurring membership. Customers include Day Pass riders, single-ride users, and other casual or pay-per-use riders. All non-subscriber users are classified as customers.  The term casual rider might also be used for customers, but for this case study only the term customer is used.
+:::
 
+:::{#glossary-density-plot}
 Density Plot (Kernel Density Plot)
 :   A smoothed visualization of the distribution of a continuous variable, such as ride distance. It estimates the probability density function and often provides clearer insight than a histogram by reducing noise through smoothing.
+:::
 
+:::{#haversine-formula}
+Haversine formula
+:   A mathematical formula used to cacluate the distance between any two points on a sphere along the great-arc going through both points.
+:::
+
+:::{#glossary-kernel}
 Kernel
 :   A mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.
+:::
 
+:::{#glossary-loop}
 Loop Ride
 :   A bike ride that starts and ends at the same station. Often used as a proxy for recreational or tourist behavior. These rides are excluded from this analysis.
+:::
 
+:::{#glossary-MSR}
 Maximum Simultaneous Rides
 :   The maximum number of rides that were active at the same time during a given period (e.g., a year). Calculated by tracking ride start and end events, computing a running total of concurrent rides, and taking the peak value. This metric is used to assess fleet load and system demand during peak usage periods. Also know as **peak concurrency**
+:::
 
+:::{#glossary-NTR}
 Non-Tourist Ride
 :   A ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.
+:::
 
+:::{#glossary-NTS}
+Non-Tourist Station
+:   A station not in or near a designated tourist destinations.  These stations are considered to be more frequented by commuters.
+:::
+
+:::{#glossary-normalization}
 Normalization (Normalized Ride Volume)
 :   The process of scaling data, typically between 0 and 1, to allow for comparisons across categories with different absolute values. For example, normalized ride volume allows temperature-based comparisons regardless of the overall number of rides.
+:::
 
+:::{#glossary-peak-concurrency}
 Peak Concurrency
 :   The highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times.  Also referred to as **max simultaneous rides**. This metric helps assess system load, infrastructure limits, and usage spikes.
+:::
 
+:::{#glossary-rcpb}
 Ride Count per Bike
 :   The total number of rides recorded for an individual bike over the dataset’s time span. Used to evaluate fleet utilization and wear.
+:::
 
-
+:::{#glossary-ride-distance}
 Ride Distance (km)
-:   The linear or estimated distance covered during a bike ride, measured in kilometers. Used as a proxy for trip length and user intent.
+:   The distance between start and end stations, caclulated using the Haversine formula, and measured in kilometers. Used as a proxy for trip length and user intent.
+:::
 
+:::{#glossary-ride-duration}
+Ride Duration
+:   The difference between ride end_time and start_time.
+:::
+
+:::{#glossary-station}
 Station
 :   A docking location where bikes or scooters can be picked up or returned. Used in geographic and behavioral analyses.
+:::
 
+:::{#glossary-subscriber}
 Subscriber
 :   A user who holds an annual or annual-billed-monthly membership with the bike-sharing service.  Subscribers might also be know as members, but for the purpose of this case study only the term Subscriber is used.
+:::
 
+:::{#glossary-user-type}
 User Type
 :   A classification of users based on their relationship with the bike-share system, for the purpose of this case study the are devided into two groups, **Subscribers** or **Customers**.
+:::
 
+:::{#glossary-visualization}
 Visualization
 :   A graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset.
+:::
 
