@@ -1,3 +1,15 @@
+## Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)
+
+<figure class="float-right">
+  <a href="../Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
+
 
 ```R
 ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +

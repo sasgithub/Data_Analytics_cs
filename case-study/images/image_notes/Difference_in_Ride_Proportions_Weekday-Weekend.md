@@ -1,3 +1,37 @@
+## Difference in Ride Proportions Weedkay to Weekend
+
+<figure class="float-right">
+  <a href="../Difference_in_Ride_Proportions_Weekday-Weekend.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../Difference_in_Ride_Proportions_Weekday-Weekend.png" alt="Heatmap showing the difference in ride proportions between weekdays and weekends across each hour of the day. Red indicates hours with higher weekday proportions; blue indicates higher weekend proportions.">
+  </a>
+  <figcaption>
+Hourly difference in ride proportions: Weekday minus Weekend. Red tones highlight hours where weekday rides are more frequent proportionally; blue tones highlight hours dominated by weekend activity.
+  </figcaption>
+</figure>
+
+### 📝 Image Notes
+
+Title: Difference in Ride Proportions: Weekday - Weekend
+X-axis: Hour of Day (0–23)
+Y-axis: Arbitrary (used to create banded heatmap effect)
+Color Scale:
+
+-    Red: Higher ride proportion on weekdays
+-    Blue: Higher ride proportion on weekends
+-    White: No significant difference in proportion
+
+Interpretation
+
+-    Morning hours (~7–9 AM) and afternoon hours (~4–6 PM) are clearly more active on weekdays, likely driven by commuting.
+
+-    Midday (10 AM–3 PM) shows a higher proportional share of rides on weekends, possibly indicating more recreational usage during these hours.
+-    Nighttime hours (~8 PM onward) still lean toward weekday use, albeit more modestly.
+
+This visualization normalizes by total weekday and weekend ride volume, enabling meaningful comparison of usage patterns across the day regardless of total volume differences.
+
+
+
+
 '''R
 
  ride_query <- sprintf("

@@ -1,4 +1,4 @@
-## TITLE
+## Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)
 
 <figure class="float-right">
   <a href="../Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" target="_blank" title="Select image to open full sized chart">

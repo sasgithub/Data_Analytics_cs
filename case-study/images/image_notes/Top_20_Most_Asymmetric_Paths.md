@@ -1,4 +1,4 @@
-## TITLE
+## Top 20 Most Asymmetric Paths
 
 <figure class="float-right">
   <a href="../TOP_20_Most_Asymmetric_Paths.png" target="_blank" title="Select image to open full sized chart">

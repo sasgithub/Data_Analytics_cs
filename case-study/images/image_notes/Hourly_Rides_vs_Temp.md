@@ -1,4 +1,14 @@
-### Hourly Rides vs. Temperature
+## Hourly Rides vs. Temperature (2°C bins)
+
+<figure class="float-right">
+  <a href="../Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Hourly_Rides_vs_Temp.svg" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
 
 This chart illustrates the relationship between **ambient temperature (°C)** and the **number of rides** starting at that temperature. Data is grouped into **2°C bins** to smooth short-term fluctuations and reveal broader trends..
 
@@ -12,7 +22,7 @@ Three ride categories are plotted:
 - **Subscribers** (dark blue line)
 - **Customers** (dark orange line)
 
-#### Insights:
+### Insights:
 
 - Bike usage increases with warmer weather, peaking for both Subscribers and Customers at 26°C (78.8∘F) temperatures, after which it falls off sharplybe.
 - **Subscribers** tend to be less dependant on temperature range (correlation coefficient **VALUE** compared to **VALUE** for Customers), but sill follow the same basic pattern.

@@ -1,3 +1,15 @@
+## Temperature vs Ride Volume by User Type
+
+<figure class="float-right">
+  <a href="../Temp_vs_Ride_Volume_by_User_Type.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Temp_vs_Ride_Volume_by_User_Type.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
+
 
 
 ```R

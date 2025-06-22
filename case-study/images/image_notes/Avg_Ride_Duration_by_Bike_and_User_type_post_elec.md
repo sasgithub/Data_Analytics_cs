@@ -1,3 +1,17 @@
+### Average Ride Duration by Bike Type and User Type
+
+<figure class="float-right">
+  <a href="../Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
+
+
+
 The chart titled "Average Ride Duration by Bike Type and User Type" visualizes the average duration (in minutes) of rides for different bike types, segmented by user type (Subscriber vs Customer).
 
 *** Key observations:

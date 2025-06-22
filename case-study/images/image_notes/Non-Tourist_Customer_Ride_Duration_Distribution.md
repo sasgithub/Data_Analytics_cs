@@ -1,3 +1,14 @@
+# Non-Tourist Customer Ride Duration Distribution
+
+<figure class="float-right">
+  <a href="../Non-Tourist_Customer_Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Non-Tourist_Customer_Ride_Duration_Distribution.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
 
 
 ```R

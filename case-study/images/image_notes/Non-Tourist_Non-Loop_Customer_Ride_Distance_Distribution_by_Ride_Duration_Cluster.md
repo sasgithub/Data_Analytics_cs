@@ -5,12 +5,10 @@
   <img src="../Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" alt="Density plot showing the distribution of ride distances in kilometers for non-tourist, non-loop customer rides, grouped into Short, Medium, and Long duration clusters. Short rides peak around 1–2 km, Medium rides span 2–6 km, and Long rides extend beyond 6 km.">
   </a>
   <figcaption>
-  Ride Distance Distribution by Duration Cluster (Customer Rides Only)
+   Ride Distance Distribution by Duration Cluster (Customer Rides Only)
 This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
   </figcaption>
 </figure>
-
-
 
 ### Overview
 This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled as Short, Medium, and Long.
@@ -55,7 +53,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
   - Ride distances in this group begin at approximatley 1.5 km and extend up to 10 km.
   - Possibly includes destination-oriented or special-purpose trips.
 
-### Interpretation
+### Interpretations
 
 - **Behavioral Insights**:
   - The sharp peak of the short cluster implies highly consistent short-distance use, likely for errands or short hops.

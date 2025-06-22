@@ -1,3 +1,14 @@
+## Non-Tourist Customer Rides by Day of the Week
+
+<figure class="float-right">
+  <a href="../Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
 
 
 ```R

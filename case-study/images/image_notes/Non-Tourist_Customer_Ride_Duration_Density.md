@@ -1,3 +1,15 @@
+## Non-Tourist Customer Ride Duration Density
+
+<figure class="float-right">
+  <a href="../Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/Non-Tourist_Customer_Ride_Duration_Density.png" alt="ALT_TEXT">
+  </a>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
+
 
 
 ```R

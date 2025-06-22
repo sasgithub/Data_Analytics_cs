@@ -3,20 +3,28 @@ title: "Visualizations"
 format: html
 ---
 
+# 🚲 Visualization Gallery
+
+This page presents visualizations from the case study. Visuals are grouped into thematic sections covering time-based patterns, temperature effects, spatial behavior, and more.
+
+---
+
 ## 📈 Interactive Visuals
 
 ### 🚴 Top Stations Map (Leaflet)
 
-<div style="float: right; width: 50%; margin-left: 20px; margin-bottom: 10px;">
-  <a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open interactive map">
-    <img src="images/thumbnails/thumbnail_top_50_stations.png" alt="Top 50 Stations Map" style="width: 100%;">
+<figure class="float-right">
+  <a href="iTop_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
+  <img src="../thumbnail/thumbnail_top_50_stations.png" alt="ALT_TEXT">
   </a>
-</div>
+  <figcaption>
+  FIGCAPTION
+  </figcaption>
+</figure>
+
 This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.
 
 It was created in R using Leaflet.
-
-
 
 ###  Tableau Sheets
 
@@ -91,8 +99,108 @@ This visualization reveals important asymmetries in how ride paths are used:
 
 ## 🖼️ Static Visualizations
 
+### ⏰ Temporal Patterns
+
+Rides analyzed across time dimensions like hour, day, month, or season.
+
+{include: Non-Tourist_Customer_Rides_by_Hour_of_Day.md}
+
+{include: Non-Tourist_Customer_Rides_by_Day_of_the_Week.md}
+
+{include: Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md
+
+{include: Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md}
+
+{include: Non-Tourist_Customer_Rides_by_Month.md}
+
+{include: Non-Tourist_Customer_Rides_by_Season.md}
+
+{include:    Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)
+
+{include:    Non-Tourist Proportion of Daily Rides by Hour and Day Type
+
+{include:    Difference in Ride Proportions Weekday to Weekend
+
+### 🌡️ Temperature and Weather Effects
+
+Ride behavior as it relates to temperature (and optionally precipitation).
+
+{include:  Hourly Rides vs. Temperature (2°C bins)
+
+{include:  Ride Volume by Temperature (2°C Bins)
+
+{include:  Frequency of Temperature Bins
+
+{include:  Ride Volume by Temperature and Precipitation
+
+{include:  Temperature vs Ride Volume by User Type
+
+{include:  Total Hourly Rides vs Temperature (Total, Subscribers and Customers)
+
+{include:  Average Hourly Rides vs Temperature (2° Buckets)
+
+{include:  Average Hourly Rides vs Temperature (2° Buckets with cubic spline interpolation)
+
+
+### ⏳ Ride Duration and Distance Distributions
+
+Focused on duration, distance, and their distributions by user type or cluster.
+
+{include:    Ride Duration Distribution
+
+{include:    Ride Duration Density
+
+{include:    Ride Duration by User Type (box plot)
+
+{include:    Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)
+
+{include:    Non-Tourist Customer Ride Duration Density
+
+{include:    Non-Tourist Customer Ride Duration for Loop Rides
+
+{include:    Ride Duration vs. Station Distance (Non-Tourist Customers)
+
+{include:    Non-Tourist Customer Ride Count by Distance
+
+{include:    Non-Tourist Customer Distribution of Station-to-Station Distances
+
+{include:    Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)
+
+{include:    Non-Tourist Non-Loop Customer Ride Distance Distribution by Ride Duration Cluster 201M Grid
+
+{include:    Loop Ride Length Distribution by Week Part and Time of Day
+
+### 🗺️ Spatial Patterns
+
+Maps and spatial insights.
+
+{include:    Divvy Stations in QGIS
+
+{include:    Divvy Stations Table
+
+{include:    Top 25 Non-Tourist Stations by Customer Ride Count
+
+{include:    Non-Tourist Customer Distribution of Stations to Station Distance
+
+###  Fleet & Usage Patterns
+
+Insights about bikes themselves and system-level metrics.
+
+{include: Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.md}
+
+{include: bike_ride_bucket_histogram.md}
+
+### 🔄 Route Asymmetry
+
+Where paths are not balanced in both directions by user type.
+
+{include:Top_20_Most_Asymmetric_Paths.md}
+
+{include: Top_20_Most_Asymmetric_Paths_by_User_Type.md
 
 
 ## 🖥️ ScreenShots
+
+### Divvy Stations Table
 
 
