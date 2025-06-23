@@ -106,30 +106,39 @@ Rides analyzed across time dimensions like hour, day, month, or season.
 
 ```{include-file}
 image/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Rides_by_Day_of_the_Week.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Rides_by_Month.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Rides_by_Season.md
+```
 
 ```{include-file}
 Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md
+```
 
 ```{include-file}
 Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md
+```
 
 ```{include-file}
 Difference_in_Ride_Proportions_Weekday-Weekend.md
+```
 
 ### 🌡️ Temperature and Weather Effects
 
@@ -137,27 +146,35 @@ Ride behavior as it relates to temperature (and optionally precipitation).
 
 ```{include-file}
 Hourly_Rides_vs_Temp.md
+```
 
 ```{include-file}
 Hourly_Ride_Volume_vs_Temperature.md
+```
 
 ```{include-file}
 Frequency_of_Temp_bins.md
+```
 
 ```{include-file}
 Ride_Volume_by_Temp_and_Precipitation.md
+```
 
 ```{include-file}
 Temp_vs_Ride_Volume_by_User_Type.md
+```
 
 ```{include-file}
 total_hourly_rides_vs_temp_2_total_subs_cust.md
+```
 
 ```{include-file}
 average_hourly_rides_vs_temp_2_bucket.md
+```
 
 ```{include-file}
 average_hourly_rides_vs_temp_2_bucket_smoth.md
+```
 
 
 ### ⏳ Ride Duration and Distance Distributions
@@ -166,39 +183,51 @@ Focused on duration, distance, and their distributions by user type or cluster.
 
 ```{include-file}
 Ride_Duration_Distribution.md
+```
 
 ```{include-file}
 Ride_Duration_Density.md
+```
 
 ```{include-file}
 Ride_Duration_by_User_Type_box.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_Duration_Density.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Ride_Count_by_Distance.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md
+```
 
 ```{include-file}
 Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md
+```
 
 ```{include-file}
 Non-Tourist_Non_Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster_201M_Grid.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Loop_Ride_Length_Distribution.md
+```
 
 ### 🗺️ Spatial Patterns
 
@@ -206,9 +235,11 @@ Maps and spatial insights.
 
 ```{include-file}
 Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.md
+```
 
 ```{include-file}
 Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md
+```
 
 ###  Fleet & Usage Patterns
 
@@ -216,9 +247,11 @@ Insights about bikes themselves and system-level metrics.
 
 ```{include-file}
 Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.md
+```
 
 ```{include-file}
 bike_ride_bucket_histogram.md
+```
 
 ### 🔄 Route Asymmetry
 
@@ -226,16 +259,20 @@ Where paths are not balanced in both directions by user type.
 
 ```{include-file}
 Top_20_Most_Asymmetric_Paths.md
+```
 
 ```{include-file}
 Top_20_Most_Asymmetric_Paths_by_User_Type.md
+```
 
 
 ## 🖥️ ScreenShots
 
 ```{include-file}
 Divvy_Stations_in_QGIS.md
+```
 
 ```{include-file}
 Divvy_Stations_table.md
+```
 
