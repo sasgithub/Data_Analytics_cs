@@ -16,7 +16,7 @@ This page presents visualizations from the case study. Visuals are grouped into 
 
 <figure class="float-right">
   <a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
-  <img src="../thumbnail/thumbnail_top_50_stations.png" alt="ALT_TEXT">
+  <img src="images/thumbnail/thumbnail_top_50_stations.png" alt="ALT_TEXT">
   </a>
   <figcaption>
   FIGCAPTION
@@ -109,35 +109,35 @@ image/image_notes/Non-Tourist_Customer_Rides_by_Hour_of_Day.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Rides_by_Day_of_the_Week.md
+image/image_notes/Non-Tourist_Customer_Rides_by_Day_of_the_Week.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md
+image/image_notes/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md
+image/image_notes/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Rides_by_Month.md
+image/image_notes/Non-Tourist_Customer_Rides_by_Month.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Rides_by_Season.md
+image/image_notes/Non-Tourist_Customer_Rides_by_Season.md
 ```
 
 ```{include-file}
-Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md
+image/image_notes/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md
 ```
 
 ```{include-file}
-Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md
+image/image_notes/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md
 ```
 
 ```{include-file}
-Difference_in_Ride_Proportions_Weekday-Weekend.md
+image/image_notes/Difference_in_Ride_Proportions_Weekday-Weekend.md
 ```
 
 ### 🌡️ Temperature and Weather Effects
@@ -145,35 +145,35 @@ Difference_in_Ride_Proportions_Weekday-Weekend.md
 Ride behavior as it relates to temperature (and optionally precipitation).
 
 ```{include-file}
-Hourly_Rides_vs_Temp.md
+image/image_notes/Hourly_Rides_vs_Temp.md
 ```
 
 ```{include-file}
-Hourly_Ride_Volume_vs_Temperature.md
+image/image_notes/Hourly_Ride_Volume_vs_Temperature.md
 ```
 
 ```{include-file}
-Frequency_of_Temp_bins.md
+image/image_notes/Frequency_of_Temp_bins.md
 ```
 
 ```{include-file}
-Ride_Volume_by_Temp_and_Precipitation.md
+image/image_notes/Ride_Volume_by_Temp_and_Precipitation.md
 ```
 
 ```{include-file}
-Temp_vs_Ride_Volume_by_User_Type.md
+image/image_notes/Temp_vs_Ride_Volume_by_User_Type.md
 ```
 
 ```{include-file}
-total_hourly_rides_vs_temp_2_total_subs_cust.md
+image/image_notes/total_hourly_rides_vs_temp_2_total_subs_cust.md
 ```
 
 ```{include-file}
-average_hourly_rides_vs_temp_2_bucket.md
+image/image_notes/average_hourly_rides_vs_temp_2_bucket.md
 ```
 
 ```{include-file}
-average_hourly_rides_vs_temp_2_bucket_smoth.md
+image/image_notes/average_hourly_rides_vs_temp_2_bucket_smoth.md
 ```
 
 
@@ -182,51 +182,51 @@ average_hourly_rides_vs_temp_2_bucket_smoth.md
 Focused on duration, distance, and their distributions by user type or cluster.
 
 ```{include-file}
-Ride_Duration_Distribution.md
+image/image_notes/Ride_Duration_Distribution.md
 ```
 
 ```{include-file}
-Ride_Duration_Density.md
+image/image_notes/Ride_Duration_Density.md
 ```
 
 ```{include-file}
-Ride_Duration_by_User_Type_box.md
+image/image_notes/Ride_Duration_by_User_Type_box.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.md
+image/image_notes/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_Duration_Density.md
+image/image_notes/Non-Tourist_Customer_Ride_Duration_Density.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.md
+image/image_notes/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md
+image/image_notes/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Ride_Count_by_Distance.md
+image/image_notes/Non-Tourist_Customer_Ride_Count_by_Distance.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md
+image/image_notes/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md
 ```
 
 ```{include-file}
-Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md
+image/image_notes/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md
 ```
 
 ```{include-file}
-Non-Tourist_Non_Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster_201M_Grid.md
+image/image_notes/Non-Tourist_Non_Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster_201M_Grid.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Loop_Ride_Length_Distribution.md
+image/image_notes/Non-Tourist_Customer_Loop_Ride_Length_Distribution.md
 ```
 
 ### 🗺️ Spatial Patterns
@@ -234,11 +234,11 @@ Non-Tourist_Customer_Loop_Ride_Length_Distribution.md
 Maps and spatial insights.
 
 ```{include-file}
-Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.md
+image/image_notes/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.md
 ```
 
 ```{include-file}
-Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md
+image/image_notes/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md
 ```
 
 ###  Fleet & Usage Patterns
@@ -246,11 +246,11 @@ Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md
 Insights about bikes themselves and system-level metrics.
 
 ```{include-file}
-Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.md
+image/image_notes/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.md
 ```
 
 ```{include-file}
-bike_ride_bucket_histogram.md
+image/image_notes/bike_ride_bucket_histogram.md
 ```
 
 ### 🔄 Route Asymmetry
@@ -258,21 +258,21 @@ bike_ride_bucket_histogram.md
 Where paths are not balanced in both directions by user type.
 
 ```{include-file}
-Top_20_Most_Asymmetric_Paths.md
+image/image_notes/Top_20_Most_Asymmetric_Paths.md
 ```
 
 ```{include-file}
-Top_20_Most_Asymmetric_Paths_by_User_Type.md
+image/image_notes/Top_20_Most_Asymmetric_Paths_by_User_Type.md
 ```
 
 
 ## 🖥️ ScreenShots
 
 ```{include-file}
-Divvy_Stations_in_QGIS.md
+image/image_notes/Divvy_Stations_in_QGIS.md
 ```
 
 ```{include-file}
-Divvy_Stations_table.md
+image/image_notes/Divvy_Stations_table.md
 ```
 
