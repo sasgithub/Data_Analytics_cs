@@ -156,7 +156,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#add-week-month-season" id="toc-add-week-month-season" class="nav-link active" data-scroll-target="#add-week-month-season">Add week, month, season</a></li>
+  <li><a href="#difference-in-ride-proportions-weedkay-to-weekend" id="toc-difference-in-ride-proportions-weedkay-to-weekend" class="nav-link active" data-scroll-target="#difference-in-ride-proportions-weedkay-to-weekend">Difference in Ride Proportions Weedkay to Weekend</a></li>
+  <li><a href="#add-week-month-season" id="toc-add-week-month-season" class="nav-link" data-scroll-target="#add-week-month-season">Add week, month, season</a></li>
   <li><a href="#convert-utc-to-chicago-local-time" id="toc-convert-utc-to-chicago-local-time" class="nav-link" data-scroll-target="#convert-utc-to-chicago-local-time">Convert UTC to Chicago local time</a></li>
   </ul>
 </nav>
@@ -167,10 +168,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="difference-in-ride-proportions-weedkay-to-weekend" class="level2">
+<h2 class="anchored" data-anchor-id="difference-in-ride-proportions-weedkay-to-weekend">Difference in Ride Proportions Weedkay to Weekend</h2>
+<figure class="float-right figure">
+<a href="../Difference_in_Ride_Proportions_Weekday-Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../Difference_in_Ride_Proportions_Weekday-Weekend.png" alt="Heatmap showing the difference in ride proportions between weekdays and weekends across each hour of the day. Red indicates hours with higher weekday proportions; blue indicates higher weekend proportions." class="figure-img"> </a>
+<figcaption>
+Hourly difference in ride proportions: Weekday minus Weekend. Red tones highlight hours where weekday rides are more frequent proportionally; blue tones highlight hours dominated by weekend activity.
+</figcaption>
+</figure>
+<section id="image-notes" class="level3">
+<h3 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h3>
+<p>Title: Difference in Ride Proportions: Weekday - Weekend X-axis: Hour of Day (0–23) Y-axis: Arbitrary (used to create banded heatmap effect) Color Scale:</p>
+<ul>
+<li>Red: Higher ride proportion on weekdays</li>
+<li>Blue: Higher ride proportion on weekends</li>
+<li>White: No significant difference in proportion</li>
+</ul>
+<p>Interpretation</p>
+<ul>
+<li><p>Morning hours (~7–9 AM) and afternoon hours (~4–6 PM) are clearly more active on weekdays, likely driven by commuting.</p></li>
+<li><p>Midday (10 AM–3 PM) shows a higher proportional share of rides on weekends, possibly indicating more recreational usage during these hours.</p></li>
+<li><p>Nighttime hours (~8 PM onward) still lean toward weekday use, albeit more modestly.</p></li>
+</ul>
+<p>This visualization normalizes by total weekday and weekend ride volume, enabling meaningful comparison of usage patterns across the day regardless of total volume differences.</p>
 <p>’’’R</p>
 <p>ride_query &lt;- sprintf(” SELECT ride_id, start_time, end_time, start_station_id, end_station_id, bike_type FROM rides WHERE user_type = 1 AND start_station_id IN (%s) AND end_station_id IN (%s) AND start_time &gt;= strftime(‘%%s’, ‘2023-01-01’) “, station_ids_sql, station_ids_sql)</p>
 <p>non_tourist_customer_rides_df &lt;- dbGetQuery(con, ride_query)</p>
 <p>non_tourist_customer_rides_df &lt;- non_tourist_customer_rides_df %&gt;% mutate( ride_date = as.Date(as.POSIXct(start_time, origin = “1970-01-01”)), day_of_week = weekdays(ride_date), month = format(ride_date, “%B”), season = case_when( month %in% c(“December”, “January”, “February”) ~ “Winter”, month %in% c(“March”, “April”, “May”) ~ “Spring”, month %in% c(“June”, “July”, “August”) ~ “Summer”, month %in% c(“September”, “October”, “November”) ~ “Fall” ) )</p>
+</section>
+</section>
 <section id="add-week-month-season" class="level1">
 <h1>Add week, month, season</h1>
 <p>non_tourist_customer_rides_df &lt;- non_tourist_customer_rides_df %&gt;% mutate( start_datetime = as.POSIXct(start_time, origin = “1970-01-01”, tz = “America/Chicago”), day_of_week = wday(start_datetime, label = TRUE, abbr = FALSE), month = month(start_datetime, label = TRUE, abbr = FALSE), season = case_when( month(start_datetime) %in% c(12, 1, 2) ~ “Winter”, month(start_datetime) %in% c(3, 4, 5) ~ “Spring”, month(start_datetime) %in% c(6, 7, 8) ~ “Summer”, month(start_datetime) %in% c(9, 10, 11) ~ “Fall” ) )</p>

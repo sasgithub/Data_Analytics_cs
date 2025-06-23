@@ -107,7 +107,7 @@ Rides analyzed across time dimensions like hour, day, month, or season.
 
 {include: Non-Tourist_Customer_Rides_by_Day_of_the_Week.md}
 
-{include: Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md
+{include: Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md}
 
 {include: Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md}
 
@@ -115,72 +115,72 @@ Rides analyzed across time dimensions like hour, day, month, or season.
 
 {include: Non-Tourist_Customer_Rides_by_Season.md}
 
-{include:    Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)
+{include: Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md}
 
-{include:    Non-Tourist Proportion of Daily Rides by Hour and Day Type
+{include: Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md}
 
-{include:    Difference in Ride Proportions Weekday to Weekend
+{include: Difference_in_Ride_Proportions_Weekday-Weekend.md}
 
 ### 🌡️ Temperature and Weather Effects
 
 Ride behavior as it relates to temperature (and optionally precipitation).
 
-{include:  Hourly Rides vs. Temperature (2°C bins)
+{include: Hourly_Rides_vs_Temp.md}
 
-{include:  Ride Volume by Temperature (2°C Bins)
+{include: Hourly_Ride_Volume_vs_Temperature.md}
 
-{include:  Frequency of Temperature Bins
+{include: Frequency_of_Temp_bins.md}
 
-{include:  Ride Volume by Temperature and Precipitation
+{include: Ride_Volume_by_Temp_and_Precipitation.md}
 
-{include:  Temperature vs Ride Volume by User Type
+{include: Temp_vs_Ride_Volume_by_User_Type.md}
 
-{include:  Total Hourly Rides vs Temperature (Total, Subscribers and Customers)
+{include: total_hourly_rides_vs_temp_2_total_subs_cust.md}
 
-{include:  Average Hourly Rides vs Temperature (2° Buckets)
+{include: average_hourly_rides_vs_temp_2_bucket.md}
 
-{include:  Average Hourly Rides vs Temperature (2° Buckets with cubic spline interpolation)
+{include: average_hourly_rides_vs_temp_2_bucket_smooth.md}
 
 
 ### ⏳ Ride Duration and Distance Distributions
 
 Focused on duration, distance, and their distributions by user type or cluster.
 
-{include:    Ride Duration Distribution
+{include: Ride_Duration_Distribution.md}
 
-{include:    Ride Duration Density
+{include: Ride_Duration_Density.md}
 
-{include:    Ride Duration by User Type (box plot)
+{include: Ride_Duration_by_User_Type_box.md}
 
-{include:    Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)
+{include: Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.md}
 
-{include:    Non-Tourist Customer Ride Duration Density
+{include: Non-Tourist_Customer_Ride_Duration_Density.md}
 
-{include:    Non-Tourist Customer Ride Duration for Loop Rides
+{include: Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.md}
 
-{include:    Ride Duration vs. Station Distance (Non-Tourist Customers)
+{include: Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md}
 
-{include:    Non-Tourist Customer Ride Count by Distance
+{include: Non-Tourist_Customer_Ride_Count_by_Distance.md}
 
-{include:    Non-Tourist Customer Distribution of Station-to-Station Distances
+{include: Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md}
 
-{include:    Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)
+{include: Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md}
 
-{include:    Non-Tourist Non-Loop Customer Ride Distance Distribution by Ride Duration Cluster 201M Grid
+{include: Non-Tourist_Non_Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster_201M_Grid.md}
 
-{include:    Loop Ride Length Distribution by Week Part and Time of Day
+{include: Non-Tourist_Customer_Loop_Ride_Length_Distribution.md}
 
 ### 🗺️ Spatial Patterns
 
 Maps and spatial insights.
 
-{include:    Divvy Stations in QGIS
+{include: Divvy_Stations_in_QGIS.md}
 
-{include:    Divvy Stations Table
+{include: Divvy_Stations_table.md}
 
-{include:    Top 25 Non-Tourist Stations by Customer Ride Count
+{include: Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.md}
 
-{include:    Non-Tourist Customer Distribution of Stations to Station Distance
+{include: Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md}
 
 ###  Fleet & Usage Patterns
 
@@ -201,6 +201,7 @@ Where paths are not balanced in both directions by user type.
 
 ## 🖥️ ScreenShots
 
-### Divvy Stations Table
+{include: Divvy_Stations_in_QGIS.md}
 
+{include: Divvy_Stations_table.md}
 

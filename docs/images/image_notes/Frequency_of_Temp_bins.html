@@ -151,8 +151,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#frequency-of-temperature-bins" id="toc-frequency-of-temperature-bins" class="nav-link active" data-scroll-target="#frequency-of-temperature-bins">Frequency of Temperature Bins</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -160,11 +166,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="frequency-of-temperature-bins" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-of-temperature-bins">Frequency of Temperature Bins</h2>
+<figure class="float-right figure">
+<a href="../Frequency_of_Temp_bin.png" target="_blank" title="Select image to open full sized chart"> <img src="../thumbnail/Frequency_of_Temp_bin.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Temperature Bins"</span>, <span class="at">x =</span> <span class="st">"Temp (°C)"</span>, <span class="at">y =</span> <span class="st">"Hours Observed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

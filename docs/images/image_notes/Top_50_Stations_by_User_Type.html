@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#top_50_stations_by_user_type.html" id="toc-top_50_stations_by_user_type.html" class="nav-link active" data-scroll-target="#top_50_stations_by_user_type.html">Top_50_Stations_by_User_Type.html</a></li>
+  <li><a href="#top-50-stations-by-user-type" id="toc-top-50-stations-by-user-type" class="nav-link active" data-scroll-target="#top-50-stations-by-user-type">Top 50 Stations by User Type</a></li>
   </ul>
 </nav>
     </div>
@@ -166,8 +166,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_50_stations_by_user_type.html" class="level1">
-<h1>Top_50_Stations_by_User_Type.html</h1>
+<section id="top-50-stations-by-user-type" class="level1">
+<h1>Top 50 Stations by User Type</h1>
+<figure class="float-right figure">
+<a href="iTop_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart"> <img src="../thumbnail/thumbnail_top_50_stations.png" alt="ALT_TEXT" class="figure-img"> </a>
+<figcaption>
+FIGCAPTION
+</figcaption>
+</figure>
 <p>This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.</p>
 <p>Generated with the following R command;</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(top_stations_df_offset) <span class="sc">%&gt;%</span></span>
