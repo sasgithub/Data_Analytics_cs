@@ -1,4 +1,4 @@
-## Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)
+#### Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" target="_blank" title="Select image to open full sized chart">
@@ -10,7 +10,7 @@
 </figure>
 
 
-### 📝 Image Notes
+##### 📝 Image Notes
 
 **Title:** Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)  
 **X-axis:** Hour of Day (0–23)  
@@ -27,7 +27,7 @@
 
 ---
 
-### Interpretation
+##### Interpretation
 
 - **Commuting Behavior**: The sharp weekday peaks in summer and fall suggest commuter-driven use around 17:00, especially among customers using the system for one-way travel home from work or transit.
 - **Seasonal Sensitivity**: Weekend ride patterns are flatter across the day and more seasonally stable, while weekday patterns show strong seasonal variation.

@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" id="toc-image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" class="nav-link active" data-scroll-target="#image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch">Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,20 +160,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" class="level2">
-<h2 class="anchored" data-anchor-id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch">Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)</h2>
+<section id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch" class="level4">
+<h4 class="anchored" data-anchor-id="image-notes-average-daily-rides-by-bike-type-and-user-type-post-electric-launch">Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)</h4>
 <figure class="float-right figure">
 <a href="../images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="ALT_TEXT" class="figure-img"> </a>
 <figcaption>
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
 <p>This bar chart displays the <strong>average number of daily rides</strong> by <strong>bike type</strong>, grouped by <strong>user type</strong> (Subscriber vs.&nbsp;Customer), for the period after the introduction of electric bikes and scooters.</p>
 </section>
-<section id="axes-and-groupings" class="level3">
-<h3 class="anchored" data-anchor-id="axes-and-groupings">Axes and Groupings</h3>
+<section id="axes-and-groupings" class="level5">
+<h5 class="anchored" data-anchor-id="axes-and-groupings">Axes and Groupings</h5>
 <ul>
 <li><strong>X-Axis (Bike Type)</strong>:
 <ul>
@@ -199,8 +193,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
 <li><strong>Classic Bikes</strong>:
 <ul>
@@ -224,8 +218,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
 <li><strong>Subscriber Preference</strong>:
 <ul>
@@ -243,8 +237,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="use-case" class="level3">
-<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This visualization supports: - Infrastructure planning (e.g., expansion of electric charging or docking stations), - Marketing strategy (targeting modal preferences by user type), - Evaluating post-launch success of electric mobility options.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>

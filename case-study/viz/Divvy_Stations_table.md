@@ -1,4 +1,4 @@
-## Divvy Stations Table
+#### Divvy Stations Table
 
 <figure class="float-right">
   <a href="../images/Divvy_Stations_table.png" target="_blank" title="Select image to open full sized chart">
@@ -13,4 +13,5 @@
 
 This is a screen shot of the Divvy_Stations_2013 table taken from QGIS
 
+<br style="clear: both;"></br>
 

@@ -1,4 +1,4 @@
-## Distribution of Ride Counts per Bike
+#### Distribution of Ride Counts per Bike
 
 <figure class="float-right">
   <a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart">
@@ -9,10 +9,10 @@
   </figcaption>
 </figure>
 
-### Overview
+##### Overview
 This histogram visualizes the distribution of **total ride counts per bike**, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset's timespan.
 
-### Axes
+##### Axes
 
 - **X-Axis (Ride Count Range)**:
   - Labeled in bins of 100 rides (e.g., `0-99`, `100-199`, ..., `5500-5599`).
@@ -22,14 +22,14 @@ This histogram visualizes the distribution of **total ride counts per bike**, gr
   - Indicates how many bikes fall within each ride count range.
   - Peaks near 300 bikes in the most frequently occurring bins.
 
-### Visual Elements
+##### Visual Elements
 
 - **Bars**:
   - Colored purple with black borders.
   - Uniform width, covering each 100-ride range.
   - Distribution forms a roughly symmetric bell-shaped curve centered around the `2700–3499` range.
 
-### Observations
+##### Observations
 
 - **Low-end Outliers**:
   - A noticeable spike in the `0–99` bin (~130 bikes), suggesting a set of bikes with extremely limited or no use.
@@ -43,7 +43,7 @@ This histogram visualizes the distribution of **total ride counts per bike**, gr
   - Usage drops off steadily after ~4000 rides per bike.
   - Very few bikes exceed 5000 rides.
 
-### Interpretation
+##### Interpretation
 
 - The chart implies a relatively well-utilized fleet with a **normal distribution** centered around ~3000 rides per bike.
 - The left-side spike at `0–99` highlights potential outliers worth investigating:
@@ -54,7 +54,7 @@ This histogram visualizes the distribution of **total ride counts per bike**, gr
 
 - The right tail shows some high-mileage bikes that may be candidates for maintenance or replacement soon.
 
-### Use Case
+##### Use Case
 
 This visualization is valuable for:
 - **Fleet maintenance planning** (identify overused/underused bikes),

@@ -1,4 +1,4 @@
-## Ride Volume by Temperature and Precipitation
+#### Ride Volume by Temperature and Precipitation
 
 <figure class="float-right">
   <a href="../images/Ride_Volume_by_Temp_and_Precipitation.png" target="_blank" title="Select image to open full sized chart">
@@ -11,10 +11,10 @@ This panel chart shows total ride volume for subscribers and customers, grouped 
 </figure>
 
 
-### Overview
+##### Overview
 This line chart panel shows the total ride volume across 2°C temperature bins, broken down by **user type** (Customer vs. Subscriber) and grouped by **rain condition** (Dry, Wet, No data). Each panel represents a different precipitation category, allowing direct comparison of behavior under different weather conditions.
 
-### Chart Structure
+##### Chart Structure
 
 - **X-Axis (Temperature Bin °C)**:
   - Temperature ranges from -30°C to +30°C.
@@ -32,28 +32,28 @@ This line chart panel shows the total ride volume across 2°C temperature bins, 
   - **Red**: Customer ride volume.
   - **Cyan**: Subscriber ride volume.
 
-### Observations
+##### Observations
 
-#### Dry Conditions
+###### Dry Conditions
 - **Most ride volume occurs here**, peaking between 20–26°C.
 - Subscribers consistently log more rides than customers across all temperature bins.
 - Clear bell-shaped distribution centered around optimal riding weather (20–25°C).
 
-#### No Data
+###### No Data
 - Very little volume, but patterns still mirror the dry curve.
 - Could include early data before weather tracking began or corrupted weather records.
 
-#### Wet Conditions
+###### Wet Conditions
 - Dramatic decrease in ride volume for both user types.
 - Subscriber and customer patterns flatten and converge, showing less variance in behavior when it's raining.
 
-### Interpretation
+##### Interpretation
 
 - **Temperature strongly influences ridership**, with optimal weather (20–25°C) showing the highest activity.
 - **Precipitation is a major deterrent**, suppressing ride volume across all temperatures.
 - **Subscribers** ride more often and in a wider temperature range than customers, especially when conditions are dry.
 
-### Use Case
+##### Use Case
 
 This visualization helps:
 - Quantify the impact of weather on bike share demand.

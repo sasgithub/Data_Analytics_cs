@@ -1,4 +1,4 @@
-# Non-Tourist Customer Ride Duration Distribution
+#### Non-Tourist Customer Ride Duration Distribution
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">

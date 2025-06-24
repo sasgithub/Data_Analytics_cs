@@ -1,4 +1,4 @@
-## Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)
+#### Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" target="_blank" title="Select image to open full sized chart">
@@ -10,10 +10,10 @@ This density plot compares ride distances for non-tourist, non-loop customer rid
   </figcaption>
 </figure>
 
-### Overview
+##### Overview
 This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled as Short, Medium, and Long.
 
-### Axes
+##### Axes
 
 - **X-Axis (Distance in km)**:
   - Ranges from 0 to 10 km.
@@ -23,7 +23,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
   - Represents the probability density of ride distances within each cluster.
   - Higher peaks indicate more common distances in that cluster.
 
-### Cluster Colors
+##### Cluster Colors
 
 - **Short (Blue)**:
   - Peaks sharply between 0.5–2.5 km.
@@ -37,7 +37,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
   - Starts lower but maintains a relatively even presence across 3–10 km.
   - Longest tail, with density extending up to the maximum distance shown (10 km).
 
-### Observations
+##### Observations
 
 - **Short Cluster**:
   - Highest density of all clusters.
@@ -53,7 +53,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
   - Ride distances in this group begin at approximatley 1.5 km and extend up to 10 km.
   - Possibly includes destination-oriented or special-purpose trips.
 
-### Interpretations
+##### Interpretations
 
 - **Behavioral Insights**:
   - The sharp peak of the short cluster implies highly consistent short-distance use, likely for errands or short hops.
@@ -64,7 +64,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
   - Rides were filtered to exclude tourist, subscribers and loop rides, increasing the likelihood that these reflect **practical** customer travel behavior (e.g., commuting, errands).
   - Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.
 
-### Use Case
+##### Use Case
 
 This chart helps:
 - Understand ride behavior by duration across distance ranges.

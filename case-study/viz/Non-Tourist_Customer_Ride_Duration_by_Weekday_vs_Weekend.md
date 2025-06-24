@@ -1,4 +1,4 @@
-## Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)
+#### Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
@@ -10,11 +10,11 @@
   </figcaption>
 </figure>
 
-### Overview
+##### Overview
 
 This kernel density plot compares the **ride duration (in minutes)** of non-tourist customer bike rides, distinguishing between **weekday** and **weekend** behavior. It focuses exclusively on **non-subscriber** riders whose trips did **not** start or end near tourist destinations.
 
-### Axes
+##### Axes
 
 - **X-Axis (Ride Length in Minutes)**:
   - Ranges from 0 to 150 minutes.
@@ -25,7 +25,7 @@ This kernel density plot compares the **ride duration (in minutes)** of non-tour
   - Represents the smoothed distribution of ride durations using kernel density estimation.
   - Higher values reflect more common durations.
 
-### Day Type Colors
+##### Day Type Colors
 
 - **Weekday (Blue)**:
   - Strong peak at short durations (approximately 6–8 minutes).
@@ -35,7 +35,7 @@ This kernel density plot compares the **ride duration (in minutes)** of non-tour
   - Peak is broader and slightly lower, centered just after 8 minutes.
   - Slower decline, suggesting more variety in weekend usage.
 
-### Observations
+##### Observations
 
 - **Weekday rides** are slightly shorter on average and more tightly concentrated.
   - Likely dominated by quick errands, commutes, or first-mile/last-mile transport.
@@ -45,11 +45,11 @@ This kernel density plot compares the **ride duration (in minutes)** of non-tour
 
 - Both distributions are **right-skewed**, with long tails indicating occasional extended rides by some users.
 
-### Behavioral Insight
+##### Behavioral Insight
 
 This view supports the hypothesis that **weekday** customer rides are more **task-oriented**, while **weekend** usage involves **longer, discretionary** trips. Although the differences are subtle, they are consistent with other indicators of time-based travel patterns in non-tourist areas.
 
-### Use Case
+##### Use Case
 
 This chart is useful for:
 - Understanding ride duration norms by day type.

@@ -1,4 +1,4 @@
-## Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)
+#### Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">

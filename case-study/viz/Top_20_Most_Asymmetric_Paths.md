@@ -1,4 +1,4 @@
-## Top 20 Most Asymmetric Paths
+#### Top 20 Most Asymmetric Paths
 
 <figure class="float-right">
   <a href="../images/Top_20_Most_Asymmetric_Paths.png" target="_blank" title="Select image to open full sized chart">
@@ -9,17 +9,17 @@
   </figcaption>
 </figure>
 
-### Top 20 Most Asymmetric Paths by User Type
+##### Top 20 Most Asymmetric Paths by User Type
 
 This side-by-side horizontal bar chart identifies the **20 most directionally imbalanced ride paths** (i.e., asymmetric) for each user type — **customers** on the left and **subscribers** on the right.
 
-#### What is Asymmetry?
+###### What is Asymmetry?
 The **asymmetry ratio** is defined as:
 > rides in one direction / total rides in both directions
 
 Values closer to 1.0 indicate strong directional bias.
 
-#### Key Observations:
+###### Key Observations:
 - **Customer paths** tend to involve routes to and from major downtown hubs like Canal St, Clinton St, and Wacker Dr — possibly reflecting less predictable, one-way tourist or ad hoc travel.
 - **Subscriber paths** are more concentrated near recreational or scenic areas like **Columbus Dr**, **Streeter Dr**, and **Lake Shore Dr**, hinting at commuting or habitual use involving these corridors.
 - Subscribers' top asymmetric paths skew toward locations like **Millennium Park**, **McCormick Place**, and **DuSable Harbor**, supporting recreational or last-mile transit interpretations.

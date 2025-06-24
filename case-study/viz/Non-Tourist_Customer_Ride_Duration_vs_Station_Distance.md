@@ -1,4 +1,4 @@
-## Ride Duration vs. Station Distance (Non-Tourist Customers)
+#### Ride Duration vs. Station Distance (Non-Tourist Customers)
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" target="_blank" title="Select image to open full sized chart">
@@ -10,10 +10,10 @@ This scatterplot displays the relationship between ride length and distance betw
   </figcaption>
 </figure>
 
-### Overview
+##### Overview
 This scatterplot shows the relationship between **ride duration** and **station-to-station distance** for non-tourist customer rides. A linear reference line is included for interpretive comparison.
 
-### Axes
+##### Axes
 
 - **X-Axis (Distance Between Stations in km)**:
   - Ranges from 0 to ~30 km.
@@ -23,7 +23,7 @@ This scatterplot shows the relationship between **ride duration** and **station-
   - Ranges from 0 to 150 minutes.
   - Indicates the duration of each ride.
 
-### Visual Elements
+##### Visual Elements
 
 - **Green points**:
   - Represent individual non-tourist customer rides.
@@ -33,7 +33,7 @@ This scatterplot shows the relationship between **ride duration** and **station-
   - A linear reference line (possibly showing a constant-speed model or fitted trend).
   - Helps visualize the general relationship between time and distance.
 
-### Observations
+##### Observations
 
 - **Dense cluster near origin**:
   - The majority of rides are short in both duration and distance.
@@ -49,13 +49,13 @@ This scatterplot shows the relationship between **ride duration** and **station-
   - The blue line roughly follows the **lower edge** of the ride cloud, suggesting a speed floor (minimum speed threshold).
   - This could represent the fastest direct rides, possibly made with electric bikes or scooters.
 
-### Interpretation
+##### Interpretation
 
 - There's a **positive relationship** between station distance and ride duration, but with **high variance**.
 - Many long-duration rides cover only short distances, hinting at circuitous routes, heavy traffic, or recreational usage.
 - The plot may also reflect the **impact of stop time** (e.g., errands, pauses) not being filtered out.
 
-### Use Case
+##### Use Case
 
 This visualization helps:
 - Explore efficiency and routing behavior of customers.

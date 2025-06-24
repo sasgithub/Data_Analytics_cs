@@ -1,4 +1,4 @@
-### 🗺️ Screenshot: 2025 Divvy Stations Map
+#### 🗺️ Screenshot: 2025 Divvy Stations Map
 
 <figure class="float-right">
   <a href="../images/2025_Divvy_Stations.png" target="_blank" title="Select image to open full sized chart">

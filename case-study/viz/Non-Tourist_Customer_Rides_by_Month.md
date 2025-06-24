@@ -1,4 +1,4 @@
-## Non-Tourist Customer Rides by Month
+#### Non-Tourist Customer Rides by Month
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank" title="Select image to open full sized chart">

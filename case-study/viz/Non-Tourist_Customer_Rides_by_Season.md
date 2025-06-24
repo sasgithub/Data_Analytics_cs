@@ -1,4 +1,4 @@
-## Non-Tourist Customer Rides by Season
+#### Non-Tourist Customer Rides by Season
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Season.png" target="_blank" title="Select image to open full sized chart">

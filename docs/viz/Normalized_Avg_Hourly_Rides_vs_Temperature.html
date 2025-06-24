@@ -160,8 +160,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="chart-description-normalized-average-hourly-rides-vs-temperature" class="level3">
-<h3 class="anchored" data-anchor-id="chart-description-normalized-average-hourly-rides-vs-temperature">📊 Chart Description: Normalized Average Hourly Rides vs Temperature</h3>
+<section id="chart-description-normalized-average-hourly-rides-vs-temperature" class="level4">
+<h4 class="anchored" data-anchor-id="chart-description-normalized-average-hourly-rides-vs-temperature">📊 Chart Description: Normalized Average Hourly Rides vs Temperature</h4>
 <figure class="chartbox figure">
 <a href="../images/Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full-sized chart"> <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius" class="figure-img"> </a>
 <figcaption class="small-caption">
@@ -176,8 +176,8 @@ Normalized average hourly rides by temperature (°C), showing subscriber, custom
 <li>Black line for the Total (combined average)</li>
 </ul>
 </section>
-<section id="what-the-chart-shows" class="level3">
-<h3 class="anchored" data-anchor-id="what-the-chart-shows">📈 What the chart shows:</h3>
+<section id="what-the-chart-shows" class="level4">
+<h4 class="anchored" data-anchor-id="what-the-chart-shows">📈 What the chart shows:</h4>
 <pre><code>All three lines follow a similar bell-shaped curve, indicating that ride volume increases with temperature up to a point and then declines slightly.</code></pre>
 <dl>
 <dt>Below 5°C:</dt>
@@ -198,22 +198,22 @@ Ride volume begins to decline slightly, especially for customers, suggesting hea
 </dd>
 </dl>
 </section>
-<section id="comparison-by-user-type" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-by-user-type">📊 Comparison by User Type:</h3>
+<section id="comparison-by-user-type" class="level4">
+<h4 class="anchored" data-anchor-id="comparison-by-user-type">📊 Comparison by User Type:</h4>
 <pre><code>Customers (dark orange line) are more sensitive to temperature changes. They ride less in the cold and more in warm weather, but their participation falls more steeply when it's too hot.
 
 Subscribers (dark blue line) have a flatter, more stable curve, meaning their ride behavior is more consistent across a range of temperatures, likely because they are commuting or riding out of necessity.
 
 The Total line (black) always lies between the two other lines, as expected from an average.</code></pre>
 </section>
-<section id="general-observations" class="level3">
-<h3 class="anchored" data-anchor-id="general-observations">🔍 General Observations:</h3>
+<section id="general-observations" class="level4">
+<h4 class="anchored" data-anchor-id="general-observations">🔍 General Observations:</h4>
 <pre><code>The shape of the curves is very similar across all user types, indicating that temperature influences casual customers and subscribers in a similar way — warmer weather increases ridership for everyone.
 
 The "total" line (black) consistently lies between the customer (dark orange) and subscriber (dark blue) lines, as expected from an average or composite.</code></pre>
 </section>
-<section id="temperature-effects" class="level3">
-<h3 class="anchored" data-anchor-id="temperature-effects">🌡️ Temperature Effects:</h3>
+<section id="temperature-effects" class="level4">
+<h4 class="anchored" data-anchor-id="temperature-effects">🌡️ Temperature Effects:</h4>
 <dl>
 <dt>Below ~5°C (≈ 41°F):</dt>
 <dd>
@@ -233,8 +233,8 @@ Slight drop-off in ride frequency, especially among casual riders, implying that
 </dd>
 </dl>
 </section>
-<section id="behavioral-insights-celsius-context" class="level3">
-<h3 class="anchored" data-anchor-id="behavioral-insights-celsius-context">🤔 Behavioral Insights (Celsius Context):</h3>
+<section id="behavioral-insights-celsius-context" class="level4">
+<h4 class="anchored" data-anchor-id="behavioral-insights-celsius-context">🤔 Behavioral Insights (Celsius Context):</h4>
 <p>|Temp Range (°C)|Customer Behavior|Subscriber Behavior|Interpretation| |&lt;5°C|Low ridership|Moderately low|Cold weather suppresses casual rides more strongly| |5–25°C|Steep increase|Moderate increase|Warm-up boosts ridership, especially casual use| |~25°C|Peak ridership|Near-peak|Ideal biking conditions for both groups| |&gt;30°C|Drop or plateau|Slight decline or steady|Hot weather reduces recreational riding|</p>
 <p>📊 Comparison by User Type:</p>
 <ul>
@@ -243,13 +243,13 @@ Slight drop-off in ride frequency, especially among casual riders, implying that
 <li><p>The Total line (black) always lies between the two other lines, as expected from an average.</p></li>
 </ul>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">✅ Conclusion:</h3>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">✅ Conclusion:</h4>
 <p>Casual users are more sensitive to weather extremes, while subscribers demonstrate more consistent use—likely reflecting commute and utility rather than leisure.</p>
 </section>
-<section id="production-details" class="level3">
-<h3 class="anchored" data-anchor-id="production-details">Production Details</h3>
-<p>####R source code used to produce the chart</p>
+<section id="production-details" class="level4">
+<h4 class="anchored" data-anchor-id="production-details">Production Details</h4>
+<p>#####R source code used to produce the chart</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(normalized_df, <span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> normalized_rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>

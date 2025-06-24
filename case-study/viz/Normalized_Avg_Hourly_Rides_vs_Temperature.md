@@ -1,4 +1,4 @@
-### 📊 Chart Description: Normalized Average Hourly Rides vs Temperature
+#### 📊 Chart Description: Normalized Average Hourly Rides vs Temperature
 
 <figure class="chartbox">
   <a href="../images/Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full-sized chart">
@@ -20,7 +20,7 @@ There are three colored lines:
 -  Dark orange line for Customers
 -  Black line for the Total (combined average)
 
-### 📈 What the chart shows:
+#### 📈 What the chart shows:
 
     All three lines follow a similar bell-shaped curve, indicating that ride volume increases with temperature up to a point and then declines slightly.
 
@@ -36,7 +36,7 @@ Around 25°C:
 Beyond 30°C:
 :   Ride volume begins to decline slightly, especially for customers, suggesting heat discourages casual riding more than subscriber riding.
 
-### 📊 Comparison by User Type:
+#### 📊 Comparison by User Type:
 
     Customers (dark orange line) are more sensitive to temperature changes. They ride less in the cold and more in warm weather, but their participation falls more steeply when it's too hot.
 
@@ -44,13 +44,13 @@ Beyond 30°C:
 
     The Total line (black) always lies between the two other lines, as expected from an average.
 
-### 🔍 General Observations:
+#### 🔍 General Observations:
 
     The shape of the curves is very similar across all user types, indicating that temperature influences casual customers and subscribers in a similar way — warmer weather increases ridership for everyone.
 
     The "total" line (black) consistently lies between the customer (dark orange) and subscriber (dark blue) lines, as expected from an average or composite.
 
-### 🌡️ Temperature Effects:
+#### 🌡️ Temperature Effects:
 
 Below ~5°C (≈ 41°F):
 :   All ride volumes are low. This likely reflects discomfort, poor road conditions, or safety concerns — especially for casual riders.
@@ -64,7 +64,7 @@ Around 25°C (~77°F):
 Above 30°C (~86°F):
 :   Slight drop-off in ride frequency, especially among casual riders, implying that excessive heat becomes a deterrent to non-essential trips. Subscribers are less affected, possibly due to commuting needs or higher tolerance.
 
-### 🤔 Behavioral Insights (Celsius Context):
+#### 🤔 Behavioral Insights (Celsius Context):
 |Temp Range (°C)|Customer Behavior|Subscriber Behavior|Interpretation|
 |<5°C|Low ridership|Moderately low|Cold weather suppresses casual rides more strongly|
 |5–25°C|Steep increase|Moderate increase|Warm-up boosts ridership, especially casual use|
@@ -81,13 +81,13 @@ Above 30°C (~86°F):
 
 
 
-### ✅ Conclusion:
+#### ✅ Conclusion:
 
 Casual users are more sensitive to weather extremes, while subscribers demonstrate more consistent use—likely reflecting commute and utility rather than leisure.
 
-### Production Details
+#### Production Details
 
-####R source code used to produce the chart
+#####R source code used to produce the chart
 
 ```R
 ggplot(normalized_df, aes(x = temp_bin, y = normalized_rides, color = user_type)) +

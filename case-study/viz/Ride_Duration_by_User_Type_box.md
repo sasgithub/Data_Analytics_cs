@@ -1,4 +1,4 @@
-## Ride Duration by User Type ( box plot )
+#### Ride Duration by User Type ( box plot )
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_by_User_Type_box.png" target="_blank" title="Select image to open full sized chart">

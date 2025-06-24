@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" id="toc-ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" class="nav-link active" data-scroll-target="#ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers">Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,20 +160,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" class="level2">
-<h2 class="anchored" data-anchor-id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers">Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)</h2>
+<section id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" class="level4">
+<h4 class="anchored" data-anchor-id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers">Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)</h4>
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes." class="figure-img"> </a>
 <figcaption>
 Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
 </figcaption>
 </figure>
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
 <p>This kernel density plot compares the <strong>ride duration (in minutes)</strong> of non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
 </section>
-<section id="axes" class="level3">
-<h3 class="anchored" data-anchor-id="axes">Axes</h3>
+<section id="axes" class="level5">
+<h5 class="anchored" data-anchor-id="axes">Axes</h5>
 <ul>
 <li><strong>X-Axis (Ride Length in Minutes)</strong>:
 <ul>
@@ -194,8 +188,8 @@ Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density pl
 </ul></li>
 </ul>
 </section>
-<section id="day-type-colors" class="level3">
-<h3 class="anchored" data-anchor-id="day-type-colors">Day Type Colors</h3>
+<section id="day-type-colors" class="level5">
+<h5 class="anchored" data-anchor-id="day-type-colors">Day Type Colors</h5>
 <ul>
 <li><strong>Weekday (Blue)</strong>:
 <ul>
@@ -209,8 +203,8 @@ Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density pl
 </ul></li>
 </ul>
 </section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
 <li><strong>Weekday rides</strong> are slightly shorter on average and more tightly concentrated.
 <ul>
@@ -223,12 +217,12 @@ Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density pl
 <li>Both distributions are <strong>right-skewed</strong>, with long tails indicating occasional extended rides by some users.</li>
 </ul>
 </section>
-<section id="behavioral-insight" class="level3">
-<h3 class="anchored" data-anchor-id="behavioral-insight">Behavioral Insight</h3>
+<section id="behavioral-insight" class="level5">
+<h5 class="anchored" data-anchor-id="behavioral-insight">Behavioral Insight</h5>
 <p>This view supports the hypothesis that <strong>weekday</strong> customer rides are more <strong>task-oriented</strong>, while <strong>weekend</strong> usage involves <strong>longer, discretionary</strong> trips. Although the differences are subtle, they are consistent with other indicators of time-based travel patterns in non-tourist areas.</p>
 </section>
-<section id="use-case" class="level3">
-<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This chart is useful for: - Understanding ride duration norms by day type. - Supporting demand modeling and pricing strategies tailored to weekdays vs weekends. - Refining customer journey segmentation without needing user-level metadata.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>

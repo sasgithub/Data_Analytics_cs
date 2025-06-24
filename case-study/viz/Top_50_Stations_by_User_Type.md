@@ -1,7 +1,7 @@
-# Top 50 Stations by User Type
+#### Top 50 Stations by User Type
 
 <figure class="float-right">
-  <a href="iTop_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
+  <a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="ALT_TEXT">
   </a>
   <figcaption>

@@ -1,4 +1,4 @@
-## Temperature vs Ride Volume by User Type
+#### Temperature vs Ride Volume by User Type
 
 <figure class="float-right">
   <a href="../images/Temp_vs_Ride_Volume_by_User_Type.png" target="_blank" title="Select image to open full sized chart">
@@ -9,11 +9,11 @@
   </figcaption>
 </figure>
 
-### Temperature vs Ride Volume by User Type
+##### Temperature vs Ride Volume by User Type
 
 This dual-panel line plot compares **hourly ride volume** to **temperature (°C)** for **customers** (left) and **subscribers** (right). Both panels show a strong nonlinear increase in ride volume as temperatures rise.
 
-#### Key Observations:
+###### Key Observations:
 - Ride volume is **lowest below freezing** and begins to climb around 0°C.
 - **Subscribers** maintain higher ride volume than customers across the full temperature range, suggesting greater resilience to cold weather.
 - Both curves exhibit a **steep increase above 20°C**, peaking near 35–40°C.

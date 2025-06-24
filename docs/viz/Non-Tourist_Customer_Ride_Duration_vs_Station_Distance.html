@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#ride-duration-vs.-station-distance-non-tourist-customers" id="toc-ride-duration-vs.-station-distance-non-tourist-customers" class="nav-link active" data-scroll-target="#ride-duration-vs.-station-distance-non-tourist-customers">Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customers)</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,20 +160,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="ride-duration-vs.-station-distance-non-tourist-customers" class="level2">
-<h2 class="anchored" data-anchor-id="ride-duration-vs.-station-distance-non-tourist-customers">Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customers)</h2>
+<section id="ride-duration-vs.-station-distance-non-tourist-customers" class="level4">
+<h4 class="anchored" data-anchor-id="ride-duration-vs.-station-distance-non-tourist-customers">Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customers)</h4>
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" alt="Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist customer rides. Points are densely clustered under 5 km and 50 minutes, with a blue linear reference line indicating expected travel time. Wide variation in durations is visible across short distances." class="figure-img"> </a>
 <figcaption>
 <strong>Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)</strong> This scatterplot displays the relationship between ride length and distance between stations. While longer distances generally correspond to longer durations, many short-distance rides also exhibit long durations, suggesting varied usage patterns. A linear reference line highlights the lower boundary of likely direct trips.
 </figcaption>
 </figure>
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
 <p>This scatterplot shows the relationship between <strong>ride duration</strong> and <strong>station-to-station distance</strong> for non-tourist customer rides. A linear reference line is included for interpretive comparison.</p>
 </section>
-<section id="axes" class="level3">
-<h3 class="anchored" data-anchor-id="axes">Axes</h3>
+<section id="axes" class="level5">
+<h5 class="anchored" data-anchor-id="axes">Axes</h5>
 <ul>
 <li><strong>X-Axis (Distance Between Stations in km)</strong>:
 <ul>
@@ -193,8 +187,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="visual-elements" class="level3">
-<h3 class="anchored" data-anchor-id="visual-elements">Visual Elements</h3>
+<section id="visual-elements" class="level5">
+<h5 class="anchored" data-anchor-id="visual-elements">Visual Elements</h5>
 <ul>
 <li><strong>Green points</strong>:
 <ul>
@@ -208,8 +202,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
 <li><strong>Dense cluster near origin</strong>:
 <ul>
@@ -231,16 +225,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
 <li>There’s a <strong>positive relationship</strong> between station distance and ride duration, but with <strong>high variance</strong>.</li>
 <li>Many long-duration rides cover only short distances, hinting at circuitous routes, heavy traffic, or recreational usage.</li>
 <li>The plot may also reflect the <strong>impact of stop time</strong> (e.g., errands, pauses) not being filtered out.</li>
 </ul>
 </section>
-<section id="use-case" class="level3">
-<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This visualization helps: - Explore efficiency and routing behavior of customers. - Identify outliers and usage extremes (e.g., long duration for short distances). - Evaluate suitability of distance as a proxy for estimating ride time.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(start_station_id <span class="sc">!=</span> end_station_id)</span>

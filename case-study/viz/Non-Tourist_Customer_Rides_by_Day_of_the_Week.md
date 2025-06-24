@@ -1,4 +1,4 @@
-## Non-Tourist Customer Rides by Day of the Week
+#### Non-Tourist Customer Rides by Day of the Week
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart">

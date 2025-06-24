@@ -1,4 +1,4 @@
-## Loop Ride Length Distribution by Week Part and Time of Day
+#### Loop Ride Length Distribution by Week Part and Time of Day
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" target="_blank" title="Select image to open full sized chart">
@@ -12,7 +12,7 @@
 
 
 
-### 📝 Image Notes
+##### 📝 Image Notes
 
 Title: Loop Ride Length Distribution by Week Part and Time of Day
 Source: Non-tourist customer rides classified as "loop rides" (start and end at the same station)
@@ -21,7 +21,7 @@ Y-Axis: Ride Count
 Faceting: 24 hourly bins (0–23), each split by weekday/weekend
 Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g., Weekend.0, Weekday.14) shown in the legend
 
-### Key Observations
+##### Key Observations
 
     Consistent Right Skew: In every hourly panel, ride length distributions are heavily skewed right, peaking in the 0–10 minute range and tapering off sharply.
 

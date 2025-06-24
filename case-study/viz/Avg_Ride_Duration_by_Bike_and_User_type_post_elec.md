@@ -1,4 +1,4 @@
-### Average Ride Duration by Bike Type and User Type
+#### Average Ride Duration by Bike Type and User Type
 
 <figure class="float-right">
   <a href="../images/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart">

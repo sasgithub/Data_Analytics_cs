@@ -1,4 +1,4 @@
-## Top 20 Most Asymmetric Paths by User Type 
+#### Top 20 Most Asymmetric Paths by User Type 
 
 <figure class="float-right">
   <a href="../images/Top_20_Most_Asymmetric_Paths_by_User_Type.png" target="_blank" title="Select image to open full sized chart">
@@ -9,7 +9,7 @@
   </figcaption>
 </figure>
 
-### 📝 Image Notes
+##### 📝 Image Notes
 
 Title: Top 20 Most Asymmetric Paths by User Type
 X-Axis: Asymmetry Ratio (from 0.0 to ~0.7)
@@ -18,7 +18,7 @@ Panels: Two side-by-side bar charts
 -   Left panel: Top asymmetric paths for Customers
 -   Right panel: Top asymmetric paths for Subscribers
 
-### Interpretation
+##### Interpretation
 
 Asymmetry Ratio
 :   A value approaching 1 indicates heavy one-way usage between a pair of stations.  Rides commonly occur in one direction but rarely the other.

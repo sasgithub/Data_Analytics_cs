@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#average-hourly-rides-vs-temperature-2-buckets" id="toc-average-hourly-rides-vs-temperature-2-buckets" class="nav-link active" data-scroll-target="#average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,32 +160,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="average-hourly-rides-vs-temperature-2-buckets" class="level2">
-<h2 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</h2>
+<section id="average-hourly-rides-vs-temperature-2-buckets" class="level4">
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</h4>
 <figure class="float-right figure">
 <a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="ALT_TEXT" class="figure-img"> </a>
 <figcaption>
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
 <p>This chart presents the <strong>average number of hourly bike rides</strong> as a function of <strong>temperature (°C)</strong>. The data is aggregated across all users, without distinguishing between subscriber or casual rider types.</p>
 </section>
-<section id="chart-details" class="level3">
-<h3 class="anchored" data-anchor-id="chart-details">Chart Details</h3>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
 <li><strong>Line</strong>: A single curve showing average ride volume across all users, bucketed by temperature.</li>
 </ul>
 </section>
-<section id="purpose" class="level3">
-<h3 class="anchored" data-anchor-id="purpose">Purpose</h3>
+<section id="purpose" class="level5">
+<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
 <p>This visualization is intended to illustrate how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.</p>
 </section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
 <li><strong>Sub-zero temperatures (&lt; 0°C)</strong>: Very low ridership, close to zero, as expected.</li>
 <li><strong>Gradual increase</strong>: Ride volume increases steadily with temperature from around 0°C to the low 20s.</li>
@@ -199,16 +193,16 @@ FIGCAPTION
 <li><strong>Drop-off above 30°C</strong>: Suggests decreased willingness to ride in high heat, likely due to discomfort or health concerns.</li>
 </ul>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
 <li>The chart suggests a strong correlation between temperature and total ride volume.</li>
 <li>The symmetric, bell-shaped curve implies that moderate temperatures are ideal for cycling.</li>
 <li>Extremes on either end (cold or hot) sharply reduce bike usage.</li>
 </ul>
 </section>
-<section id="technical-notes" class="level3">
-<h3 class="anchored" data-anchor-id="technical-notes">Technical Notes</h3>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
 <li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
 <li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>

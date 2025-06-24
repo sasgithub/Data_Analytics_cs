@@ -1,4 +1,4 @@
-## Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)
+#### Image Notes: Average Daily Rides by Bike Type and User Type (Post-Electric Launch)
 
 <figure class="float-right">
   <a href="../images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart">
@@ -9,10 +9,10 @@
   </figcaption>
 </figure>
 
-### Overview
+##### Overview
 This bar chart displays the **average number of daily rides** by **bike type**, grouped by **user type** (Subscriber vs. Customer), for the period after the introduction of electric bikes and scooters.
 
-### Axes and Groupings
+##### Axes and Groupings
 
 - **X-Axis (Bike Type)**:
   - `classic_bike`
@@ -27,7 +27,7 @@ This bar chart displays the **average number of daily rides** by **bike type**, 
   - **Red** = Subscriber
   - **Teal** = Customer
 
-### Observations
+##### Observations
 
 - **Classic Bikes**:
   - Most used overall.
@@ -45,7 +45,7 @@ This bar chart displays the **average number of daily rides** by **bike type**, 
   - Slightly more popular with Customers than Subscribers.
   - Total volume is lower than bikes but non-trivial.
 
-### Interpretation
+##### Interpretation
 
 - **Subscriber Preference**:
   - Strongly favors classic and electric bikes.
@@ -58,7 +58,7 @@ This bar chart displays the **average number of daily rides** by **bike type**, 
 - **Modal Shift**:
   - The presence of electric modes (bike and scooter) introduces significant usage from both user groups, possibly pulling some traffic away from classic bikes.
 
-### Use Case
+##### Use Case
 
 This visualization supports:
 - Infrastructure planning (e.g., expansion of electric charging or docking stations),

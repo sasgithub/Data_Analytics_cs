@@ -1,4 +1,4 @@
-## Hourly Ride Volume vs Temperature
+#### Hourly Ride Volume vs Temperature
 
 <figure class="float-right">
   <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart">

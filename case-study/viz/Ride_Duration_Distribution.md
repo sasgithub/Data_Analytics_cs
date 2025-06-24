@@ -1,4 +1,4 @@
-## Ride Duration Distribution
+#### Ride Duration Distribution
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">

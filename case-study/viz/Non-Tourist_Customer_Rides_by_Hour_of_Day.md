@@ -1,4 +1,4 @@
-## Non-Tourist Customer Rides by Hour of Day
+#### Non-Tourist Customer Rides by Hour of Day
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart">

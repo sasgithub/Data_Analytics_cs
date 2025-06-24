@@ -1,4 +1,4 @@
-## Top 25 Non-Tourist Stations by Customer Ride Count
+#### Top 25 Non-Tourist Stations by Customer Ride Count
 
 <figure class="float-right">
   <a href="../images/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" target="_blank" title="Select image to open full sized chart">

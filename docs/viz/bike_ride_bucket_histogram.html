@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#distribution-of-ride-counts-per-bike" id="toc-distribution-of-ride-counts-per-bike" class="nav-link active" data-scroll-target="#distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,20 +160,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="distribution-of-ride-counts-per-bike" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</h2>
+<section id="distribution-of-ride-counts-per-bike" class="level4">
+<h4 class="anchored" data-anchor-id="distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</h4>
 <figure class="float-right figure">
 <a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="ALT_TEXT" class="figure-img"> </a>
 <figcaption>
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview" class="level3">
-<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
 <p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
 </section>
-<section id="axes" class="level3">
-<h3 class="anchored" data-anchor-id="axes">Axes</h3>
+<section id="axes" class="level5">
+<h5 class="anchored" data-anchor-id="axes">Axes</h5>
 <ul>
 <li><strong>X-Axis (Ride Count Range)</strong>:
 <ul>
@@ -193,8 +187,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="visual-elements" class="level3">
-<h3 class="anchored" data-anchor-id="visual-elements">Visual Elements</h3>
+<section id="visual-elements" class="level5">
+<h5 class="anchored" data-anchor-id="visual-elements">Visual Elements</h5>
 <ul>
 <li><strong>Bars</strong>:
 <ul>
@@ -204,8 +198,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
 <li><strong>Low-end Outliers</strong>:
 <ul>
@@ -224,8 +218,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
 <li>The chart implies a relatively well-utilized fleet with a <strong>normal distribution</strong> centered around ~3000 rides per bike.</li>
 <li>The left-side spike at <code>0–99</code> highlights potential outliers worth investigating:
@@ -238,8 +232,8 @@ FIGCAPTION
 <li>The right tail shows some high-mileage bikes that may be candidates for maintenance or replacement soon.</li>
 </ul>
 </section>
-<section id="use-case" class="level3">
-<h3 class="anchored" data-anchor-id="use-case">Use Case</h3>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This visualization is valuable for: - <strong>Fleet maintenance planning</strong> (identify overused/underused bikes), - <strong>Lifecycle analysis</strong> (detect uneven distribution of wear), - <strong>Deployment strategy</strong> (optimize rotation or redistribution).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>

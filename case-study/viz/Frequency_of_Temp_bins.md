@@ -1,4 +1,4 @@
-## Frequency of Temperature Bins
+#### Frequency of Temperature Bins
 
 <figure class="float-right">
   <a href="../images/Frequency_of_Temp_bins.png" target="_blank" title="Select image to open full sized chart">

@@ -1,4 +1,4 @@
-## Difference in Ride Proportions Weedkay to Weekend
+#### Difference in Ride Proportions Weedkay to Weekend
 
 <figure class="float-right">
   <a href="../images/Difference_in_Ride_Proportions_Weekday-Weekend.png" target="_blank" title="Select image to open full sized chart">
@@ -9,7 +9,7 @@ Hourly difference in ride proportions: Weekday minus Weekend. Red tones highligh
   </figcaption>
 </figure>
 
-### 📝 Image Notes
+##### 📝 Image Notes
 
 Title: Difference in Ride Proportions: Weekday - Weekend
 X-axis: Hour of Day (0–23)

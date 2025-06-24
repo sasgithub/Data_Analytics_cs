@@ -1,4 +1,4 @@
-## Ride Volume by Temperature (2°c Bins)
+#### Ride Volume by Temperature (2°c Bins)
 
 <figure class="float-right">
   <a href="../images/Ride_Volume_by_Temp_2_bin.png" target="_blank" title="Select image to open full sized chart">
@@ -10,4 +10,5 @@
 </figure>
 
 
+<br style="clear: both;"></br>
 

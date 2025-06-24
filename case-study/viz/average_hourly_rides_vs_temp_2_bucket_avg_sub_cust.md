@@ -1,4 +1,4 @@
-### Hourly rides vs. temperature
+#### Hourly rides vs. temperature
 
 <figure class="float-right">
   <a href="../images/Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">

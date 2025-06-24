@@ -1,4 +1,4 @@
-## Non-Tourist Customer Ride Duration for Loop Rides
+#### Non-Tourist Customer Ride Duration for Loop Rides
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Distribution_Station_to_Station_Distance.png" target="_blank" title="Select image to open full sized chart">
