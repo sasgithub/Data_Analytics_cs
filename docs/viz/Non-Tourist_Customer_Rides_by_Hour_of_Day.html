@@ -160,14 +160,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="non-tourist-customer-rides-by-hour-of-day" class="level4">
-<h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-hour-of-day">Non-Tourist Customer Rides by Hour of Day</h4>
+<section id="customer-rides-by-hour-of-the-day-non-tourist-stations" class="level3">
+<h3 class="anchored" data-anchor-id="customer-rides-by-hour-of-the-day-non-tourist-stations">Customer Rides by Hour of the Day (Non-Tourist Stations)</h3>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" alt="Bar chart showing the distribution of Divvy customer rides by hour of the day at non-tourist stations. Ride volume starts low in the early morning, builds steadily through the day, and peaks sharply at 17:00 (5 PM)." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Hourly distribution of customer rides originating from non-tourist stations, showing peak activity in the late afternoon.
 </figcaption>
 </figure>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This bar chart displays the number of rides taken by <strong>customers</strong> at <strong>non-tourist stations</strong>, broken down by hour of the day (0–23 in 24-hour time).</p>
+</section>
+<section id="chart-details" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Hour of day (0 = midnight, 12 = noon, 23 = 11 PM).</li>
+<li><strong>Y-Axis</strong>: Number of rides initiated during that hour.</li>
+<li><strong>Bars</strong>: Represent hourly ride counts for all customer rides at stations not flagged as tourist destinations.</li>
+</ul>
+</section>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
+<p>The chart focuses on identifying usage patterns for casual riders outside of high-tourism areas. This helps differentiate recreational behavior from possible commuting or errand-related riding.</p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations</h4>
+<ul>
+<li><strong>Early morning (0–5 AM)</strong>: Very low ride activity.</li>
+<li><strong>Morning buildup (6–11 AM)</strong>: Steady increase as the day begins.</li>
+<li><strong>Midday plateau (12–15 PM)</strong>: Moderate and stable ride volume.</li>
+<li><strong>Peak hours (16–18 PM)</strong>: Sharp rise to the highest point at 17:00, then a slight drop by 18:00.</li>
+<li><strong>Evening taper (19–23 PM)</strong>: Gradual decline in ride volume, but still substantial.</li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<ul>
+<li>The late afternoon peak around <strong>5 PM</strong> is notable and may reflect:
+<ul>
+<li>Post-work or post-school recreational usage.</li>
+<li>Casual commuters avoiding rush hour traffic.</li>
+</ul></li>
+<li>Morning and midday usage suggests a blend of leisure, errands, or part-time commuting.</li>
+<li>The exclusion of tourist stations implies these rides are more likely by residents or local users rather than out-of-town visitors.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes">Technical Notes</h4>
+<ul>
+<li>Tourist stations were filtered out based on a predefined list of station IDs.</li>
+<li>Only rides by users marked as <code>customer</code> were included.</li>
+<li>Time is based on ride start timestamps, converted to local time.</li>
+<li>Bin width is 1 hour per bar, covering a full 24-hour period.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -182,6 +228,7 @@ FIGCAPTION
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,7 +6,7 @@ format: html
 ---
 
 > 🚧 **This case study is currently under construction.**  
-> Please check back soon for a complete walkthrough, analysis, and visualizations.
+> Please check back soon for a complete walk-through, analysis, and visualizations.
 
 
 

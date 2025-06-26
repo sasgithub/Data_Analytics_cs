@@ -160,14 +160,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="level4">
-<h4 class="anchored" data-anchor-id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</h4>
+<section id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="level3">
+<h3 class="anchored" data-anchor-id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</h3>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Hourly comparison of customer rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
 </figcaption>
 </figure>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This grouped bar chart compares <strong>customer ride activity</strong> across hours of the day, split by <strong>weekday</strong> and <strong>weekend</strong>, limited to <strong>non-tourist stations</strong>. It highlights behavioral shifts in usage patterns between workdays and leisure days.</p>
+</section>
+<section id="chart-details" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Hour of day (0–23 in 24-hour format).</li>
+<li><strong>Y-Axis</strong>: Number of rides initiated during that hour.</li>
+<li><strong>Bars</strong>:
+<ul>
+<li><strong>Blue</strong>: Weekday ride counts.</li>
+<li><strong>Orange</strong>: Weekend ride counts.</li>
+</ul></li>
+<li>Bars are grouped by hour to allow direct visual comparison between the two day types.</li>
+</ul>
+</section>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
+<p>This visualization is designed to isolate potential <strong>commuting or habitual usage patterns</strong> by removing the influence of tourist-heavy areas and separating ride behavior by the type of day.</p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations</h4>
+<ul>
+<li><strong>Weekday Trends</strong>:
+<ul>
+<li>Strong late afternoon peak at <strong>17:00 (5 PM)</strong> suggests post-work or school riding.</li>
+<li>Moderate increase starting around <strong>7–8 AM</strong>, possibly indicating morning commutes.</li>
+<li>Subdued activity in the early morning and late evening.</li>
+</ul></li>
+<li><strong>Weekend Trends</strong>:
+<ul>
+<li>More even distribution throughout the <strong>midday and early afternoon</strong>.</li>
+<li>No sharp peak, but elevated ridership between <strong>10:00 and 16:00</strong>.</li>
+<li>Morning and evening ride counts are lower than weekday equivalents.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<ul>
+<li>The sharp peak at 5 PM on weekdays strongly suggests <strong>commuter behavior</strong>, even among casual (non-subscriber) users.</li>
+<li>The flatter weekend profile indicates a <strong>more recreational or errand-driven pattern</strong>, with rides spread across daylight hours.</li>
+<li>Filtering out tourist stations helps reinforce the interpretation that these behaviors stem from <strong>local usage</strong>, not tourism.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes">Technical Notes</h4>
+<ul>
+<li>Ride records are filtered to include only those starting at <strong>non-tourist stations</strong>.</li>
+<li>Users included are labeled as <code>customer</code> (i.e., non-subscribers).</li>
+<li>“Weekday” includes Monday through Friday; “Weekend” includes Saturday and Sunday.</li>
+<li>Time is derived from the local timestamp of the ride start.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
@@ -182,6 +236,7 @@ FIGCAPTION
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

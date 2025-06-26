@@ -1,8 +1,9 @@
 ---
 title: "Visualizations"
-format: html
-   toc: true
-   toc-depth: 4
+format:
+  html:
+    toc: true
+    toc-depth: 4
 ---
 
 # 🚲 Visualization Gallery
@@ -57,10 +58,10 @@ This visualization highlights differences in spatial behavior between groups:
 
 <figure class="float-right">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization">
-  <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths.">
   </a>
   <figcaption>
-  FIGCAPTION
+  Comparison of Customer vs. Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments. 
   </figcaption>
 </figure>
 

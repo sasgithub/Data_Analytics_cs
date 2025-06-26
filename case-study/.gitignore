@@ -1,2 +1,25 @@
-/.quarto/
-/drafts/
+.quarto/
+drafts/
+_site/
+
+# R / Python temp files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+.Rproj
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+.venv/
+.ipynb_checkponts/
+
+# Vale
+.vale/
+
+# OS / Editor files
+.DS_Store
+*.swp
+*.bak

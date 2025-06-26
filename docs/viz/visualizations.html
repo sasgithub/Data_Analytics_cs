@@ -170,11 +170,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#static-visualizations" id="toc-static-visualizations" class="nav-link" data-scroll-target="#static-visualizations">🖼️ Static Visualizations</a>
   <ul class="collapse">
-  <li><a href="#temporal-patterns" id="toc-temporal-patterns" class="nav-link" data-scroll-target="#temporal-patterns">⏰ Temporal Patterns</a>
+  <li><a href="#temporal-patterns" id="toc-temporal-patterns" class="nav-link" data-scroll-target="#temporal-patterns">⏰ Temporal Patterns</a></li>
+  <li><a href="#customer-rides-by-hour-of-the-day-non-tourist-stations" id="toc-customer-rides-by-hour-of-the-day-non-tourist-stations" class="nav-link" data-scroll-target="#customer-rides-by-hour-of-the-day-non-tourist-stations">Customer Rides by Hour of the Day (Non-Tourist Stations)</a>
   <ul class="collapse">
-  <li><a href="#non-tourist-customer-rides-by-hour-of-day" id="toc-non-tourist-customer-rides-by-hour-of-day" class="nav-link" data-scroll-target="#non-tourist-customer-rides-by-hour-of-day">Non-Tourist Customer Rides by Hour of Day</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#chart-details" id="toc-chart-details" class="nav-link" data-scroll-target="#chart-details">Chart Details</a></li>
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#technical-notes" id="toc-technical-notes" class="nav-link" data-scroll-target="#technical-notes">Technical Notes</a></li>
   <li><a href="#non-tourist-customer-rides-by-day-of-the-week" id="toc-non-tourist-customer-rides-by-day-of-the-week" class="nav-link" data-scroll-target="#non-tourist-customer-rides-by-day-of-the-week">Non-Tourist Customer Rides by Day of the Week</a></li>
-  <li><a href="#customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" id="toc-customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="nav-link" data-scroll-target="#customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</a></li>
+  </ul></li>
+  <li><a href="#customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" id="toc-customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="nav-link" data-scroll-target="#customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</a>
+  <ul class="collapse">
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
+  <li><a href="#chart-details-1" id="toc-chart-details-1" class="nav-link" data-scroll-target="#chart-details-1">Chart Details</a></li>
+  <li><a href="#purpose-1" id="toc-purpose-1" class="nav-link" data-scroll-target="#purpose-1">Purpose</a></li>
+  <li><a href="#observations-1" id="toc-observations-1" class="nav-link" data-scroll-target="#observations-1">Observations</a></li>
+  <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1">Interpretation</a></li>
+  <li><a href="#technical-notes-1" id="toc-technical-notes-1" class="nav-link" data-scroll-target="#technical-notes-1">Technical Notes</a></li>
   <li><a href="#customer-rides-by-hour-faceted-by-season-non-tourist-stations" id="toc-customer-rides-by-hour-faceted-by-season-non-tourist-stations" class="nav-link" data-scroll-target="#customer-rides-by-hour-faceted-by-season-non-tourist-stations">Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)</a></li>
   <li><a href="#non-tourist-customer-rides-by-month" id="toc-non-tourist-customer-rides-by-month" class="nav-link" data-scroll-target="#non-tourist-customer-rides-by-month">Non-Tourist Customer Rides by Month</a></li>
   <li><a href="#non-tourist-customer-rides-by-season" id="toc-non-tourist-customer-rides-by-season" class="nav-link" data-scroll-target="#non-tourist-customer-rides-by-season">Non-Tourist Customer Rides by Season</a></li>
@@ -195,12 +209,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ride-volume-by-temperature-and-precipitation" id="toc-ride-volume-by-temperature-and-precipitation" class="nav-link" data-scroll-target="#ride-volume-by-temperature-and-precipitation">Ride Volume by Temperature and Precipitation</a></li>
   <li><a href="#temperature-vs-ride-volume-by-user-type" id="toc-temperature-vs-ride-volume-by-user-type" class="nav-link" data-scroll-target="#temperature-vs-ride-volume-by-user-type">Temperature vs Ride Volume by User Type</a></li>
   <li><a href="#total-hourly-rides-vs-temperature-total-subscribers-and-customers" id="toc-total-hourly-rides-vs-temperature-total-subscribers-and-customers" class="nav-link" data-scroll-target="#total-hourly-rides-vs-temperature-total-subscribers-and-customers">Total Hourly Rides vs Temperature (Total, Subscribers and Customers)</a></li>
+  </ul></li>
+  <li><a href="#total-hourly-rides-vs-temperature-by-user-type-2c-buckets" id="toc-total-hourly-rides-vs-temperature-by-user-type-2c-buckets" class="nav-link" data-scroll-target="#total-hourly-rides-vs-temperature-by-user-type-2c-buckets">Total Hourly Rides vs Temperature by User Type (2°C Buckets)</a>
+  <ul class="collapse">
+  <li><a href="#overview-3" id="toc-overview-3" class="nav-link" data-scroll-target="#overview-3">Overview</a></li>
+  <li><a href="#chart-details-2" id="toc-chart-details-2" class="nav-link" data-scroll-target="#chart-details-2">Chart Details</a></li>
+  <li><a href="#purpose-2" id="toc-purpose-2" class="nav-link" data-scroll-target="#purpose-2">Purpose</a></li>
+  <li><a href="#observations-3" id="toc-observations-3" class="nav-link" data-scroll-target="#observations-3">Observations</a></li>
+  <li><a href="#interpretation-4" id="toc-interpretation-4" class="nav-link" data-scroll-target="#interpretation-4">Interpretation</a></li>
+  <li><a href="#technical-notes-2" id="toc-technical-notes-2" class="nav-link" data-scroll-target="#technical-notes-2">Technical Notes</a></li>
   <li><a href="#average-hourly-rides-vs-temperature-2-buckets" id="toc-average-hourly-rides-vs-temperature-2-buckets" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</a></li>
   <li><a href="#average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" id="toc-average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with cubic spline interpolation)</a></li>
   </ul></li>
   <li><a href="#ride-duration-and-distance-distributions" id="toc-ride-duration-and-distance-distributions" class="nav-link" data-scroll-target="#ride-duration-and-distance-distributions">⏳ Ride Duration and Distance Distributions</a>
   <ul class="collapse">
   <li><a href="#ride-duration-distribution" id="toc-ride-duration-distribution" class="nav-link" data-scroll-target="#ride-duration-distribution">Ride Duration Distribution</a></li>
+  </ul></li>
+  <li><a href="#ride-duration-distribution-by-user-type" id="toc-ride-duration-distribution-by-user-type" class="nav-link" data-scroll-target="#ride-duration-distribution-by-user-type">Ride Duration Distribution by User Type</a>
+  <ul class="collapse">
+  <li><a href="#overview-6" id="toc-overview-6" class="nav-link" data-scroll-target="#overview-6">Overview</a></li>
+  <li><a href="#chart-details-5" id="toc-chart-details-5" class="nav-link" data-scroll-target="#chart-details-5">Chart Details</a></li>
+  <li><a href="#purpose-5" id="toc-purpose-5" class="nav-link" data-scroll-target="#purpose-5">Purpose</a></li>
+  <li><a href="#observations-6" id="toc-observations-6" class="nav-link" data-scroll-target="#observations-6">Observations</a></li>
+  <li><a href="#interpretation-7" id="toc-interpretation-7" class="nav-link" data-scroll-target="#interpretation-7">Interpretation</a></li>
+  <li><a href="#technical-notes-5" id="toc-technical-notes-5" class="nav-link" data-scroll-target="#technical-notes-5">Technical Notes</a></li>
   <li><a href="#ride-duration-density" id="toc-ride-duration-density" class="nav-link" data-scroll-target="#ride-duration-density">Ride Duration Density</a></li>
   <li><a href="#ride-duration-by-user-type-box-plot" id="toc-ride-duration-by-user-type-box-plot" class="nav-link" data-scroll-target="#ride-duration-by-user-type-box-plot">Ride Duration by User Type ( box plot )</a></li>
   <li><a href="#ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" id="toc-ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" class="nav-link" data-scroll-target="#ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers">Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)</a></li>
@@ -299,9 +331,9 @@ This interactive map shows the top 10 most frequently traveled station-to-statio
 </ul>
 <p>“Station usage differs substantially by rider type, bu not in the expected way.”</p>
 <figure class="float-right figure">
-<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
 </figcaption>
 </figure>
 </section>
@@ -341,14 +373,61 @@ FIGCAPTION
 <section id="temporal-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="temporal-patterns">⏰ Temporal Patterns</h3>
 <p>Rides analyzed across time dimensions like hour, day, month, or season.</p>
-<section id="non-tourist-customer-rides-by-hour-of-day" class="level4">
-<h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-hour-of-day">Non-Tourist Customer Rides by Hour of Day</h4>
+</section>
+<section id="customer-rides-by-hour-of-the-day-non-tourist-stations" class="level3">
+<h3 class="anchored" data-anchor-id="customer-rides-by-hour-of-the-day-non-tourist-stations">Customer Rides by Hour of the Day (Non-Tourist Stations)</h3>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" alt="Bar chart showing the distribution of Divvy customer rides by hour of the day at non-tourist stations. Ride volume starts low in the early morning, builds steadily through the day, and peaks sharply at 17:00 (5 PM)." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Hourly distribution of customer rides originating from non-tourist stations, showing peak activity in the late afternoon.
 </figcaption>
 </figure>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This bar chart displays the number of rides taken by <strong>customers</strong> at <strong>non-tourist stations</strong>, broken down by hour of the day (0–23 in 24-hour time).</p>
+</section>
+<section id="chart-details" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Hour of day (0 = midnight, 12 = noon, 23 = 11 PM).</li>
+<li><strong>Y-Axis</strong>: Number of rides initiated during that hour.</li>
+<li><strong>Bars</strong>: Represent hourly ride counts for all customer rides at stations not flagged as tourist destinations.</li>
+</ul>
+</section>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
+<p>The chart focuses on identifying usage patterns for casual riders outside of high-tourism areas. This helps differentiate recreational behavior from possible commuting or errand-related riding.</p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations</h4>
+<ul>
+<li><strong>Early morning (0–5 AM)</strong>: Very low ride activity.</li>
+<li><strong>Morning buildup (6–11 AM)</strong>: Steady increase as the day begins.</li>
+<li><strong>Midday plateau (12–15 PM)</strong>: Moderate and stable ride volume.</li>
+<li><strong>Peak hours (16–18 PM)</strong>: Sharp rise to the highest point at 17:00, then a slight drop by 18:00.</li>
+<li><strong>Evening taper (19–23 PM)</strong>: Gradual decline in ride volume, but still substantial.</li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<ul>
+<li>The late afternoon peak around <strong>5 PM</strong> is notable and may reflect:
+<ul>
+<li>Post-work or post-school recreational usage.</li>
+<li>Casual commuters avoiding rush hour traffic.</li>
+</ul></li>
+<li>Morning and midday usage suggests a blend of leisure, errands, or part-time commuting.</li>
+<li>The exclusion of tourist stations implies these rides are more likely by residents or local users rather than out-of-town visitors.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes">Technical Notes</h4>
+<ul>
+<li>Tourist stations were filtered out based on a predefined list of station IDs.</li>
+<li>Only rides by users marked as <code>customer</code> were included.</li>
+<li>Time is based on ride start timestamps, converted to local time.</li>
+<li>Bin width is 1 hour per bar, covering a full 24-hour period.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -379,14 +458,69 @@ FIGCAPTION
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="level4">
-<h4 class="anchored" data-anchor-id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</h4>
+</section>
+<section id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations" class="level3">
+<h3 class="anchored" data-anchor-id="customer-rides-by-hour-weekday-vs-weekend-non-tourist-stations">Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)</h3>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Hourly comparison of customer rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
 </figcaption>
 </figure>
+<section id="overview-1" class="level4">
+<h4 class="anchored" data-anchor-id="overview-1">Overview</h4>
+<p>This grouped bar chart compares <strong>customer ride activity</strong> across hours of the day, split by <strong>weekday</strong> and <strong>weekend</strong>, limited to <strong>non-tourist stations</strong>. It highlights behavioral shifts in usage patterns between workdays and leisure days.</p>
+</section>
+<section id="chart-details-1" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details-1">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Hour of day (0–23 in 24-hour format).</li>
+<li><strong>Y-Axis</strong>: Number of rides initiated during that hour.</li>
+<li><strong>Bars</strong>:
+<ul>
+<li><strong>Blue</strong>: Weekday ride counts.</li>
+<li><strong>Orange</strong>: Weekend ride counts.</li>
+</ul></li>
+<li>Bars are grouped by hour to allow direct visual comparison between the two day types.</li>
+</ul>
+</section>
+<section id="purpose-1" class="level4">
+<h4 class="anchored" data-anchor-id="purpose-1">Purpose</h4>
+<p>This visualization is designed to isolate potential <strong>commuting or habitual usage patterns</strong> by removing the influence of tourist-heavy areas and separating ride behavior by the type of day.</p>
+</section>
+<section id="observations-1" class="level4">
+<h4 class="anchored" data-anchor-id="observations-1">Observations</h4>
+<ul>
+<li><strong>Weekday Trends</strong>:
+<ul>
+<li>Strong late afternoon peak at <strong>17:00 (5 PM)</strong> suggests post-work or school riding.</li>
+<li>Moderate increase starting around <strong>7–8 AM</strong>, possibly indicating morning commutes.</li>
+<li>Subdued activity in the early morning and late evening.</li>
+</ul></li>
+<li><strong>Weekend Trends</strong>:
+<ul>
+<li>More even distribution throughout the <strong>midday and early afternoon</strong>.</li>
+<li>No sharp peak, but elevated ridership between <strong>10:00 and 16:00</strong>.</li>
+<li>Morning and evening ride counts are lower than weekday equivalents.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation-1" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-1">Interpretation</h4>
+<ul>
+<li>The sharp peak at 5 PM on weekdays strongly suggests <strong>commuter behavior</strong>, even among casual (non-subscriber) users.</li>
+<li>The flatter weekend profile indicates a <strong>more recreational or errand-driven pattern</strong>, with rides spread across daylight hours.</li>
+<li>Filtering out tourist stations helps reinforce the interpretation that these behaviors stem from <strong>local usage</strong>, not tourism.</li>
+</ul>
+</section>
+<section id="technical-notes-1" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes-1">Technical Notes</h4>
+<ul>
+<li>Ride records are filtered to include only those starting at <strong>non-tourist stations</strong>.</li>
+<li>Users included are labeled as <code>customer</code> (i.e., non-subscribers).</li>
+<li>“Weekday” includes Monday through Friday; “Weekend” includes Saturday and Sunday.</li>
+<li>Time is derived from the local timestamp of the ride start.</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
@@ -423,8 +557,8 @@ Hourly customer ride patterns by season at non-tourist stations. Weekday rides p
 - <strong>Winter:</strong> Subdued ride activity, flatter distribution</p>
 <hr>
 </section>
-<section id="interpretation" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<section id="interpretation-2" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-2">Interpretation</h5>
 <ul>
 <li><strong>Commuting Behavior</strong>: The sharp weekday peaks in summer and fall suggest commuter-driven use around 17:00, especially among customers using the system for one-way travel home from work or transit.</li>
 <li><strong>Seasonal Sensitivity</strong>: Weekend ride patterns are flatter across the day and more seasonally stable, while weekday patterns show strong seasonal variation.</li>
@@ -690,8 +824,8 @@ FIGCAPTION
 Ride Volume by Temperature and Rain Condition This panel chart shows total ride volume for subscribers and customers, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
 </figcaption>
 </figure>
-<section id="overview" class="level5">
-<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<section id="overview-2" class="level5">
+<h5 class="anchored" data-anchor-id="overview-2">Overview</h5>
 <p>This line chart panel shows the total ride volume across 2°C temperature bins, broken down by <strong>user type</strong> (Customer vs.&nbsp;Subscriber) and grouped by <strong>rain condition</strong> (Dry, Wet, No data). Each panel represents a different precipitation category, allowing direct comparison of behavior under different weather conditions.</p>
 </section>
 <section id="chart-structure" class="level5">
@@ -719,8 +853,8 @@ Ride Volume by Temperature and Rain Condition This panel chart shows total ride 
 </ul></li>
 </ul>
 </section>
-<section id="observations" class="level5">
-<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<section id="observations-2" class="level5">
+<h5 class="anchored" data-anchor-id="observations-2">Observations</h5>
 <section id="dry-conditions" class="level6">
 <h6 class="anchored" data-anchor-id="dry-conditions">Dry Conditions</h6>
 <ul>
@@ -744,8 +878,8 @@ Ride Volume by Temperature and Rain Condition This panel chart shows total ride 
 </ul>
 </section>
 </section>
-<section id="interpretation-1" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-1">Interpretation</h5>
+<section id="interpretation-3" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-3">Interpretation</h5>
 <ul>
 <li><strong>Temperature strongly influences ridership</strong>, with optimal weather (20–25°C) showing the highest activity.</li>
 <li><strong>Precipitation is a major deterrent</strong>, suppressing ride volume across all temperatures.</li>
@@ -807,11 +941,66 @@ Hourly ride volume by temperature, faceted by user type. Warmer temperatures cor
 <section id="total-hourly-rides-vs-temperature-total-subscribers-and-customers" class="level4">
 <h4 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-total-subscribers-and-customers">Total Hourly Rides vs Temperature (Total, Subscribers and Customers)</h4>
 <figure class="float-right figure">
-<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bucket, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Total hourly rides by temperature bucket (°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
 </figcaption>
 </figure>
+</section>
+</section>
+<section id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets" class="level3">
+<h3 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets">Total Hourly Rides vs Temperature by User Type (2°C Buckets)</h3>
+<section id="overview-3" class="level4">
+<h4 class="anchored" data-anchor-id="overview-3">Overview</h4>
+<p>This chart shows how total rides vary with temperature, split between <strong>Subscribers</strong> and <strong>Customers</strong>. Ride counts are aggregated by temperature buckets, offering a side-by-side view of weather sensitivity by user group.</p>
+</section>
+<section id="chart-details-2" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details-2">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Temperature in degrees Celsius, grouped into 2°C buckets.</li>
+<li><strong>Y-Axis</strong>: Total number of rides aggregated per hourly bin across the dataset.</li>
+<li><strong>Lines</strong>:
+<ul>
+<li><strong>Subscribers</strong>: Typically exhibit a sharper peak in moderate temperature ranges.</li>
+<li><strong>Customers</strong>: Show a more gradual increase in ride volume as temperatures rise.</li>
+</ul></li>
+</ul>
+</section>
+<section id="purpose-2" class="level4">
+<h4 class="anchored" data-anchor-id="purpose-2">Purpose</h4>
+<p>The visualization helps compare how different user types respond to temperature changes. It reveals behavioral distinctions between Subscribers and Customers.</p>
+</section>
+<section id="observations-3" class="level4">
+<h4 class="anchored" data-anchor-id="observations-3">Observations</h4>
+<ul>
+<li><strong>Subscribers</strong>:
+<ul>
+<li>Low ride volume below 10°C.</li>
+<li>Sharp peak near 25°C, suggesting strong commuting patterns tied to comfort.</li>
+<li>Rapid decline above 30°C, possibly due to heat discomfort.</li>
+</ul></li>
+<li><strong>Customers</strong>:
+<ul>
+<li>More gradual increase in ride volume with rising temperatures.</li>
+<li>Peak also around 25–30°C, but less steep rise and fall.</li>
+<li>Greater relative tolerance for warmer temperatures.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation-4" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-4">Interpretation</h4>
+<ul>
+<li><strong>Subscriber behavior</strong> is more concentrated and sensitive to moderate temperatures, likely tied to commuting habits.</li>
+<li><strong>Customer rides</strong> are more distributed across a range of temperatures, aligning with recreational or discretionary use.</li>
+<li>The divergence in curve shapes supports the hypothesis of different underlying motivations between user groups.</li>
+</ul>
+</section>
+<section id="technical-notes-2" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes-2">Technical Notes</h4>
+<ul>
+<li>Temperatures are binned into 2°C increments based on conditions at the start of each ride.</li>
+<li>Rides were grouped and summed by user type for each temperature bin, then aggregated hourly.</li>
+</ul>
 <p><br style="clear: both;"><br></p>
 </section>
 <section id="average-hourly-rides-vs-temperature-2-buckets" class="level4">
@@ -822,24 +1011,24 @@ FIGCAPTION
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview-1" class="level5">
-<h5 class="anchored" data-anchor-id="overview-1">Overview</h5>
+<section id="overview-4" class="level5">
+<h5 class="anchored" data-anchor-id="overview-4">Overview</h5>
 <p>This chart presents the <strong>average number of hourly bike rides</strong> as a function of <strong>temperature (°C)</strong>. The data is aggregated across all users, without distinguishing between subscriber or casual rider types.</p>
 </section>
-<section id="chart-details" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<section id="chart-details-3" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-3">Chart Details</h5>
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
 <li><strong>Line</strong>: A single curve showing average ride volume across all users, bucketed by temperature.</li>
 </ul>
 </section>
-<section id="purpose" class="level5">
-<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
+<section id="purpose-3" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-3">Purpose</h5>
 <p>This visualization is intended to illustrate how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.</p>
 </section>
-<section id="observations-1" class="level5">
-<h5 class="anchored" data-anchor-id="observations-1">Observations</h5>
+<section id="observations-4" class="level5">
+<h5 class="anchored" data-anchor-id="observations-4">Observations</h5>
 <ul>
 <li><strong>Sub-zero temperatures (&lt; 0°C)</strong>: Very low ridership, close to zero, as expected.</li>
 <li><strong>Gradual increase</strong>: Ride volume increases steadily with temperature from around 0°C to the low 20s.</li>
@@ -847,16 +1036,16 @@ FIGCAPTION
 <li><strong>Drop-off above 30°C</strong>: Suggests decreased willingness to ride in high heat, likely due to discomfort or health concerns.</li>
 </ul>
 </section>
-<section id="interpretation-2" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-2">Interpretation</h5>
+<section id="interpretation-5" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-5">Interpretation</h5>
 <ul>
 <li>The chart suggests a strong correlation between temperature and total ride volume.</li>
 <li>The symmetric, bell-shaped curve implies that moderate temperatures are ideal for cycling.</li>
 <li>Extremes on either end (cold or hot) sharply reduce bike usage.</li>
 </ul>
 </section>
-<section id="technical-notes" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<section id="technical-notes-3" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-3">Technical Notes</h5>
 <ul>
 <li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
 <li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
@@ -893,24 +1082,24 @@ FIGCAPTION
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview-2" class="level5">
-<h5 class="anchored" data-anchor-id="overview-2">Overview</h5>
+<section id="overview-5" class="level5">
+<h5 class="anchored" data-anchor-id="overview-5">Overview</h5>
 <p>This chart presents the <strong>average number of hourly bike rides</strong> as a function of <strong>temperature (°C)</strong>. The data is aggregated across all users, without distinguishing between subscriber or casual rider types.</p>
 </section>
-<section id="chart-details-1" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-1">Chart Details</h5>
+<section id="chart-details-4" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-4">Chart Details</h5>
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
 <li><strong>Line</strong>: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and bucketed by temperature.</li>
 </ul>
 </section>
-<section id="purpose-1" class="level5">
-<h5 class="anchored" data-anchor-id="purpose-1">Purpose</h5>
+<section id="purpose-4" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-4">Purpose</h5>
 <p>This visualization is intended to illustrate how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.</p>
 </section>
-<section id="observations-2" class="level5">
-<h5 class="anchored" data-anchor-id="observations-2">Observations</h5>
+<section id="observations-5" class="level5">
+<h5 class="anchored" data-anchor-id="observations-5">Observations</h5>
 <ul>
 <li><strong>Sub-zero temperatures (&lt; 0°C)</strong>: Very low ridership, close to zero, as expected.</li>
 <li><strong>Gradual increase</strong>: Ride volume increases steadily with temperature from around 0°C to the low 20s.</li>
@@ -918,16 +1107,16 @@ FIGCAPTION
 <li><strong>Drop-off above 30°C</strong>: Suggests decreased willingness to ride in high heat, likely due to discomfort or health concerns.</li>
 </ul>
 </section>
-<section id="interpretation-3" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-3">Interpretation</h5>
+<section id="interpretation-6" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-6">Interpretation</h5>
 <ul>
 <li>The chart suggests a strong correlation between temperature and total ride volume.</li>
 <li>The symmetric, bell-shaped curve implies that moderate temperatures are ideal for cycling.</li>
 <li>Extremes on either end (cold or hot) sharply reduce bike usage.</li>
 </ul>
 </section>
-<section id="technical-notes-1" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes-1">Technical Notes</h5>
+<section id="technical-notes-4" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-4">Technical Notes</h5>
 <ul>
 <li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
 <li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
@@ -965,15 +1154,71 @@ FIGCAPTION
 <section id="ride-duration-distribution" class="level4">
 <h4 class="anchored" data-anchor-id="ride-duration-distribution">Ride Duration Distribution</h4>
 <figure class="float-right figure">
-<a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_Distribution.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for rides, split by user type. Subscriber rides are sharply concentrated under 30 minutes, while customer rides are more spread out with a longer tail." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride duration distribution for customers and subscribers. Subscriber rides tend to be shorter and more consistent, while customer rides show a broader range.
 </figcaption>
 </figure>
+</section>
+</section>
+<section id="ride-duration-distribution-by-user-type" class="level3">
+<h3 class="anchored" data-anchor-id="ride-duration-distribution-by-user-type">Ride Duration Distribution by User Type</h3>
+<section id="overview-6" class="level4">
+<h4 class="anchored" data-anchor-id="overview-6">Overview</h4>
+<p>This histogram shows how ride durations differ between <strong>Subscribers</strong> and <strong>Customers</strong> in the Divvy bike system. The distribution is plotted as a count of rides by duration (in minutes), revealing distinct usage patterns between user types.</p>
+</section>
+<section id="chart-details-5" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details-5">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Ride duration in minutes, from 0 to 200 minutes.</li>
+<li><strong>Y-Axis</strong>: Count of rides in each duration bin.</li>
+<li><strong>Bars</strong>:
+<ul>
+<li><strong>Blue (Subscribers)</strong>: Rides are tightly clustered around shorter durations.</li>
+<li><strong>Orange (Customers)</strong>: Rides are more spread out, with a longer tail.</li>
+</ul></li>
+</ul>
+</section>
+<section id="purpose-5" class="level4">
+<h4 class="anchored" data-anchor-id="purpose-5">Purpose</h4>
+<p>This visualization compares usage patterns between customers and subscribers, showing that the two groups engage with the bike share system very differently in terms of how long they ride.</p>
+</section>
+<section id="observations-6" class="level4">
+<h4 class="anchored" data-anchor-id="observations-6">Observations</h4>
+<ul>
+<li><strong>Subscribers</strong>:
+<ul>
+<li>Majority of rides are under 30 minutes.</li>
+<li>Strong peak around 10–15 minutes.</li>
+<li>Rapid drop-off after 30 minutes, suggesting time-constrained rides (possibly to avoid overage fees).</li>
+</ul></li>
+<li><strong>Customers</strong>:
+<ul>
+<li>Ride duration distribution is flatter and broader.</li>
+<li>Significant number of rides extend beyond 30–60 minutes.</li>
+<li>Tail extends beyond 100 minutes, though with diminishing frequency.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation-7" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation-7">Interpretation</h4>
+<ul>
+<li><strong>Subscriber rides</strong> are likely utilitarian — such as commuting or quick errands — and are influenced by pricing plans that encourage shorter trips.</li>
+<li><strong>Customer rides</strong> are more exploratory or recreational, often longer and less time-sensitive.</li>
+<li>The chart highlights a fundamental behavioral difference in how the system is used by each group.</li>
+</ul>
+</section>
+<section id="technical-notes-5" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes-5">Technical Notes</h4>
+<ul>
+<li>Duration is measured from ride start to ride end.</li>
+<li>Rides over 200 minutes are excluded from the chart for scale clarity.</li>
+<li>The bin width used for this histogram is likely around 1 minute per bar, offering detailed resolution at shorter durations.</li>
+</ul>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 60 min</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
@@ -1071,8 +1316,8 @@ FIGCAPTION
 Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
 </figcaption>
 </figure>
-<section id="overview-3" class="level5">
-<h5 class="anchored" data-anchor-id="overview-3">Overview</h5>
+<section id="overview-7" class="level5">
+<h5 class="anchored" data-anchor-id="overview-7">Overview</h5>
 <p>This kernel density plot compares the <strong>ride duration (in minutes)</strong> of non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
 </section>
 <section id="axes" class="level5">
@@ -1106,8 +1351,8 @@ Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density pl
 </ul></li>
 </ul>
 </section>
-<section id="observations-3" class="level5">
-<h5 class="anchored" data-anchor-id="observations-3">Observations</h5>
+<section id="observations-7" class="level5">
+<h5 class="anchored" data-anchor-id="observations-7">Observations</h5>
 <ul>
 <li><strong>Weekday rides</strong> are slightly shorter on average and more tightly concentrated.
 <ul>
@@ -1174,8 +1419,8 @@ FIGCAPTION
 <strong>Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)</strong> This scatterplot displays the relationship between ride length and distance between stations. While longer distances generally correspond to longer durations, many short-distance rides also exhibit long durations, suggesting varied usage patterns. A linear reference line highlights the lower boundary of likely direct trips.
 </figcaption>
 </figure>
-<section id="overview-4" class="level5">
-<h5 class="anchored" data-anchor-id="overview-4">Overview</h5>
+<section id="overview-8" class="level5">
+<h5 class="anchored" data-anchor-id="overview-8">Overview</h5>
 <p>This scatterplot shows the relationship between <strong>ride duration</strong> and <strong>station-to-station distance</strong> for non-tourist customer rides. A linear reference line is included for interpretive comparison.</p>
 </section>
 <section id="axes-1" class="level5">
@@ -1208,8 +1453,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations-4" class="level5">
-<h5 class="anchored" data-anchor-id="observations-4">Observations</h5>
+<section id="observations-8" class="level5">
+<h5 class="anchored" data-anchor-id="observations-8">Observations</h5>
 <ul>
 <li><strong>Dense cluster near origin</strong>:
 <ul>
@@ -1231,8 +1476,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-4" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-4">Interpretation</h5>
+<section id="interpretation-8" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-8">Interpretation</h5>
 <ul>
 <li>There’s a <strong>positive relationship</strong> between station distance and ride duration, but with <strong>high variance</strong>.</li>
 <li>Many long-duration rides cover only short distances, hinting at circuitous routes, heavy traffic, or recreational usage.</li>
@@ -1329,8 +1574,8 @@ FIGCAPTION
 Ride Distance Distribution by Duration Cluster (Customer Rides Only) This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
 </figcaption>
 </figure>
-<section id="overview-5" class="level5">
-<h5 class="anchored" data-anchor-id="overview-5">Overview</h5>
+<section id="overview-9" class="level5">
+<h5 class="anchored" data-anchor-id="overview-9">Overview</h5>
 <p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled as Short, Medium, and Long.</p>
 </section>
 <section id="axes-2" class="level5">
@@ -1368,8 +1613,8 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only) This densit
 </ul></li>
 </ul>
 </section>
-<section id="observations-5" class="level5">
-<h5 class="anchored" data-anchor-id="observations-5">Observations</h5>
+<section id="observations-9" class="level5">
+<h5 class="anchored" data-anchor-id="observations-9">Observations</h5>
 <ul>
 <li><strong>Short Cluster</strong>:
 <ul>
@@ -1500,8 +1745,8 @@ FIGCAPTION
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview-6" class="level5">
-<h5 class="anchored" data-anchor-id="overview-6">Overview</h5>
+<section id="overview-10" class="level5">
+<h5 class="anchored" data-anchor-id="overview-10">Overview</h5>
 <p>This bar chart displays the <strong>average number of daily rides</strong> by <strong>bike type</strong>, grouped by <strong>user type</strong> (Subscriber vs.&nbsp;Customer), for the period after the introduction of electric bikes and scooters.</p>
 </section>
 <section id="axes-and-groupings" class="level5">
@@ -1525,8 +1770,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations-6" class="level5">
-<h5 class="anchored" data-anchor-id="observations-6">Observations</h5>
+<section id="observations-10" class="level5">
+<h5 class="anchored" data-anchor-id="observations-10">Observations</h5>
 <ul>
 <li><strong>Classic Bikes</strong>:
 <ul>
@@ -1550,8 +1795,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-5" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-5">Interpretation</h5>
+<section id="interpretation-9" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-9">Interpretation</h5>
 <ul>
 <li><strong>Subscriber Preference</strong>:
 <ul>
@@ -1614,8 +1859,8 @@ FIGCAPTION
 FIGCAPTION
 </figcaption>
 </figure>
-<section id="overview-7" class="level5">
-<h5 class="anchored" data-anchor-id="overview-7">Overview</h5>
+<section id="overview-11" class="level5">
+<h5 class="anchored" data-anchor-id="overview-11">Overview</h5>
 <p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
 </section>
 <section id="axes-3" class="level5">
@@ -1644,8 +1889,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations-7" class="level5">
-<h5 class="anchored" data-anchor-id="observations-7">Observations</h5>
+<section id="observations-11" class="level5">
+<h5 class="anchored" data-anchor-id="observations-11">Observations</h5>
 <ul>
 <li><strong>Low-end Outliers</strong>:
 <ul>
@@ -1664,8 +1909,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-6" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-6">Interpretation</h5>
+<section id="interpretation-10" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-10">Interpretation</h5>
 <ul>
 <li>The chart implies a relatively well-utilized fleet with a <strong>normal distribution</strong> centered around ~3000 rides per bike.</li>
 <li>The left-side spike at <code>0–99</code> highlights potential outliers worth investigating:
@@ -1768,8 +2013,8 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 <li>Right panel: Top asymmetric paths for Subscribers</li>
 </ul>
 </section>
-<section id="interpretation-7" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-7">Interpretation</h5>
+<section id="interpretation-11" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-11">Interpretation</h5>
 <dl>
 <dt>Asymmetry Ratio</dt>
 <dd>

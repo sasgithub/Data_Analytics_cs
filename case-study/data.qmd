@@ -17,7 +17,7 @@ This project integrates and analyzes Divvy bike-share trip data, station data, a
 
 - **Divvy Trip Data**: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
 - **Weather Data**: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
-- **Tourist Stations**: Custom dataset created from Google Maps lat/lng queries
+- **Tourist Stations**: Custom dataset created from Google Maps lat/Long queries
 
 See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.html) page for more details and attribution.
 
@@ -65,7 +65,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
    * Replaced unique constraint on `name` with composite index:
 
-     ```sql
+     ```SQL
      CREATE UNIQUE INDEX uniq_vector ON stations(name, lat, long);
      CREATE INDEX idx_name ON stations(name);
      ```

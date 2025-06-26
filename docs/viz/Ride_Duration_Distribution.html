@@ -163,15 +163,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="ride-duration-distribution" class="level4">
 <h4 class="anchored" data-anchor-id="ride-duration-distribution">Ride Duration Distribution</h4>
 <figure class="float-right figure">
-<a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_Distribution.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for rides, split by user type. Subscriber rides are sharply concentrated under 30 minutes, while customer rides are more spread out with a longer tail." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride duration distribution for customers and subscribers. Subscriber rides tend to be shorter and more consistent, while customer rides show a broader range.
 </figcaption>
 </figure>
+</section>
+<section id="ride-duration-distribution-by-user-type" class="level3">
+<h3 class="anchored" data-anchor-id="ride-duration-distribution-by-user-type">Ride Duration Distribution by User Type</h3>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This histogram shows how ride durations differ between <strong>Subscribers</strong> and <strong>Customers</strong> in the Divvy bike system. The distribution is plotted as a count of rides by duration (in minutes), revealing distinct usage patterns between user types.</p>
+</section>
+<section id="chart-details" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details">Chart Details</h4>
+<ul>
+<li><strong>X-Axis</strong>: Ride duration in minutes, from 0 to 200 minutes.</li>
+<li><strong>Y-Axis</strong>: Count of rides in each duration bin.</li>
+<li><strong>Bars</strong>:
+<ul>
+<li><strong>Blue (Subscribers)</strong>: Rides are tightly clustered around shorter durations.</li>
+<li><strong>Orange (Customers)</strong>: Rides are more spread out, with a longer tail.</li>
+</ul></li>
+</ul>
+</section>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
+<p>This visualization compares usage patterns between customers and subscribers, showing that the two groups engage with the bike share system very differently in terms of how long they ride.</p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations</h4>
+<ul>
+<li><strong>Subscribers</strong>:
+<ul>
+<li>Majority of rides are under 30 minutes.</li>
+<li>Strong peak around 10–15 minutes.</li>
+<li>Rapid drop-off after 30 minutes, suggesting time-constrained rides (possibly to avoid overage fees).</li>
+</ul></li>
+<li><strong>Customers</strong>:
+<ul>
+<li>Ride duration distribution is flatter and broader.</li>
+<li>Significant number of rides extend beyond 30–60 minutes.</li>
+<li>Tail extends beyond 100 minutes, though with diminishing frequency.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<ul>
+<li><strong>Subscriber rides</strong> are likely utilitarian — such as commuting or quick errands — and are influenced by pricing plans that encourage shorter trips.</li>
+<li><strong>Customer rides</strong> are more exploratory or recreational, often longer and less time-sensitive.</li>
+<li>The chart highlights a fundamental behavioral difference in how the system is used by each group.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level4">
+<h4 class="anchored" data-anchor-id="technical-notes">Technical Notes</h4>
+<ul>
+<li>Duration is measured from ride start to ride end.</li>
+<li>Rides over 200 minutes are excluded from the chart for scale clarity.</li>
+<li>The bin width used for this histogram is likely around 1 minute per bar, offering detailed resolution at shorter durations.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 60 min</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
@@ -195,6 +250,7 @@ FIGCAPTION
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

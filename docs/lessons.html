@@ -117,8 +117,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#regrets" id="toc-regrets" class="nav-link active" data-scroll-target="#regrets">Regrets</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -148,8 +154,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Looking back after completing a project there are always things you wished you done differently and choices you made you wish you hadn’t. It’s always good to reflect back on these and record them so that perhaps other can avoid them in the future. After all don’t they deserve to have their own set of issues.</p>
+<section id="regrets" class="level2">
+<h2 class="anchored" data-anchor-id="regrets">Regrets</h2>
+<ul>
+<li><strong>SQLite</strong> - I chose SQLite because I wanted something light weight and thought it would be a good opportunity to learn another database that seems to be a fairly popular choice. Overall I’m impressed with SQLite, it couldn’t be easier to setup and the performance was impressive. There were however two main issue I had with SQLite;</li>
+</ul>
+<p>1 <strong>Locks</strong> - When attempting to do my initial import I ran into a locking issue (Parse error: database is locked (5)) around 20K records. A single process inserting into the database, with no other process accessing the database really shouldn’t run into locking issues. I ended up doing the inserts in batches of 10K records and didn’t run into any more lock issues. 2 <strong>Missing functions</strong> - SQLite’s built‑in SQL dialect does not include STDDEV() or SQRT() and other functions I’m accustom to using in Oracle’s PL/SQL or MySQL’s SQL dialect. I didn’t know that until I tried using STDDEV() the first time. It is possible to add these functions with the extension‑functions add‑on. I compiled it with a little effort and was able to load it without error, but for some reason it still seemed to not recognize the added functions. It would have been more work to install MySQL but I’ve done that enough times that it would be easy and worth the work. You mileage my vary.</p>
+<ul>
+<li><p><strong>Logging</strong> - You think to yourself, I’ll just cut and paste stuff from the console in RStudio that I’ll need later when I start writing this section up. Then you try and use library foo and it’s not there and without even think you install.packages(“foo”) and you know instantly your screwed as the voluminous output fills the buffer and the stuff you meant to cut and paste is gone. It’s just R though it could be SQL or your terminals buffer. I had RStudio crash more than one (in it’s defense I was working with a very large dataset for the amount of memory I had to work with). You need pedantic logging of everything.</p></li>
+<li><p><strong>Version Control</strong> - If you don’t do this already, get everything you can into the revision control system of your choice. Make it a habit. It’s too easy to start working on something you expect to be short and simple and it turns into something quite involved and you make some changes and they don’t work so you reverse them (or at least you think you do) but it still doesn’t work. git diff is your friend.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
