@@ -163,11 +163,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-tourist-customer-rides-by-day-of-the-week" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-day-of-the-week">Non-Tourist Customer Rides by Day of the Week</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Total customer rides per day of week at non-tourist stations, highlighting the clear weekend peaks in ridership.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This bar chart displays the total number of <strong>customer rides</strong> at <strong>non-tourist stations</strong>, grouped by day of the week. By focusing on non-tourist stations, the visualization emphasizes local usage patterns rather than rides taken by visitors.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis</strong>: Day of the week (Sunday through Saturday)</li>
+<li><strong>Y-Axis</strong>: Total ride count per day</li>
+<li><strong>Bars</strong>: Aggregate counts of rides initiated by customers at non-tourist stations</li>
+</ul>
+</section>
+<section id="purpose" class="level5">
+<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
+<p>To illustrate weekly patterns in casual (customer) ridership among local users, highlighting which days see higher or lower activity.</p>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Weekends (Saturday and Sunday)</strong>: Highest ride volumes, indicating strong recreational or leisure usage.</li>
+<li><strong>Weekdays (Monday–Friday)</strong>: Lower and relatively consistent ride counts compared to weekends.</li>
+<li><strong>Peak day</strong>: Saturday shows the most activity overall.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>The clear weekend peak suggests most customer rides are discretionary trips taken for leisure rather than routine commuting.</li>
+<li>The relative uniformity of weekday rides indicates a stable but smaller base of casual usage during the workweek.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li>Rides were filtered to:
+<ul>
+<li><code>customer</code> user type (not subscribers)</li>
+<li>Exclude all tourist stations</li>
+</ul></li>
+<li>Day of week extracted from ride start timestamps (converted to local time)</li>
+</ul>
+</section>
+<section id="data-methods" class="level5">
+<h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
+<ul>
+<li><strong>Data Source:</strong>
+<ul>
+<li>Pre-processed dataframe <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Filtered by:
+<ul>
+<li>Non-tourist station IDs</li>
+<li><code>customer</code> user type</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>R Code Used to Generate Plot:</strong></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> day_of_week)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -176,8 +234,10 @@ FIGCAPTION
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

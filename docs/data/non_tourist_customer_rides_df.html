@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>non-tourist_customer_rides_by_month – Bike share case-study</title>
+<title>non_tourist_customer_rides_df – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,8 +151,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">🟢 Provenance for non_tourist_customer_rides_df</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -160,68 +166,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="non-tourist-customer-rides-by-month" class="level4">
-<h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-month">Non-Tourist Customer Rides by Month</h4>
-<figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Month.png" alt="Bar chart showing the number of customer rides per month at non-tourist stations. Ride volume is lowest in winter, rises steadily in spring, peaks in July, and declines into the fall." class="figure-img"> </a>
-<figcaption>
-Monthly distribution of customer rides at non-tourist stations, illustrating clear seasonality in usage patterns.
-</figcaption>
-</figure>
-<section id="overview" class="level5">
-<h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This bar chart displays the total number of rides initiated by customers (non-subscribers) at non-tourist stations, aggregated by calendar month. It shows clear seasonal patterns in ridership.</p>
+<section id="provenance-for-non_tourist_customer_rides_df" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-for-non_tourist_customer_rides_df">🟢 Provenance for non_tourist_customer_rides_df</h2>
+<section id="data-origin" class="level3">
+<h3 class="anchored" data-anchor-id="data-origin">🪧 Data Origin</h3>
+<p>** Source Table:** rides table in SQLite database</p>
 </section>
-<section id="chart-details" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<section id="query-details" class="level3">
+<h3 class="anchored" data-anchor-id="query-details">🛠️ Query Details</h3>
+<p>Query selects:</p>
 <ul>
-<li>X-Axis: Month (1 = January, 12 = December).</li>
-<li>Y-Axis: Total ride count for each month.</li>
-<li>Bars: Orange fill indicates the count of rides starting in each month.</li>
+<li>ride_id</li>
+<li>start_time</li>
+<li>end_time</li>
+<li>start_station_id</li>
+<li>end_station_id</li>
+<li>bike_type</li>
+</ul>
+<p>With these filters:</p>
+<ul>
+<li>user_type = 1</li>
+<li>Meaning: customer (casual rider)</li>
+<li>start_station_id and end_station_id both in your non-tourist stations list (station_ids_sql)</li>
+<li>start_time &gt;= ‘2023-01-01’</li>
+<li>Meaning: rides starting on or after Jan 1, 2023</li>
 </ul>
 </section>
-<section id="purpose" class="level5">
-<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
-<p>This visualization is intended to illustrate seasonal variation in usage, excluding tourist-heavy locations to focus on local customer ridership.</p>
-</section>
-<section id="observations" class="level5">
-<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<section id="how-this-fits-into-the-flow" class="level3">
+<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">📝 How this fits into the flow</h3>
+<p>This dataset forms the foundational rides subset from which many other frames were derived:</p>
 <ul>
-<li>Winter (Dec–Feb): Lowest ridership, likely due to cold weather.</li>
-<li>Spring (Mar–May): Steady increase as temperatures rise.</li>
-<li>Summer Peak (June–August): Highest ridership, peaking in July.</li>
-<li>Fall Decline (Sept–Nov): Gradual reduction in usage as temperatures cool.</li>
+<li>non_loop_rides_df</li>
 </ul>
-</section>
-<section id="interpretation" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
-<pre><code>The clear summer peak suggests that casual riders strongly prefer warm-weather months.
-
-The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.
-
-Winter ridership does not drop to zero, indicating some year-round demand.</code></pre>
-</section>
-<section id="data-methods" class="level5">
-<h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p><strong>Data Source:</strong></p>
-<ul>
-<li>non_tourist_customer_rides_df</li>
-<li>Filtered to include:
-<ul>
-<li>user_type == “customer”</li>
-<li>start_station_id in the non-tourist station list</li>
-</ul></li>
-</ul>
-<p><strong>R Code Used Generate :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> month)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Rides by Month"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br style="clear: both;"><br></p>
+<p><strong>List others</strong></p>
+<p>** Full Query Text **</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_query <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">" </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">     ride_id,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">     start_time,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">     end_time,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">     start_station_id,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">     end_station_id,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">     bike_type</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">   FROM rides</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">   WHERE user_type = 1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_station_id IN (%s)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">     AND end_station_id IN (%s)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_time &gt;= strftime('%%s', '2023-01-01')</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>optionally paste the full query text if you want reproducibility.</p>
 
 
 </section>

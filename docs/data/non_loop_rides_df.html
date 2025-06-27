@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>non-tourist_customer_rides_by_month – Bike share case-study</title>
+<title>non_loop_rides_df – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -160,72 +125,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="non-tourist-customer-rides-by-month" class="level4">
-<h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-month">Non-Tourist Customer Rides by Month</h4>
-<figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Month.png" alt="Bar chart showing the number of customer rides per month at non-tourist stations. Ride volume is lowest in winter, rises steadily in spring, peaks in July, and declines into the fall." class="figure-img"> </a>
-<figcaption>
-Monthly distribution of customer rides at non-tourist stations, illustrating clear seasonality in usage patterns.
-</figcaption>
-</figure>
-<section id="overview" class="level5">
-<h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This bar chart displays the total number of rides initiated by customers (non-subscribers) at non-tourist stations, aggregated by calendar month. It shows clear seasonal patterns in ridership.</p>
-</section>
-<section id="chart-details" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
-<ul>
-<li>X-Axis: Month (1 = January, 12 = December).</li>
-<li>Y-Axis: Total ride count for each month.</li>
-<li>Bars: Orange fill indicates the count of rides starting in each month.</li>
-</ul>
-</section>
-<section id="purpose" class="level5">
-<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
-<p>This visualization is intended to illustrate seasonal variation in usage, excluding tourist-heavy locations to focus on local customer ridership.</p>
-</section>
-<section id="observations" class="level5">
-<h5 class="anchored" data-anchor-id="observations">Observations</h5>
-<ul>
-<li>Winter (Dec–Feb): Lowest ridership, likely due to cold weather.</li>
-<li>Spring (Mar–May): Steady increase as temperatures rise.</li>
-<li>Summer Peak (June–August): Highest ridership, peaking in July.</li>
-<li>Fall Decline (Sept–Nov): Gradual reduction in usage as temperatures cool.</li>
-</ul>
-</section>
-<section id="interpretation" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
-<pre><code>The clear summer peak suggests that casual riders strongly prefer warm-weather months.
+<p>Provenance for non_loop_rides_df 🟢 1️⃣ Start with non_tourist_customer_rides_df</p>
+<pre><code>This already had:
 
-The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.
+    Only customer rides
 
-Winter ridership does not drop to zero, indicating some year-round demand.</code></pre>
-</section>
-<section id="data-methods" class="level5">
-<h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p><strong>Data Source:</strong></p>
-<ul>
-<li>non_tourist_customer_rides_df</li>
-<li>Filtered to include:
-<ul>
-<li>user_type == “customer”</li>
-<li>start_station_id in the non-tourist station list</li>
-</ul></li>
-</ul>
-<p><strong>R Code Used Generate :</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> month)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Rides by Month"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br style="clear: both;"><br></p>
+    Only non-tourist stations (presumably filtered upstream)</code></pre>
+<p>🟢 2️⃣ Filter out loop rides</p>
+<p>non_loop_rides_df &lt;- non_tourist_customer_rides_df %&gt;% filter(start_station_id != end_station_id)</p>
+<p>✅ Result:</p>
+<pre><code>Only rides starting and ending at different stations</code></pre>
+<p>🟢 3️⃣ Attach start and end station coordinates from stations_df</p>
+<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% left_join( stations_df %&gt;% rename( start_station_id = station_id, start_lat = lat, start_long = long ), by = “start_station_id” ) %&gt;% left_join( stations_df %&gt;% rename( end_station_id = station_id, end_lat = lat, end_long = long ), by = “end_station_id” )</p>
+<p>✅ Result:</p>
+<pre><code>Added start and end lat/lon
+
+Computed haversine distance</code></pre>
+<p>🟢 4️⃣ (Apparently rejoined different station metadata)</p>
+<p>🟢 4️⃣ Recompute distance</p>
+<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% mutate( distance_m = distHaversine( matrix(c(start_long, start_lat), ncol = 2), matrix(c(end_long, end_lat), ncol = 2) ), distance_km = distance_m / 1000 )</p>
+<p>✅ Result:</p>
+<pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) instead of (start_lon, start_lat)</code></pre>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
