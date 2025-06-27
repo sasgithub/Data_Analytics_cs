@@ -23,7 +23,7 @@ This density plot visualizes the distribution of distances between starting and 
 
 ##### Purpose
 
-This visualization is intended to show the typical ride distance for casual users avoiding tourist destinations. It highlights the patterns in short-to-moderate-distance usage of the bike-sharing system.
+This visualization illustrates the spatial extent of trips, showing how far non-tourist customers typically travel between stations across the system.
 
 ##### Observations
 

@@ -175,11 +175,11 @@ Focused on duration, distance, and their distributions by user type or cluster.
 
 ### 🗺️ Spatial Patterns
 
-Maps and spatial insights.
+This section presents spatial insights into non-tourist customer rides, highlighting both where trips originate and terminate (station popularity) and how far riders typically travel between stations. Together, these views illustrate usage density and trip distances across the system.
 
 {{< include Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.md >}}
 
-{{< include Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.md >}}
+{{< include Non-Tourist_Customer_Distribution_Station_to_Station_Distance_spatial.md >}}
 
 ###  Fleet & Usage Patterns
 
