@@ -43,7 +43,7 @@ To illustrate weekly patterns in casual (customer) ridership among local users, 
       - `customer` user type
 
 
-- **R Code Used to Generate Plot:**
+- **R Code Used to Generate Chart:**
 
 ```r
 ggplot(non_tourist_customer_rides_df, aes(x = day_of_week)) +

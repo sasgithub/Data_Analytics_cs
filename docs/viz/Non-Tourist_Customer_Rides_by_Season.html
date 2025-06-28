@@ -163,11 +163,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-tourist-customer-rides-by-season" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-rides-by-season">Non-Tourist Customer Rides by Season</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Rides_by_Season.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Season.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Rides_by_Season.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Season.png" alt="Bar chart showing non-tourist customer ride counts by season. Summer has the highest number of rides, followed by Fall, Spring, and Winter." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Total customer rides originating at non-tourist stations, aggregated by season. Summer shows the highest volume, with winter substantially lower.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This bar chart summarizes the total ride volume by season for customers using non-tourist stations. It helps illustrate seasonal variability in casual riding behavior.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li>X-Axis: Season (Spring, Summer, Fall, Winter)</li>
+<li>Y-Axis: Number of rides</li>
+<li>Bar Fill: Solid dark orange</li>
+</ul>
+</section>
+<section id="purpose" class="level5">
+<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
+<p>This chart highlights how seasonal factors influence casual ridership, such as weather and daylight availability, independent of tourist activity.</p>
+<section id="observations" class="level6">
+<h6 class="anchored" data-anchor-id="observations">Observations</h6>
+<ul>
+<li>Summer: Rides peak sharply, exceeding 600,000 rides—reflecting warm weather and extended daylight hours.</li>
+<li>Fall: Second-highest ridership, over 400,000 rides, showing sustained use into cooler months.</li>
+<li>Spring: More modest totals (~220,000 rides), likely reflecting a gradual ramp-up in riding.</li>
+<li>Winter: Lowest ridership (under 200,000), consistent with reduced bike use in cold conditions.</li>
+</ul>
+</section>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>The strong seasonal trend underscores the importance of temperature and daylight in casual rider behavior.</li>
+<li>Even excluding tourist hotspots, ridership in summer triples or quadruples winter levels.</li>
+<li>These patterns can inform resource allocation (e.g., rebalancing bikes) and maintenance scheduling.</li>
+</ul>
+</section>
+<section id="data-source" class="level5">
+<h5 class="anchored" data-anchor-id="data-source">Data Source</h5>
+<p>Filtered rides from the dataset: - non_tourist_customer_rides_df - Filters Applied: - user_type = customer - Start station ID in non-tourist stations list</p>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> season)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -179,6 +218,7 @@ FIGCAPTION
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

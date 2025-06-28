@@ -49,7 +49,8 @@ The modest morning volume and sustained midday usage indicate that, while some r
       - time converted to local time
 
 
-- **R Code Used to Generate Plot:**
+- **R Code Used to Generate Chart:**
+
 ```r
 ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +
     geom_col(position = "dodge") +

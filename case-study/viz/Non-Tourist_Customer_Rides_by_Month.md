@@ -47,7 +47,8 @@ This visualization is intended to illustrate seasonal variation in usage, exclud
      -  user_type == "customer"
      -  start_station_id in the non-tourist station list
 
-**R Code Used Generate :**
+**R Code Used to Generate Chart:**
+
 ```R
 ggplot(non_tourist_customer_rides_df, aes(x = month)) +
      geom_bar(fill = "darkorange") +

@@ -54,12 +54,13 @@ This visualization is designed to isolate potential **commuting or habitual usag
 ##### Data & Methods
 **Data Sources**
 - Data Frame: rides_by_hour_weekpart
-   - Filters Applied:
-     - Only customer rides (casual users)
-     - Rides originating from non-tourist stations
-     - Grouped by hour of day and week_part (Weekday vs Weekend)
+  - Filters Applied:
+    - Only customer rides (casual users)
+    - Rides originating from non-tourist stations
+    - Grouped by hour of day and week_part (Weekday vs Weekend)
 
-**R Code Used to Generate Plot:**
+**R Code Used to Generate Chart:**
+
 ```r
 ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +
 geom_col(position = "dodge") +

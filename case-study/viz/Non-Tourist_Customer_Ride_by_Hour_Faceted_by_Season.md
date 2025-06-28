@@ -51,19 +51,21 @@ To illustrate how both time of day and seasonality affect customer ride behavior
 
 ##### Data & Methods
 
-**Data Source:**
+**Data Source**
 
-rides_by_hour_season
+Data Frame: rides_by_hour_season
 
 This dataframe includes:
 
--  Non-tourist customer rides
--  Hour of ride start (local time)
--  Season label
--  Day type (Weekday / Weekend)
--  Aggregated ride counts by hour, season, and day type
+- Filtered out tourist stations
+- Filtered to customer rides
+- Derived season from start timestamp
+- Derived week_part from day of week
+- Aggregated ride counts by hour, season, and day type
 
-**R Code Used to Generate the Chart**
+**Data Source:**
+
+**R Code Used to Generate the Chart:**
 
 ```r
 ggplot(rides_by_hour_season, aes(x = hour, y = ride_count, color = week_part)) +
@@ -79,15 +81,6 @@ ggplot(rides_by_hour_season, aes(x = hour, y = ride_count, color = week_part)) +
   ) +
   theme_minimal()
 ```
-
-#### Data Sources
-**Data Source:**
-- Data Frame: rides_by_hour_season
-  - Transformations Applied:
-    - Filtered out tourist stations
-    - Filtered to customer rides
-    - Derived season from start timestamp
-    - Derived week_part from day of week
 
 <br style="clear: both;"></br>
 

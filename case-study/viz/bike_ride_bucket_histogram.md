@@ -2,10 +2,10 @@
 
 <figure class="float-right">
   <a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="Histogram showing the distribution of total ride counts per bike. Most bikes have between 2200–3999 rides, with a spike of underused bikes in the 0–99 range and a tapering tail above 4000 rides.">
   </a>
   <figcaption>
-  FIGCAPTION
+    Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
   </figcaption>
 </figure>
 
@@ -61,6 +61,12 @@ This visualization is valuable for:
 - **Lifecycle analysis** (detect uneven distribution of wear),
 - **Deployment strategy** (optimize rotation or redistribution).
 
+##### Data Sources
+
+`rides` table in SQLite, queried for bike usage counts grouped by `bike_id`.
+
+##### SQL Query to Produce Aggregated Data
+
 ```SQL
 .headers on
 .mode csv
@@ -85,6 +91,7 @@ SELECT
 FROM bucketed;
 .output stdout
 ```
+Gnuplot Script Used to Generate Chart:
 
 ```gnuplot
 set datafile separator ","

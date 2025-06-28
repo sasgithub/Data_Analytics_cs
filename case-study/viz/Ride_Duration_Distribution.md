@@ -1,4 +1,4 @@
-#### Ride Duration Distribution
+#### Ride Duration Distribution by User Type
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">
@@ -9,25 +9,24 @@
   </figcaption>
 </figure>
 
-### Ride Duration Distribution by User Type
+##### Overview
 
-#### Overview
+This histogram shows how ride durations differ between **Subscribers** and **Customers**. The distribution is plotted as a count of rides by duration (in minutes), revealing distinct usage patterns between user types.
 
-This histogram shows how ride durations differ between **Subscribers** and **Customers** in the Divvy bike system. The distribution is plotted as a count of rides by duration (in minutes), revealing distinct usage patterns between user types.
-
-#### Chart Details
+##### Chart Details
 
 - **X-Axis**: Ride duration in minutes, from 0 to 200 minutes.
 - **Y-Axis**: Count of rides in each duration bin.
 - **Bars**:
   - **Blue (Subscribers)**: Rides are tightly clustered around shorter durations.
   - **Orange (Customers)**: Rides are more spread out, with a longer tail.
+- **Bin Width**: 2 minutes per bar.
 
-#### Purpose
+##### Purpose
 
 This visualization compares usage patterns between customers and subscribers, showing that the two groups engage with the bike share system very differently in terms of how long they ride.
 
-#### Observations
+##### Observations
 
 - **Subscribers**:
   - Majority of rides are under 30 minutes.
@@ -36,23 +35,22 @@ This visualization compares usage patterns between customers and subscribers, sh
 
 - **Customers**:
   - Ride duration distribution is flatter and broader.
-  - Significant number of rides extend beyond 30–60 minutes.
+  - Significant number of rides extend beyond 30 minutes.
   - Tail extends beyond 100 minutes, though with diminishing frequency.
 
-#### Interpretation
+##### Interpretation
 
-- **Subscriber rides** are likely utilitarian — such as commuting or quick errands — and are influenced by pricing plans that encourage shorter trips.
+- **Subscriber rides** are likely utilitarian — such as commuting or quick errands — and are likely influenced by pricing plans that encourage shorter trips.
 - **Customer rides** are more exploratory or recreational, often longer and less time-sensitive.
 - The chart highlights a fundamental behavioral difference in how the system is used by each group.
 
-#### Technical Notes
+##### Technical Notes
 
 - Duration is measured from ride start to ride end.
 - Rides over 200 minutes are excluded from the chart for scale clarity.
 - The bin width used for this histogram is likely around 1 minute per bar, offering detailed resolution at shorter durations.
 
-
-
+##### Data Source
 
 ```R
 # Connect to the SQLite database
@@ -75,7 +73,7 @@ ride_durations <- dbGetQuery(con, "
 # Disconnect
  dbDisconnect(con)
 ```
-
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(ride_durations, aes(x = duration_min, fill = user_type)) +

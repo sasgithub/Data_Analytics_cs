@@ -218,17 +218,18 @@ Hourly customer ride patterns by season at non-tourist stations. Weekday rides p
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p><strong>Data Source:</strong></p>
-<p>rides_by_hour_season</p>
+<p><strong>Data Source</strong></p>
+<p>Data Frame: rides_by_hour_season</p>
 <p>This dataframe includes:</p>
 <ul>
-<li>Non-tourist customer rides</li>
-<li>Hour of ride start (local time)</li>
-<li>Season label</li>
-<li>Day type (Weekday / Weekend)</li>
+<li>Filtered out tourist stations</li>
+<li>Filtered to customer rides</li>
+<li>Derived season from start timestamp</li>
+<li>Derived week_part from day of week</li>
 <li>Aggregated ride counts by hour, season, and day type</li>
 </ul>
-<p><strong>R Code Used to Generate the Chart</strong></p>
+<p><strong>Data Source:</strong></p>
+<p><strong>R Code Used to Generate the Chart:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_season, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">color =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -241,14 +242,10 @@ Hourly customer ride patterns by season at non-tourist stations. Weekday rides p
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Day Type"</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="data-sources" class="level4">
-<h4 class="anchored" data-anchor-id="data-sources">Data Sources</h4>
-<p><strong>Data Source:</strong> - Data Frame: rides_by_hour_season - Transformations Applied: - Filtered out tourist stations - Filtered to customer rides - Derived season from start timestamp - Derived week_part from day of week</p>
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

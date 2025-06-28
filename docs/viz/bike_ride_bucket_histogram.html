@@ -163,9 +163,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="distribution-of-ride-counts-per-bike" class="level4">
 <h4 class="anchored" data-anchor-id="distribution-of-ride-counts-per-bike">Distribution of Ride Counts per Bike</h4>
 <figure class="float-right figure">
-<a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="Histogram showing the distribution of total ride counts per bike. Most bikes have between 2200–3999 rides, with a spike of underused bikes in the 0–99 range and a tapering tail above 4000 rides." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
@@ -235,6 +235,13 @@ FIGCAPTION
 <section id="use-case" class="level5">
 <h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This visualization is valuable for: - <strong>Fleet maintenance planning</strong> (identify overused/underused bikes), - <strong>Lifecycle analysis</strong> (detect uneven distribution of wear), - <strong>Deployment strategy</strong> (optimize rotation or redistribution).</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<p><code>rides</code> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
+</section>
+<section id="sql-query-to-produce-aggregated-data" class="level5">
+<h5 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
@@ -257,6 +264,7 @@ FIGCAPTION
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Gnuplot Script Used to Generate Chart:</p>
 <pre class="gnuplot"><code>set datafile separator ","
 set terminal pngcairo size 1000,600 enhanced font 'Verdana,10'
 set output 'bike_ride_bucket_histogram.png'
