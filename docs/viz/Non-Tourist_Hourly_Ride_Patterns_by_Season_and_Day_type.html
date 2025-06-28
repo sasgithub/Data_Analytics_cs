@@ -163,11 +163,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="hourly-ride-patterns-by-season-and-day-type-non-tourist-stations" class="level4">
 <h4 class="anchored" data-anchor-id="hourly-ride-patterns-by-season-and-day-type-non-tourist-stations">Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" alt="Grouped bar charts showing hourly ride counts split by season (Fall, Spring, Summer, Winter) and further divided into Weekday and Weekend rides. Strong afternoon peaks on weekdays in Summer and Fall, flatter distributions on weekends and in Winter." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Hourly ride counts at non-tourist stations, grouped by season and separated by weekday versus weekend, illustrating clear seasonal and temporal ridership patterns.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This multi-panel grouped bar chart compares <strong>hourly ride activity</strong> across the four seasons, separated into <strong>weekday</strong> and <strong>weekend</strong> usage, restricted to non-tourist stations. It provides a clear view of how both <strong>time of day</strong> and <strong>seasonality</strong> influence ridership behavior among casual users.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Hour of Day (0–23 in 24-hour format).</li>
+<li><strong>Y-Axis:</strong> Number of Rides.</li>
+<li><strong>Bars:</strong>
+<ul>
+<li><strong>Dark Blue:</strong> Weekday rides.</li>
+<li><strong>Dark Orange:</strong> Weekend rides.</li>
+</ul></li>
+<li><strong>Facets:</strong>
+<ul>
+<li>One panel per season: Fall, Spring, Summer, and Winter.</li>
+</ul></li>
+<li><strong>Position:</strong> Bars are grouped side by side within each hour for comparison.</li>
+</ul>
+</section>
+<section id="purpose" class="level5">
+<h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
+<p>The visualization aims to: - Quantify the impact of <strong>seasonal changes</strong> on ridership volume. - Identify <strong>daily commute-like patterns</strong> even among non-subscribers. - Highlight how weekends differ from weekdays in temporal distribution.</p>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Summer and Fall:</strong>
+<ul>
+<li>Pronounced <strong>weekday peaks around 17:00</strong>, likely related to commuting or end-of-day activities.</li>
+<li>Weekend ridership is elevated but spread more evenly across midday hours.</li>
+</ul></li>
+<li><strong>Spring:</strong>
+<ul>
+<li>Similar but slightly lower weekday afternoon peaks.</li>
+</ul></li>
+<li><strong>Winter:</strong>
+<ul>
+<li>Overall volume sharply reduced.</li>
+<li>Flatter distribution throughout the day with only a mild afternoon increase on weekdays.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Strong <strong>weekday afternoon peaks</strong> in warm months support the idea of commuting or routine trips by casual riders.</li>
+<li>Weekend rides remain relatively stable across seasons, indicating recreation and errands.</li>
+<li>Winter conditions significantly suppress all ride activity.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li>All rides are filtered to <strong>exclude tourist stations</strong>.</li>
+<li>Only rides by <code>customer</code> (non-subscriber) users are included.</li>
+<li>Local Chicago time used for hourly binning.</li>
+<li>Season assigned based on ride start date.</li>
+</ul>
+</section>
+<section id="data-methods" class="level5">
+<h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
+<p>Data source: - <code>non_tourist_customer_rides_df</code> - Filtered for user_type = 1. - Filtered to non-tourist station IDs.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_season, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -183,6 +247,7 @@ FIGCAPTION
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

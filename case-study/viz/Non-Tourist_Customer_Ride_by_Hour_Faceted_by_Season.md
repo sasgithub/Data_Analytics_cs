@@ -63,8 +63,6 @@ This dataframe includes:
 - Derived week_part from day of week
 - Aggregated ride counts by hour, season, and day type
 
-**Data Source:**
-
 **R Code Used to Generate the Chart:**
 
 ```r

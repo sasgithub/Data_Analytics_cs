@@ -228,7 +228,6 @@ Hourly customer ride patterns by season at non-tourist stations. Weekday rides p
 <li>Derived week_part from day of week</li>
 <li>Aggregated ride counts by hour, season, and day type</li>
 </ul>
-<p><strong>Data Source:</strong></p>
 <p><strong>R Code Used to Generate the Chart:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_season, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">color =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>

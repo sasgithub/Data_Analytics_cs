@@ -163,11 +163,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="hourly-ride-volume-vs-temperature" class="level4">
 <h4 class="anchored" data-anchor-id="hourly-ride-volume-vs-temperature">Hourly Ride Volume vs Temperature</h4>
 <figure class="float-right figure">
-<a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Smoothed hourly ride volume as a function of temperature, by user type. Subscriber activity increases steadily as temperatures warm, while customer rides also rise but remain lower overall.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This chart shows how <strong>average hourly ride volume</strong> varies with <strong>ambient temperature</strong>, comparing <strong>subscribers</strong> and <strong>customers</strong>. The data was smoothed using LOESS to reveal overall trends.</p>
+</section>
+<section id="axes" class="level5">
+<h5 class="anchored" data-anchor-id="axes">Axes</h5>
+<ul>
+<li><strong>X-Axis (Temperature °C)</strong>:
+<ul>
+<li>Ranges from -25°C to ~38°C.</li>
+<li>Divided into evenly spaced bins.</li>
+</ul></li>
+<li><strong>Y-Axis (Hourly Ride Volume)</strong>:
+<ul>
+<li>Number of rides per hour.</li>
+<li>Scaled with abbreviated labels (e.g., 500, 1K).</li>
+</ul></li>
+</ul>
+</section>
+<section id="visual-elements" class="level5">
+<h5 class="anchored" data-anchor-id="visual-elements">Visual Elements</h5>
+<ul>
+<li><strong>Blue Line</strong>: Subscribers.</li>
+<li><strong>Red Line</strong>: Customers.</li>
+<li>LOESS smoothing without confidence intervals.</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Cold Weather (-20°C to 0°C)</strong>:
+<ul>
+<li>Both user types ride infrequently, though subscribers maintain higher relative volume.</li>
+<li>Customer volume dips to a shallow trough around -10°C.</li>
+</ul></li>
+<li><strong>Warming Trend (0–20°C)</strong>:
+<ul>
+<li>Steady increase in rides for both groups.</li>
+<li>Subscriber volume roughly doubles between freezing and 20°C.</li>
+</ul></li>
+<li><strong>Hot Weather (25–35°C)</strong>:
+<ul>
+<li>No visible decline in ride volume at the highest temperatures.</li>
+<li>Unlike some systems that show tapering during heat waves, this dataset suggests continued strong usage as it warms.</li>
+<li>This may reflect:
+<ul>
+<li>High recreational demand in summer.</li>
+<li>Longer daylight hours encouraging extended riding.</li>
+<li>Possibly the relatively moderate humidity or urban heat adaptation.</li>
+</ul></li>
+</ul></li>
+<li><strong>Relative Usage</strong>:
+<ul>
+<li>Subscribers consistently ride more than customers across the entire temperature range.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Unlike expectations of a heat penalty, Divvy usage here shows <strong>continual positive correlation between temperature and ridership</strong>.</li>
+<li>This pattern may be specific to Chicago’s climate, where even hot days are preferred over cold ones for biking.</li>
+<li>Subscribers are more resilient to temperature extremes compared to customers.</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_weather_df, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
@@ -182,6 +249,7 @@ FIGCAPTION
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
