@@ -9,15 +9,58 @@
   </figcaption>
 </figure>
 
+##### Overview
 
+This density plot visualizes the **distribution of ride durations** for customers and subscribers, providing a smoothed alternative to histograms for easier comparison of patterns.
 
+##### Chart Details
 
+- **X-Axis:** Ride duration in minutes (0–60 min).
+- **Y-Axis:** Density estimate of ride frequency.
+- **Lines/Areas:**
+  - **Blue (Subscribers):** High, narrow peak at short durations.
+  - **Orange (Customers):** Flatter, broader distribution extending to longer rides.
+- **Smoothing:** Kernel density estimation applied with default bandwidth.
+
+##### Observations
+
+- **Subscribers:**
+  - Strong peak centered around ~10–15 minutes.
+  - Rapid decline beyond ~20 minutes.
+  - Indicates trips optimized for commuting or quick errands.
+- **Customers:**
+  - Less pronounced peak.
+  - Long tail extending to ~60 minutes.
+  - Reflects more recreational or exploratory rides.
+
+##### Interpretation
+
+The contrasting shapes highlight different usage patterns:
+- **Subscribers** prioritize efficiency and short trips, likely influenced by pricing incentives and commute needs.
+- **Customers** are more likely to take longer rides with varied trip purposes.
+
+##### Data Sources
+
+- **Trip Data:** Divvy ride records from:
+  - 2013–2019 (S3 archive)
+  - 2023–2025 (City of Chicago Data Portal)
+
+##### Data Preparation
+
+- Selected rides where:
+  - `user_type` is 0 (subscriber) or 1 (customer).
+  - `end_time > start_time`.
+  - Duration < 200 minutes.
+- Duration computed as `(end_time - start_time) / 60`.
+- No filtering by station type.
+
+**SQL Query Used to Retrieve Data:**
 
 ```R
 # Connect to the SQLite database
 con <- dbConnect(RSQLite::SQLite(), "caseStudy.db")
 
-# Pull ride durations for valid subscriber/customer rides under 60 min
+# Pull ride durations for valid subscriber/customer rides under 200 min
 ride_durations <- dbGetQuery(con, "
   SELECT
     CASE user_type
@@ -34,6 +77,8 @@ ride_durations <- dbGetQuery(con, "
 # Disconnect 
  dbDisconnect(con)
 ```
+
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(ride_durations, aes(x = duration_min, color = user_type, fill = user_type)) +

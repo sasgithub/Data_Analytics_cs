@@ -41,7 +41,7 @@ This line chart panel shows the total ride volume across 2°C temperature bins, 
 
 ###### No Data
 - Very little volume, but patterns still mirror the dry curve.
-- Could include early data before weather tracking began or corrupted weather records.
+- Could include times where weather data was not collected for some reason (hardware failure, etc) or corrupted weather records.
 
 ###### Wet Conditions
 - Dramatic decrease in ride volume for both user types.
@@ -59,6 +59,24 @@ This visualization helps:
 - Quantify the impact of weather on bike share demand.
 - Support decisions around dynamic pricing, rebalancing, or user alerts based on forecasted weather.
 - Segment usage patterns based on environmental conditions, without requiring detailed user data beyond type.
+
+##### Data Sources
+
+- **Trip Data:** Divvy trip records from:
+  - 2013–2019 (S3 archive)
+  - 2023–2025 (City of Chicago Data Portal)
+- **Weather Data:** Chicago Midway Airport hourly observations via Meteostat.
+
+##### Data Preparation
+
+- Rides aggregated per hour and user type (`COUNT(*) AS rides`).
+- Weather joined on hourly epoch timestamp (`start_time / 3600 * 3600`).
+- Temperature binned using `floor(temp / 2) * 2`.
+- Precipitation labeled:
+  - `Dry` = 0 mm precipitation.
+  - `Wet` = >0 mm precipitation.
+  - `No Data` = missing precipitation.
+- Summed rides per combination of bin, user type, and precipitation label.
 
 
 ```R

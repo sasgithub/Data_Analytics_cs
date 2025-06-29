@@ -9,19 +9,45 @@
   </figcaption>
 </figure>
 
-##### Temperature vs Ride Volume by User Type
+##### Overview
 
-This dual-panel line plot compares **hourly ride volume** to **temperature (°C)** for **customers** (left) and **subscribers** (right). Both panels show a strong nonlinear increase in ride volume as temperatures rise.
+This dual-panel line plot compares **hourly ride volume** to **temperature (°C)** for each user type separately. It illustrates how customers and subscribers respond differently to temperature changes.
 
-###### Key Observations:
-- Ride volume is **lowest below freezing** and begins to climb around 0°C.
-- **Subscribers** maintain higher ride volume than customers across the full temperature range, suggesting greater resilience to cold weather.
-- Both curves exhibit a **steep increase above 20°C**, peaking near 35–40°C.
-- The growth is smooth and continuous, indicative of a nonlinear relationship rather than a threshold effect.
+##### Chart Details
 
-These findings support the inclusion of temperature as a continuous predictor of ride behavior in seasonal and temporal analyses.
+- **X-Axis:** Temperature in °C.
+- **Y-Axis:** Hourly ride count.
+- **Facets:**
+  - Left: Customers.
+  - Right: Subscribers.
+- **Line:** LOESS smooth showing trend across all hourly observations.
 
+##### Observations
 
+- Ride volume is **lowest below freezing**, rising quickly as temperatures warm.
+- **Subscribers** consistently have higher hourly volume across the entire temperature range.
+- Both user types show a **smooth, nonlinear increase**, with no clear plateau in the observed temperatures.
+- The upward trend becomes especially pronounced above ~20°C.
+
+##### Interpretation
+
+These patterns suggest that temperature strongly influences ridership among both groups, but subscribers are more resilient to cold and maintain more consistent usage. The continuous rise highlights that moderate and warm weather significantly increase demand.
+
+##### Data Sources
+
+- **Trip Data:** Divvy trip records from:
+  - 2013–2019 (S3 archive)
+  - 2023–2025 (City of Chicago Data Portal)
+- **Weather Data:** Chicago Midway Airport hourly observations via Meteostat.
+
+##### Data Preparation
+
+- Rides aggregated per hour and user type (`COUNT(*) AS rides`).
+- Weather joined on hourly epoch timestamp (`start_time / 3600 * 3600`).
+- No filtering by precipitation.
+- LOESS smoothing applied within each user type facet.
+
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(rides_weather_df, aes(x = temp, y = rides)) +

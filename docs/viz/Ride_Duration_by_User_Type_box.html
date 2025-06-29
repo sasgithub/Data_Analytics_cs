@@ -165,9 +165,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="float-right figure">
 <a href="../images/Ride_Duration_by_User_Type_box.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_by_User_Type_box.png" alt="ALT_TEXT" class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Box plot of ride durations by user type. Subscribers have shorter, more consistent trips, while customers exhibit longer and more variable ride times.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This box plot compares the <strong>distribution of ride durations</strong> between subscribers and customers, emphasizing differences in median, spread, and outliers.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> User Type (Subscriber, Customer).</li>
+<li><strong>Y-Axis:</strong> Ride Duration in Minutes (0–200 min).</li>
+<li><strong>Boxes:</strong>
+<ul>
+<li>Show interquartile range (25th–75th percentile).</li>
+<li>Central line indicates the median ride duration.</li>
+</ul></li>
+<li><strong>Whiskers and Outliers:</strong>
+<ul>
+<li>Whiskers extend to ~1.5× IQR.</li>
+<li>Outliers plotted with low opacity for clarity.</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Subscribers:</strong>
+<ul>
+<li>Median ride duration is substantially lower.</li>
+<li>Tight interquartile range, indicating consistent short trips.</li>
+<li>Fewer extreme outliers.</li>
+</ul></li>
+<li><strong>Customers:</strong>
+<ul>
+<li>Higher median ride duration.</li>
+<li>Wide interquartile range, reflecting greater variability.</li>
+<li>Substantial number of longer-duration outliers.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>The data reinforces prior findings that: - <strong>Subscribers</strong> ride mainly for commuting or quick tasks, resulting in shorter, predictable durations. - <strong>Customers</strong> tend to use bikes more recreationally, leading to longer, less consistent trips.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Trip Data:</strong> Divvy rides from:
+<ul>
+<li>2013–2019 (S3 archive)</li>
+<li>2023–2025 (City of Chicago Data Portal)</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<p><strong>SQL Query Used to Retrieve Data:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -187,6 +242,7 @@ FIGCAPTION
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Disconnect</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R Code Used to Generate Chart:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_durations, <span class="fu">aes</span>(<span class="at">x =</span> user_type, <span class="at">y =</span> duration_min, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_boxplot</span>(<span class="at">outlier.alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ride Duration by User Type"</span>, <span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Duration (minutes)"</span>) <span class="sc">+</span></span>
@@ -194,6 +250,7 @@ FIGCAPTION
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

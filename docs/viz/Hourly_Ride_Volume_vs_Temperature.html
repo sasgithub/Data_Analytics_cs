@@ -165,72 +165,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="float-right figure">
 <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
 <figcaption>
-Smoothed hourly ride volume as a function of temperature, by user type. Subscriber activity increases steadily as temperatures warm, while customer rides also rise but remain lower overall.
+LOESS-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This chart shows how <strong>average hourly ride volume</strong> varies with <strong>ambient temperature</strong>, comparing <strong>subscribers</strong> and <strong>customers</strong>. The data was smoothed using LOESS to reveal overall trends.</p>
-</section>
-<section id="axes" class="level5">
-<h5 class="anchored" data-anchor-id="axes">Axes</h5>
+<p>LOESS-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
 <ul>
-<li><strong>X-Axis (Temperature °C)</strong>:
+<li><strong>X-Axis:</strong> Air temperature in °C.</li>
+<li><strong>Y-Axis:</strong> Number of rides per hour.</li>
+<li><strong>Lines:</strong> LOESS smooth for each user type.
 <ul>
-<li>Ranges from -25°C to ~38°C.</li>
-<li>Divided into evenly spaced bins.</li>
+<li><strong>Blue:</strong> Subscribers.</li>
+<li><strong>Red:</strong> Customers.</li>
 </ul></li>
-<li><strong>Y-Axis (Hourly Ride Volume)</strong>:
-<ul>
-<li>Number of rides per hour.</li>
-<li>Scaled with abbreviated labels (e.g., 500, 1K).</li>
-</ul></li>
-</ul>
-</section>
-<section id="visual-elements" class="level5">
-<h5 class="anchored" data-anchor-id="visual-elements">Visual Elements</h5>
-<ul>
-<li><strong>Blue Line</strong>: Subscribers.</li>
-<li><strong>Red Line</strong>: Customers.</li>
-<li>LOESS smoothing without confidence intervals.</li>
 </ul>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><strong>Cold Weather (-20°C to 0°C)</strong>:
-<ul>
-<li>Both user types ride infrequently, though subscribers maintain higher relative volume.</li>
-<li>Customer volume dips to a shallow trough around -10°C.</li>
-</ul></li>
-<li><strong>Warming Trend (0–20°C)</strong>:
-<ul>
-<li>Steady increase in rides for both groups.</li>
-<li>Subscriber volume roughly doubles between freezing and 20°C.</li>
-</ul></li>
-<li><strong>Hot Weather (25–35°C)</strong>:
-<ul>
-<li>No visible decline in ride volume at the highest temperatures.</li>
-<li>Unlike some systems that show tapering during heat waves, this dataset suggests continued strong usage as it warms.</li>
-<li>This may reflect:
-<ul>
-<li>High recreational demand in summer.</li>
-<li>Longer daylight hours encouraging extended riding.</li>
-<li>Possibly the relatively moderate humidity or urban heat adaptation.</li>
-</ul></li>
-</ul></li>
-<li><strong>Relative Usage</strong>:
-<ul>
-<li>Subscribers consistently ride more than customers across the entire temperature range.</li>
-</ul></li>
+<li>Ride counts rise with temperature from below 0°C through the 20s.</li>
+<li>Unlike binned histograms, no clear decline is visible above ~30°C.</li>
+<li>Customer volume grows faster with temperature than subscriber volume.</li>
 </ul>
 </section>
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>The continuous LOESS smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
 <ul>
-<li>Unlike expectations of a heat penalty, Divvy usage here shows <strong>continual positive correlation between temperature and ridership</strong>.</li>
-<li>This pattern may be specific to Chicago’s climate, where even hot days are preferred over cold ones for biking.</li>
-<li>Subscribers are more resilient to temperature extremes compared to customers.</li>
+<li><strong>Trip Data:</strong> Divvy trip records from:
+<ul>
+<li>2013–2019 (S3 archive)</li>
+<li>2023–2025 (City of Chicago Data Portal)</li>
+</ul></li>
+<li><strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<ul>
+<li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
+<li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
+<li>No filter applied to exclude zero-ride hours (i.e., hours with no rides are included as 0).</li>
+<li>Used as input to LOESS smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
 </ul>
 </section>
 <section id="r-code-used-to-generate-chart" class="level5">

@@ -163,17 +163,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="frequency-of-temperature-bins" class="level4">
 <h4 class="anchored" data-anchor-id="frequency-of-temperature-bins">Frequency of Temperature Bins</h4>
 <figure class="float-right figure">
-<a href="../images/Frequency_of_Temp_bins.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Frequency_of_Temp_bins.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Frequency_of_Temp_bins.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Frequency_of_Temp_bins.png" alt="Histogram showing how many hourly weather records fall into each 2°C temperature bin between -20 and +40°C. The distribution peaks around 15–25°C and falls off sharply at higher and lower extremes." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Frequency distribution of hourly temperature observations during the analysis period, illustrating data coverage across temperature ranges.
 </figcaption>
 </figure>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequency of Temperature Bins"</span>, <span class="at">x =</span> <span class="st">"Temp (°C)"</span>, <span class="at">y =</span> <span class="st">"Hours Observed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This histogram shows how often each 2°C temperature range occurred in the underlying weather dataset. It helps contextualize the density of data points used in other temperature-related analyses, particularly the scarcity of very hot or very cold hours.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Temperature Bin (°C), grouped in 2-degree intervals.</li>
+<li><strong>Y-Axis:</strong> Number of hourly records falling within each bin.</li>
+<li><strong>Bars:</strong> Height proportional to frequency of observations per bin.</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>The majority of observations cluster between ~5°C and ~25°C.</li>
+<li>Very few hours fall below -10°C or above 30°C.</li>
+<li>This uneven distribution explains why temperature-related charts show more stable trends in mid-range temperatures but can become volatile at extremes.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>The chart demonstrates that the dataset’s coverage is concentrated in moderate temperatures, suggesting caution when interpreting trends at temperature extremes due to sparse data.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Weather Data:</strong> Hourly observations from Chicago Midway Airport via Meteostat Bulk Hourly Dataset.
+<ul>
+<li>Includes air temperature, dewpoint, humidity, precipitation, and other weather variables.</li>
+</ul></li>
+<li><strong>Timeframe:</strong> Coverage aligned to available trip data (2013–2019 and 2023–2025), although this chart includes all available hourly weather records regardless of whether rides occurred.</li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<ul>
+<li>Hourly temperature records loaded into SQLite.</li>
+<li>Temperature rounded down to nearest 2°C bin (<code>floor(temp / 2) * 2</code>).</li>
+<li>Counts aggregated per bin using <code>dplyr</code> in R.</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create temperature bins and count occurrences</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>temp_bins <span class="ot">&lt;-</span> hourly_weather_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_bin =</span> <span class="fu">floor</span>(temp <span class="sc">/</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(temp_bin) <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histogram</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(temp_bins, <span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Frequency of Temperature Bins"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature Bin (°C)"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Hours"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>br style<span class="ot">=</span><span class="st">"clear: both;"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>br<span class="sc">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">R</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">ggplot(aes(x = temp_bin, y = n)) +</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">  geom_col(fill = "gray") +</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">  labs(title = "Frequency of Temperature Bins", x = "Temp (°C)", y = "Hours Observed")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

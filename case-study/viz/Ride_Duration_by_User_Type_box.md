@@ -5,13 +5,51 @@
   <img src="../images/thumbnails/Ride_Duration_by_User_Type_box.png" alt="ALT_TEXT">
   </a>
   <figcaption>
-  FIGCAPTION
+    Box plot of ride durations by user type. Subscribers have shorter, more consistent trips, while customers exhibit longer and more variable ride times.
   </figcaption>
 </figure>
 
+##### Overview
 
+This box plot compares the **distribution of ride durations** between subscribers and customers, emphasizing differences in median, spread, and outliers.
 
+##### Chart Details
 
+- **X-Axis:** User Type (Subscriber, Customer).
+- **Y-Axis:** Ride Duration in Minutes (0–200 min).
+- **Boxes:**
+  - Show interquartile range (25th–75th percentile).
+  - Central line indicates the median ride duration.
+- **Whiskers and Outliers:**
+  - Whiskers extend to ~1.5× IQR.
+  - Outliers plotted with low opacity for clarity.
+
+##### Observations
+
+- **Subscribers:**
+  - Median ride duration is substantially lower.
+  - Tight interquartile range, indicating consistent short trips.
+  - Fewer extreme outliers.
+- **Customers:**
+  - Higher median ride duration.
+  - Wide interquartile range, reflecting greater variability.
+  - Substantial number of longer-duration outliers.
+
+##### Interpretation
+
+The data reinforces prior findings that:
+- **Subscribers** ride mainly for commuting or quick tasks, resulting in shorter, predictable durations.
+- **Customers** tend to use bikes more recreationally, leading to longer, less consistent trips.
+
+##### Data Sources
+
+- **Trip Data:** Divvy rides from:
+  - 2013–2019 (S3 archive)
+  - 2023–2025 (City of Chicago Data Portal)
+
+##### Data Preparation
+
+**SQL Query Used to Retrieve Data:**
 
 ```R
 # Connect to the SQLite database
@@ -34,7 +72,7 @@ ride_durations <- dbGetQuery(con, "
 # Disconnect
  dbDisconnect(con)
 ```
-
+R Code Used to Generate Chart:
 
 ```R
 ggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +

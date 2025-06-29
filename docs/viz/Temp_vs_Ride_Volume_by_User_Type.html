@@ -168,18 +168,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Hourly ride volume by temperature, faceted by user type. Warmer temperatures correlate strongly with increased ride volume for both customers and subscribers, with subscriber volume remaining higher across all temperatures.
 </figcaption>
 </figure>
-<section id="temperature-vs-ride-volume-by-user-type-1" class="level5">
-<h5 class="anchored" data-anchor-id="temperature-vs-ride-volume-by-user-type-1">Temperature vs Ride Volume by User Type</h5>
-<p>This dual-panel line plot compares <strong>hourly ride volume</strong> to <strong>temperature (°C)</strong> for <strong>customers</strong> (left) and <strong>subscribers</strong> (right). Both panels show a strong nonlinear increase in ride volume as temperatures rise.</p>
-<section id="key-observations" class="level6">
-<h6 class="anchored" data-anchor-id="key-observations">Key Observations:</h6>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This dual-panel line plot compares <strong>hourly ride volume</strong> to <strong>temperature (°C)</strong> for each user type separately. It illustrates how customers and subscribers respond differently to temperature changes.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li>Ride volume is <strong>lowest below freezing</strong> and begins to climb around 0°C.</li>
-<li><strong>Subscribers</strong> maintain higher ride volume than customers across the full temperature range, suggesting greater resilience to cold weather.</li>
-<li>Both curves exhibit a <strong>steep increase above 20°C</strong>, peaking near 35–40°C.</li>
-<li>The growth is smooth and continuous, indicative of a nonlinear relationship rather than a threshold effect.</li>
+<li><strong>X-Axis:</strong> Temperature in °C.</li>
+<li><strong>Y-Axis:</strong> Hourly ride count.</li>
+<li><strong>Facets:</strong>
+<ul>
+<li>Left: Customers.</li>
+<li>Right: Subscribers.</li>
+</ul></li>
+<li><strong>Line:</strong> LOESS smooth showing trend across all hourly observations.</li>
 </ul>
-<p>These findings support the inclusion of temperature as a continuous predictor of ride behavior in seasonal and temporal analyses.</p>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>Ride volume is <strong>lowest below freezing</strong>, rising quickly as temperatures warm.</li>
+<li><strong>Subscribers</strong> consistently have higher hourly volume across the entire temperature range.</li>
+<li>Both user types show a <strong>smooth, nonlinear increase</strong>, with no clear plateau in the observed temperatures.</li>
+<li>The upward trend becomes especially pronounced above ~20°C.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>These patterns suggest that temperature strongly influences ridership among both groups, but subscribers are more resilient to cold and maintain more consistent usage. The continuous rise highlights that moderate and warm weather significantly increase demand.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Trip Data:</strong> Divvy trip records from:
+<ul>
+<li>2013–2019 (S3 archive)</li>
+<li>2023–2025 (City of Chicago Data Portal)</li>
+</ul></li>
+<li><strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<ul>
+<li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
+<li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
+<li>No filtering by precipitation.</li>
+<li>LOESS smoothing applied within each user type facet.</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_weather_df, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> rides)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
@@ -192,7 +232,6 @@ Hourly ride volume by temperature, faceted by user type. Warmer temperatures cor
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 

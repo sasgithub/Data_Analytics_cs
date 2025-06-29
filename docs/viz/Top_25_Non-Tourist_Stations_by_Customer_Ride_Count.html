@@ -163,11 +163,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="top-25-non-tourist-stations-by-customer-ride-count" class="level4">
 <h4 class="anchored" data-anchor-id="top-25-non-tourist-stations-by-customer-ride-count">Top 25 Non-Tourist Stations by Customer Ride Count</h4>
 <figure class="float-right figure">
-<a href="../images/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" alt="Horizontal bar chart showing the top 25 non-tourist stations ranked by the total number of customer rides." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Top 25 stations (excluding tourist locations) ranked by total customer ride volume. Bars highlight the most frequently used start locations among casual riders.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This horizontal bar chart displays the <strong>25 non-tourist stations with the highest number of customer rides</strong>. Each bar represents a single station, ranked from lowest to highest.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Station names (rotated vertically by using <code>coord_flip()</code>).</li>
+<li><strong>Y-Axis:</strong> Number of customer rides originating at each station.</li>
+<li><strong>Bars:</strong>
+<ul>
+<li>Colored steel blue.</li>
+<li>Sorted so that the most-used stations appear at the top of the chart.</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>The highest-ranking stations have significantly more rides than those near the bottom of the top 25.</li>
+<li>Usage distribution shows a steep drop-off after the first few most popular stations.</li>
+<li>This pattern suggests localized hubs of casual rider activity outside major tourist zones.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Non-tourist stations can still accumulate large ride volumes, likely reflecting:
+<ul>
+<li>Proximity to residential neighborhoods.</li>
+<li>Access to transit nodes or commercial areas.</li>
+<li>Popularity among local users for short trips and errands.</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Input Table:</strong> Rides table in <code>caseStudy.db</code>.</li>
+<li><strong>Filters Applied:</strong>
+<ul>
+<li>Only rides with <code>user_type = 1</code> (customers).</li>
+<li>Start stations excluding predefined tourist station IDs.</li>
+<li>Grouped and aggregated ride counts by start station.</li>
+<li>Joined with station metadata to retrieve station names.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_non_tourist_stations_named, <span class="fu">aes</span>(</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">x =</span> <span class="fu">reorder</span>(name, customer_ride_count),</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">y =</span> customer_ride_count</span>
@@ -182,6 +232,7 @@ FIGCAPTION
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

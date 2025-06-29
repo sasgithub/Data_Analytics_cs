@@ -211,7 +211,7 @@ Ride Volume by Temperature and Rain Condition This panel chart shows total ride 
 <h6 class="anchored" data-anchor-id="no-data">No Data</h6>
 <ul>
 <li>Very little volume, but patterns still mirror the dry curve.</li>
-<li>Could include early data before weather tracking began or corrupted weather records.</li>
+<li>Could include times where weather data was not collected for some reason (hardware failure, etc) or corrupted weather records.</li>
 </ul>
 </section>
 <section id="wet-conditions" class="level6">
@@ -233,6 +233,32 @@ Ride Volume by Temperature and Rain Condition This panel chart shows total ride 
 <section id="use-case" class="level5">
 <h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This visualization helps: - Quantify the impact of weather on bike share demand. - Support decisions around dynamic pricing, rebalancing, or user alerts based on forecasted weather. - Segment usage patterns based on environmental conditions, without requiring detailed user data beyond type.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Trip Data:</strong> Divvy trip records from:
+<ul>
+<li>2013–2019 (S3 archive)</li>
+<li>2023–2025 (City of Chicago Data Portal)</li>
+</ul></li>
+<li><strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<ul>
+<li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
+<li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
+<li>Temperature binned using <code>floor(temp / 2) * 2</code>.</li>
+<li>Precipitation labeled:
+<ul>
+<li><code>Dry</code> = 0 mm precipitation.</li>
+<li><code>Wet</code> = &gt;0 mm precipitation.</li>
+<li><code>No Data</code> = missing precipitation.</li>
+</ul></li>
+<li>Summed rides per combination of bin, user type, and precipitation label.</li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(temp_bin, user_type, precip_label) <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">summarise</span>(<span class="at">rides =</span> <span class="fu">sum</span>(rides), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>

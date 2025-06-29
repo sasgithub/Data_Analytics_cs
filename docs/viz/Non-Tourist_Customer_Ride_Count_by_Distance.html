@@ -116,8 +116,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#plot" id="toc-plot" class="nav-link active" data-scroll-target="#plot">Plot</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -128,11 +134,68 @@ ul.task-list li input[type="checkbox"] {
 <section id="non-tourist-customer-ride-count-by-distance" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-count-by-distance">Non-Tourist Customer Ride Count by Distance</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Count_by_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Count_by_Distance.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Count_by_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Count_by_Distance.png" alt="Bar chart showing the number of non-tourist customer rides by the straight-line distance between start and end stations, with prominent peaks at about 0.85 km and 1.35 km." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride count by station-to-station distance for non-tourist customer trips, highlighting common trip lengths in the 0–2 km range.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This bar chart shows the <strong>number of non-tourist customer rides</strong> grouped by the straight-line distance between the starting and ending stations. The visualization makes clear which distance ranges are most commonly traveled.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Distance between stations (km), from 0 to 10 km.</li>
+<li><strong>Y-Axis:</strong> Number of rides in each distance bin (up to ~60,000 rides).</li>
+<li><strong>Bars:</strong>
+<ul>
+<li>Filled in dark orange.</li>
+<li>Labeled at notable peaks for emphasis.</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Primary Peaks:</strong>
+<ul>
+<li>~0.85 km: 58,268 rides.</li>
+<li>~1.35 km: 54,563 rides.</li>
+</ul></li>
+<li>Sharp drop-off beyond 2 km, with very few rides exceeding 5 km.</li>
+<li>The shape strongly suggests most casual rides occur within a short radius.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li><strong>Short trips dominate</strong> non-subscriber usage, likely reflecting quick local errands or last-mile transit.</li>
+<li>Peaks may correspond to popular station pairs located 3–8 blocks apart.</li>
+<li>The pattern mirrors the density distribution of unique station-to-station distances, but here each ride contributes equally to counts.</li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Ride Records:</strong> Non-subscriber rides starting after 2023-01-01.</li>
+<li><strong>Filters Applied:</strong>
+<ul>
+<li>Excluded loop rides (start station = end station).</li>
+<li>Limited to non-tourist stations.</li>
+<li>Calculated distance using Haversine formula between station coordinates.</li>
+<li>Included only trips with distances ≤10 km.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
+<p>```r # Bin and count rides by distance ride_counts_by_distance &lt;- non_loop_rides_df %&gt;% filter(distance_km &lt;= 10) %&gt;% mutate(distance_bin = round(distance_km / 0.1) * 0.1) %&gt;% count(distance_bin)</p>
+</section>
+</section>
+<section id="plot" class="level1">
+<h1>Plot</h1>
+<p>ggplot(ride_counts_by_distance, aes(x = distance_bin, y = n)) + geom_col(fill = “darkorange”, width = 0.08) + geom_text( data = filter(ride_counts_by_distance, distance_bin %in% c(0.85, 1.35)), aes(label = paste0(“Peak:”, distance_bin, ” km“, scales::comma(n))), vjust = -0.5, size = 3.5 ) + labs( title =”Non-Tourist Customer Ride Count by Station-to-Station Distance”, x = “Distance Between Stations (km)”, y = “Number of Rides” ) + theme_minimal()</p>
 <p><br style="clear: both;"><br></p>
 
 

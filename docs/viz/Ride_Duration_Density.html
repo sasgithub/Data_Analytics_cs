@@ -168,10 +168,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 FIGCAPTION
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This density plot visualizes the <strong>distribution of ride durations</strong> for customers and subscribers, providing a smoothed alternative to histograms for easier comparison of patterns.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride duration in minutes (0–60 min).</li>
+<li><strong>Y-Axis:</strong> Density estimate of ride frequency.</li>
+<li><strong>Lines/Areas:</strong>
+<ul>
+<li><strong>Blue (Subscribers):</strong> High, narrow peak at short durations.</li>
+<li><strong>Orange (Customers):</strong> Flatter, broader distribution extending to longer rides.</li>
+</ul></li>
+<li><strong>Smoothing:</strong> Kernel density estimation applied with default bandwidth.</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Subscribers:</strong>
+<ul>
+<li>Strong peak centered around ~10–15 minutes.</li>
+<li>Rapid decline beyond ~20 minutes.</li>
+<li>Indicates trips optimized for commuting or quick errands.</li>
+</ul></li>
+<li><strong>Customers:</strong>
+<ul>
+<li>Less pronounced peak.</li>
+<li>Long tail extending to ~60 minutes.</li>
+<li>Reflects more recreational or exploratory rides.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<p>The contrasting shapes highlight different usage patterns: - <strong>Subscribers</strong> prioritize efficiency and short trips, likely influenced by pricing incentives and commute needs. - <strong>Customers</strong> are more likely to take longer rides with varied trip purposes.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Trip Data:</strong> Divvy ride records from:
+<ul>
+<li>2013–2019 (S3 archive)</li>
+<li>2023–2025 (City of Chicago Data Portal)</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-preparation" class="level5">
+<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<ul>
+<li>Selected rides where:
+<ul>
+<li><code>user_type</code> is 0 (subscriber) or 1 (customer).</li>
+<li><code>end_time &gt; start_time</code>.</li>
+<li>Duration &lt; 200 minutes.</li>
+</ul></li>
+<li>Duration computed as <code>(end_time - start_time) / 60</code>.</li>
+<li>No filtering by station type.</li>
+</ul>
+<p><strong>SQL Query Used to Retrieve Data:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 60 min</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
@@ -187,6 +248,9 @@ FIGCAPTION
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Disconnect </span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_durations, <span class="fu">aes</span>(<span class="at">x =</span> duration_min, <span class="at">color =</span> user_type, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ride Duration Density"</span>, <span class="at">x =</span> <span class="st">"Duration (minutes)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span></span>
@@ -195,6 +259,7 @@ FIGCAPTION
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
