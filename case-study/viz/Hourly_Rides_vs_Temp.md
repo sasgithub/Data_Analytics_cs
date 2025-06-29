@@ -2,37 +2,50 @@
 
 <figure class="float-right">
   <a href="../images/Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/Hourly_Rides_vs_Temp.svg" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Hourly_Rides_vs_Temp.svg" alt="Line chart showing total hourly rides plotted against temperature in 2°C increments. Separate lines for Total rides, Subscribers, and Customers show ridership increasing steadily to a peak near 26°C, then declining at higher temperatures.">
   </a>
   <figcaption>
-  FIGCAPTION
+  Hourly ride counts by temperature bin, with separate curves for Total, Subscriber, and Customer rides. Warmer temperatures strongly correlate with increased bike usage, especially among Customers.
   </figcaption>
 </figure>
 
+This chart illustrates the relationship between **ambient temperature (°C)** and the **number of rides** starting at that temperature. Data is grouped into **2°C bins** to smooth short-term fluctuations and reveal broader trends.
 
-This chart illustrates the relationship between **ambient temperature (°C)** and the **number of rides** starting at that temperature. Data is grouped into **2°C bins** to smooth short-term fluctuations and reveal broader trends..
+##### Chart Details
 
-- The **x-axis** shows temperature in degrees Celsius.
-- The **y-axis** displays the total number of rides per bin, formatted with metric suffixes (e.g., 1k, 1m, etc).
-- Grid lines and a clear legend outside the plot area aid interpretability.
+- **X-Axis:** Temperature in degrees Celsius.
+- **Y-Axis:** Total number of rides per bin, formatted with metric suffixes (e.g., 1k, 1M).
+- Grid lines and a legend outside the plot area improve readability.
+- Three ride categories are plotted:
+  - **Total Rides** (black line)
+  - **Subscribers** (dark blue line)
+  - **Customers** (dark orange line)
 
-Three ride categories are plotted:
+##### Observations
 
-- **Total Rides** (all users)
-- **Subscribers** (dark blue line)
-- **Customers** (dark orange line)
+- Bike usage increases steadily with warmer weather, peaking for both Subscribers and Customers around **26°C (78.8°F)**, after which it falls off sharply.
+- **Customers** display a steeper increase in usage with temperature, suggesting stronger sensitivity to warm conditions.
+- **Subscribers** maintain higher baseline usage in cooler temperatures but follow a similar bell-shaped curve overall.
 
-##### Insights:
+##### Interpretation
 
-- Bike usage increases with warmer weather, peaking for both Subscribers and Customers at 26°C (78.8∘F) temperatures, after which it falls off sharplybe.
-- **Subscribers** tend to be less dependant on temperature range (correlation coefficient **VALUE** compared to **VALUE** for Customers), but sill follow the same basic pattern.
-- **Customers** show a sharper increase in usage with warmth, indicating stronger sensitivity to weather.
+- These trends highlight temperature as a powerful predictor of ridership.
+- The steeper response among Customers may reflect their recreational or discretionary usage.
+- Insights from this pattern can inform:
+  - **Operations** (e.g., fleet redistribution, maintenance scheduling)
+  - **Marketing campaigns** (e.g., promoting rides during optimal weather windows)
 
-These trends can inform operational decisions and user engagement strategies, particularly around marketing and bike redistribution efforts during seasonal changes.
+##### Data Sources
 
-Below is the the SQL command used to gather data for this chart. 
+- **Hourly Weather Data:** Chicago Midway Airport hourly weather observations (temperature, precipitation, etc.)
+- **Ride Data:** Aggregated hourly ride counts joined to weather records by timestamp.
+- **Period:** All available data between 2013 and 2025.
 
-```SQL
+##### Data Preparation
+
+Below is the SQL command used to prepare the dataset:
+
+```sql
 .headers off
 .mode tabs
 .output temp_vs_rides.tsv
@@ -60,6 +73,7 @@ FROM pivot;
 
 .output stdout
 ```
+##### Gnuplot Script Used to Generate Chart:
 
 ```gnuplot
 set format y "%.0s%c"

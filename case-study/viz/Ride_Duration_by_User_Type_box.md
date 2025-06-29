@@ -72,7 +72,7 @@ ride_durations <- dbGetQuery(con, "
 # Disconnect
  dbDisconnect(con)
 ```
-R Code Used to Generate Chart:
+###### R Code Used to Generate Chart:
 
 ```R
 ggplot(ride_durations, aes(x = user_type, y = duration_min, fill = user_type)) +

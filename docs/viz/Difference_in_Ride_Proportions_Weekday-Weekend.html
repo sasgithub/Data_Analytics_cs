@@ -151,15 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#add-week-month-season" id="toc-add-week-month-season" class="nav-link active" data-scroll-target="#add-week-month-season">Add week, month, season</a></li>
-  <li><a href="#convert-utc-to-chicago-local-time" id="toc-convert-utc-to-chicago-local-time" class="nav-link" data-scroll-target="#convert-utc-to-chicago-local-time">Convert UTC to Chicago local time</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -167,45 +160,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="difference-in-ride-proportions-weedkay-to-weekend" class="level4">
-<h4 class="anchored" data-anchor-id="difference-in-ride-proportions-weedkay-to-weekend">Difference in Ride Proportions Weedkay to Weekend</h4>
+<section id="difference-in-ride-proportions-weekday-to-weekend" class="level4">
+<h4 class="anchored" data-anchor-id="difference-in-ride-proportions-weekday-to-weekend">Difference in Ride Proportions Weekday to Weekend</h4>
 <figure class="float-right figure">
 <a href="../images/Difference_in_Ride_Proportions_Weekday-Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Difference_in_Ride_Proportions_Weekday-Weekend.png" alt="Heatmap showing the difference in ride proportions between weekdays and weekends across each hour of the day. Red indicates hours with higher weekday proportions; blue indicates higher weekend proportions." class="figure-img"> </a>
 <figcaption>
 Hourly difference in ride proportions: Weekday minus Weekend. Red tones highlight hours where weekday rides are more frequent proportionally; blue tones highlight hours dominated by weekend activity.
 </figcaption>
 </figure>
-<section id="image-notes" class="level5">
-<h5 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h5>
-<p>Title: Difference in Ride Proportions: Weekday - Weekend X-axis: Hour of Day (0–23) Y-axis: Arbitrary (used to create banded heatmap effect) Color Scale:</p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This heatmap shows the <strong>proportional difference in ride volume</strong> by hour of the day between <strong>weekdays</strong> and <strong>weekends</strong>. It normalizes each group separately so the visualization highlights <strong>relative time-of-day preference</strong>, independent of the total ride volume.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li>Red: Higher ride proportion on weekdays</li>
-<li>Blue: Higher ride proportion on weekends</li>
-<li>White: No significant difference in proportion</li>
-</ul>
-<p>Interpretation</p>
+<li><strong>X-Axis:</strong> Hour of Day (0–23)</li>
+<li><strong>Y-Axis:</strong> Dummy axis to create a horizontal heatmap band (no intrinsic meaning)</li>
+<li><strong>Color Scale:</strong>
 <ul>
-<li><p>Morning hours (~7–9 AM) and afternoon hours (~4–6 PM) are clearly more active on weekdays, likely driven by commuting.</p></li>
-<li><p>Midday (10 AM–3 PM) shows a higher proportional share of rides on weekends, possibly indicating more recreational usage during these hours.</p></li>
-<li><p>Nighttime hours (~8 PM onward) still lean toward weekday use, albeit more modestly.</p></li>
+<li><strong>Red:</strong> Hours with proportionally higher weekday usage</li>
+<li><strong>Blue:</strong> Hours with proportionally higher weekend usage</li>
+<li><strong>White:</strong> No significant difference</li>
+</ul></li>
 </ul>
-<p>This visualization normalizes by total weekday and weekend ride volume, enabling meaningful comparison of usage patterns across the day regardless of total volume differences.</p>
-<p>’’’R</p>
-<p>ride_query &lt;- sprintf(” SELECT ride_id, start_time, end_time, start_station_id, end_station_id, bike_type FROM rides WHERE user_type = 1 AND start_station_id IN (%s) AND end_station_id IN (%s) AND start_time &gt;= strftime(‘%%s’, ‘2023-01-01’) “, station_ids_sql, station_ids_sql)</p>
-<p>non_tourist_customer_rides_df &lt;- dbGetQuery(con, ride_query)</p>
-<p>non_tourist_customer_rides_df &lt;- non_tourist_customer_rides_df %&gt;% mutate( ride_date = as.Date(as.POSIXct(start_time, origin = “1970-01-01”)), day_of_week = weekdays(ride_date), month = format(ride_date, “%B”), season = case_when( month %in% c(“December”, “January”, “February”) ~ “Winter”, month %in% c(“March”, “April”, “May”) ~ “Spring”, month %in% c(“June”, “July”, “August”) ~ “Summer”, month %in% c(“September”, “October”, “November”) ~ “Fall” ) )</p>
 </section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Weekday-dominant hours:</strong>
+<ul>
+<li>Strong peaks in the <strong>morning (7–9 AM)</strong> and <strong>late afternoon (4–6 PM)</strong>.</li>
+<li>Consistent with commuter patterns among customers using non-tourist stations.</li>
+</ul></li>
+<li><strong>Weekend-dominant hours:</strong>
+<ul>
+<li>Midday and early afternoon (<strong>10 AM–3 PM</strong>) show higher weekend share, likely indicating recreational or leisure use.</li>
+</ul></li>
+<li><strong>Evenings:</strong>
+<ul>
+<li>Some residual weekday preference persists into the evening, but less pronounced.</li>
+</ul></li>
+</ul>
 </section>
-<section id="add-week-month-season" class="level1">
-<h1>Add week, month, season</h1>
-<p>non_tourist_customer_rides_df &lt;- non_tourist_customer_rides_df %&gt;% mutate( start_datetime = as.POSIXct(start_time, origin = “1970-01-01”, tz = “America/Chicago”), day_of_week = wday(start_datetime, label = TRUE, abbr = FALSE), month = month(start_datetime, label = TRUE, abbr = FALSE), season = case_when( month(start_datetime) %in% c(12, 1, 2) ~ “Winter”, month(start_datetime) %in% c(3, 4, 5) ~ “Spring”, month(start_datetime) %in% c(6, 7, 8) ~ “Summer”, month(start_datetime) %in% c(9, 10, 11) ~ “Fall” ) )</p>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>This chart highlights the <strong>behavioral shift</strong> between weekdays and weekends.</li>
+<li>Even when weekends have high total ride volume, customers distribute their rides more evenly across midday hours.</li>
+<li>Weekdays concentrate ridership in commute-related time blocks.</li>
+</ul>
 </section>
-<section id="convert-utc-to-chicago-local-time" class="level1">
-<h1>Convert UTC to Chicago local time</h1>
-<p>non_tourist_customer_rides_df &lt;- non_tourist_customer_rides_df %&gt;% mutate( start_datetime = as.POSIXct(start_time, origin = “1970-01-01”, tz = “UTC”), start_localtime = with_tz(start_datetime, tzone = “America/Chicago”) )</p>
-<p>rides_by_hour_weekpart &lt;- non_tourist_customer_rides_df %&gt;% mutate(hour = lubridate::hour(start_localtime), week_part = ifelse(lubridate::wday(start_localtime) %in% c(1, 7), “Weekend”, “Weekday”)) %&gt;% group_by(week_part, hour) %&gt;% summarise(ride_count = n(), .groups = “drop”)</p>
-<p>ride_props &lt;- rides_by_hour_weekpart %&gt;% group_by(week_part) %&gt;% mutate(prop = ride_count / sum(ride_count))</p>
-<p>prop_wide &lt;- ride_props %&gt;% select(hour, week_part, prop) %&gt;% tidyr::pivot_wider(names_from = week_part, values_from = prop) %&gt;% mutate(diff = Weekday - Weekend) ’’’</p>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>rides</strong> table filtered for:
+<ul>
+<li><code>user_type = 1</code> (customer)</li>
+<li>Non-tourist stations (start and end)</li>
+<li>Rides after <code>2023-01-01</code></li>
+</ul></li>
+<li>Derived tables:
+<ul>
+<li><code>rides_by_hour_weekpart</code>: Hourly counts by weekday/weekend</li>
+<li><code>ride_props</code>: Proportions normalized within each week part</li>
+<li><code>prop_wide</code>: Wide-format table for computing differences</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(prop_wide, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">fill =</span> diff)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">high =</span> <span class="st">"red"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">midpoint =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
@@ -218,6 +242,7 @@ Hourly difference in ride proportions: Weekday minus Weekend. Red tones highligh
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

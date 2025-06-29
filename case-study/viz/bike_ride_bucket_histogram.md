@@ -65,9 +65,9 @@ This visualization is valuable for:
 
 `rides` table in SQLite, queried for bike usage counts grouped by `bike_id`.
 
-##### SQL Query to Produce Aggregated Data
+###### SQL Query to Produce Aggregated Data
 
-```SQL
+```sql
 .headers on
 .mode csv
 .output bike_ride_buckets.csv
@@ -91,7 +91,7 @@ SELECT
 FROM bucketed;
 .output stdout
 ```
-Gnuplot Script Used to Generate Chart:
+###### Gnuplot Script Used to Generate Chart:
 
 ```gnuplot
 set datafile separator ","

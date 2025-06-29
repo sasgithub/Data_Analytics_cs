@@ -62,6 +62,7 @@ Data source:
   - Filtered for user_type = 1.
   - Filtered to non-tourist station IDs.
 
+**R Code Used to Generate the Chart:**
 
 ```R
 ggplot(rides_by_hour_season, aes(x = hour, y = ride_count, fill = week_part)) +

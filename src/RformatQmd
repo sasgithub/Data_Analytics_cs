@@ -1,0 +1,58 @@
+#!/usr/bin/env Rscript
+
+# Reformat all R code fences in a Quarto markdown file
+# Usage: Rscript RformatQmd input.qmd output.qmd tidyverse|compact
+
+args <- commandArgs(trailingOnly = TRUE)
+# Check for missing arguments
+if (length(args) < 3) {
+  stop("Usage: Rscript reformat_r_code.R input.qmd output.qmd tidyverse|compact")
+}
+
+input_file <- args[1]
+output_file <- args[2]
+style <- args[3]
+
+if (!style %in% c("tidyverse", "compact")) {
+  stop("Invalid style: use tidyverse or compact")
+}
+
+library(styler)
+
+# Read the file as lines
+lines <- readLines(input_file)
+
+# Output buffer
+output <- character()
+
+in_chunk <- FALSE
+chunk_lines <- character()
+
+for (line in lines) {
+  if (grepl("^```r\\s*$", line)) {
+    in_chunk <- TRUE
+    chunk_lines <- character()
+    output <- c(output, line)
+  } else if (in_chunk && grepl("^```\\s*$", line)) {
+    # Reformat collected chunk
+    if (style == "tidyverse") {
+      styled <- styler::style_text(chunk_lines)
+    } else if (style == "compact") {
+      styled <- styler::style_text(
+        chunk_lines,
+        style = tidyverse_style(indent_by = 2, start_comments_with_one_space = TRUE, reindention = NULL)
+      )
+    } else {
+      stop("Unknown style: use tidyverse or compact")
+    }
+    output <- c(output, styled, line)
+    in_chunk <- FALSE
+  } else if (in_chunk) {
+    chunk_lines <- c(chunk_lines, line)
+  } else {
+    output <- c(output, line)
+  }
+}
+
+writeLines(output, output_file)
+

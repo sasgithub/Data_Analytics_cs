@@ -163,43 +163,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="average-ride-duration-by-bike-type-and-user-type" class="level4">
 <h4 class="anchored" data-anchor-id="average-ride-duration-by-bike-type-and-user-type">Average Ride Duration by Bike Type and User Type</h4>
 <figure class="float-right figure">
-<a href="../images/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="Bar chart showing average ride duration in minutes by bike type and user type. Customers have much higher average durations on docked bikes, while subscribers show consistently shorter ride times across all bike types." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Average ride duration by bike type and user type. Customers show much longer rides on docked bikes, while subscribers tend to have shorter, more consistent durations.
 </figcaption>
 </figure>
-<p>The chart titled “Average Ride Duration by Bike Type and User Type” visualizes the average duration (in minutes) of rides for different bike types, segmented by user type (Subscriber vs Customer).</p>
-<p>*** Key observations:</p>
-<pre><code>Bike Types: The chart includes classic_bike, docked_bike, electric_bike, and electric_scooter.
-User Types:
-    Subscribers (in red)
-    Customers (in blue/turquoise)</code></pre>
-<p>*** Findings:</p>
-<pre><code>Docked Bike:
-    Customers have by far the highest average ride duration (over 200 minutes, with a large error bar indicating significant variability).
-    Subscribers do not appear to use docked bikes (no red bar for this category).
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This bar chart visualizes the <strong>average ride duration</strong> (in minutes) for each <strong>bike type</strong>, segmented by <strong>user type</strong> (Subscriber vs Customer), covering the period after electric bikes and scooters were introduced.</p>
+</section>
+<section id="axes-and-groupings" class="level5">
+<h5 class="anchored" data-anchor-id="axes-and-groupings">Axes and Groupings</h5>
+<ul>
+<li><strong>X-Axis (Bike Type)</strong>:
+<ul>
+<li><code>classic_bike</code></li>
+<li><code>docked_bike</code></li>
+<li><code>electric_bike</code></li>
+<li><code>electric_scooter</code></li>
+</ul></li>
+<li><strong>Y-Axis (Average Ride Duration in Minutes)</strong>:
+<ul>
+<li>Ranges up to 250 minutes for docked bikes.</li>
+</ul></li>
+<li><strong>Color Legend</strong>:
+<ul>
+<li><strong>Red</strong> = Subscriber</li>
+<li><strong>Teal</strong> = Customer</li>
+</ul></li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Docked Bikes</strong>:
+<ul>
+<li>Customers have the highest average ride duration (&gt;200 minutes).</li>
+<li>Subscribers do not appear to use docked bikes (no bar present).</li>
+</ul></li>
+<li><strong>Classic Bikes</strong>:
+<ul>
+<li>Customers average ~30–40 minutes per ride.</li>
+<li>Subscribers average ~15 minutes.</li>
+</ul></li>
+<li><strong>Electric Bikes and Scooters</strong>:
+<ul>
+<li>Both user groups show similar, shorter average durations (~10–15 minutes).</li>
+<li>Customers have slightly longer rides than subscribers.</li>
+</ul></li>
+<li><strong>Variability</strong>:
+<ul>
+<li>Docked bike rides by customers have large error bars, indicating substantial variation in trip lengths.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li><strong>Customer Behavior</strong>:
+<ul>
+<li>Non-subscribers take significantly longer trips on docked bikes, possibly reflecting more casual or exploratory riding.</li>
+<li>For all bike types, customers tend to ride longer than subscribers.</li>
+</ul></li>
+<li><strong>Subscriber Behavior</strong>:
+<ul>
+<li>Subscribers’ ride durations are generally shorter and more consistent, likely due to commuting or time-sensitive trips.</li>
+</ul></li>
+<li><strong>Operational Insight</strong>:
+<ul>
+<li>The high variability of docked bike ride times suggests a need to further investigate usage patterns and pricing impacts.</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li>****:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>duration_by_type <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">avg_duration =</span> <span class="fu">mean</span>(avg_duration_minutes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd_duration =</span> <span class="fu">sd</span>(avg_duration_minutes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Data Transformation in R:</strong></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>duration_by_type<span class="sc">$</span>user_type <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(duration_by_type<span class="sc">$</span>user_type),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>R Code Used to Generate Chart:</strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(duration_by_type, <span class="fu">aes</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">x =</span> bike_type,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">y =</span> avg_duration,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">fill =</span> user_type</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> )) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">ymin =</span> avg_duration <span class="sc">-</span> sd_duration,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">ymax =</span> avg_duration <span class="sc">+</span> sd_duration</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     ), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>), <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">labs</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">title =</span> <span class="st">"Average Ride Duration by Bike Type and User Type"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">y =</span> <span class="st">"Avg Duration (minutes)"</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">fill =</span> <span class="st">"User Type"</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     ) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-Classic Bike:
-    Customers have a higher average ride duration than subscribers.
-    Both user types' durations are much lower than for docked bikes, with customers averaging around 30-40 minutes and subscribers around 15 minutes.
 
-Electric Bike and Electric Scooter:
-    Both user types have similar, relatively low average durations (around 10-15 minutes), with customers slightly higher than subscribers.</code></pre>
-<p>*** General Insight:</p>
-<pre><code>Customers (non-subscribers) tend to take much longer rides than subscribers, especially on docked bikes.
-Subscribers generally have shorter, more consistent ride durations across all bike types.
-The variability (as shown by the error bars) is particularly large for docked bikes used by customers.</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(post_electric_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> bike_type, <span class="at">y =</span> rides_per_day, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"stack"</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"User Type"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->

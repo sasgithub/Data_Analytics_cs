@@ -49,6 +49,7 @@ This visualization illustrates the spatial extent of trips, showing how far non-
 
 -   Density plots normalize the area under the curve to 1, so the y-axis values represent probability density, not raw ride counts.
 
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(non_loop_rides_df, aes(x = distance_km)) + 

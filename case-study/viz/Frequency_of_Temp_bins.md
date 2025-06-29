@@ -59,14 +59,6 @@ ggplot(temp_bins, aes(x = temp_bin, y = count)) +
     y = "Number of Hours"
   ) +
   theme_minimal()
-
-<br style="clear: both;"></br>
-
-
-```R
-ggplot(aes(x = temp_bin, y = n)) +
-  geom_col(fill = "gray") +
-  labs(title = "Frequency of Temperature Bins", x = "Temp (°C)", y = "Hours Observed")
 ```
 
 <br style="clear: both;"></br>

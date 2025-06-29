@@ -9,7 +9,6 @@
   </figcaption>
 </figure>
 
-
 ##### Overview
 
 This faceted line chart visualizes customer rides over the hours of the day, separated by season and by weekday/weekend. It highlights how ridership patterns shift throughout the year.

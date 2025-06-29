@@ -180,6 +180,9 @@ Proportion of daily non-tourist rides by hour of day and day type (weekday vs.&n
 <li>Early morning (before 6:00) and late evening (after 21:00) show minimal ride activity for both day types.</li>
 </ul>
 <p>This visualization provides insight into how ride timing differs based on routine schedules, further supporting inferences about commuter versus recreational behavior.</p>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_props, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> week_part, <span class="at">fill =</span> prop)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>

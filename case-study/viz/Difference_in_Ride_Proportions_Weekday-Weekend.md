@@ -1,110 +1,60 @@
-#### Difference in Ride Proportions Weedkay to Weekend
+#### Difference in Ride Proportions Weekday to Weekend
 
 <figure class="float-right">
   <a href="../images/Difference_in_Ride_Proportions_Weekday-Weekend.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Difference_in_Ride_Proportions_Weekday-Weekend.png" alt="Heatmap showing the difference in ride proportions between weekdays and weekends across each hour of the day. Red indicates hours with higher weekday proportions; blue indicates higher weekend proportions.">
   </a>
   <figcaption>
-Hourly difference in ride proportions: Weekday minus Weekend. Red tones highlight hours where weekday rides are more frequent proportionally; blue tones highlight hours dominated by weekend activity.
+  Hourly difference in ride proportions: Weekday minus Weekend. Red tones highlight hours where weekday rides are more frequent proportionally; blue tones highlight hours dominated by weekend activity.
   </figcaption>
 </figure>
 
-##### 📝 Image Notes
+##### Overview
 
-Title: Difference in Ride Proportions: Weekday - Weekend
-X-axis: Hour of Day (0–23)
-Y-axis: Arbitrary (used to create banded heatmap effect)
-Color Scale:
+This heatmap shows the **proportional difference in ride volume** by hour of the day between **weekdays** and **weekends**. It normalizes each group separately so the visualization highlights **relative time-of-day preference**, independent of the total ride volume.
 
--    Red: Higher ride proportion on weekdays
--    Blue: Higher ride proportion on weekends
--    White: No significant difference in proportion
+##### Chart Details
 
-Interpretation
+- **X-Axis:** Hour of Day (0–23)
+- **Y-Axis:** Dummy axis to create a horizontal heatmap band (no intrinsic meaning)
+- **Color Scale:**
+  - **Red:** Hours with proportionally higher weekday usage
+  - **Blue:** Hours with proportionally higher weekend usage
+  - **White:** No significant difference
 
--    Morning hours (~7–9 AM) and afternoon hours (~4–6 PM) are clearly more active on weekdays, likely driven by commuting.
+##### Observations
 
--    Midday (10 AM–3 PM) shows a higher proportional share of rides on weekends, possibly indicating more recreational usage during these hours.
--    Nighttime hours (~8 PM onward) still lean toward weekday use, albeit more modestly.
+- **Weekday-dominant hours:**
+  - Strong peaks in the **morning (7–9 AM)** and **late afternoon (4–6 PM)**.
+  - Consistent with commuter patterns among customers using non-tourist stations.
 
-This visualization normalizes by total weekday and weekend ride volume, enabling meaningful comparison of usage patterns across the day regardless of total volume differences.
+- **Weekend-dominant hours:**
+  - Midday and early afternoon (**10 AM–3 PM**) show higher weekend share, likely indicating recreational or leisure use.
 
+- **Evenings:**
+  - Some residual weekday preference persists into the evening, but less pronounced.
 
+##### Interpretation
 
+- This chart highlights the **behavioral shift** between weekdays and weekends.
+- Even when weekends have high total ride volume, customers distribute their rides more evenly across midday hours.
+- Weekdays concentrate ridership in commute-related time blocks.
 
-'''R
+##### Data Sources
 
- ride_query <- sprintf("
-   SELECT
-     ride_id,
-     start_time,
-     end_time,
-     start_station_id,
-     end_station_id,
-     bike_type
-   FROM rides
-   WHERE user_type = 1
-     AND start_station_id IN (%s)
-     AND end_station_id IN (%s)
-     AND start_time >= strftime('%%s', '2023-01-01')
-", station_ids_sql, station_ids_sql)
- 
-non_tourist_customer_rides_df <- dbGetQuery(con, ride_query)
-
-non_tourist_customer_rides_df <- non_tourist_customer_rides_df %>%
-  mutate(
-    ride_date = as.Date(as.POSIXct(start_time, origin = "1970-01-01")),
-    day_of_week = weekdays(ride_date),
-    month = format(ride_date, "%B"),
-    season = case_when(
-      month %in% c("December", "January", "February") ~ "Winter",
-      month %in% c("March", "April", "May") ~ "Spring",
-      month %in% c("June", "July", "August") ~ "Summer",
-      month %in% c("September", "October", "November") ~ "Fall"
-    )
-  )
-
-# Add week, month, season
-non_tourist_customer_rides_df <- non_tourist_customer_rides_df %>%
-  mutate(
-    start_datetime = as.POSIXct(start_time, origin = "1970-01-01", tz = "America/Chicago"),
-    day_of_week = wday(start_datetime, label = TRUE, abbr = FALSE),
-    month = month(start_datetime, label = TRUE, abbr = FALSE),
-    season = case_when(
-      month(start_datetime) %in% c(12, 1, 2) ~ "Winter",
-      month(start_datetime) %in% c(3, 4, 5)  ~ "Spring",
-      month(start_datetime) %in% c(6, 7, 8)  ~ "Summer",
-      month(start_datetime) %in% c(9, 10, 11) ~ "Fall"
-    )
-  )
-
-# Convert UTC to Chicago local time
-non_tourist_customer_rides_df <- non_tourist_customer_rides_df %>%
-  mutate(
-    start_datetime = as.POSIXct(start_time, origin = "1970-01-01", tz = "UTC"),
-    start_localtime = with_tz(start_datetime, tzone = "America/Chicago")
-  )
+- **rides** table filtered for:
+  - `user_type = 1` (customer)
+  - Non-tourist stations (start and end)
+  - Rides after `2023-01-01`
+- Derived tables:
+  - `rides_by_hour_weekpart`: Hourly counts by weekday/weekend
+  - `ride_props`: Proportions normalized within each week part
+  - `prop_wide`: Wide-format table for computing differences
 
 
+##### R Code Used to Generate Chart:
 
-rides_by_hour_weekpart <- non_tourist_customer_rides_df %>%
-  mutate(hour = lubridate::hour(start_localtime),
-         week_part = ifelse(lubridate::wday(start_localtime) %in% c(1, 7), "Weekend", "Weekday")) %>%
-  group_by(week_part, hour) %>%
-  summarise(ride_count = n(), .groups = "drop")
-
-
-ride_props <- rides_by_hour_weekpart %>%
-  group_by(week_part) %>%
-  mutate(prop = ride_count / sum(ride_count))
-
-prop_wide <- ride_props %>%
-  select(hour, week_part, prop) %>%
-  tidyr::pivot_wider(names_from = week_part, values_from = prop) %>%
-  mutate(diff = Weekday - Weekend)
-'''
-
-```R
+```r
 ggplot(prop_wide, aes(x = hour, y = 1, fill = diff)) +
      geom_tile() +
      scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = 0) +

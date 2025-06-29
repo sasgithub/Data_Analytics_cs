@@ -2,53 +2,100 @@
 
 <figure class="float-right">
   <a href="../images/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="Bar chart showing average ride duration in minutes by bike type and user type. Customers have much higher average durations on docked bikes, while subscribers show consistently shorter ride times across all bike types.">
   </a>
   <figcaption>
-  FIGCAPTION
+  Average ride duration by bike type and user type. Customers show much longer rides on docked bikes, while subscribers tend to have shorter, more consistent durations.
   </figcaption>
 </figure>
 
+##### Overview
 
+This bar chart visualizes the **average ride duration** (in minutes) for each **bike type**, segmented by **user type** (Subscriber vs Customer), covering the period after electric bikes and scooters were introduced.
 
+##### Axes and Groupings
 
-The chart titled "Average Ride Duration by Bike Type and User Type" visualizes the average duration (in minutes) of rides for different bike types, segmented by user type (Subscriber vs Customer).
+- **X-Axis (Bike Type)**:
+  - `classic_bike`
+  - `docked_bike`
+  - `electric_bike`
+  - `electric_scooter`
 
-*** Key observations:
+- **Y-Axis (Average Ride Duration in Minutes)**:
+  - Ranges up to 250 minutes for docked bikes.
 
-    Bike Types: The chart includes classic_bike, docked_bike, electric_bike, and electric_scooter.
-    User Types:
-        Subscribers (in red)
-        Customers (in blue/turquoise)
+- **Color Legend**:
+  - **Red** = Subscriber
+  - **Teal** = Customer
 
-*** Findings:
+##### Observations
 
-    Docked Bike:
-        Customers have by far the highest average ride duration (over 200 minutes, with a large error bar indicating significant variability).
-        Subscribers do not appear to use docked bikes (no red bar for this category).
+- **Docked Bikes**:
+  - Customers have the highest average ride duration (>200 minutes).
+  - Subscribers do not appear to use docked bikes (no bar present).
 
-    Classic Bike:
-        Customers have a higher average ride duration than subscribers.
-        Both user types' durations are much lower than for docked bikes, with customers averaging around 30-40 minutes and subscribers around 15 minutes.
+- **Classic Bikes**:
+  - Customers average ~30–40 minutes per ride.
+  - Subscribers average ~15 minutes.
 
-    Electric Bike and Electric Scooter:
-        Both user types have similar, relatively low average durations (around 10-15 minutes), with customers slightly higher than subscribers.
+- **Electric Bikes and Scooters**:
+  - Both user groups show similar, shorter average durations (~10–15 minutes).
+  - Customers have slightly longer rides than subscribers.
 
-*** General Insight:
+- **Variability**:
+  - Docked bike rides by customers have large error bars, indicating substantial variation in trip lengths.
 
-    Customers (non-subscribers) tend to take much longer rides than subscribers, especially on docked bikes.
-    Subscribers generally have shorter, more consistent ride durations across all bike types.
-    The variability (as shown by the error bars) is particularly large for docked bikes used by customers.
+##### Interpretation
 
+- **Customer Behavior**:
+  - Non-subscribers take significantly longer trips on docked bikes, possibly reflecting more casual or exploratory riding.
+  - For all bike types, customers tend to ride longer than subscribers.
 
-```R
-ggplot(post_electric_rides_df, aes(x = bike_type, y = rides_per_day, fill = user_type)) +
-  geom_bar(stat = "identity", position = "stack") +
-  labs(
-    title = "Average Daily Rides by Bike Type and User Type",
-    x = "Bike Type",
-    y = "Average Rides per Day",
-    fill = "User Type"
-  ) +
-  theme_minimal()
+- **Subscriber Behavior**:
+  - Subscribers’ ride durations are generally shorter and more consistent, likely due to commuting or time-sensitive trips.
+
+- **Operational Insight**:
+  - The high variability of docked bike ride times suggests a need to further investigate usage patterns and pricing impacts.
+
+##### Data Sources
+
+- ****:
+```r
+duration_by_type <- post_electric_rides_df %>%
+    group_by(user_type, bike_type) %>%
+    summarise(
+        avg_duration = mean(avg_duration_minutes, na.rm = TRUE),
+        sd_duration = sd(avg_duration_minutes, na.rm = TRUE),
+        .groups = "drop"
+    )
 ```
+- **Data Transformation in R:**
+
+```r
+duration_by_type$user_type <- fct_recode(as.factor(duration_by_type$user_type),
+                                         "Subscriber" = "0",
+                                         "Customer" = "1")
+```
+
+- **R Code Used to Generate Chart:**
+
+```r
+ggplot(duration_by_type, aes(
++     x = bike_type,
++     y = avg_duration,
++     fill = user_type
++ )) +
++     geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
++     geom_errorbar(aes(
++         ymin = avg_duration - sd_duration,
++         ymax = avg_duration + sd_duration
++     ), position = position_dodge(width = 0.9), width = 0.3) +
++     labs(
++         title = "Average Ride Duration by Bike Type and User Type",
++         x = "Bike Type",
++         y = "Avg Duration (minutes)",
++         fill = "User Type"
++     ) +
++     theme_minimal()
+```
+

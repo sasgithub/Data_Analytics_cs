@@ -56,6 +56,7 @@ This chart is useful for:
 - Supporting demand modeling and pricing strategies tailored to weekdays vs weekends.
 - Refining customer journey segmentation without needing user-level metadata.
 
+**R Code Used to Generate the Chart:**
 
 ```R
 ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min, fill = week_part)) +

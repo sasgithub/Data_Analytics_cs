@@ -224,6 +224,7 @@ Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density pl
 <section id="use-case" class="level5">
 <h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
 <p>This chart is useful for: - Understanding ride duration norms by day type. - Supporting demand modeling and pricing strategies tailored to weekdays vs weekends. - Refining customer journey segmentation without needing user-level metadata.</p>
+<p><strong>R Code Used to Generate the Chart:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Weekday"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Weekend"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>

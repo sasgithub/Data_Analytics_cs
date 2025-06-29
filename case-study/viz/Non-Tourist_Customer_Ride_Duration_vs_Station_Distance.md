@@ -100,7 +100,7 @@ matrix(c(end_long, end_lat), ncol = 2)
 distance_km = distance_m / 1000
 )
 '''
-
+**R Code Used to Generate the Chart:**
 
 '''R
 library(ggplot2)

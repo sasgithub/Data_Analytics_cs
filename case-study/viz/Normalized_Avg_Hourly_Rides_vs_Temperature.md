@@ -104,6 +104,8 @@ ggplot(normalized_df, aes(x = temp_bin, y = normalized_rides, color = user_type)
 
 ### Data Source
 
+**R Code Used to Generate the Chart:**
+
 ```R
 > avg_df  <- readr::read_csv("/data/temp_vs_rides_avg.csv")
 > # Normalize each column to 0-1

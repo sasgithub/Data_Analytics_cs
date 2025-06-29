@@ -20,8 +20,7 @@ This heatmap visualizes the hourly share of total daily rides for non-tourist us
 
 This visualization provides insight into how ride timing differs based on routine schedules, further supporting inferences about commuter versus recreational behavior.
 
-
-
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(ride_props, aes(x = hour, y = week_part, fill = prop)) +

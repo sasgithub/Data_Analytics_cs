@@ -29,30 +29,9 @@ Three ride categories are plotted:
 
 These trends can inform operational decisions and user engagement strategies, particularly around marketing and bike redistribution efforts during seasonal changes.
 
-Below is the gnuplot command used to generate the chart.
+**SQL code to gather data for chart.
 
-```gnuplot
-set title "Average Hourly Rides vs. Temperature (2°C Bins)"
-set xlabel "Temperature (°C)"
-set ylabel "Average Rides per Hour"
-set datafile separator '\t'
-set term wxt
-set grid
-set key outside
-set format y "%.0f"
-plot \
->    "temp_vs_rides.tsv" every ::35::68 using 1:2 with lines lw 2 lc rgb "black" title "Avg Total", \
-    "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
-    "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"
-plot \
-    "temp_vs_rides.tsv" every ::35::68 using 1:2 with lines lw 2 lc rgb "black" title "Avg Total", \
-    "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
-    "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"
-```
-
-Below is the the SQL command used to gather data for this chart.
-
-```SQL
+```sql
 .headers off
 .mode tabs
 .output avg_temp_vs_rides.tsv
@@ -79,5 +58,26 @@ SELECT temp_bin, total, subs, cust
 FROM pivot;
 
 .output stdout
+```
+
+**Gnuplot Code Used to Generate Chart:**
+
+```gnuplot
+set title "Average Hourly Rides vs. Temperature (2°C Bins)"
+set xlabel "Temperature (°C)"
+set ylabel "Average Rides per Hour"
+set datafile separator '\t'
+set term wxt
+set grid
+set key outside
+set format y "%.0f"
+plot \
+>    "temp_vs_rides.tsv" every ::35::68 using 1:2 with lines lw 2 lc rgb "black" title "Avg Total", \
+    "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
+    "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"
+plot \
+    "temp_vs_rides.tsv" every ::35::68 using 1:2 with lines lw 2 lc rgb "black" title "Avg Total", \
+    "" every ::35::68 using 1:3 with lines lw 2 lc rgb "dark-blue" title "Avg Subscribers", \
+    "" every ::35::68 using 1:4 with lines lw 2 lc rgb "dark-orange" title "Avg Customers"
 ```
 

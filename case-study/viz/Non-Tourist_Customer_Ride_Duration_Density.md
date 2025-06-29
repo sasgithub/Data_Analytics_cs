@@ -10,7 +10,7 @@
 </figure>
 
 
-
+**R Code Used to Generate the Chart:**
 
 ```R
 ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +

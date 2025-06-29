@@ -161,11 +161,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" class="level4">
-<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with cubic spline interpolation)</h4>
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with Cubic Spline Interpolation)</h4>
 <figure class="float-right figure">
-<a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Average hourly ride volume by temperature (2°C buckets) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
@@ -182,7 +182,7 @@ FIGCAPTION
 </section>
 <section id="purpose" class="level5">
 <h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
-<p>This visualization is intended to illustrate how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.</p>
+<p>This visualization illustrates how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.</p>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
@@ -204,10 +204,20 @@ FIGCAPTION
 <section id="technical-notes" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
-<li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
-<li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
-<li>Curve was further smoothrf though the use of cubic spline interpolation, which creates a smooth, curved line that passes through the data points.</li>
+<li>Rides were grouped into <strong>2°C increments</strong> based on the temperature at ride start times.</li>
+<li>The “2-bucket” term refers to this binning, which reduces noise by aggregating similar readings.</li>
+<li>The curve was further smoothed using <strong>cubic spline interpolation</strong>, creating a continuous line that passes through the averaged data points.</li>
 </ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Ride Data:</strong> Hourly aggregated ride counts from the <code>rides_weather</code> table, binned by temperature.</li>
+<li><strong>Weather Data:</strong> Hourly temperature records associated to ride start timestamps.</li>
+</ul>
+</section>
+<section id="sql-code-used-to-generate-data-file" class="level5">
+<h5 class="anchored" data-anchor-id="sql-code-used-to-generate-data-file">SQL Code Used to Generate Data File:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span>          <span class="co">-- we only want raw numbers</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs            <span class="co">-- gnuplot likes tab‑ or space‑separated columns</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.dat</span>
@@ -222,15 +232,18 @@ FIGCAPTION
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>.output stdout         <span class="co">-- restore console</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>set title <span class="st">"Average hourly rides vs. temperature"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>set xlabel <span class="st">"Temperature (°C)"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>set ylabel <span class="st">"Average rides per hour"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>set grid</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>set key off</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># smoothed curve (Cubic Spline)</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plot <span class="st">"temp_vs_rides.dat"</span> using <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span> smooth csplines lw <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="gnuplot-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="gnuplot-code-used-to-generate-chart">Gnuplot Code Used to Generate Chart:</h5>
+<pre class="gnuplot"><code>set title "Average hourly rides vs. temperature"
+set xlabel "Temperature (°C)"
+set ylabel "Average rides per hour"
+set grid
+set key off
+
+
+# smoothed curve (Cubic Spline)
+plot "temp_vs_rides.dat" using 1:2 smooth csplines lw 2</code></pre>
 
 
 </section>

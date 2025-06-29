@@ -239,9 +239,8 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 <section id="data-sources" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
 <p><code>rides</code> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
-</section>
-<section id="sql-query-to-produce-aggregated-data" class="level5">
-<h5 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h5>
+<section id="sql-query-to-produce-aggregated-data" class="level6">
+<h6 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
@@ -264,7 +263,9 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Gnuplot Script Used to Generate Chart:</p>
+</section>
+<section id="gnuplot-script-used-to-generate-chart" class="level6">
+<h6 class="anchored" data-anchor-id="gnuplot-script-used-to-generate-chart">Gnuplot Script Used to Generate Chart:</h6>
 <pre class="gnuplot"><code>set datafile separator ","
 set terminal pngcairo size 1000,600 enhanced font 'Verdana,10'
 set output 'bike_ride_bucket_histogram.png'
@@ -282,6 +283,7 @@ set xtics rotate by -45
 plot 'bike_ride_buckets.csv' using ($0):3:xtic(strcol(1)."-".strcol(2)) with boxes</code></pre>
 
 
+</section>
 </section>
 </section>
 

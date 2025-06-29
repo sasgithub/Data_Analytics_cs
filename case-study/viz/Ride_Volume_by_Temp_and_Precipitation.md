@@ -78,6 +78,7 @@ This visualization helps:
   - `No Data` = missing precipitation.
 - Summed rides per combination of bin, user type, and precipitation label.
 
+##### R Code Used to Generate Chart:
 
 ```R
 group_by(temp_bin, user_type, precip_label) %>%

@@ -57,9 +57,9 @@ FROM t;
 .output stdout         -- restore console
 ```
 
+##### Gnuplot Code Used to Generate Chart:
 
-
-```R
+```gnuplot
 set title "Average hourly rides vs. temperature"
 set xlabel "Temperature (°C)"
 set ylabel "Average rides per hour"

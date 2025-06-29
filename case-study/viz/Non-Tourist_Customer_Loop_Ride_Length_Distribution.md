@@ -31,7 +31,7 @@ Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g.,
 
     Weekend vs. Weekday: Although both categories are shown, the duration distributions remain similar, suggesting time of day may be less influential for loop ride length than ride purpose or rider type.
 
-
+##### R Code Used to Generate Chart:
 
 ```R
 ggplot(loop_rides_non_tourist, aes(x = ride_length_min, fill = interaction(week_part, hour_local))) 

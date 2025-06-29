@@ -263,6 +263,7 @@ Slight drop-off in ride frequency, especially among casual riders, implying that
 </section>
 <section id="data-source" class="level3">
 <h3 class="anchored" data-anchor-id="data-source">Data Source</h3>
+<p><strong>R Code Used to Generate the Chart:</strong></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> avg_df  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"/data/temp_vs_rides_avg.csv"</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Normalize each column to 0-1</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> normalized_df <span class="ot">&lt;-</span> avg_df <span class="sc">%&gt;%</span></span>

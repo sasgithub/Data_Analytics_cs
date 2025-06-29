@@ -2,10 +2,10 @@
 
 <figure class="float-right">
   <a href="../images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both customers and subscribers, while docked bikes are used primarily by customers.">
   </a>
   <figcaption>
-  FIGCAPTION
+  Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among subscribers, while electric modes see substantial adoption by both user groups.
   </figcaption>
 </figure>
 
@@ -65,8 +65,11 @@ This visualization supports:
 - Marketing strategy (targeting modal preferences by user type),
 - Evaluating post-launch success of electric mobility options.
 
+##### Data Sources
 
-```R
+- **Query to Load Data into R:**
+
+```r
 post_electric_rides_df <- dbGetQuery(con, "SELECT
    DATE(start_time, 'unixepoch') AS ride_date,
    user_type,
@@ -74,9 +77,10 @@ post_electric_rides_df <- dbGetQuery(con, "SELECT
    COUNT(*) AS ride_count,
    AVG((end_time - start_time) / 60.0) AS avg_duration_minutes
 FROM rides
-WHERE start_time >= strftime('%s', '2023-01-01') --first e-bike appeared
-GROUP BY ride_date, user_type, bike_type;
-")
+WHERE start_time >= strftime('%s', '2023-01-01') -- first e-bike appeared
+GROUP BY ride_date, user_type, bike_type;")
+
+- **Data Transformation in R:**
 
 daily_avg_df <- post_electric_rides_df %>%
   group_by(user_type, bike_type) %>%
@@ -85,8 +89,9 @@ daily_avg_df <- post_electric_rides_df %>%
     .groups = "drop"
   )
 ```
+- **R Code Used to Generate Chart:**
 
-```R
+```r
 ggplot(daily_avg_df, aes(
      x = bike_type,
      y = avg_rides_per_day,
