@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thunbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="ALT_TEXT">
   </a>
   <figcaption>
   FIGCAPTION
