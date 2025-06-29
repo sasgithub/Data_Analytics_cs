@@ -5,67 +5,68 @@
     <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes.">
   </a>
   <figcaption>
-    Ride Duration Distribution by Day Type (Customer Rides Only)<br>
+    Ride Duration Distribution by Day Type (Customer Rides Only).<br>
     This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This kernel density plot compares the **ride duration (in minutes)** of non-tourist customer bike rides, distinguishing between **weekday** and **weekend** behavior. It focuses exclusively on **non-subscriber** riders whose trips did **not** start or end near tourist destinations.
+This kernel density plot compares **ride durations (in minutes)** for non-tourist customer bike rides, distinguishing between **weekday** and **weekend** behavior. It focuses exclusively on **non-subscriber** riders whose trips did **not** start or end near tourist destinations.
 
-##### Axes
+##### Chart Details
 
-- **X-Axis (Ride Length in Minutes)**:
-  - Ranges from 0 to 150 minutes.
-  - Measures the total ride time as reported in the dataset.
-  - Focuses on the practical duration range; longer trips beyond 150 minutes were likely excluded or negligible.
-
-- **Y-Axis (Density)**:
-  - Represents the smoothed distribution of ride durations using kernel density estimation.
-  - Higher values reflect more common durations.
-
-##### Day Type Colors
-
-- **Weekday (Blue)**:
-  - Strong peak at short durations (approximately 6–8 minutes).
-  - Steeper decline after peak.
-
-- **Weekend (Orange)**:
-  - Peak is broader and slightly lower, centered just after 8 minutes.
-  - Slower decline, suggesting more variety in weekend usage.
+- **X-Axis:** Ride Length (minutes), ranging from 0 to 150.
+- **Y-Axis:** Density (smoothed kernel estimation).
+- **Colors:**
+  - **Weekday (Blue):** Tighter concentration at shorter durations.
+  - **Weekend (Orange):** Broader peak, more long-duration variability.
+- **Plot Type:** Density plot with alpha blending to show overlap.
 
 ##### Observations
 
-- **Weekday rides** are slightly shorter on average and more tightly concentrated.
-  - Likely dominated by quick errands, commutes, or first-mile/last-mile transport.
-  
-- **Weekend rides** show greater variability.
-  - Suggests a mix of errand and recreational uses, especially among customers who may be exploring neighborhoods or casually traveling.
+- **Weekday rides** are shorter on average, peaking around 6–8 minutes, suggesting quick trips.
+- **Weekend rides** peak later (~8–10 minutes) and show a longer tail.
+- Both distributions are **right-skewed**, confirming the majority of rides are under ~15 minutes.
 
-- Both distributions are **right-skewed**, with long tails indicating occasional extended rides by some users.
+##### Interpretation
 
-##### Behavioral Insight
-
-This view supports the hypothesis that **weekday** customer rides are more **task-oriented**, while **weekend** usage involves **longer, discretionary** trips. Although the differences are subtle, they are consistent with other indicators of time-based travel patterns in non-tourist areas.
+- Weekday trips are likely **task-focused** (errands, commuting).
+- Weekend trips are more **discretionary** and potentially recreational.
+- The consistent shape across days supports the idea of habitual short-distance usage among non-tourist customers.
 
 ##### Use Case
 
-This chart is useful for:
-- Understanding ride duration norms by day type.
-- Supporting demand modeling and pricing strategies tailored to weekdays vs weekends.
-- Refining customer journey segmentation without needing user-level metadata.
+This chart can be applied to:
+- Demand modeling and pricing strategies sensitive to day type.
+- User segmentation based on duration patterns.
+- Planning operational resources around expected trip lengths.
 
-**R Code Used to Generate the Chart:**
+##### Technical Notes
 
-```R
+- **Data Filtering:**
+  - `user_type = customer`
+  - Excluded known tourist stations.
+- **Duration:** Calculated as `(end_time - start_time) / 60`.
+- **Kernel Bandwidth:** Automatically selected by `ggplot2`.
+- Rides over 150 minutes excluded to improve interpretability.
+
+##### Data Sources
+
+- **Data Frame:** `non_tourist_customer_rides_df`
+  - Derived from the `rides` table filtered for customer trips, start/end station IDs, and date range.
+  - Preprocessed with timezone adjustment to Chicago local time.
+
+##### R Code Used to Generate Chart:
+
+```r
 ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min, fill = week_part)) +
-     geom_density(alpha = 0.4) +
-     scale_fill_manual(values = c("Weekday" = "darkblue", "Weekend" = "darkorange")) +
-     labs(
-         title = "Non-Tourist Customer Ride Duration by Weekday vs Weekend",
-         x = "Ride Length (minutes)",
-         fill = "Day Type"
-     ) +
-     theme_minimal()
+  geom_density(alpha = 0.4) +
+  scale_fill_manual(values = c("Weekday" = "darkblue", "Weekend" = "darkorange")) +
+  labs(
+    title = "Non-Tourist Customer Ride Duration by Weekday vs Weekend",
+    x = "Ride Length (minutes)",
+    fill = "Day Type"
+  ) +
+  theme_minimal()
 ```

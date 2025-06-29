@@ -212,6 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#non-tourist-customer-ride-duration-for-loop-rides" id="toc-non-tourist-customer-ride-duration-for-loop-rides" class="nav-link" data-scroll-target="#non-tourist-customer-ride-duration-for-loop-rides">Non-Tourist Customer Ride Duration for Loop Rides</a></li>
   <li><a href="#ride-duration-vs.-station-distance-non-tourist-customers" id="toc-ride-duration-vs.-station-distance-non-tourist-customers" class="nav-link" data-scroll-target="#ride-duration-vs.-station-distance-non-tourist-customers">Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customers)</a></li>
   <li><a href="#non-tourist-customer-ride-count-by-distance" id="toc-non-tourist-customer-ride-count-by-distance" class="nav-link" data-scroll-target="#non-tourist-customer-ride-count-by-distance">Non-Tourist Customer Ride Count by Distance</a></li>
+  <li><a href="#station-to-station-distance-distribution-non-tourist-customers" id="toc-station-to-station-distance-distribution-non-tourist-customers" class="nav-link" data-scroll-target="#station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</a></li>
   <li><a href="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" id="toc-ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="nav-link" data-scroll-target="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers">Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)</a></li>
   <li><a href="#non-tourist-non-loop-customer-ride-distance-distribution-by-ride-duration-cluster-201m-grid" id="toc-non-tourist-non-loop-customer-ride-distance-distribution-by-ride-duration-cluster-201m-grid" class="nav-link" data-scroll-target="#non-tourist-non-loop-customer-ride-distance-distribution-by-ride-duration-cluster-201m-grid">Non-Tourist Non-Loop Customer Ride Distance Distribution by Ride Duration Cluster 201M Grid</a></li>
   <li><a href="#loop-ride-length-distribution-by-week-part-and-time-of-day" id="toc-loop-ride-length-distribution-by-week-part-and-time-of-day" class="nav-link" data-scroll-target="#loop-ride-length-distribution-by-week-part-and-time-of-day">Loop Ride Length Distribution by Week Part and Time of Day</a></li>
@@ -219,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#spatial-patterns" id="toc-spatial-patterns" class="nav-link" data-scroll-target="#spatial-patterns">🗺️ Spatial Patterns</a>
   <ul class="collapse">
   <li><a href="#top-25-non-tourist-stations-by-customer-ride-count" id="toc-top-25-non-tourist-stations-by-customer-ride-count" class="nav-link" data-scroll-target="#top-25-non-tourist-stations-by-customer-ride-count">Top 25 Non-Tourist Stations by Customer Ride Count</a></li>
-  <li><a href="#station-to-station-distance-distribution-non-tourist-customers" id="toc-station-to-station-distance-distribution-non-tourist-customers" class="nav-link" data-scroll-target="#station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</a></li>
+  <li><a href="#station-to-station-distance-distribution-non-tourist-customers-10-km" id="toc-station-to-station-distance-distribution-non-tourist-customers-10-km" class="nav-link" data-scroll-target="#station-to-station-distance-distribution-non-tourist-customers-10-km">Station-to-Station Distance Distribution (Non-Tourist Customers, ≤10 km)</a></li>
   </ul></li>
   <li><a href="#fleet-usage-patterns" id="toc-fleet-usage-patterns" class="nav-link" data-scroll-target="#fleet-usage-patterns">Fleet &amp; Usage Patterns</a>
   <ul class="collapse">
@@ -1941,100 +1942,164 @@ Box plot of ride durations by user type. Subscribers have shorter, more consiste
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes." class="figure-img"> </a>
 <figcaption>
-Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
+Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
 </figcaption>
 </figure>
 <section id="overview-18" class="level5">
 <h5 class="anchored" data-anchor-id="overview-18">Overview</h5>
-<p>This kernel density plot compares the <strong>ride duration (in minutes)</strong> of non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
+<p>This kernel density plot compares <strong>ride durations (in minutes)</strong> for non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
 </section>
-<section id="axes" class="level5">
-<h5 class="anchored" data-anchor-id="axes">Axes</h5>
+<section id="chart-details-17" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-17">Chart Details</h5>
 <ul>
-<li><strong>X-Axis (Ride Length in Minutes)</strong>:
+<li><strong>X-Axis:</strong> Ride Length (minutes), ranging from 0 to 150.</li>
+<li><strong>Y-Axis:</strong> Density (smoothed kernel estimation).</li>
+<li><strong>Colors:</strong>
 <ul>
-<li>Ranges from 0 to 150 minutes.</li>
-<li>Measures the total ride time as reported in the dataset.</li>
-<li>Focuses on the practical duration range; longer trips beyond 150 minutes were likely excluded or negligible.</li>
+<li><strong>Weekday (Blue):</strong> Tighter concentration at shorter durations.</li>
+<li><strong>Weekend (Orange):</strong> Broader peak, more long-duration variability.</li>
 </ul></li>
-<li><strong>Y-Axis (Density)</strong>:
-<ul>
-<li>Represents the smoothed distribution of ride durations using kernel density estimation.</li>
-<li>Higher values reflect more common durations.</li>
-</ul></li>
-</ul>
-</section>
-<section id="day-type-colors" class="level5">
-<h5 class="anchored" data-anchor-id="day-type-colors">Day Type Colors</h5>
-<ul>
-<li><strong>Weekday (Blue)</strong>:
-<ul>
-<li>Strong peak at short durations (approximately 6–8 minutes).</li>
-<li>Steeper decline after peak.</li>
-</ul></li>
-<li><strong>Weekend (Orange)</strong>:
-<ul>
-<li>Peak is broader and slightly lower, centered just after 8 minutes.</li>
-<li>Slower decline, suggesting more variety in weekend usage.</li>
-</ul></li>
+<li><strong>Plot Type:</strong> Density plot with alpha blending to show overlap.</li>
 </ul>
 </section>
 <section id="observations-19" class="level5">
 <h5 class="anchored" data-anchor-id="observations-19">Observations</h5>
 <ul>
-<li><strong>Weekday rides</strong> are slightly shorter on average and more tightly concentrated.
-<ul>
-<li>Likely dominated by quick errands, commutes, or first-mile/last-mile transport.</li>
-</ul></li>
-<li><strong>Weekend rides</strong> show greater variability.
-<ul>
-<li>Suggests a mix of errand and recreational uses, especially among customers who may be exploring neighborhoods or casually traveling.</li>
-</ul></li>
-<li>Both distributions are <strong>right-skewed</strong>, with long tails indicating occasional extended rides by some users.</li>
+<li><strong>Weekday rides</strong> are shorter on average, peaking around 6–8 minutes, suggesting quick trips.</li>
+<li><strong>Weekend rides</strong> peak later (~8–10 minutes) and show a longer tail.</li>
+<li>Both distributions are <strong>right-skewed</strong>, confirming the majority of rides are under ~15 minutes.</li>
 </ul>
 </section>
-<section id="behavioral-insight" class="level5">
-<h5 class="anchored" data-anchor-id="behavioral-insight">Behavioral Insight</h5>
-<p>This view supports the hypothesis that <strong>weekday</strong> customer rides are more <strong>task-oriented</strong>, while <strong>weekend</strong> usage involves <strong>longer, discretionary</strong> trips. Although the differences are subtle, they are consistent with other indicators of time-based travel patterns in non-tourist areas.</p>
+<section id="interpretation-19" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-19">Interpretation</h5>
+<ul>
+<li>Weekday trips are likely <strong>task-focused</strong> (errands, commuting).</li>
+<li>Weekend trips are more <strong>discretionary</strong> and potentially recreational.</li>
+<li>The consistent shape across days supports the idea of habitual short-distance usage among non-tourist customers.</li>
+</ul>
 </section>
 <section id="use-case-1" class="level5">
 <h5 class="anchored" data-anchor-id="use-case-1">Use Case</h5>
-<p>This chart is useful for: - Understanding ride duration norms by day type. - Supporting demand modeling and pricing strategies tailored to weekdays vs weekends. - Refining customer journey segmentation without needing user-level metadata.</p>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
+<p>This chart can be applied to: - Demand modeling and pricing strategies sensitive to day type. - User segmentation based on duration patterns. - Planning operational resources around expected trip lengths.</p>
+</section>
+<section id="technical-notes-9" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-9">Technical Notes</h5>
+<ul>
+<li><strong>Data Filtering:</strong>
+<ul>
+<li><code>user_type = customer</code></li>
+<li>Excluded known tourist stations.</li>
+</ul></li>
+<li><strong>Duration:</strong> Calculated as <code>(end_time - start_time) / 60</code>.</li>
+<li><strong>Kernel Bandwidth:</strong> Automatically selected by <code>ggplot2</code>.</li>
+<li>Rides over 150 minutes excluded to improve interpretability.</li>
+</ul>
+</section>
+<section id="data-sources-9" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-9">Data Sources</h5>
+<ul>
+<li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Derived from the <code>rides</code> table filtered for customer trips, start/end station IDs, and date range.</li>
+<li>Preprocessed with timezone adjustment to Chicago local time.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart-10" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-10">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Weekday"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Weekend"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration by Weekday vs Weekend"</span>,</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Day Type"</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Weekday"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Weekend"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration by Weekday vs Weekend"</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Day Type"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="non-tourist-customer-ride-duration-density" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-density">Non-Tourist Customer Ride Duration Density</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist customer trips. The curve is strongly right-skewed, with most rides under 15 minutes." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density plot shows how ride lengths are distributed among customer (non-subscriber) rides that do not involve tourist stations.
 </figcaption>
 </figure>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
+<section id="overview-19" class="level5">
+<h5 class="anchored" data-anchor-id="overview-19">Overview</h5>
+<p>This density plot illustrates the <strong>distribution of ride durations</strong> (in minutes) for trips taken by <strong>non-tourist customers</strong>. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.</p>
+</section>
+<section id="chart-details-18" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-18">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes), typically ranging from 0 to ~150.</li>
+<li><strong>Y-Axis:</strong> Density (smoothed probability density).</li>
+<li><strong>Plot Style:</strong> Single density curve filled in orange to show concentration of rides.</li>
+</ul>
+</section>
+<section id="observations-20" class="level5">
+<h5 class="anchored" data-anchor-id="observations-20">Observations</h5>
+<ul>
+<li>The distribution is <strong>sharply right-skewed</strong>, with most rides lasting under ~15 minutes.</li>
+<li>A clear peak appears between ~6–10 minutes, reflecting short urban trips.</li>
+<li>The long tail shows occasional longer rides, although these are much less frequent.</li>
+</ul>
+</section>
+<section id="interpretation-20" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-20">Interpretation</h5>
+<ul>
+<li>Short rides dominate customer usage patterns, consistent with quick errands or intra-neighborhood trips.</li>
+<li>The lack of a secondary peak suggests relatively uniform short-duration behavior among these riders.</li>
+<li>Longer rides may represent recreational trips or exploratory use.</li>
+</ul>
+</section>
+<section id="use-case-2" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-2">Use Case</h5>
+<p>This visualization is useful for: - Understanding the central tendency and spread of ride lengths. - Supporting decisions about pricing (e.g., time-based fees). - Tailoring operational planning for short-trip dominance among customer riders.</p>
+</section>
+<section id="technical-notes-10" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-10">Technical Notes</h5>
+<ul>
+<li><strong>Data Filtering:</strong>
+<ul>
+<li>Only includes <code>customer</code> rides.</li>
+<li>Excludes trips starting or ending at tourist stations.</li>
+</ul></li>
+<li><strong>Ride Length Calculation:</strong>
+<ul>
+<li><code>(end_time - start_time) / 60</code>.</li>
+</ul></li>
+<li><strong>Kernel Bandwidth:</strong> Auto-selected by <code>ggplot2</code>.</li>
+</ul>
+</section>
+<section id="data-sources-10" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-10">Data Sources</h5>
+<ul>
+<li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Created by filtering the <code>rides</code> table to include only customer trips with relevant station IDs.</li>
+<li>Converted timestamps to local time for consistency.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart-11" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-11">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration Density"</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration Density"</span>,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
+</section>
 </section>
 <section id="non-tourist-customer-ride-duration-for-loop-rides" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-for-loop-rides">Non-Tourist Customer Ride Duration for Loop Rides</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_fo_Loop_Rides.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thunbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thunbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="ALT_TEXT" class="figure-img"> </a>
 <figcaption>
 FIGCAPTION
 </figcaption>
@@ -2049,12 +2114,12 @@ FIGCAPTION
 <strong>Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)</strong> This scatterplot displays the relationship between ride length and distance between stations. While longer distances generally correspond to longer durations, many short-distance rides also exhibit long durations, suggesting varied usage patterns. A linear reference line highlights the lower boundary of likely direct trips.
 </figcaption>
 </figure>
-<section id="overview-19" class="level5">
-<h5 class="anchored" data-anchor-id="overview-19">Overview</h5>
+<section id="overview-20" class="level5">
+<h5 class="anchored" data-anchor-id="overview-20">Overview</h5>
 <p>This scatterplot shows the relationship between <strong>ride duration</strong> and <strong>station-to-station distance</strong> for non-tourist customer rides. A linear reference line is included for interpretive comparison.</p>
 </section>
-<section id="axes-1" class="level5">
-<h5 class="anchored" data-anchor-id="axes-1">Axes</h5>
+<section id="axes" class="level5">
+<h5 class="anchored" data-anchor-id="axes">Axes</h5>
 <ul>
 <li><strong>X-Axis (Distance Between Stations in km)</strong>:
 <ul>
@@ -2083,8 +2148,8 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="observations-20" class="level5">
-<h5 class="anchored" data-anchor-id="observations-20">Observations</h5>
+<section id="observations-21" class="level5">
+<h5 class="anchored" data-anchor-id="observations-21">Observations</h5>
 <ul>
 <li><strong>Dense cluster near origin</strong>:
 <ul>
@@ -2106,16 +2171,16 @@ FIGCAPTION
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-19" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-19">Interpretation</h5>
+<section id="interpretation-21" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-21">Interpretation</h5>
 <ul>
 <li>There’s a <strong>positive relationship</strong> between station distance and ride duration, but with <strong>high variance</strong>.</li>
 <li>Many long-duration rides cover only short distances, hinting at circuitous routes, heavy traffic, or recreational usage.</li>
 <li>The plot may also reflect the <strong>impact of stop time</strong> (e.g., errands, pauses) not being filtered out.</li>
 </ul>
 </section>
-<section id="use-case-2" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-2">Use Case</h5>
+<section id="use-case-3" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-3">Use Case</h5>
 <p>This visualization helps: - Explore efficiency and routing behavior of customers. - Identify outliers and usage extremes (e.g., long duration for short distances). - Evaluate suitability of distance as a proxy for estimating ride time.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(start_station_id <span class="sc">!=</span> end_station_id)</span>
@@ -2177,12 +2242,12 @@ FIGCAPTION
 Ride count by station-to-station distance for non-tourist customer trips, highlighting common trip lengths in the 0–2 km range.
 </figcaption>
 </figure>
-<section id="overview-20" class="level5">
-<h5 class="anchored" data-anchor-id="overview-20">Overview</h5>
+<section id="overview-21" class="level5">
+<h5 class="anchored" data-anchor-id="overview-21">Overview</h5>
 <p>This bar chart shows the <strong>number of non-tourist customer rides</strong> grouped by the straight-line distance between the starting and ending stations. The visualization makes clear which distance ranges are most commonly traveled.</p>
 </section>
-<section id="chart-details-17" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-17">Chart Details</h5>
+<section id="chart-details-19" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-19">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Distance between stations (km), from 0 to 10 km.</li>
 <li><strong>Y-Axis:</strong> Number of rides in each distance bin (up to ~60,000 rides).</li>
@@ -2193,8 +2258,8 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 </ul></li>
 </ul>
 </section>
-<section id="observations-21" class="level5">
-<h5 class="anchored" data-anchor-id="observations-21">Observations</h5>
+<section id="observations-22" class="level5">
+<h5 class="anchored" data-anchor-id="observations-22">Observations</h5>
 <ul>
 <li><strong>Primary Peaks:</strong>
 <ul>
@@ -2205,16 +2270,16 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 <li>The shape strongly suggests most casual rides occur within a short radius.</li>
 </ul>
 </section>
-<section id="interpretation-20" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-20">Interpretation</h5>
+<section id="interpretation-22" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-22">Interpretation</h5>
 <ul>
 <li><strong>Short trips dominate</strong> non-subscriber usage, likely reflecting quick local errands or last-mile transit.</li>
 <li>Peaks may correspond to popular station pairs located 3–8 blocks apart.</li>
 <li>The pattern mirrors the density distribution of unique station-to-station distances, but here each ride contributes equally to counts.</li>
 </ul>
 </section>
-<section id="data-sources-9" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-9">Data Sources</h5>
+<section id="data-sources-11" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-11">Data Sources</h5>
 <ul>
 <li><strong>Ride Records:</strong> Non-subscriber rides starting after 2023-01-01.</li>
 <li><strong>Filters Applied:</strong>
@@ -2225,9 +2290,8 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 <li>Included only trips with distances ≤10 km.</li>
 </ul></li>
 </ul>
-</section>
-<section id="r-code-used-to-generate-chart-10" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-10">R Code Used to Generate Chart:</h5>
+<section id="r-code-used-to-generate-chart-12" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart-12">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin and count rides by distance</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
@@ -2248,74 +2312,72 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 <span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
 <span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>br style<span class="ot">=</span><span class="st">"clear: both;"</span><span class="sc">&gt;</span><span class="er">&lt;/</span>br<span class="sc">&gt;</span></span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a><span class="do">#### Station-to-Station Distance Distribution (Non-Tourist Customers)</span></span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>figure class<span class="ot">=</span><span class="st">"float-right"</span><span class="sc">&gt;</span></span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>a href<span class="ot">=</span><span class="st">"../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png"</span> target<span class="ot">=</span><span class="st">"_blank"</span> title<span class="ot">=</span><span class="st">"Select image to open full sized chart"</span><span class="sc">&gt;</span></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>img src<span class="ot">=</span><span class="st">"../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png"</span> alt<span class="ot">=</span><span class="st">"ALT_TEXT"</span><span class="sc">&gt;</span></span>
-<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;/</span>a<span class="sc">&gt;</span></span>
-<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>figcaption<span class="sc">&gt;</span></span>
-<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  Distribution of station<span class="sc">-</span>to<span class="sc">-</span>station distances <span class="cf">for</span> non<span class="sc">-</span>tourist customer rides. Most rides are short<span class="sc">-</span>distance trips, suggesting local, utility<span class="sc">-</span>based bike use.</span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span><span class="er">/</span>figcaption<span class="sc">&gt;</span></span>
-<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>figure<span class="sc">&gt;</span></span>
-<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a><span class="do">##### Overview</span></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>This density plot visualizes the distribution of distances between starting and ending stations <span class="cf">for</span> rides taken by <span class="fu">casual</span> (non<span class="sc">-</span>subscriber) users that do not involve tourist stations. The x<span class="sc">-</span>axis represents the distance <span class="cf">in</span> kilometers between two stations, and the y<span class="sc">-</span>axis represents the relative density of those ride distances.</span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a><span class="do">##### Chart Details</span></span>
-<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   X<span class="sc">-</span>Axis<span class="sc">:</span> Distance Between <span class="fu">Stations</span> (km), ranging from <span class="dv">0</span> to just over <span class="dv">30</span> km</span>
-<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Y<span class="sc">-</span>Axis<span class="sc">:</span> Relative density of rides occurring at each distance</span>
-<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Plot Style<span class="sc">:</span> Area<span class="sc">-</span>under<span class="sc">-</span>curve density <span class="fu">plot</span> (not a histogram), with a smooth curve and filled region</span>
-<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="do">##### Purpose</span></span>
-<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>This visualization is intended to show the typical ride distance <span class="cf">for</span> casual users avoiding tourist destinations. It highlights the patterns <span class="cf">in</span> short<span class="sc">-</span>to<span class="sc">-</span>moderate<span class="sc">-</span>distance usage of the bike<span class="sc">-</span>sharing system.</span>
-<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a><span class="do">##### Observations</span></span>
-<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Peak around <span class="dv">1</span>–<span class="dv">2</span> km<span class="sc">:</span> The majority of rides occur between stations that are <span class="dv">1</span>–<span class="dv">2</span> km apart.</span>
-<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Steep decline<span class="sc">:</span> Ride density drops rapidly <span class="cf">for</span> distances above <span class="dv">5</span> km.</span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Long tail<span class="sc">:</span> A small number of rides extend beyond <span class="dv">10</span> km, with rare outliers over <span class="dv">20</span> km.</span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Very few extreme values<span class="sc">:</span> This confirms most rides are short<span class="sc">-</span>distance, utility<span class="sc">-</span>based.</span>
-<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="do">##### Interpretation</span></span>
-<span id="cb30-65"><a href="#cb30-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-66"><a href="#cb30-66" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   The shape of the distribution suggests a strong preference <span class="cf">for</span> short<span class="sc">-</span>distance urban travel, which aligns with errand<span class="sc">-</span>running, last<span class="sc">-</span>mile commuting, or intra<span class="sc">-</span>neighborhood trips.</span>
-<span id="cb30-67"><a href="#cb30-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-68"><a href="#cb30-68" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   The sharp tapering suggests little casual use <span class="cf">for</span> long<span class="sc">-</span>distance travel, at least outside of tourist<span class="sc">-</span>heavy areas.</span>
-<span id="cb30-69"><a href="#cb30-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-70"><a href="#cb30-70" aria-hidden="true" tabindex="-1"></a><span class="do">##### Technical Notes</span></span>
-<span id="cb30-71"><a href="#cb30-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-72"><a href="#cb30-72" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Ride distances were calculated using the great<span class="sc">-</span>circle <span class="fu">distance</span> (Haversine formula) between station coordinates.</span>
-<span id="cb30-73"><a href="#cb30-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-74"><a href="#cb30-74" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Tourist stations were excluded using a station filter based on known landmarks and locations.</span>
-<span id="cb30-75"><a href="#cb30-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-76"><a href="#cb30-76" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span>   Density plots normalize the area under the curve to <span class="dv">1</span>, so the y<span class="sc">-</span>axis values represent probability density, not raw ride counts.</span>
-<span id="cb30-77"><a href="#cb30-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-78"><a href="#cb30-78" aria-hidden="true" tabindex="-1"></a><span class="do">##### R Code Used to Generate Chart:</span></span>
-<span id="cb30-79"><a href="#cb30-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-80"><a href="#cb30-80" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">R</span></span>
-<span id="cb30-81"><a href="#cb30-81" aria-hidden="true" tabindex="-1"></a><span class="at">ggplot(non_loop_rides_df, aes(x = distance_km)) + </span></span>
-<span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a><span class="at">geom_density(fill = "darkorange", alpha = 0.6) +</span></span>
-<span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a><span class="at">labs(</span></span>
-<span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a><span class="at">title = "Non-Tourist_Customer_Distribution of Station-to-Station Distances",</span></span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="at">x = "Distance Between Stations (km)",</span></span>
-<span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a><span class="at">y = "Density"</span></span>
-<span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a><span class="at">) +</span></span>
-<span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a><span class="at">theme_minimal()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br style="clear: both;"><br></p>
+</section>
+</section>
+</section>
+<section id="station-to-station-distance-distribution-non-tourist-customers" class="level4">
+<h4 class="anchored" data-anchor-id="station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</h4>
+<figure class="float-right figure">
+<a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of distances between start and end stations for non-tourist customer rides. The curve peaks around 1–2 km and tapers off rapidly above 5 km." class="figure-img"> </a>
+<figcaption>
+Distribution of station-to-station distances for non-tourist customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
+</figcaption>
+</figure>
+<section id="overview-22" class="level5">
+<h5 class="anchored" data-anchor-id="overview-22">Overview</h5>
+<p>This density plot visualizes the distribution of <strong>station-to-station distances</strong> for rides taken by <strong>customer (non-subscriber) riders</strong> that do not involve tourist stations. The x-axis represents the distance in kilometers, and the y-axis shows the relative density of rides occurring at each distance.</p>
+</section>
+<section id="chart-details-20" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-20">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Distance Between Stations (km), ranging from 0 to ~30 km<br>
+</li>
+<li><strong>Y-Axis:</strong> Relative probability density of rides at each distance<br>
+</li>
+<li><strong>Plot Style:</strong> Smoothed density plot (not a histogram), area under the curve normalized to 1</li>
+</ul>
+</section>
+<section id="purpose-11" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-11">Purpose</h5>
+<p>This chart highlights the typical distance casual riders travel between stations when tourist hotspots are excluded, revealing patterns in local, everyday bike-share use.</p>
+</section>
+<section id="observations-23" class="level5">
+<h5 class="anchored" data-anchor-id="observations-23">Observations</h5>
+<ul>
+<li><strong>Peak around 1 km:</strong> Most rides are short hops between closely spaced stations.</li>
+<li><strong>Steep decline:</strong> Density drops quickly after ~5 km.</li>
+<li><strong>Long tail:</strong> A small number of rides extend past 10 km.</li>
+<li><strong>Very few extreme values:</strong> Rides over 20 km are rare outliers.</li>
+</ul>
+</section>
+<section id="interpretation-23" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-23">Interpretation</h5>
+<ul>
+<li>The pronounced twin peaks around 1 km suggests <strong>short-distance, utility-oriented trips</strong>, like errands or first-/last-mile commuting.</li>
+<li>The long but thin tail implies that while occasional longer rides occur, they are uncommon among non-tourist customer riders.</li>
+<li>The lack of a multiple wide spaced peaks differentiates this distribution from tourist-heavy patterns, which often show multiple modes due to popular routes.</li>
+</ul>
+</section>
+<section id="technical-notes-11" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-11">Technical Notes</h5>
+<ul>
+<li><strong>Distance Calculation:</strong> Great-circle distance (Haversine formula) computed between station coordinates.</li>
+<li><strong>Filtering:</strong> Tourist stations excluded via station ID filtering.</li>
+<li><strong>Density Scaling:</strong> The y-axis shows density, not raw counts. The area under the curve sums to 1.</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart-13" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-13">R Code Used to Generate Chart:</h5>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="level4">
@@ -2326,12 +2388,12 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 Ride Distance Distribution by Duration Cluster (Customer Rides Only) This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
 </figcaption>
 </figure>
-<section id="overview-21" class="level5">
-<h5 class="anchored" data-anchor-id="overview-21">Overview</h5>
+<section id="overview-23" class="level5">
+<h5 class="anchored" data-anchor-id="overview-23">Overview</h5>
 <p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled as Short, Medium, and Long.</p>
 </section>
-<section id="axes-2" class="level5">
-<h5 class="anchored" data-anchor-id="axes-2">Axes</h5>
+<section id="axes-1" class="level5">
+<h5 class="anchored" data-anchor-id="axes-1">Axes</h5>
 <ul>
 <li><strong>X-Axis (Distance in km)</strong>:
 <ul>
@@ -2365,8 +2427,8 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only) This densit
 </ul></li>
 </ul>
 </section>
-<section id="observations-22" class="level5">
-<h5 class="anchored" data-anchor-id="observations-22">Observations</h5>
+<section id="observations-24" class="level5">
+<h5 class="anchored" data-anchor-id="observations-24">Observations</h5>
 <ul>
 <li><strong>Short Cluster</strong>:
 <ul>
@@ -2403,8 +2465,8 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only) This densit
 </ul></li>
 </ul>
 </section>
-<section id="use-case-3" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-3">Use Case</h5>
+<section id="use-case-4" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-4">Use Case</h5>
 <p>This chart helps: - Understand ride behavior by duration across distance ranges. - Support clustering-based segmentation strategies. - Inform infrastructure placement, pricing models, or service design for non-tourist use cases.</p>
 </section>
 </section>
@@ -2423,34 +2485,83 @@ FIGCAPTION
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" alt="Grid of histograms showing the distribution of loop ride durations for non-tourist customers, broken down by hour of day and by weekday versus weekend. Each subplot shows that most rides are under 15 minutes, with little variation in shape across time intervals." class="figure-img"> </a>
 <figcaption>
-Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend. Ride length is typically short, with a rapid drop-off in frequency after the first 10–15 minutes across all hourly intervals.
+Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
 </figcaption>
 </figure>
-<section id="image-notes" class="level5">
-<h5 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h5>
-<p>Title: Loop Ride Length Distribution by Week Part and Time of Day Source: Non-tourist customer rides classified as “loop rides” (start and end at the same station) X-Axis: Ride Length (minutes) Y-Axis: Ride Count Faceting: 24 hourly bins (0–23), each split by weekday/weekend Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g., Weekend.0, Weekday.14) shown in the legend</p>
+<section id="overview-24" class="level5">
+<h5 class="anchored" data-anchor-id="overview-24">Overview</h5>
+<p>This visualization shows how <strong>loop ride durations</strong> vary by <strong>hour of day</strong> and by whether the ride occurred on a <strong>weekday or weekend</strong>. Each subplot represents a single hour of the day, illustrating patterns of ride duration frequency across time.</p>
 </section>
-<section id="key-observations-1" class="level5">
-<h5 class="anchored" data-anchor-id="key-observations-1">Key Observations</h5>
-<pre><code>Consistent Right Skew: In every hourly panel, ride length distributions are heavily skewed right, peaking in the 0–10 minute range and tapering off sharply.
-
-No Strong Time-of-Day Effect: There is no significant shift in distribution shape across hours, though some hour blocks (e.g., mid-afternoon) show more total rides.
-
-Loop Behavior: This pattern reinforces the idea that many loop rides — likely recreational — are short and time-insensitive.
-
-Weekend vs. Weekday: Although both categories are shown, the duration distributions remain similar, suggesting time of day may be less influential for loop ride length than ride purpose or rider type.</code></pre>
+<section id="chart-details-21" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-21">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes)</li>
+<li><strong>Y-Axis:</strong> Ride Count</li>
+<li><strong>Faceting:</strong> 24 panels, each corresponding to an hour of day (0–23)</li>
+<li><strong>Color Encoding:</strong> Fill colors differentiate combinations of weekday/weekend and hour</li>
+<li><strong>Plot Type:</strong> Histogram with bin width = 1 minute</li>
+</ul>
 </section>
-<section id="r-code-used-to-generate-chart-11" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-11">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Week/Time"</span>) <span class="sc">+</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="observations-25" class="level5">
+<h5 class="anchored" data-anchor-id="observations-25">Observations</h5>
+<ul>
+<li>Rides are <strong>heavily skewed toward short durations</strong> in all panels.</li>
+<li>Most rides fall under <strong>10–15 minutes</strong>, regardless of hour.</li>
+<li>Midday and afternoon periods show slightly higher total counts.</li>
+<li>No clear hour shows a major deviation in distribution shape.</li>
+</ul>
+</section>
+<section id="interpretation-24" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-24">Interpretation</h5>
+<ul>
+<li>Loop rides are generally <strong>short-duration recreational trips</strong>, rather than commutes.</li>
+<li>The lack of time-of-day variation suggests <strong>consistent rider behavior</strong>.</li>
+<li>The similarity between weekday and weekend distributions reinforces this interpretation.</li>
+</ul>
+</section>
+<section id="use-case-5" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-5">Use Case</h5>
+<p>This chart supports:</p>
+<ul>
+<li><strong>Service planning:</strong> anticipating typical ride lengths for rebalancing.</li>
+<li><strong>User engagement strategies:</strong> targeting short-trip promotions.</li>
+<li><strong>Operational decisions:</strong> confirming the limited variability in loop ride duration.</li>
+</ul>
+</section>
+<section id="technical-notes-12" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-12">Technical Notes</h5>
+<ul>
+<li>Data limited to <strong>rides starting and ending at the same station</strong> (loop rides).</li>
+<li>Only <strong>non-tourist stations</strong> were included.</li>
+<li><strong>Bin width</strong> of 1 minute chosen for granularity.</li>
+<li>Duration computed as <code>end_time - start_time</code> in minutes.</li>
+</ul>
+</section>
+<section id="data-sources-12" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-12">Data Sources</h5>
+<ul>
+<li><strong>Database Table:</strong> <code>rides</code></li>
+<li><strong>Filtering Criteria:</strong>
+<ul>
+<li><code>start_station_id = end_station_id</code></li>
+<li><code>user_type = customer</code></li>
+<li>Excluded known tourist stations</li>
+</ul></li>
+<li><strong>Time Zone:</strong> Converted to Chicago local time</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart-14" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-14">R Code Used to Generate Chart:</h5>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Week/Time"</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -2465,12 +2576,12 @@ Weekend vs. Weekday: Although both categories are shown, the duration distributi
 Top 25 stations (excluding tourist locations) ranked by total customer ride volume. Bars highlight the most frequently used start locations among casual riders.
 </figcaption>
 </figure>
-<section id="overview-22" class="level5">
-<h5 class="anchored" data-anchor-id="overview-22">Overview</h5>
+<section id="overview-25" class="level5">
+<h5 class="anchored" data-anchor-id="overview-25">Overview</h5>
 <p>This horizontal bar chart displays the <strong>25 non-tourist stations with the highest number of customer rides</strong>. Each bar represents a single station, ranked from lowest to highest.</p>
 </section>
-<section id="chart-details-18" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-18">Chart Details</h5>
+<section id="chart-details-22" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-22">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Station names (rotated vertically by using <code>coord_flip()</code>).</li>
 <li><strong>Y-Axis:</strong> Number of customer rides originating at each station.</li>
@@ -2481,16 +2592,16 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </ul></li>
 </ul>
 </section>
-<section id="observations-23" class="level5">
-<h5 class="anchored" data-anchor-id="observations-23">Observations</h5>
+<section id="observations-26" class="level5">
+<h5 class="anchored" data-anchor-id="observations-26">Observations</h5>
 <ul>
 <li>The highest-ranking stations have significantly more rides than those near the bottom of the top 25.</li>
 <li>Usage distribution shows a steep drop-off after the first few most popular stations.</li>
 <li>This pattern suggests localized hubs of casual rider activity outside major tourist zones.</li>
 </ul>
 </section>
-<section id="interpretation-21" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-21">Interpretation</h5>
+<section id="interpretation-25" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-25">Interpretation</h5>
 <ul>
 <li>Non-tourist stations can still accumulate large ride volumes, likely reflecting:
 <ul>
@@ -2500,8 +2611,8 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </ul></li>
 </ul>
 </section>
-<section id="data-sources-10" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-10">Data Sources</h5>
+<section id="data-sources-13" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-13">Data Sources</h5>
 <ul>
 <li><strong>Input Table:</strong> Rides table in <code>caseStudy.db</code>.</li>
 <li><strong>Filters Applied:</strong>
@@ -2513,8 +2624,8 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </ul></li>
 </ul>
 </section>
-<section id="r-code-used-to-generate-chart-12" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-12">R Code Used to Generate Chart:</h5>
+<section id="r-code-used-to-generate-chart-15" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-15">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_non_tourist_stations_named, <span class="fu">aes</span>(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">x =</span> <span class="fu">reorder</span>(name, customer_ride_count),</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">y =</span> customer_ride_count</span>
@@ -2529,64 +2640,84 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="station-to-station-distance-distribution-non-tourist-customers" class="level4">
-<h4 class="anchored" data-anchor-id="station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</h4>
+<section id="station-to-station-distance-distribution-non-tourist-customers-10-km" class="level4">
+<h4 class="anchored" data-anchor-id="station-to-station-distance-distribution-non-tourist-customers-10-km">Station-to-Station Distance Distribution (Non-Tourist Customers, ≤10 km)</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of station-to-station distances under 10 km for non-tourist customer rides, with peaks labeled around 1 km and 2.5 km." class="figure-img"> </a>
 <figcaption>
-Distribution of station-to-station distances for non-tourist customer rides. Most rides are short-distance trips, suggesting local, utility-based bike use.
+Distribution of station-to-station distances for non-tourist customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
 </figcaption>
 </figure>
-<section id="overview-23" class="level5">
-<h5 class="anchored" data-anchor-id="overview-23">Overview</h5>
-<p>This density plot visualizes the distribution of distances between starting and ending stations for rides taken by casual (non-subscriber) users that do not involve tourist stations. The x-axis represents the distance in kilometers between two stations, and the y-axis represents the relative density of those ride distances.</p>
+<section id="overview-26" class="level5">
+<h5 class="anchored" data-anchor-id="overview-26">Overview</h5>
+<p>This density plot visualizes the distribution of <strong>station-to-station distances under 10 km</strong> for rides taken by <strong>customer (non-subscriber) riders</strong> that did not involve tourist stations. The focus on shorter trips reveals finer patterns in local travel behavior.</p>
 </section>
-<section id="chart-details-19" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-19">Chart Details</h5>
+<section id="chart-details-23" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-23">Chart Details</h5>
 <ul>
-<li><p>X-Axis: Distance Between Stations (km), ranging from 0 to just over 30 km</p></li>
-<li><p>Y-Axis: Relative density of rides occurring at each distance</p></li>
-<li><p>Plot Style: Area-under-curve density plot (not a histogram), with a smooth curve and filled region</p></li>
+<li><strong>X-Axis:</strong> Distance Between Stations (km), ranging from 0 to 10 km<br>
+</li>
+<li><strong>Y-Axis:</strong> Relative probability density of rides occurring at each distance<br>
+</li>
+<li><strong>Plot Style:</strong> Smoothed density plot with area normalized to 1<br>
+</li>
+<li><strong>Annotations:</strong> Peaks labeled to highlight the most common trip lengths</li>
 </ul>
 </section>
-<section id="purpose-11" class="level5">
-<h5 class="anchored" data-anchor-id="purpose-11">Purpose</h5>
-<p>This visualization illustrates the spatial extent of trips, showing how far non-tourist customers typically travel between stations across the system.</p>
+<section id="purpose-12" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-12">Purpose</h5>
+<p>By excluding longer trips (&gt;10 km), this chart provides a clearer view of the most typical ride distances, supporting planning and operational decisions about station placement and bike redistribution.</p>
 </section>
-<section id="observations-24" class="level5">
-<h5 class="anchored" data-anchor-id="observations-24">Observations</h5>
+<section id="observations-27" class="level5">
+<h5 class="anchored" data-anchor-id="observations-27">Observations</h5>
 <ul>
-<li><p>Peak around 1–2 km: The majority of rides occur between stations that are 1–2 km apart.</p></li>
-<li><p>Steep decline: Ride density drops rapidly for distances above 5 km.</p></li>
-<li><p>Long tail: A small number of rides extend beyond 10 km, with rare outliers over 20 km.</p></li>
-<li><p>Very few extreme values: This confirms most rides are short-distance, utility-based.</p></li>
+<li><strong>Primary Peak (0.86 km):</strong> The most common ride length, suggesting very short intra-neighborhood trips.</li>
+<li><strong>Secondary Peak (1.29 km):</strong> Another frequently observed trip length, likely representing local errands or commutes between adjacent districts.</li>
+<li><strong>Steep Decline:</strong> Density decreases sharply beyond 4–5 km.</li>
+<li><strong>Absence of Long Tail:</strong> Filtering out longer rides eliminates noise from infrequent long-distance trips.</li>
 </ul>
 </section>
-<section id="interpretation-22" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-22">Interpretation</h5>
+<section id="interpretation-26" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-26">Interpretation</h5>
 <ul>
-<li><p>The shape of the distribution suggests a strong preference for short-distance urban travel, which aligns with errand-running, last-mile commuting, or intra-neighborhood trips.</p></li>
-<li><p>The sharp tapering suggests little casual use for long-distance travel, at least outside of tourist-heavy areas.</p></li>
+<li><strong>Short-Distance Focus:</strong> The dual peaks reinforce that casual users primarily rely on the system for short urban journeys.</li>
+<li><strong>Potential Trip Typologies:</strong>
+<ul>
+<li>~1 km: Last-mile or neighborhood-scale trips.</li>
+<li>~2–3 km: Short errands or transit connections.</li>
+</ul></li>
+<li>The low density beyond 5 km indicates that even non-tourist customers rarely use the bikes for longer travel.</li>
 </ul>
 </section>
-<section id="technical-notes-9" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes-9">Technical Notes</h5>
+<section id="technical-notes-13" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-13">Technical Notes</h5>
 <ul>
-<li><p>Ride distances were calculated using the great-circle distance (Haversine formula) between station coordinates.</p></li>
-<li><p>Tourist stations were excluded using a station filter based on known landmarks and locations.</p></li>
-<li><p>Density plots normalize the area under the curve to 1, so the y-axis values represent probability density, not raw ride counts.</p></li>
+<li><strong>Distance Calculation:</strong> Computed with the Haversine formula between station coordinates.</li>
+<li><strong>Filtering:</strong> Only trips with distance ≤10 km are included.</li>
+<li><strong>Annotations:</strong> Peaks were identified programmatically and labeled on the chart.</li>
+<li><strong>Density Scaling:</strong> Y-axis reflects probability density, not counts.</li>
 </ul>
 </section>
-<section id="r-code-used-to-generate-chart-13" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-13">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Non-Tourist_Customer_Distribution of Station-to-Station Distances"</span>,</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="r-code-used-to-generate-chart-16" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-16">R Code Used to Generate Chart:</h5>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> top_peaks, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> top_peaks,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">" "</span>, <span class="fu">round</span>(x, <span class="dv">2</span>), <span class="st">" km"</span>)),</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">25</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span>,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances (≤10 km)"</span>,</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -2601,8 +2732,8 @@ Distribution of station-to-station distances for non-tourist customer rides. Mos
 Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among subscribers, while electric modes see substantial adoption by both user groups.
 </figcaption>
 </figure>
-<section id="overview-24" class="level5">
-<h5 class="anchored" data-anchor-id="overview-24">Overview</h5>
+<section id="overview-27" class="level5">
+<h5 class="anchored" data-anchor-id="overview-27">Overview</h5>
 <p>This bar chart displays the <strong>average number of daily rides</strong> by <strong>bike type</strong>, grouped by <strong>user type</strong> (Subscriber vs.&nbsp;Customer), for the period after the introduction of electric bikes and scooters.</p>
 </section>
 <section id="axes-and-groupings" class="level5">
@@ -2626,8 +2757,8 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="observations-25" class="level5">
-<h5 class="anchored" data-anchor-id="observations-25">Observations</h5>
+<section id="observations-28" class="level5">
+<h5 class="anchored" data-anchor-id="observations-28">Observations</h5>
 <ul>
 <li><strong>Classic Bikes</strong>:
 <ul>
@@ -2651,8 +2782,8 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-23" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-23">Interpretation</h5>
+<section id="interpretation-27" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-27">Interpretation</h5>
 <ul>
 <li><strong>Subscriber Preference</strong>:
 <ul>
@@ -2670,12 +2801,12 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="use-case-4" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-4">Use Case</h5>
+<section id="use-case-6" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-6">Use Case</h5>
 <p>This visualization supports: - Infrastructure planning (e.g., expansion of electric charging or docking stations), - Marketing strategy (targeting modal preferences by user type), - Evaluating post-launch success of electric mobility options.</p>
 </section>
-<section id="data-sources-11" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-11">Data Sources</h5>
+<section id="data-sources-14" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-14">Data Sources</h5>
 <ul>
 <li><strong>Query to Load Data into R:</strong></li>
 </ul>
@@ -2725,12 +2856,12 @@ Average daily rides by bike type and user type after the introduction of electri
 Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
 </figcaption>
 </figure>
-<section id="overview-25" class="level5">
-<h5 class="anchored" data-anchor-id="overview-25">Overview</h5>
+<section id="overview-28" class="level5">
+<h5 class="anchored" data-anchor-id="overview-28">Overview</h5>
 <p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
 </section>
-<section id="axes-3" class="level5">
-<h5 class="anchored" data-anchor-id="axes-3">Axes</h5>
+<section id="axes-2" class="level5">
+<h5 class="anchored" data-anchor-id="axes-2">Axes</h5>
 <ul>
 <li><strong>X-Axis (Ride Count Range)</strong>:
 <ul>
@@ -2755,8 +2886,8 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 </ul></li>
 </ul>
 </section>
-<section id="observations-26" class="level5">
-<h5 class="anchored" data-anchor-id="observations-26">Observations</h5>
+<section id="observations-29" class="level5">
+<h5 class="anchored" data-anchor-id="observations-29">Observations</h5>
 <ul>
 <li><strong>Low-end Outliers</strong>:
 <ul>
@@ -2775,8 +2906,8 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-24" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-24">Interpretation</h5>
+<section id="interpretation-28" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-28">Interpretation</h5>
 <ul>
 <li>The chart implies a relatively well-utilized fleet with a <strong>normal distribution</strong> centered around ~3000 rides per bike.</li>
 <li>The left-side spike at <code>0–99</code> highlights potential outliers worth investigating:
@@ -2789,12 +2920,12 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 <li>The right tail shows some high-mileage bikes that may be candidates for maintenance or replacement soon.</li>
 </ul>
 </section>
-<section id="use-case-5" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-5">Use Case</h5>
+<section id="use-case-7" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-7">Use Case</h5>
 <p>This visualization is valuable for: - <strong>Fleet maintenance planning</strong> (identify overused/underused bikes), - <strong>Lifecycle analysis</strong> (detect uneven distribution of wear), - <strong>Deployment strategy</strong> (optimize rotation or redistribution).</p>
 </section>
-<section id="data-sources-12" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-12">Data Sources</h5>
+<section id="data-sources-15" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-15">Data Sources</h5>
 <p><code>rides</code> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
 <section id="sql-query-to-produce-aggregated-data" class="level6">
 <h6 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h6>
@@ -2861,8 +2992,8 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 <p>The <strong>asymmetry ratio</strong> is defined as: &gt; rides in one direction / total rides in both directions</p>
 <p>Values closer to 1.0 indicate strong directional bias.</p>
 </section>
-<section id="key-observations-2" class="level6">
-<h6 class="anchored" data-anchor-id="key-observations-2">Key Observations:</h6>
+<section id="key-observations-1" class="level6">
+<h6 class="anchored" data-anchor-id="key-observations-1">Key Observations:</h6>
 <ul>
 <li><strong>Customer paths</strong> tend to involve routes to and from major downtown hubs like Canal St, Clinton St, and Wacker Dr — possibly reflecting less predictable, one-way tourist or ad hoc travel.</li>
 <li><strong>Subscriber paths</strong> are more concentrated near recreational or scenic areas like <strong>Columbus Dr</strong>, <strong>Streeter Dr</strong>, and <strong>Lake Shore Dr</strong>, hinting at commuting or habitual use involving these corridors.</li>
@@ -2881,16 +3012,16 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
 </figcaption>
 </figure>
-<section id="image-notes-1" class="level5">
-<h5 class="anchored" data-anchor-id="image-notes-1">📝 Image Notes</h5>
+<section id="image-notes" class="level5">
+<h5 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h5>
 <p>Title: Top 20 Most Asymmetric Paths by User Type X-Axis: Asymmetry Ratio (from 0.0 to ~0.7) Panels: Two side-by-side bar charts</p>
 <ul>
 <li>Left panel: Top asymmetric paths for Customers</li>
 <li>Right panel: Top asymmetric paths for Subscribers</li>
 </ul>
 </section>
-<section id="interpretation-25" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-25">Interpretation</h5>
+<section id="interpretation-29" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-29">Interpretation</h5>
 <dl>
 <dt>Asymmetry Ratio</dt>
 <dd>

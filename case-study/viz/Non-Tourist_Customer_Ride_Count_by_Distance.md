@@ -44,7 +44,7 @@ This bar chart shows the **number of non-tourist customer rides** grouped by the
   - Calculated distance using Haversine formula between station coordinates.
   - Included only trips with distances ≤10 km.
 
-##### R Code Used to Generate Chart:
+###### R Code Used to Generate Chart:
 
 ```r
 # Bin and count rides by distance
@@ -68,6 +68,7 @@ ggplot(ride_counts_by_distance, aes(x = distance_bin, y = n)) +
     y = "Number of Rides"
   ) +
   theme_minimal()
+```
 
 <br style="clear: both;"></br>
 

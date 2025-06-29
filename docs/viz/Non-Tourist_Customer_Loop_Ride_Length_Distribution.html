@@ -165,34 +165,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" alt="Grid of histograms showing the distribution of loop ride durations for non-tourist customers, broken down by hour of day and by weekday versus weekend. Each subplot shows that most rides are under 15 minutes, with little variation in shape across time intervals." class="figure-img"> </a>
 <figcaption>
-Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend. Ride length is typically short, with a rapid drop-off in frequency after the first 10–15 minutes across all hourly intervals.
+Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
 </figcaption>
 </figure>
-<section id="image-notes" class="level5">
-<h5 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h5>
-<p>Title: Loop Ride Length Distribution by Week Part and Time of Day Source: Non-tourist customer rides classified as “loop rides” (start and end at the same station) X-Axis: Ride Length (minutes) Y-Axis: Ride Count Faceting: 24 hourly bins (0–23), each split by weekday/weekend Color Encoding: Different fill colors for each Week.Part.Hour combination (e.g., Weekend.0, Weekday.14) shown in the legend</p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This visualization shows how <strong>loop ride durations</strong> vary by <strong>hour of day</strong> and by whether the ride occurred on a <strong>weekday or weekend</strong>. Each subplot represents a single hour of the day, illustrating patterns of ride duration frequency across time.</p>
 </section>
-<section id="key-observations" class="level5">
-<h5 class="anchored" data-anchor-id="key-observations">Key Observations</h5>
-<pre><code>Consistent Right Skew: In every hourly panel, ride length distributions are heavily skewed right, peaking in the 0–10 minute range and tapering off sharply.
-
-No Strong Time-of-Day Effect: There is no significant shift in distribution shape across hours, though some hour blocks (e.g., mid-afternoon) show more total rides.
-
-Loop Behavior: This pattern reinforces the idea that many loop rides — likely recreational — are short and time-insensitive.
-
-Weekend vs. Weekday: Although both categories are shown, the duration distributions remain similar, suggesting time of day may be less influential for loop ride length than ride purpose or rider type.</code></pre>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes)</li>
+<li><strong>Y-Axis:</strong> Ride Count</li>
+<li><strong>Faceting:</strong> 24 panels, each corresponding to an hour of day (0–23)</li>
+<li><strong>Color Encoding:</strong> Fill colors differentiate combinations of weekday/weekend and hour</li>
+<li><strong>Plot Type:</strong> Histogram with bin width = 1 minute</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>Rides are <strong>heavily skewed toward short durations</strong> in all panels.</li>
+<li>Most rides fall under <strong>10–15 minutes</strong>, regardless of hour.</li>
+<li>Midday and afternoon periods show slightly higher total counts.</li>
+<li>No clear hour shows a major deviation in distribution shape.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Loop rides are generally <strong>short-duration recreational trips</strong>, rather than commutes.</li>
+<li>The lack of time-of-day variation suggests <strong>consistent rider behavior</strong>.</li>
+<li>The similarity between weekday and weekend distributions reinforces this interpretation.</li>
+</ul>
+</section>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
+<p>This chart supports:</p>
+<ul>
+<li><strong>Service planning:</strong> anticipating typical ride lengths for rebalancing.</li>
+<li><strong>User engagement strategies:</strong> targeting short-trip promotions.</li>
+<li><strong>Operational decisions:</strong> confirming the limited variability in loop ride duration.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li>Data limited to <strong>rides starting and ending at the same station</strong> (loop rides).</li>
+<li>Only <strong>non-tourist stations</strong> were included.</li>
+<li><strong>Bin width</strong> of 1 minute chosen for granularity.</li>
+<li>Duration computed as <code>end_time - start_time</code> in minutes.</li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Database Table:</strong> <code>rides</code></li>
+<li><strong>Filtering Criteria:</strong>
+<ul>
+<li><code>start_station_id = end_station_id</code></li>
+<li><code>user_type = customer</code></li>
+<li>Excluded known tourist stations</li>
+</ul></li>
+<li><strong>Time Zone:</strong> Converted to Chicago local time</li>
+</ul>
 </section>
 <section id="r-code-used-to-generate-chart" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">fill =</span> <span class="st">"Week/Time"</span>) <span class="sc">+</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Week/Time"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

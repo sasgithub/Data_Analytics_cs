@@ -22,3 +22,10 @@ figure.float-right figcaption {
   text-align: center;
 }
 
+/* Style gnuplot code blocks the same as R */
+pre.sourceCode.gnuplot {
+  background-color: #f8f9fa;   /* Light gray background similar to R blocks */
+  border: 1px solid #ddd;
+  padding: 0.75em;
+  border-radius: 4px;
+}

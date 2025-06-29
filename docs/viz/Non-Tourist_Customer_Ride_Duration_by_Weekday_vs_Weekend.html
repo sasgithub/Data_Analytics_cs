@@ -165,75 +165,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes." class="figure-img"> </a>
 <figcaption>
-Ride Duration Distribution by Day Type (Customer Rides Only)<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
+Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This kernel density plot compares the <strong>ride duration (in minutes)</strong> of non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
+<p>This kernel density plot compares <strong>ride durations (in minutes)</strong> for non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
 </section>
-<section id="axes" class="level5">
-<h5 class="anchored" data-anchor-id="axes">Axes</h5>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><strong>X-Axis (Ride Length in Minutes)</strong>:
+<li><strong>X-Axis:</strong> Ride Length (minutes), ranging from 0 to 150.</li>
+<li><strong>Y-Axis:</strong> Density (smoothed kernel estimation).</li>
+<li><strong>Colors:</strong>
 <ul>
-<li>Ranges from 0 to 150 minutes.</li>
-<li>Measures the total ride time as reported in the dataset.</li>
-<li>Focuses on the practical duration range; longer trips beyond 150 minutes were likely excluded or negligible.</li>
+<li><strong>Weekday (Blue):</strong> Tighter concentration at shorter durations.</li>
+<li><strong>Weekend (Orange):</strong> Broader peak, more long-duration variability.</li>
 </ul></li>
-<li><strong>Y-Axis (Density)</strong>:
-<ul>
-<li>Represents the smoothed distribution of ride durations using kernel density estimation.</li>
-<li>Higher values reflect more common durations.</li>
-</ul></li>
-</ul>
-</section>
-<section id="day-type-colors" class="level5">
-<h5 class="anchored" data-anchor-id="day-type-colors">Day Type Colors</h5>
-<ul>
-<li><strong>Weekday (Blue)</strong>:
-<ul>
-<li>Strong peak at short durations (approximately 6–8 minutes).</li>
-<li>Steeper decline after peak.</li>
-</ul></li>
-<li><strong>Weekend (Orange)</strong>:
-<ul>
-<li>Peak is broader and slightly lower, centered just after 8 minutes.</li>
-<li>Slower decline, suggesting more variety in weekend usage.</li>
-</ul></li>
+<li><strong>Plot Type:</strong> Density plot with alpha blending to show overlap.</li>
 </ul>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><strong>Weekday rides</strong> are slightly shorter on average and more tightly concentrated.
-<ul>
-<li>Likely dominated by quick errands, commutes, or first-mile/last-mile transport.</li>
-</ul></li>
-<li><strong>Weekend rides</strong> show greater variability.
-<ul>
-<li>Suggests a mix of errand and recreational uses, especially among customers who may be exploring neighborhoods or casually traveling.</li>
-</ul></li>
-<li>Both distributions are <strong>right-skewed</strong>, with long tails indicating occasional extended rides by some users.</li>
+<li><strong>Weekday rides</strong> are shorter on average, peaking around 6–8 minutes, suggesting quick trips.</li>
+<li><strong>Weekend rides</strong> peak later (~8–10 minutes) and show a longer tail.</li>
+<li>Both distributions are <strong>right-skewed</strong>, confirming the majority of rides are under ~15 minutes.</li>
 </ul>
 </section>
-<section id="behavioral-insight" class="level5">
-<h5 class="anchored" data-anchor-id="behavioral-insight">Behavioral Insight</h5>
-<p>This view supports the hypothesis that <strong>weekday</strong> customer rides are more <strong>task-oriented</strong>, while <strong>weekend</strong> usage involves <strong>longer, discretionary</strong> trips. Although the differences are subtle, they are consistent with other indicators of time-based travel patterns in non-tourist areas.</p>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Weekday trips are likely <strong>task-focused</strong> (errands, commuting).</li>
+<li>Weekend trips are more <strong>discretionary</strong> and potentially recreational.</li>
+<li>The consistent shape across days supports the idea of habitual short-distance usage among non-tourist customers.</li>
+</ul>
 </section>
 <section id="use-case" class="level5">
 <h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
-<p>This chart is useful for: - Understanding ride duration norms by day type. - Supporting demand modeling and pricing strategies tailored to weekdays vs weekends. - Refining customer journey segmentation without needing user-level metadata.</p>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
+<p>This chart can be applied to: - Demand modeling and pricing strategies sensitive to day type. - User segmentation based on duration patterns. - Planning operational resources around expected trip lengths.</p>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li><strong>Data Filtering:</strong>
+<ul>
+<li><code>user_type = customer</code></li>
+<li>Excluded known tourist stations.</li>
+</ul></li>
+<li><strong>Duration:</strong> Calculated as <code>(end_time - start_time) / 60</code>.</li>
+<li><strong>Kernel Bandwidth:</strong> Automatically selected by <code>ggplot2</code>.</li>
+<li>Rides over 150 minutes excluded to improve interpretability.</li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Derived from the <code>rides</code> table filtered for customer trips, start/end station IDs, and date range.</li>
+<li>Preprocessed with timezone adjustment to Chicago local time.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Weekday"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Weekend"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration by Weekday vs Weekend"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Day Type"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Weekday"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"Weekend"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration by Weekday vs Weekend"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Day Type"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

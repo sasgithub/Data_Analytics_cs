@@ -163,23 +163,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-tourist-customer-ride-duration-density" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-density">Non-Tourist Customer Ride Duration Density</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist customer trips. The curve is strongly right-skewed, with most rides under 15 minutes." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density plot shows how ride lengths are distributed among customer (non-subscriber) rides that do not involve tourist stations.
 </figcaption>
 </figure>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This density plot illustrates the <strong>distribution of ride durations</strong> (in minutes) for trips taken by <strong>non-tourist customers</strong>. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes), typically ranging from 0 to ~150.</li>
+<li><strong>Y-Axis:</strong> Density (smoothed probability density).</li>
+<li><strong>Plot Style:</strong> Single density curve filled in orange to show concentration of rides.</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>The distribution is <strong>sharply right-skewed</strong>, with most rides lasting under ~15 minutes.</li>
+<li>A clear peak appears between ~6–10 minutes, reflecting short urban trips.</li>
+<li>The long tail shows occasional longer rides, although these are much less frequent.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>Short rides dominate customer usage patterns, consistent with quick errands or intra-neighborhood trips.</li>
+<li>The lack of a secondary peak suggests relatively uniform short-duration behavior among these riders.</li>
+<li>Longer rides may represent recreational trips or exploratory use.</li>
+</ul>
+</section>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
+<p>This visualization is useful for: - Understanding the central tendency and spread of ride lengths. - Supporting decisions about pricing (e.g., time-based fees). - Tailoring operational planning for short-trip dominance among customer riders.</p>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li><strong>Data Filtering:</strong>
+<ul>
+<li>Only includes <code>customer</code> rides.</li>
+<li>Excludes trips starting or ending at tourist stations.</li>
+</ul></li>
+<li><strong>Ride Length Calculation:</strong>
+<ul>
+<li><code>(end_time - start_time) / 60</code>.</li>
+</ul></li>
+<li><strong>Kernel Bandwidth:</strong> Auto-selected by <code>ggplot2</code>.</li>
+</ul>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Created by filtering the <code>rides</code> table to include only customer trips with relevant station IDs.</li>
+<li>Converted timestamps to local time for consistency.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration Density"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration Density"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

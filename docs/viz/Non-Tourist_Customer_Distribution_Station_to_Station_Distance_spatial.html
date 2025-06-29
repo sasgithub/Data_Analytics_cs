@@ -160,64 +160,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="station-to-station-distance-distribution-non-tourist-customers" class="level4">
-<h4 class="anchored" data-anchor-id="station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</h4>
+<section id="station-to-station-distance-distribution-non-tourist-customers-10-km" class="level4">
+<h4 class="anchored" data-anchor-id="station-to-station-distance-distribution-non-tourist-customers-10-km">Station-to-Station Distance Distribution (Non-Tourist Customers, ≤10 km)</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of station-to-station distances under 10 km for non-tourist customer rides, with peaks labeled around 1 km and 2.5 km." class="figure-img"> </a>
 <figcaption>
-Distribution of station-to-station distances for non-tourist customer rides. Most rides are short-distance trips, suggesting local, utility-based bike use.
+Distribution of station-to-station distances for non-tourist customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This density plot visualizes the distribution of distances between starting and ending stations for rides taken by casual (non-subscriber) users that do not involve tourist stations. The x-axis represents the distance in kilometers between two stations, and the y-axis represents the relative density of those ride distances.</p>
+<p>This density plot visualizes the distribution of <strong>station-to-station distances under 10 km</strong> for rides taken by <strong>customer (non-subscriber) riders</strong> that did not involve tourist stations. The focus on shorter trips reveals finer patterns in local travel behavior.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><p>X-Axis: Distance Between Stations (km), ranging from 0 to just over 30 km</p></li>
-<li><p>Y-Axis: Relative density of rides occurring at each distance</p></li>
-<li><p>Plot Style: Area-under-curve density plot (not a histogram), with a smooth curve and filled region</p></li>
+<li><strong>X-Axis:</strong> Distance Between Stations (km), ranging from 0 to 10 km<br>
+</li>
+<li><strong>Y-Axis:</strong> Relative probability density of rides occurring at each distance<br>
+</li>
+<li><strong>Plot Style:</strong> Smoothed density plot with area normalized to 1<br>
+</li>
+<li><strong>Annotations:</strong> Peaks labeled to highlight the most common trip lengths</li>
 </ul>
 </section>
 <section id="purpose" class="level5">
 <h5 class="anchored" data-anchor-id="purpose">Purpose</h5>
-<p>This visualization illustrates the spatial extent of trips, showing how far non-tourist customers typically travel between stations across the system.</p>
+<p>By excluding longer trips (&gt;10 km), this chart provides a clearer view of the most typical ride distances, supporting planning and operational decisions about station placement and bike redistribution.</p>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><p>Peak around 1–2 km: The majority of rides occur between stations that are 1–2 km apart.</p></li>
-<li><p>Steep decline: Ride density drops rapidly for distances above 5 km.</p></li>
-<li><p>Long tail: A small number of rides extend beyond 10 km, with rare outliers over 20 km.</p></li>
-<li><p>Very few extreme values: This confirms most rides are short-distance, utility-based.</p></li>
+<li><strong>Primary Peak (0.86 km):</strong> The most common ride length, suggesting very short intra-neighborhood trips.</li>
+<li><strong>Secondary Peak (1.29 km):</strong> Another frequently observed trip length, likely representing local errands or commutes between adjacent districts.</li>
+<li><strong>Steep Decline:</strong> Density decreases sharply beyond 4–5 km.</li>
+<li><strong>Absence of Long Tail:</strong> Filtering out longer rides eliminates noise from infrequent long-distance trips.</li>
 </ul>
 </section>
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
-<li><p>The shape of the distribution suggests a strong preference for short-distance urban travel, which aligns with errand-running, last-mile commuting, or intra-neighborhood trips.</p></li>
-<li><p>The sharp tapering suggests little casual use for long-distance travel, at least outside of tourist-heavy areas.</p></li>
+<li><strong>Short-Distance Focus:</strong> The dual peaks reinforce that casual users primarily rely on the system for short urban journeys.</li>
+<li><strong>Potential Trip Typologies:</strong>
+<ul>
+<li>~1 km: Last-mile or neighborhood-scale trips.</li>
+<li>~2–3 km: Short errands or transit connections.</li>
+</ul></li>
+<li>The low density beyond 5 km indicates that even non-tourist customers rarely use the bikes for longer travel.</li>
 </ul>
 </section>
 <section id="technical-notes" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
-<li><p>Ride distances were calculated using the great-circle distance (Haversine formula) between station coordinates.</p></li>
-<li><p>Tourist stations were excluded using a station filter based on known landmarks and locations.</p></li>
-<li><p>Density plots normalize the area under the curve to 1, so the y-axis values represent probability density, not raw ride counts.</p></li>
+<li><strong>Distance Calculation:</strong> Computed with the Haversine formula between station coordinates.</li>
+<li><strong>Filtering:</strong> Only trips with distance ≤10 km are included.</li>
+<li><strong>Annotations:</strong> Peaks were identified programmatically and labeled on the chart.</li>
+<li><strong>Density Scaling:</strong> Y-axis reflects probability density, not counts.</li>
 </ul>
 </section>
 <section id="r-code-used-to-generate-chart" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Non-Tourist_Customer_Distribution of Station-to-Station Distances"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> top_peaks, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> top_peaks,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">" "</span>, <span class="fu">round</span>(x, <span class="dv">2</span>), <span class="st">" km"</span>)),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">25</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances (≤10 km)"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

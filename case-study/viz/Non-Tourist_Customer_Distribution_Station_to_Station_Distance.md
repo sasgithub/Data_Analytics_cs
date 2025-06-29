@@ -2,63 +2,56 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of distances between start and end stations for non-tourist customer rides. The curve peaks around 1–2 km and tapers off rapidly above 5 km.">
   </a>
   <figcaption>
-  Distribution of station-to-station distances for non-tourist customer rides. Most rides are short-distance trips, suggesting local, utility-based bike use.
+    Distribution of station-to-station distances for non-tourist customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot visualizes the distribution of distances between starting and ending stations for rides taken by casual (non-subscriber) users that do not involve tourist stations. The x-axis represents the distance in kilometers between two stations, and the y-axis represents the relative density of those ride distances.
+This density plot visualizes the distribution of **station-to-station distances** for rides taken by **customer (non-subscriber) riders** that do not involve tourist stations. The x-axis represents the distance in kilometers, and the y-axis shows the relative density of rides occurring at each distance.
 
 ##### Chart Details
 
--   X-Axis: Distance Between Stations (km), ranging from 0 to just over 30 km
-
--   Y-Axis: Relative density of rides occurring at each distance
-
--   Plot Style: Area-under-curve density plot (not a histogram), with a smooth curve and filled region
+- **X-Axis:** Distance Between Stations (km), ranging from 0 to ~30 km  
+- **Y-Axis:** Relative probability density of rides at each distance  
+- **Plot Style:** Smoothed density plot (not a histogram), area under the curve normalized to 1  
 
 ##### Purpose
 
-This visualization is intended to show the typical ride distance for casual users avoiding tourist destinations. It highlights the patterns in short-to-moderate-distance usage of the bike-sharing system.
+This chart highlights the typical distance casual riders travel between stations when tourist hotspots are excluded, revealing patterns in local, everyday bike-share use.
 
 ##### Observations
 
--   Peak around 1–2 km: The majority of rides occur between stations that are 1–2 km apart.
-
--   Steep decline: Ride density drops rapidly for distances above 5 km.
-
--   Long tail: A small number of rides extend beyond 10 km, with rare outliers over 20 km.
-
--   Very few extreme values: This confirms most rides are short-distance, utility-based.
+- **Peak around 1 km:** Most rides are short hops between closely spaced stations.
+- **Steep decline:** Density drops quickly after ~5 km.
+- **Long tail:** A small number of rides extend past 10 km.
+- **Very few extreme values:** Rides over 20 km are rare outliers.
 
 ##### Interpretation
 
--   The shape of the distribution suggests a strong preference for short-distance urban travel, which aligns with errand-running, last-mile commuting, or intra-neighborhood trips.
-
--   The sharp tapering suggests little casual use for long-distance travel, at least outside of tourist-heavy areas.
+- The pronounced twin peaks around 1 km suggests **short-distance, utility-oriented trips**, like errands or first-/last-mile commuting.
+- The long but thin tail implies that while occasional longer rides occur, they are uncommon among non-tourist customer riders.
+- The lack of a multiple wide spaced peaks differentiates this distribution from tourist-heavy patterns, which often show multiple modes due to popular routes.
 
 ##### Technical Notes
 
--   Ride distances were calculated using the great-circle distance (Haversine formula) between station coordinates.
-
--   Tourist stations were excluded using a station filter based on known landmarks and locations.
-
--   Density plots normalize the area under the curve to 1, so the y-axis values represent probability density, not raw ride counts.
+- **Distance Calculation:** Great-circle distance (Haversine formula) computed between station coordinates.
+- **Filtering:** Tourist stations excluded via station ID filtering.
+- **Density Scaling:** The y-axis shows density, not raw counts. The area under the curve sums to 1.
 
 ##### R Code Used to Generate Chart:
 
-```R
-ggplot(non_loop_rides_df, aes(x = distance_km)) + 
-geom_density(fill = "darkorange", alpha = 0.6) +
-labs(
-title = "Non-Tourist_Customer_Distribution of Station-to-Station Distances",
-x = "Distance Between Stations (km)",
-y = "Density"
-) +
-theme_minimal()
+```r
+ggplot(non_loop_rides_df, aes(x = distance_km)) +
+  geom_density(fill = "darkorange", alpha = 0.6) +
+  labs(
+    title = "Non-Tourist Customer Distribution of Station-to-Station Distances",
+    x = "Distance Between Stations (km)",
+    y = "Density"
+  ) +
+  theme_minimal()
 ```
 
