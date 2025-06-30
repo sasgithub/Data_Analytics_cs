@@ -20,6 +20,9 @@ website:
         text: Data Sources
       - href: glossary.qmd
         text: Glossary  
+  page-footer:
+    left: |
+      [![Report Issues](https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue)](https://github.com/sasgithub/Data_Analytics_cs/issues)
 
 format:
   html:

@@ -8,21 +8,21 @@ This project explores over 28 million Divvy bike-share ride records in Chicago, 
 
 It was developed as part of the [Google Data Analytics Professional Certificate](https://www.coursera.org/professional-certificates/google-data-analytics) capstone and is intended for portfolio presentation.
 
-🔗 **Live Site**: [sasgithub.github.io/Data_Analytics_cs](https://sasgithub.github.io/Data_Analytics_cs/)
+**Live Site**: [sasgithub.github.io/Data_Analytics_cs](https://sasgithub.github.io/Data_Analytics_cs/)
 
 ---
 
-## 📦 Data Sources
+## Data Sources
 
 - **Divvy Trip Data**: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
 - **Weather Data**: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
 - **Tourist Stations**: Custom dataset created from Google Maps lat/lng queries
 
-See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.html) page for more details and attribution.
+See the [Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.html) page for more details and attribution.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── case-study/ # Quarto source files (index.qmd, etc.)
@@ -37,14 +37,14 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
 ---
 
-## 🧠 Key Technologies
+## Key Technologies
 
 - R / SQLite / Bash / Python – Data processing
 - ggplot2 / gnuplot / Tableau / Leaflet – Visualizations
 - Quarto – Site generation and publishing
 - GitHub Pages – Free portfolio hosting
 
-## 🛠️ Build Instructions
+## Build Instructions
 
 To build the site locally:
 
@@ -59,8 +59,11 @@ To build the site locally:
    quarto render
    ```
 
-## 📋 License
+## License
 
 Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](Legal/City_of_Chicago_disclaimer.txt).
 
 This case study is © 2025 Scott Sesher and provided under the MIT License. See [LICENSE](LICENSE) for details.
+
+[![Report Issues](https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue)](https://github.com/sasgithub/Data_Analytics_cs/issues)
+
