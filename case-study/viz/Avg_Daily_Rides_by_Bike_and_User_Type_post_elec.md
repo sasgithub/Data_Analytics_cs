@@ -35,7 +35,7 @@ This bar chart displays the **average number of daily rides** by **bike type**, 
 
 - **Docked Bikes**:
   - Very low usage overall.
-  - Only Customers use docked bikes in this dataset — Subscribers have no visible rides.
+  - Only Customers use docked bikes in this dataset. Subscribers appear not to use docked bikes.
 
 - **Electric Bikes**:
   - Popular among both user types.

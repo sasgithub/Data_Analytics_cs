@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">🟢 Provenance for non_tourist_customer_rides_df</a></li>
+  <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</a></li>
   </ul>
 </nav>
     </div>
@@ -167,13 +167,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="provenance-for-non_tourist_customer_rides_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-non_tourist_customer_rides_df">🟢 Provenance for non_tourist_customer_rides_df</h2>
+<h2 class="anchored" data-anchor-id="provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</h2>
 <section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">🪧 Data Origin</h3>
+<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
 <p>** Source Table:** rides table in SQLite database</p>
 </section>
 <section id="query-details" class="level3">
-<h3 class="anchored" data-anchor-id="query-details">🛠️ Query Details</h3>
+<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
 <p>Query selects:</p>
 <ul>
 <li>ride_id</li>
@@ -193,7 +193,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <section id="how-this-fits-into-the-flow" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">📝 How this fits into the flow</h3>
+<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h3>
 <p>This dataset forms the foundational rides subset from which many other frames were derived:</p>
 <ul>
 <li>non_loop_rides_df</li>
@@ -216,7 +216,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>optionally paste the full query text if you want reproducibility.</p>
 
 
 </section>

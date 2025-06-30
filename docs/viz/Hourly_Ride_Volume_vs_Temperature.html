@@ -165,16 +165,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="float-right figure">
 <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
 <figcaption>
-<span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
+<a href="../glossary.html#glossary-LOESS">LOESS</a>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p><span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
+<p><a href="../glossary.html#glossary-LOESS">LOESS</a>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
 <ul>
 <li><strong>X-Axis:</strong> Air temperature in °C.</li>
 <li><strong>Y-Axis:</strong> Number of rides per hour.</li>
-<li><strong>Lines:</strong> <span id="glossary-LOESS">LOESS</span> smooth for each user type.
+<li><strong>Lines:</strong> <a href="../glossary.html#glossary-LOESS">LOESS</a> smooth for each user type.
 <ul>
 <li><strong>Blue:</strong> Subscribers.</li>
 <li><strong>Red:</strong> Customers.</li>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
-<p>The continuous <span id="glossary-LOESS">LOESS</span> smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
+<p>The continuous <a href="../glossary.html#glossary-LOESS">LOESS</a> smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
 </section>
 <section id="data-sources" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
 <li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
 <li>No filter applied to exclude zero-ride hours (i.e., hours with no rides are included as 0).</li>
-<li>Used as input to <span id="glossary-LOESS">LOESS</span> smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
+<li>Used as input to (../glossary.qmd#glossary-LOESS) smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
 </ul>
 </section>
 <section id="r-code-used-to-generate-chart" class="level5">

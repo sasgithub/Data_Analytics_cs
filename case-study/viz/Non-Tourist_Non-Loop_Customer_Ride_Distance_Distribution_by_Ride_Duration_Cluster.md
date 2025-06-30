@@ -12,7 +12,7 @@
 
 ##### Overview
 
-This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.
+This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns, such as short errand-like trips versus longer recreational journeys, without needing to segment riders further or rely on additional metadata.
 
 ##### Chart Details
 

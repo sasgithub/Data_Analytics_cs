@@ -116,8 +116,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#provenance-for-non_loop_rides_df" id="toc-provenance-for-non_loop_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -125,26 +131,35 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>Provenance for non_loop_rides_df 🟢 1️⃣ Start with non_tourist_customer_rides_df</p>
-<pre><code>This already had:
-    Only customer rides
-    Only non-tourist stations (presumably filtered upstream)</code></pre>
-<p>🟢 2️⃣ Filter out loop rides</p>
+<section id="provenance-for-non_loop_rides_df" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h2>
+<section id="data-origin" class="level3">
+<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<p>** Source Table:** 1 Start with non_tourist_customer_rides_df</p>
+<ul>
+<li>This already had:
+<ul>
+<li>Only customer rides</li>
+<li>Only non-tourist stations (presumably filtered upstream)</li>
+</ul></li>
+</ul>
+<p>2 Filter out loop rides</p>
 <p>non_loop_rides_df &lt;- non_tourist_customer_rides_df %&gt;% filter(start_station_id != end_station_id)</p>
-<p>✅ Result:</p>
+<p>Result:</p>
 <pre><code>Only rides starting and ending at different stations</code></pre>
-<p>🟢 3️⃣ Attach start and end station coordinates from stations_df</p>
+<p>3 Attach start and end station coordinates from stations_df</p>
 <p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% left_join( stations_df %&gt;% rename( start_station_id = station_id, start_lat = lat, start_long = long ), by = “start_station_id” ) %&gt;% left_join( stations_df %&gt;% rename( end_station_id = station_id, end_lat = lat, end_long = long ), by = “end_station_id” )</p>
-<p>✅ Result:</p>
+<p>Result:</p>
 <pre><code>Added start and end lat/lon
 Computed haversine distance</code></pre>
-<p>🟢 4️⃣ (Apparently rejoined different station metadata)</p>
-<p>🟢 4️⃣ Recompute distance</p>
+<p>4 Recompute distance</p>
 <p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% mutate( distance_m = distHaversine( matrix(c(start_long, start_lat), ncol = 2), matrix(c(end_long, end_lat), ncol = 2) ), distance_km = distance_m / 1000 )</p>
-<p>✅ Result:</p>
-<pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) instead of (start_lon, start_lat)</code></pre>
+<p>Result:</p>
+<pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) </code></pre>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

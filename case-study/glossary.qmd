@@ -40,6 +40,17 @@ Haversine formula
 :   A mathematical formula used to cacluate the distance between any two points on a sphere along the great-arc going through both points.
 :::
 
+:::{#glossary-IQR}
+Interquartile Range (IQR)
+:   The **interquartile range (IQR)** is a measure of variability describing the spread of the middle 50% of values in a dataset. It is calculated as:
+> **IQR = Q3 − Q1**
+where:
+- **Q1 (25th percentile)** is the value below which 25% of observations fall.
+- **Q3 (75th percentile)** is the value below which 75% of observations fall.
+**Why It’s Important:**
+IQR is a robust measure of statistical dispersion and is less sensitive to extreme values (outliers) than the standard deviation.
+:::
+
 :::{#glossary-kernel}
 Kernel
 :   A mathematical function (usually bell-shaped) used in kernel density estimation to create a smooth curve over individual data points. The width and shape of the kernel affect how smoothed the resulting density plot is.

@@ -123,15 +123,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#how-does-a-bike-share-navigate-speedy-success" id="toc-how-does-a-bike-share-navigate-speedy-success" class="nav-link active" data-scroll-target="#how-does-a-bike-share-navigate-speedy-success">🚲 How Does a Bike-Share Navigate Speedy Success?</a>
+  <li><a href="#how-does-a-bike-share-navigate-speedy-success" id="toc-how-does-a-bike-share-navigate-speedy-success" class="nav-link active" data-scroll-target="#how-does-a-bike-share-navigate-speedy-success">How Does a Bike-Share Navigate Speedy Success?</a>
   <ul class="collapse">
-  <li><a href="#project-context" id="toc-project-context" class="nav-link" data-scroll-target="#project-context">📚 Project Context</a></li>
-  <li><a href="#business-task" id="toc-business-task" class="nav-link" data-scroll-target="#business-task">🎯 Business Task</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">📦 Data Sources</a></li>
-  <li><a href="#key-metrics-and-analysis" id="toc-key-metrics-and-analysis" class="nav-link" data-scroll-target="#key-metrics-and-analysis">🔍 Key Metrics and Analysis</a></li>
-  <li><a href="#summary-of-findings" id="toc-summary-of-findings" class="nav-link" data-scroll-target="#summary-of-findings">📊 Summary of Findings</a></li>
-  <li><a href="#implications-and-recommendations" id="toc-implications-and-recommendations" class="nav-link" data-scroll-target="#implications-and-recommendations">💡 Implications and Recommendations</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">⏩ Next Steps</a></li>
+  <li><a href="#project-context" id="toc-project-context" class="nav-link" data-scroll-target="#project-context">Project Context</a></li>
+  <li><a href="#business-task" id="toc-business-task" class="nav-link" data-scroll-target="#business-task">Business Task</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#key-metrics-and-analysis" id="toc-key-metrics-and-analysis" class="nav-link" data-scroll-target="#key-metrics-and-analysis">Key Metrics and Analysis</a></li>
+  <li><a href="#summary-of-findings" id="toc-summary-of-findings" class="nav-link" data-scroll-target="#summary-of-findings">Summary of Findings</a></li>
+  <li><a href="#implications-and-recommendations" id="toc-implications-and-recommendations" class="nav-link" data-scroll-target="#implications-and-recommendations">Implications and Recommendations</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -175,13 +175,13 @@ ul.task-list li input[type="checkbox"] {
 Please check back soon for a complete walk-through, analysis, and visualizations.</p>
 </blockquote>
 <section id="how-does-a-bike-share-navigate-speedy-success" class="level1">
-<h1>🚲 How Does a Bike-Share Navigate Speedy Success?</h1>
+<h1>How Does a Bike-Share Navigate Speedy Success?</h1>
 <p>This project began as the capstone case study for the <a href="https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics Certificate</a>, which presents a fictional company named <strong>Cyclistic</strong>. The business goal:<br>
-<strong>Determine how casual riders and annual members use Cyclistic bikes differently — and identify strategies to convert more casual users into annual members.</strong></p>
+<strong>Determine how casual riders and annual members use Cyclistic bikes differently and identify strategies to convert more casual users into annual members.</strong></p>
 <p>To bring this scenario into the real world, I extended the analysis using <strong>actual Divvy bike-share data</strong> from the City of Chicago, covering rides from 2013 through early 2025. I also incorporated <strong>hourly weather data</strong> and <strong>geospatial analysis</strong> to enhance the depth and utility of the findings.</p>
 <hr>
 <section id="project-context" class="level2">
-<h2 class="anchored" data-anchor-id="project-context">📚 Project Context</h2>
+<h2 class="anchored" data-anchor-id="project-context">Project Context</h2>
 <p>This project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:</p>
 <ul>
 <li>Independent sourcing and integration of multi-year real-world data</li>
@@ -192,11 +192,11 @@ Please check back soon for a complete walk-through, analysis, and visualizations
 <hr>
 </section>
 <section id="business-task" class="level2">
-<h2 class="anchored" data-anchor-id="business-task">🎯 Business Task</h2>
+<h2 class="anchored" data-anchor-id="business-task">Business Task</h2>
 <p>How do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?</p>
 </section>
 <section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">📦 Data Sources</h2>
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
 <p>The analysis is based on the following datasets:</p>
 <ul>
 <li>Divvy Bike Trip Data (2013–2025)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> : This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal. The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive . Please note, rides from the time period of the COVID-19 Pandemic are not included.</li>
@@ -204,7 +204,7 @@ Please check back soon for a complete walk-through, analysis, and visualizations
 <li>Tourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Willis Tower) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.</li>
 </ul>
 <section id="attribution" class="level3">
-<h3 class="anchored" data-anchor-id="attribution">🔗 Attribution</h3>
+<h3 class="anchored" data-anchor-id="attribution">Attribution</h3>
 <ul>
 <li>City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data</li>
 <li>Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html</li>
@@ -215,19 +215,19 @@ Please check back soon for a complete walk-through, analysis, and visualizations
 </section>
 </section>
 <section id="key-metrics-and-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="key-metrics-and-analysis">🔍 Key Metrics and Analysis</h2>
+<h2 class="anchored" data-anchor-id="key-metrics-and-analysis">Key Metrics and Analysis</h2>
 <hr>
 </section>
 <section id="summary-of-findings" class="level2">
-<h2 class="anchored" data-anchor-id="summary-of-findings">📊 Summary of Findings</h2>
+<h2 class="anchored" data-anchor-id="summary-of-findings">Summary of Findings</h2>
 <hr>
 </section>
 <section id="implications-and-recommendations" class="level2">
-<h2 class="anchored" data-anchor-id="implications-and-recommendations">💡 Implications and Recommendations</h2>
+<h2 class="anchored" data-anchor-id="implications-and-recommendations">Implications and Recommendations</h2>
 <hr>
 </section>
 <section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">⏩ Next Steps</h2>
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
 
 
 </section>

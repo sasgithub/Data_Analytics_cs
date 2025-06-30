@@ -12,7 +12,7 @@
 
 ##### Overview
 
-This bar chart shows how **customer rides** at **non-tourist stations** vary across the 24-hour day. By excluding rides from stations frequently used by tourists, this visualization highlights local usage patterns—such as commuting or neighborhood trips—distinct from sightseeing or visitor behavior.
+This bar chart shows how **customer rides** at **non-tourist stations** vary across the 24-hour day. By excluding rides from stations frequently used by tourists, this visualization highlights local usage patterns, such as commuting or neighborhood trips. Excluding sightseeing or visitor behavior as much as possible.
 
 ##### Chart Details
 

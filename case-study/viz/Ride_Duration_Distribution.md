@@ -40,7 +40,7 @@ This visualization compares usage patterns between customers and subscribers, sh
 
 ##### Interpretation
 
-- **Subscriber rides** are likely utilitarian—commutes or quick errands—and shaped by pricing plans that encourage shorter trips.
+- **Subscriber rides** are likely more utilitarian in nature, for example commutes or quick errands, further shaped by pricing plans that encourage shorter trips.
 - **Customer rides** are more exploratory or recreational, often longer and less time-sensitive.
 - The chart highlights a fundamental behavioral difference in how the system is used by each group.
 

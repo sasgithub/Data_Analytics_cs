@@ -10,16 +10,16 @@ format: html
 
 
 
-# 🚲 How Does a Bike-Share Navigate Speedy Success?
+# How Does a Bike-Share Navigate Speedy Success?
 
 This project began as the capstone case study for the [Google Data Analytics Certificate](https://www.coursera.org/professional-certificates/google-data-analytics), which presents a fictional company named **Cyclistic**. The business goal:  
-**Determine how casual riders and annual members use Cyclistic bikes differently — and identify strategies to convert more casual users into annual members.**
+**Determine how casual riders and annual members use Cyclistic bikes differently and identify strategies to convert more casual users into annual members.**
 
 To bring this scenario into the real world, I extended the analysis using **actual Divvy bike-share data** from the City of Chicago, covering rides from 2013 through early 2025. I also incorporated **hourly weather data** and **geospatial analysis** to enhance the depth and utility of the findings.
 
 ---
 
-## 📚 Project Context
+## Project Context
 
 This project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:
 
@@ -31,11 +31,11 @@ The fictional business challenge of **Cyclistic** is explored through the lens o
 
 ---
 
-## 🎯 Business Task
+## Business Task
 
 How do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?
 
-## 📦 Data Sources
+## Data Sources
 
 The analysis is based on the following datasets:
 
@@ -43,7 +43,7 @@ The analysis is based on the following datasets:
 - Chicago Weather Data (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns.
 - Tourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Willis Tower) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.
 
-### 🔗 Attribution
+### Attribution
 - City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data
 - Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html
 - Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
@@ -53,18 +53,18 @@ The analysis is based on the following datasets:
 
 ---
 
-## 🔍 Key Metrics and Analysis
+## Key Metrics and Analysis
 
 ---
 
-## 📊 Summary of Findings
+## Summary of Findings
 
 ---
 
-## 💡 Implications and Recommendations
+## Implications and Recommendations
 
 ---
 
-## ⏩ Next Steps
+## Next Steps
 
 

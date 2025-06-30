@@ -10,7 +10,7 @@
 </figure>
 
 ##### Overview
-This density plot shows the **distribution of ride lengths (in minutes)** for customer rides that **start and end at the same station**—so-called **loop rides**—excluding trips involving tourist stations.
+This density plot shows the **distribution of ride lengths (in minutes)** for customer rides that **start and end at the same station**. Known as **[loop rides](#glossary-loop)**. Also trips involving tourist stations are excluded.
 
 ##### Chart Details
 - **X-Axis:** Ride Length (minutes), ranging from 0 to 150.

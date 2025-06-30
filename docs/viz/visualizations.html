@@ -203,6 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#non-tourist-customer-ride-duration-density" id="toc-non-tourist-customer-ride-duration-density" class="nav-link" data-scroll-target="#non-tourist-customer-ride-duration-density">Non-Tourist Customer Ride Duration Density</a></li>
   <li><a href="#non-tourist-customer-ride-duration-for-loop-rides" id="toc-non-tourist-customer-ride-duration-for-loop-rides" class="nav-link" data-scroll-target="#non-tourist-customer-ride-duration-for-loop-rides">Non-Tourist Customer Ride Duration for Loop Rides</a></li>
   <li><a href="#ride-duration-vs.-station-distance-non-tourist-customers" id="toc-ride-duration-vs.-station-distance-non-tourist-customers" class="nav-link" data-scroll-target="#ride-duration-vs.-station-distance-non-tourist-customers">Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customers)</a></li>
+  <li><a href="#non-tourist-customer-ride-duration-distribution" id="toc-non-tourist-customer-ride-duration-distribution" class="nav-link" data-scroll-target="#non-tourist-customer-ride-duration-distribution">Non-Tourist Customer Ride Duration Distribution</a></li>
   <li><a href="#non-tourist-customer-ride-count-by-distance" id="toc-non-tourist-customer-ride-count-by-distance" class="nav-link" data-scroll-target="#non-tourist-customer-ride-count-by-distance">Non-Tourist Customer Ride Count by Distance</a></li>
   <li><a href="#station-to-station-distance-distribution-non-tourist-customers" id="toc-station-to-station-distance-distribution-non-tourist-customers" class="nav-link" data-scroll-target="#station-to-station-distance-distribution-non-tourist-customers">Station-to-Station Distance Distribution (Non-Tourist Customers)</a></li>
   <li><a href="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" id="toc-ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="nav-link" data-scroll-target="#ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers">Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)</a></li>
@@ -348,7 +349,7 @@ Hourly distribution of customer rides originating from non-tourist stations, sho
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This bar chart shows how <strong>customer rides</strong> at <strong>non-tourist stations</strong> vary across the 24-hour day. By excluding rides from stations frequently used by tourists, this visualization highlights local usage patterns—such as commuting or neighborhood trips—distinct from sightseeing or visitor behavior.</p>
+<p>This bar chart shows how <strong>customer rides</strong> at <strong>non-tourist stations</strong> vary across the 24-hour day. By excluding rides from stations frequently used by tourists, this visualization highlights local usage patterns, such as commuting or neighborhood trips. Excluding sightseeing or visitor behavior as much as possible.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
@@ -771,7 +772,7 @@ Total customer rides originating at non-tourist stations, aggregated by season. 
 <section id="observations-5" class="level6">
 <h6 class="anchored" data-anchor-id="observations-5">Observations</h6>
 <ul>
-<li>Summer: Rides peak sharply, exceeding 600,000 rides—reflecting warm weather and extended daylight hours.</li>
+<li>Summer: Rides peak sharply, exceeding 600,000 rides. Reflecting warm weather and extended daylight hours.</li>
 <li>Fall: Second-highest ridership, over 400,000 rides, showing sustained use into cooler months.</li>
 <li>Spring: More modest totals (~220,000 rides), likely reflecting a gradual ramp-up in riding.</li>
 <li>Winter: Lowest ridership (under 200,000), consistent with reduced bike use in cold conditions.</li>
@@ -1172,16 +1173,16 @@ plot \
 <figure class="float-right figure">
 <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
 <figcaption>
-<span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
+<a href="../glossary.html#glossary-LOESS">LOESS</a>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
 </figcaption>
 </figure>
 <section id="overview-9" class="level5">
 <h5 class="anchored" data-anchor-id="overview-9">Overview</h5>
-<p><span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
+<p><a href="../glossary.html#glossary-LOESS">LOESS</a>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
 <ul>
 <li><strong>X-Axis:</strong> Air temperature in °C.</li>
 <li><strong>Y-Axis:</strong> Number of rides per hour.</li>
-<li><strong>Lines:</strong> <span id="glossary-LOESS">LOESS</span> smooth for each user type.
+<li><strong>Lines:</strong> <a href="../glossary.html#glossary-LOESS">LOESS</a> smooth for each user type.
 <ul>
 <li><strong>Blue:</strong> Subscribers.</li>
 <li><strong>Red:</strong> Customers.</li>
@@ -1198,7 +1199,7 @@ plot \
 </section>
 <section id="interpretation-10" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation-10">Interpretation</h5>
-<p>The continuous <span id="glossary-LOESS">LOESS</span> smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
+<p>The continuous <a href="../glossary.html#glossary-LOESS">LOESS</a> smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
 </section>
 <section id="data-sources-4" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-4">Data Sources</h5>
@@ -1217,7 +1218,7 @@ plot \
 <li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
 <li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
 <li>No filter applied to exclude zero-ride hours (i.e., hours with no rides are included as 0).</li>
-<li>Used as input to <span id="glossary-LOESS">LOESS</span> smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
+<li>Used as input to (../glossary.qmd#glossary-LOESS) smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
 </ul>
 </section>
 <section id="r-code-used-to-generate-chart-6" class="level5">
@@ -1905,7 +1906,7 @@ Ride duration distribution for customers and subscribers. Subscriber rides tend 
 <section id="interpretation-18" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation-18">Interpretation</h5>
 <ul>
-<li><strong>Subscriber rides</strong> are likely utilitarian—commutes or quick errands—and shaped by pricing plans that encourage shorter trips.</li>
+<li><strong>Subscriber rides</strong> are likely more utilitarian in nature, for example commutes or quick errands, further shaped by pricing plans that encourage shorter trips.</li>
 <li><strong>Customer rides</strong> are more exploratory or recreational, often longer and less time-sensitive.</li>
 <li>The chart highlights a fundamental behavioral difference in how the system is used by each group.</li>
 </ul>
@@ -2035,7 +2036,7 @@ Box plot of ride durations by user type. Subscribers have shorter, more consiste
 </ul></li>
 <li><strong>Whiskers and Outliers:</strong>
 <ul>
-<li>Whiskers extend to ~1.5× IQR.</li>
+<li>Whiskers extend to ~1.5× <a href="../glossary.html#glossary-IQR">interquartile range (IQR)</a>.</li>
 <li>Outliers plotted with low opacity for clarity.</li>
 </ul></li>
 </ul>
@@ -2272,7 +2273,7 @@ Ride duration density for non-tourist loop rides taken by customers. The strong 
 </figure>
 <section id="overview-22" class="level5">
 <h5 class="anchored" data-anchor-id="overview-22">Overview</h5>
-<p>This density plot shows the <strong>distribution of ride lengths (in minutes)</strong> for customer rides that <strong>start and end at the same station</strong>—so-called <strong>loop rides</strong>—excluding trips involving tourist stations.</p>
+<p>This density plot shows the <strong>distribution of ride lengths (in minutes)</strong> for customer rides that <strong>start and end at the same station</strong>. Known as <strong><a href="#glossary-loop">loop rides</a></strong>. Also trips involving tourist stations are excluded.</p>
 </section>
 <section id="chart-details-21" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details-21">Chart Details</h5>
@@ -2387,6 +2388,86 @@ Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)<br> This sc
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
+<section id="non-tourist-customer-ride-duration-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-distribution">Non-Tourist Customer Ride Duration Distribution</h4>
+<figure class="float-right figure">
+<a href="../images/Non-Tourist_Customer_Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for non-tourist customer trips. Most rides are under 20 minutes, with frequency declining rapidly thereafter." class="figure-img"> </a>
+<figcaption>
+Distribution of ride durations for non-tourist customer trips.<br> The histogram shows that the vast majority of trips are short in duration, tapering off beyond 20 minutes.
+</figcaption>
+</figure>
+<section id="overview-24" class="level5">
+<h5 class="anchored" data-anchor-id="overview-24">Overview</h5>
+<p>This histogram depicts the <strong>distribution of ride durations</strong> (in minutes) for casual rides that start and end outside tourist areas. Each bar represents the count of trips falling within a 5-minute interval.</p>
+</section>
+<section id="chart-details-23" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-23">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes), binned in 5-minute increments.</li>
+<li><strong>Y-Axis:</strong> Number of rides in each duration bin.</li>
+<li><strong>Bars:</strong> Filled in dark orange with white borders for clarity.</li>
+</ul>
+</section>
+<section id="observations-25" class="level5">
+<h5 class="anchored" data-anchor-id="observations-25">Observations</h5>
+<ul>
+<li>The distribution is <strong>heavily right-skewed</strong>, with most rides lasting under ~15–20 minutes.</li>
+<li>A clear peak appears in the <strong>0–5 minute bin</strong>, highlighting frequent short trips.</li>
+<li>Frequency decreases rapidly as duration increases.</li>
+<li>Occasional longer trips are visible in the long tail.</li>
+</ul>
+</section>
+<section id="interpretation-25" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-25">Interpretation</h5>
+<ul>
+<li>Casual riders overwhelmingly use the system for <strong>short trips</strong>.</li>
+<li>The lack of secondary peaks suggests uniform trip purposes, likely errands or last-mile transport.</li>
+<li>Longer rides may reflect recreational or exploratory use, but they are relatively rare.</li>
+</ul>
+</section>
+<section id="use-case-6" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-6">Use Case</h5>
+<p>This chart is helpful for: - Informing policies about time-based pricing tiers. - Understanding baseline trip durations among casual riders. - Supporting planning of rebalancing or maintenance cycles.</p>
+</section>
+<section id="technical-notes-12" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-12">Technical Notes</h5>
+<ul>
+<li><strong>Data Filtering:</strong>
+<ul>
+<li>Includes only <code>customer</code> rides.</li>
+<li>Excludes tourist station trips.</li>
+</ul></li>
+<li><strong>Ride Length Calculation:</strong>
+<ul>
+<li><code>(end_time - start_time) / 60</code>.</li>
+</ul></li>
+<li><strong>Bin Width:</strong>
+<ul>
+<li>5 minutes.</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-sources-15" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-15">Data Sources</h5>
+<ul>
+<li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Filtered from the <code>rides</code> table by user type and station criteria.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-the-chart-5" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-5">R Code Used to Generate the Chart:</h5>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration Distribution"</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 <section id="non-tourist-customer-ride-count-by-distance" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-count-by-distance">Non-Tourist Customer Ride Count by Distance</h4>
 <figure class="float-right figure">
@@ -2395,12 +2476,12 @@ Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)<br> This sc
 Ride count by station-to-station distance for non-tourist customer trips, highlighting common trip lengths in the 0–2 km range.
 </figcaption>
 </figure>
-<section id="overview-24" class="level5">
-<h5 class="anchored" data-anchor-id="overview-24">Overview</h5>
+<section id="overview-25" class="level5">
+<h5 class="anchored" data-anchor-id="overview-25">Overview</h5>
 <p>This bar chart shows the <strong>number of non-tourist customer rides</strong> grouped by the straight-line distance between the starting and ending stations. The visualization makes clear which distance ranges are most commonly traveled.</p>
 </section>
-<section id="chart-details-23" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-23">Chart Details</h5>
+<section id="chart-details-24" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-24">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Distance between stations (km), from 0 to 10 km.</li>
 <li><strong>Y-Axis:</strong> Number of rides in each distance bin (up to ~60,000 rides).</li>
@@ -2411,8 +2492,8 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 </ul></li>
 </ul>
 </section>
-<section id="observations-25" class="level5">
-<h5 class="anchored" data-anchor-id="observations-25">Observations</h5>
+<section id="observations-26" class="level5">
+<h5 class="anchored" data-anchor-id="observations-26">Observations</h5>
 <ul>
 <li><strong>Primary Peaks:</strong>
 <ul>
@@ -2423,16 +2504,16 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 <li>The shape strongly suggests most casual rides occur within a short radius.</li>
 </ul>
 </section>
-<section id="interpretation-25" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-25">Interpretation</h5>
+<section id="interpretation-26" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-26">Interpretation</h5>
 <ul>
 <li><strong>Short trips dominate</strong> non-subscriber usage, likely reflecting quick local errands or last-mile transit.</li>
 <li>Peaks may correspond to popular station pairs located 3–8 blocks apart.</li>
 <li>The pattern mirrors the density distribution of unique station-to-station distances, but here each ride contributes equally to counts.</li>
 </ul>
 </section>
-<section id="data-sources-15" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-15">Data Sources</h5>
+<section id="data-sources-16" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-16">Data Sources</h5>
 <ul>
 <li><strong>Ride Records:</strong> Non-subscriber rides starting after 2023-01-01.</li>
 <li><strong>Filters Applied:</strong>
@@ -2445,27 +2526,27 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 </ul>
 <section id="r-code-used-to-generate-chart-15" class="level6">
 <h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart-15">R Code Used to Generate Chart:</h6>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin and count rides by distance</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_counts_by_distance, <span class="fu">aes</span>(<span class="at">x =</span> distance_bin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">width =</span> <span class="fl">0.08</span>) <span class="sc">+</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">filter</span>(ride_counts_by_distance, distance_bin <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">1.35</span>)),</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Peak: "</span>, distance_bin, <span class="st">" km</span><span class="sc">\n</span><span class="st">"</span>, scales<span class="sc">::</span><span class="fu">comma</span>(n))),</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Count by Station-to-Station Distance"</span>,</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bin and count rides by distance</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_counts_by_distance, <span class="fu">aes</span>(<span class="at">x =</span> distance_bin, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">width =</span> <span class="fl">0.08</span>) <span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">filter</span>(ride_counts_by_distance, distance_bin <span class="sc">%in%</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">1.35</span>)),</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Peak: "</span>, distance_bin, <span class="st">" km</span><span class="sc">\n</span><span class="st">"</span>, scales<span class="sc">::</span><span class="fu">comma</span>(n))),</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Count by Station-to-Station Distance"</span>,</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
 </section>
 </section>
@@ -2478,12 +2559,12 @@ Ride count by station-to-station distance for non-tourist customer trips, highli
 Distribution of station-to-station distances for non-tourist customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
 </figcaption>
 </figure>
-<section id="overview-25" class="level5">
-<h5 class="anchored" data-anchor-id="overview-25">Overview</h5>
+<section id="overview-26" class="level5">
+<h5 class="anchored" data-anchor-id="overview-26">Overview</h5>
 <p>This density plot visualizes the distribution of <strong>station-to-station distances</strong> for rides taken by <strong>customer (non-subscriber) riders</strong> that do not involve tourist stations. The x-axis represents the distance in kilometers, and the y-axis shows the relative density of rides occurring at each distance.</p>
 </section>
-<section id="chart-details-24" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-24">Chart Details</h5>
+<section id="chart-details-25" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-25">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Distance Between Stations (km), ranging from 0 to ~30 km<br>
 </li>
@@ -2496,8 +2577,8 @@ Distribution of station-to-station distances for non-tourist customer rides. Mos
 <h5 class="anchored" data-anchor-id="purpose-11">Purpose</h5>
 <p>This chart highlights the typical distance casual riders travel between stations when tourist hotspots are excluded, revealing patterns in local, everyday bike-share use.</p>
 </section>
-<section id="observations-26" class="level5">
-<h5 class="anchored" data-anchor-id="observations-26">Observations</h5>
+<section id="observations-27" class="level5">
+<h5 class="anchored" data-anchor-id="observations-27">Observations</h5>
 <ul>
 <li><strong>Peak around 1 km:</strong> Most rides are short hops between closely spaced stations.</li>
 <li><strong>Steep decline:</strong> Density drops quickly after ~5 km.</li>
@@ -2505,16 +2586,16 @@ Distribution of station-to-station distances for non-tourist customer rides. Mos
 <li><strong>Very few extreme values:</strong> Rides over 20 km are rare outliers.</li>
 </ul>
 </section>
-<section id="interpretation-26" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-26">Interpretation</h5>
+<section id="interpretation-27" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-27">Interpretation</h5>
 <ul>
 <li>The pronounced twin peaks around 1 km suggests <strong>short-distance, utility-oriented trips</strong>, like errands or first-/last-mile commuting.</li>
 <li>The long but thin tail implies that while occasional longer rides occur, they are uncommon among non-tourist customer riders.</li>
 <li>The lack of a multiple wide spaced peaks differentiates this distribution from tourist-heavy patterns, which often show multiple modes due to popular routes.</li>
 </ul>
 </section>
-<section id="technical-notes-12" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes-12">Technical Notes</h5>
+<section id="technical-notes-13" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-13">Technical Notes</h5>
 <ul>
 <li><strong>Distance Calculation:</strong> Great-circle distance (Haversine formula) computed between station coordinates.</li>
 <li><strong>Filtering:</strong> Tourist stations excluded via station ID filtering.</li>
@@ -2523,14 +2604,14 @@ Distribution of station-to-station distances for non-tourist customer rides. Mos
 </section>
 <section id="r-code-used-to-generate-chart-16" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-16">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances"</span>,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances"</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="ride-distance-distribution-by-duration-cluster-non-tourist-non-loop-customers" class="level4">
@@ -2541,12 +2622,12 @@ Distribution of station-to-station distances for non-tourist customer rides. Mos
 Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br> This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
 </figcaption>
 </figure>
-<section id="overview-26" class="level5">
-<h5 class="anchored" data-anchor-id="overview-26">Overview</h5>
-<p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.</p>
+<section id="overview-27" class="level5">
+<h5 class="anchored" data-anchor-id="overview-27">Overview</h5>
+<p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns, such as short errand-like trips versus longer recreational journeys, without needing to segment riders further or rely on additional metadata.</p>
 </section>
-<section id="chart-details-25" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-25">Chart Details</h5>
+<section id="chart-details-26" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-26">Chart Details</h5>
 <ul>
 <li><strong>X-Axis (Distance in km)</strong>:
 <ul>
@@ -2566,8 +2647,8 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br> This de
 </ul></li>
 </ul>
 </section>
-<section id="observations-27" class="level5">
-<h5 class="anchored" data-anchor-id="observations-27">Observations</h5>
+<section id="observations-28" class="level5">
+<h5 class="anchored" data-anchor-id="observations-28">Observations</h5>
 <ul>
 <li><strong>Short rides</strong>:
 <ul>
@@ -2585,40 +2666,40 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br> This de
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-27" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-27">Interpretation</h5>
+<section id="interpretation-28" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-28">Interpretation</h5>
 <ul>
 <li>Short-duration trips are likely local, last-mile or neighborhood errands.</li>
 <li>Medium rides reflect mixed use: commuting and recreation.</li>
 <li>Long rides are more destination-focused or leisurely.</li>
 </ul>
 </section>
-<section id="use-case-6" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-6">Use Case</h5>
+<section id="use-case-7" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-7">Use Case</h5>
 <p>This chart helps: - Understand non-tourist customer ride behavior segmented by trip duration. - Support targeted strategies for operations and pricing. - Inform planning of infrastructure, such as dock placement or service areas.</p>
 </section>
-<section id="data-sources-16" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-16">Data Sources</h5>
+<section id="data-sources-17" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-17">Data Sources</h5>
 <ul>
 <li><strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).</li>
 <li><strong>Distance Calculation</strong>: Haversine distance between station coordinates.</li>
 </ul>
-<section id="r-code-used-to-generate-the-chart-5" class="level6">
-<h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-5">R Code Used to Generate the Chart:</h6>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km, <span class="at">fill =</span> duration_cluster)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Short"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medium"</span> <span class="ot">=</span> <span class="st">"green"</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Long"</span> <span class="ot">=</span> <span class="st">"red"</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist, Non-Loop Customers Ride Distance (km) Distribution by Ride Duration Cluster"</span>,</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance (km)"</span>,</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Duration Cluster"</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="r-code-used-to-generate-the-chart-6" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-6">R Code Used to Generate the Chart:</h6>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km, <span class="at">fill =</span> duration_cluster)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Short"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medium"</span> <span class="ot">=</span> <span class="st">"green"</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Long"</span> <span class="ot">=</span> <span class="st">"red"</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist, Non-Loop Customers Ride Distance (km) Distribution by Ride Duration Cluster"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance (km)"</span>,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Duration Cluster"</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -2630,12 +2711,12 @@ Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br> This de
 Loop ride durations among non-tourist customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
 </figcaption>
 </figure>
-<section id="overview-27" class="level5">
-<h5 class="anchored" data-anchor-id="overview-27">Overview</h5>
+<section id="overview-28" class="level5">
+<h5 class="anchored" data-anchor-id="overview-28">Overview</h5>
 <p>This visualization shows how <strong>loop ride durations</strong> vary by <strong>hour of day</strong> and by whether the ride occurred on a <strong>weekday or weekend</strong>. Each subplot represents a single hour of the day, illustrating patterns of ride duration frequency across time.</p>
 </section>
-<section id="chart-details-26" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-26">Chart Details</h5>
+<section id="chart-details-27" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-27">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Ride Length (minutes)</li>
 <li><strong>Y-Axis:</strong> Ride Count</li>
@@ -2644,8 +2725,8 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 <li><strong>Plot Type:</strong> Histogram with bin width = 1 minute</li>
 </ul>
 </section>
-<section id="observations-28" class="level5">
-<h5 class="anchored" data-anchor-id="observations-28">Observations</h5>
+<section id="observations-29" class="level5">
+<h5 class="anchored" data-anchor-id="observations-29">Observations</h5>
 <ul>
 <li>Rides are <strong>heavily skewed toward short durations</strong> in all panels.</li>
 <li>Most rides fall under <strong>10–15 minutes</strong>, regardless of hour.</li>
@@ -2653,16 +2734,16 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 <li>No clear hour shows a major deviation in distribution shape.</li>
 </ul>
 </section>
-<section id="interpretation-28" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-28">Interpretation</h5>
+<section id="interpretation-29" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-29">Interpretation</h5>
 <ul>
 <li>Loop rides are generally <strong>short-duration recreational trips</strong>, rather than commutes.</li>
 <li>The lack of time-of-day variation suggests <strong>consistent rider behavior</strong>.</li>
 <li>The similarity between weekday and weekend distributions reinforces this interpretation.</li>
 </ul>
 </section>
-<section id="use-case-7" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-7">Use Case</h5>
+<section id="use-case-8" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-8">Use Case</h5>
 <p>This chart supports:</p>
 <ul>
 <li><strong>Service planning:</strong> anticipating typical ride lengths for rebalancing.</li>
@@ -2670,8 +2751,8 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 <li><strong>Operational decisions:</strong> confirming the limited variability in loop ride duration.</li>
 </ul>
 </section>
-<section id="technical-notes-13" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes-13">Technical Notes</h5>
+<section id="technical-notes-14" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-14">Technical Notes</h5>
 <ul>
 <li>Data limited to <strong>rides starting and ending at the same station</strong> (loop rides).</li>
 <li>Only <strong>non-tourist stations</strong> were included.</li>
@@ -2679,8 +2760,8 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 <li>Duration computed as <code>end_time - start_time</code> in minutes.</li>
 </ul>
 </section>
-<section id="data-sources-17" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-17">Data Sources</h5>
+<section id="data-sources-18" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-18">Data Sources</h5>
 <ul>
 <li><strong>Database Table:</strong> <code>rides</code></li>
 <li><strong>Filtering Criteria:</strong>
@@ -2694,16 +2775,16 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 </section>
 <section id="r-code-used-to-generate-chart-17" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-17">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Week/Time"</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min, <span class="at">fill =</span> <span class="fu">interaction</span>(week_part, hour_local))) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> hour_local, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Loop Ride Length Distribution by Week Part and Time of Day"</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ride Count"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Week/Time"</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -2718,12 +2799,12 @@ Loop ride durations among non-tourist customers show a consistently skewed distr
 Top 25 stations (excluding tourist locations) ranked by total customer ride volume. Bars highlight the most frequently used start locations among casual riders.
 </figcaption>
 </figure>
-<section id="overview-28" class="level5">
-<h5 class="anchored" data-anchor-id="overview-28">Overview</h5>
+<section id="overview-29" class="level5">
+<h5 class="anchored" data-anchor-id="overview-29">Overview</h5>
 <p>This horizontal bar chart displays the <strong>25 non-tourist stations with the highest number of customer rides</strong>. Each bar represents a single station, ranked from lowest to highest.</p>
 </section>
-<section id="chart-details-27" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-27">Chart Details</h5>
+<section id="chart-details-28" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-28">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Station names (rotated vertically by using <code>coord_flip()</code>).</li>
 <li><strong>Y-Axis:</strong> Number of customer rides originating at each station.</li>
@@ -2734,16 +2815,16 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </ul></li>
 </ul>
 </section>
-<section id="observations-29" class="level5">
-<h5 class="anchored" data-anchor-id="observations-29">Observations</h5>
+<section id="observations-30" class="level5">
+<h5 class="anchored" data-anchor-id="observations-30">Observations</h5>
 <ul>
 <li>The highest-ranking stations have significantly more rides than those near the bottom of the top 25.</li>
 <li>Usage distribution shows a steep drop-off after the first few most popular stations.</li>
 <li>This pattern suggests localized hubs of casual rider activity outside major tourist zones.</li>
 </ul>
 </section>
-<section id="interpretation-29" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-29">Interpretation</h5>
+<section id="interpretation-30" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-30">Interpretation</h5>
 <ul>
 <li>Non-tourist stations can still accumulate large ride volumes, likely reflecting:
 <ul>
@@ -2753,8 +2834,8 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </ul></li>
 </ul>
 </section>
-<section id="data-sources-18" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-18">Data Sources</h5>
+<section id="data-sources-19" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-19">Data Sources</h5>
 <ul>
 <li><strong>Input Table:</strong> Rides table in <code>caseStudy.db</code>.</li>
 <li><strong>Filters Applied:</strong>
@@ -2768,18 +2849,18 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 </section>
 <section id="r-code-used-to-generate-chart-18" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-18">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_non_tourist_stations_named, <span class="fu">aes</span>(</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">x =</span> <span class="fu">reorder</span>(name, customer_ride_count),</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">y =</span> customer_ride_count</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>   )) <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">title =</span> <span class="st">"Top 25 Non-Tourist Stations by Customer Ride Count"</span>,</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Station"</span>,</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Customer Rides"</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_non_tourist_stations_named, <span class="fu">aes</span>(</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">x =</span> <span class="fu">reorder</span>(name, customer_ride_count),</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">y =</span> customer_ride_count</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>   )) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">title =</span> <span class="st">"Top 25 Non-Tourist Stations by Customer Ride Count"</span>,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Station"</span>,</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="st">"Customer Rides"</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="station-to-station-distance-distribution-non-tourist-customers-10-km" class="level4">
@@ -2790,12 +2871,12 @@ Top 25 stations (excluding tourist locations) ranked by total customer ride volu
 Distribution of station-to-station distances for non-tourist customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
 </figcaption>
 </figure>
-<section id="overview-29" class="level5">
-<h5 class="anchored" data-anchor-id="overview-29">Overview</h5>
+<section id="overview-30" class="level5">
+<h5 class="anchored" data-anchor-id="overview-30">Overview</h5>
 <p>This density plot visualizes the distribution of <strong>station-to-station distances under 10 km</strong> for rides taken by <strong>customer (non-subscriber) riders</strong> that did not involve tourist stations. The focus on shorter trips reveals finer patterns in local travel behavior.</p>
 </section>
-<section id="chart-details-28" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-28">Chart Details</h5>
+<section id="chart-details-29" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-29">Chart Details</h5>
 <ul>
 <li><strong>X-Axis:</strong> Distance Between Stations (km), ranging from 0 to 10 km<br>
 </li>
@@ -2810,8 +2891,8 @@ Distribution of station-to-station distances for non-tourist customer rides unde
 <h5 class="anchored" data-anchor-id="purpose-12">Purpose</h5>
 <p>By excluding longer trips (&gt;10 km), this chart provides a clearer view of the most typical ride distances, supporting planning and operational decisions about station placement and bike redistribution.</p>
 </section>
-<section id="observations-30" class="level5">
-<h5 class="anchored" data-anchor-id="observations-30">Observations</h5>
+<section id="observations-31" class="level5">
+<h5 class="anchored" data-anchor-id="observations-31">Observations</h5>
 <ul>
 <li><strong>Primary Peak (0.86 km):</strong> The most common ride length, suggesting very short intra-neighborhood trips.</li>
 <li><strong>Secondary Peak (1.29 km):</strong> Another frequently observed trip length, likely representing local errands or commutes between adjacent districts.</li>
@@ -2819,8 +2900,8 @@ Distribution of station-to-station distances for non-tourist customer rides unde
 <li><strong>Absence of Long Tail:</strong> Filtering out longer rides eliminates noise from infrequent long-distance trips.</li>
 </ul>
 </section>
-<section id="interpretation-30" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-30">Interpretation</h5>
+<section id="interpretation-31" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-31">Interpretation</h5>
 <ul>
 <li><strong>Short-Distance Focus:</strong> The dual peaks reinforce that casual users primarily rely on the system for short urban journeys.</li>
 <li><strong>Potential Trip Typologies:</strong>
@@ -2831,8 +2912,8 @@ Distribution of station-to-station distances for non-tourist customer rides unde
 <li>The low density beyond 5 km indicates that even non-tourist customers rarely use the bikes for longer travel.</li>
 </ul>
 </section>
-<section id="technical-notes-14" class="level5">
-<h5 class="anchored" data-anchor-id="technical-notes-14">Technical Notes</h5>
+<section id="technical-notes-15" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes-15">Technical Notes</h5>
 <ul>
 <li><strong>Distance Calculation:</strong> Computed with the Haversine formula between station coordinates.</li>
 <li><strong>Filtering:</strong> Only trips with distance ≤10 km are included.</li>
@@ -2842,24 +2923,24 @@ Distribution of station-to-station distances for non-tourist customer rides unde
 </section>
 <section id="r-code-used-to-generate-chart-19" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-19">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> top_peaks, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> top_peaks,</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">" "</span>, <span class="fu">round</span>(x, <span class="dv">2</span>), <span class="st">" km"</span>)),</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">25</span>,</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span>,</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances (≤10 km)"</span>,</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="fu">aes</span>(<span class="at">x =</span> distance_km)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> top_peaks, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> top_peaks,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">" "</span>, <span class="fu">round</span>(x, <span class="dv">2</span>), <span class="st">" km"</span>)),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">25</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fl">3.5</span>,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Distribution of Station-to-Station Distances (≤10 km)"</span>,</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance Between Stations (km)"</span>,</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
@@ -2874,8 +2955,8 @@ Distribution of station-to-station distances for non-tourist customer rides unde
 Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among subscribers, while electric modes see substantial adoption by both user groups.
 </figcaption>
 </figure>
-<section id="overview-30" class="level5">
-<h5 class="anchored" data-anchor-id="overview-30">Overview</h5>
+<section id="overview-31" class="level5">
+<h5 class="anchored" data-anchor-id="overview-31">Overview</h5>
 <p>This bar chart displays the <strong>average number of daily rides</strong> by <strong>bike type</strong>, grouped by <strong>user type</strong> (Subscriber vs.&nbsp;Customer), for the period after the introduction of electric bikes and scooters.</p>
 </section>
 <section id="axes-and-groupings" class="level5">
@@ -2899,8 +2980,8 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="observations-31" class="level5">
-<h5 class="anchored" data-anchor-id="observations-31">Observations</h5>
+<section id="observations-32" class="level5">
+<h5 class="anchored" data-anchor-id="observations-32">Observations</h5>
 <ul>
 <li><strong>Classic Bikes</strong>:
 <ul>
@@ -2910,7 +2991,7 @@ Average daily rides by bike type and user type after the introduction of electri
 <li><strong>Docked Bikes</strong>:
 <ul>
 <li>Very low usage overall.</li>
-<li>Only Customers use docked bikes in this dataset — Subscribers have no visible rides.</li>
+<li>Only Customers use docked bikes in this dataset. Subscribers appear not to use docked bikes.</li>
 </ul></li>
 <li><strong>Electric Bikes</strong>:
 <ul>
@@ -2924,8 +3005,8 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-31" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-31">Interpretation</h5>
+<section id="interpretation-32" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-32">Interpretation</h5>
 <ul>
 <li><strong>Subscriber Preference</strong>:
 <ul>
@@ -2943,51 +3024,51 @@ Average daily rides by bike type and user type after the introduction of electri
 </ul></li>
 </ul>
 </section>
-<section id="use-case-8" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-8">Use Case</h5>
+<section id="use-case-9" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-9">Use Case</h5>
 <p>This visualization supports: - Infrastructure planning (e.g., expansion of electric charging or docking stations), - Marketing strategy (targeting modal preferences by user type), - Evaluating post-launch success of electric mobility options.</p>
 </section>
-<section id="data-sources-19" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-19">Data Sources</h5>
+<section id="data-sources-20" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-20">Data Sources</h5>
 <ul>
 <li><strong>Query to Load Data into R:</strong></li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="st">   bike_type,</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="st">   COUNT(*) AS ride_count,</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="st">   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
-<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span>
-<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">**</span>Data Transformation <span class="cf">in</span> R<span class="sc">:</span><span class="er">**</span></span>
-<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
-<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_rides_per_day =</span> <span class="fu">mean</span>(ride_count),</span>
-<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="st">   bike_type,</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="st">   COUNT(*) AS ride_count,</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="st">   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">**</span>Data Transformation <span class="cf">in</span> R<span class="sc">:</span><span class="er">**</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_rides_per_day =</span> <span class="fu">mean</span>(ride_count),</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><strong>R Code Used to Generate Chart:</strong></li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(daily_avg_df, <span class="fu">aes</span>(</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> bike_type,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> avg_rides_per_day,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">fill =</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(user_type),</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a> )) <span class="sc">+</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)"</span>,</span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"User Type"</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(daily_avg_df, <span class="fu">aes</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> bike_type,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> avg_rides_per_day,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">fill =</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(user_type),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a> )) <span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Average Daily Rides by Bike Type and User Type (Post-Electric Launch)"</span>,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Bike Type"</span>,</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Average Rides per Day"</span>,</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"User Type"</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="distribution-of-ride-counts-per-bike" class="level4">
@@ -2998,8 +3079,8 @@ Average daily rides by bike type and user type after the introduction of electri
 Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
 </figcaption>
 </figure>
-<section id="overview-31" class="level5">
-<h5 class="anchored" data-anchor-id="overview-31">Overview</h5>
+<section id="overview-32" class="level5">
+<h5 class="anchored" data-anchor-id="overview-32">Overview</h5>
 <p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
 </section>
 <section id="axes" class="level5">
@@ -3028,8 +3109,8 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 </ul></li>
 </ul>
 </section>
-<section id="observations-32" class="level5">
-<h5 class="anchored" data-anchor-id="observations-32">Observations</h5>
+<section id="observations-33" class="level5">
+<h5 class="anchored" data-anchor-id="observations-33">Observations</h5>
 <ul>
 <li><strong>Low-end Outliers</strong>:
 <ul>
@@ -3048,8 +3129,8 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-32" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-32">Interpretation</h5>
+<section id="interpretation-33" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-33">Interpretation</h5>
 <ul>
 <li>The chart implies a relatively well-utilized fleet with a <strong>normal distribution</strong> centered around ~3000 rides per bike.</li>
 <li>The left-side spike at <code>0–99</code> highlights potential outliers worth investigating:
@@ -3062,37 +3143,37 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 <li>The right tail shows some high-mileage bikes that may be candidates for maintenance or replacement soon.</li>
 </ul>
 </section>
-<section id="use-case-9" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-9">Use Case</h5>
+<section id="use-case-10" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-10">Use Case</h5>
 <p>This visualization is valuable for: - <strong>Fleet maintenance planning</strong> (identify overused/underused bikes), - <strong>Lifecycle analysis</strong> (detect uneven distribution of wear), - <strong>Deployment strategy</strong> (optimize rotation or redistribution).</p>
 </section>
-<section id="data-sources-20" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources-20">Data Sources</h5>
+<section id="data-sources-21" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources-21">Data Sources</h5>
 <p><code>rides</code> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
 <section id="sql-query-to-produce-aggregated-data" class="level6">
 <h6 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h6>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> bucketed <span class="kw">AS</span> (</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    (ride_count <span class="op">/</span> <span class="dv">100</span>) <span class="op">*</span> <span class="dv">100</span> <span class="kw">AS</span> bucket_start,</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> bike_count</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> (</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> bike_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> bike_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> bike_id</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> bucket_start</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> bucket_start</span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>  bucket_start,</span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>  bucket_start <span class="op">+</span> <span class="dv">99</span> <span class="kw">AS</span> bucket_end,</span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
-<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> bucketed <span class="kw">AS</span> (</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    (ride_count <span class="op">/</span> <span class="dv">100</span>) <span class="op">*</span> <span class="dv">100</span> <span class="kw">AS</span> bucket_start,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> bike_count</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> (</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> bike_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> bike_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> bike_id</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  bucket_start,</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  bucket_start <span class="op">+</span> <span class="dv">99</span> <span class="kw">AS</span> bucket_end,</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="gnuplot-script-used-to-generate-chart-1" class="level6">
 <h6 class="anchored" data-anchor-id="gnuplot-script-used-to-generate-chart-1">Gnuplot Script Used to Generate Chart:</h6>
@@ -3126,12 +3207,12 @@ plot 'bike_ride_buckets.csv' using ($0):3:xtic(strcol(1)."-".strcol(2)) with box
 Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as the proportion of rides taken in one direction relative to the total rides between two stations. Distinct path preferences emerge between customers and subscribers.
 </figcaption>
 </figure>
-<section id="overview-32" class="level5">
-<h5 class="anchored" data-anchor-id="overview-32">Overview</h5>
+<section id="overview-33" class="level5">
+<h5 class="anchored" data-anchor-id="overview-33">Overview</h5>
 <p>This side-by-side horizontal bar chart displays the <strong>20 most directionally imbalanced station pairs</strong> for each user type: <strong>customers</strong> and <strong>subscribers</strong>. These paths have the highest <strong>asymmetry ratios</strong>, indicating strong one-way usage patterns.</p>
 </section>
-<section id="chart-details-29" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-29">Chart Details</h5>
+<section id="chart-details-30" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-30">Chart Details</h5>
 <ul>
 <li><strong>X-Axis</strong>: Asymmetry Ratio (ranging up to ~1.0).</li>
 <li><strong>Y-Axis</strong>: Station pair labels (listed within each bar).</li>
@@ -3142,8 +3223,8 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 </ul></li>
 </ul>
 </section>
-<section id="observations-33" class="level5">
-<h5 class="anchored" data-anchor-id="observations-33">Observations</h5>
+<section id="observations-34" class="level5">
+<h5 class="anchored" data-anchor-id="observations-34">Observations</h5>
 <ul>
 <li><strong>Customers</strong>:
 <ul>
@@ -3157,8 +3238,8 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-33" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-33">Interpretation</h5>
+<section id="interpretation-34" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-34">Interpretation</h5>
 <ul>
 <li><strong>Asymmetry Ratio</strong>:
 <ul>
@@ -3176,8 +3257,8 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 </ul></li>
 </ul>
 </section>
-<section id="use-case-10" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-10">Use Case</h5>
+<section id="use-case-11" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-11">Use Case</h5>
 <p>This visualization supports: - Identifying rebalancing needs. - Targeting incentive programs to encourage return trips. - Understanding travel patterns for infrastructure planning and operational improvements.</p>
 </section>
 </section>
@@ -3189,12 +3270,12 @@ Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as
 Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
 </figcaption>
 </figure>
-<section id="overview-33" class="level5">
-<h5 class="anchored" data-anchor-id="overview-33">Overview</h5>
+<section id="overview-34" class="level5">
+<h5 class="anchored" data-anchor-id="overview-34">Overview</h5>
 <p>This chart shows the <strong>20 most directionally imbalanced station pairs</strong> for customers and subscribers, ranked by asymmetry ratio. Each bar represents a station-to-station path where trips predominantly flow in one direction.</p>
 </section>
-<section id="chart-details-30" class="level5">
-<h5 class="anchored" data-anchor-id="chart-details-30">Chart Details</h5>
+<section id="chart-details-31" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details-31">Chart Details</h5>
 <ul>
 <li><strong>X-Axis</strong>: Asymmetry Ratio (0.0 to ~0.7)
 <ul>
@@ -3207,8 +3288,8 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 </ul></li>
 </ul>
 </section>
-<section id="observations-34" class="level5">
-<h5 class="anchored" data-anchor-id="observations-34">Observations</h5>
+<section id="observations-35" class="level5">
+<h5 class="anchored" data-anchor-id="observations-35">Observations</h5>
 <ul>
 <li><strong>Customers</strong>:
 <ul>
@@ -3225,43 +3306,43 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 </ul></li>
 </ul>
 </section>
-<section id="interpretation-34" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-34">Interpretation</h5>
+<section id="interpretation-35" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-35">Interpretation</h5>
 <ul>
 <li>Asymmetry highlights operational imbalances and user behavior patterns.</li>
 <li>Paths with high one-way traffic often require rebalancing or targeted incentives.</li>
 </ul>
 </section>
-<section id="use-case-11" class="level5">
-<h5 class="anchored" data-anchor-id="use-case-11">Use Case</h5>
+<section id="use-case-12" class="level5">
+<h5 class="anchored" data-anchor-id="use-case-12">Use Case</h5>
 <p>Supports: - Rebalancing plans. - Infrastructure decisions. - Targeted marketing to address directional demand.</p>
 </section>
 <section id="r-code-used-to-generate-chart-20" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-20">R Code Used to Generate Chart</h5>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(asym_top, <span class="fu">aes</span>(<span class="at">x =</span> asymmetry_ratio, <span class="at">y =</span> <span class="fu">reorder</span>(path_label, asymmetry_ratio))) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(<span class="at">label =</span> path_label),</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fl">0.01</span>,                   </span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">hjust =</span> <span class="dv">0</span>,                  </span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">size =</span> <span class="fl">2.7</span>,</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">fontface =</span> <span class="st">"plain"</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> user_type_label, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Top"</span>, top_n, <span class="st">"Most Asymmetric Paths by User Type"</span>),</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Asymmetry Ratio"</span>, </span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="cn">NULL</span></span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(asym_top<span class="sc">$</span>asymmetry_ratio) <span class="sc">+</span> <span class="fl">0.10</span>)) <span class="sc">+</span></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.1</span>),</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(asym_top, <span class="fu">aes</span>(<span class="at">x =</span> asymmetry_ratio, <span class="at">y =</span> <span class="fu">reorder</span>(path_label, asymmetry_ratio))) <span class="sc">+</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(<span class="at">label =</span> path_label),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fl">0.01</span>,                   </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">hjust =</span> <span class="dv">0</span>,                  </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">size =</span> <span class="fl">2.7</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">fontface =</span> <span class="st">"plain"</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> user_type_label, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Top"</span>, top_n, <span class="st">"Most Asymmetric Paths by User Type"</span>),</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Asymmetry Ratio"</span>, </span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(asym_top<span class="sc">$</span>asymmetry_ratio) <span class="sc">+</span> <span class="fl">0.10</span>)) <span class="sc">+</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.1</span>),</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="top-20-most-asymmetric-paths-by-user-type-1" class="level4">
@@ -3280,8 +3361,8 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 <li>Right panel: Top asymmetric paths for Subscribers</li>
 </ul>
 </section>
-<section id="interpretation-35" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-35">Interpretation</h5>
+<section id="interpretation-36" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation-36">Interpretation</h5>
 <dl>
 <dt>Asymmetry Ratio</dt>
 <dd>

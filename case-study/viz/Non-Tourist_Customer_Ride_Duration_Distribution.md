@@ -30,7 +30,7 @@ This histogram depicts the **distribution of ride durations** (in minutes) for c
 ##### Interpretation
 
 - Casual riders overwhelmingly use the system for **short trips**.
-- The lack of secondary peaks suggests uniform trip purposes—likely errands or last-mile transport.
+- The lack of secondary peaks suggests uniform trip purposes, likely errands or last-mile transport.
 - Longer rides may reflect recreational or exploratory use, but they are relatively rare.
 
 ##### Use Case

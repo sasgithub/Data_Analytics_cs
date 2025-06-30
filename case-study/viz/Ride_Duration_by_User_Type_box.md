@@ -21,7 +21,7 @@ This box plot compares the **distribution of ride durations** between subscriber
   - Show interquartile range (25th–75th percentile).
   - Central line indicates the median ride duration.
 - **Whiskers and Outliers:**
-  - Whiskers extend to ~1.5× IQR.
+  - Whiskers extend to ~1.5× [interquartile range (IQR)](../glossary.qmd#glossary-IQR).
   - Outliers plotted with low opacity for clarity.
 
 ##### Observations

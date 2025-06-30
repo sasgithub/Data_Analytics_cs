@@ -14,7 +14,7 @@ File not found: Divvy_Stations_2013.shp.csv
 
 You find it and it looks like it's contents have been extracted into a directory named Divvy_Stations_2013.shp
 
-You lean closer, a frown creasing your brow. Not a log, not a CSV file in sie and a bunch of files with extensions do recognize. You call upon your most reliable digital ally, the venerable **file** command, for its infallible wisdom.
+You lean closer, a frown creasing your brow. Not a log, not a CSV file in site and a bunch of files with extensions do recognize. You call upon your most reliable digital ally, the venerable **file** command, for its infallible wisdom.
 
 You (to yourself, a quiet murmur): "Alright, **file**, old friend. Time to shed some light on this mystery."
 

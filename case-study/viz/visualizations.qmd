@@ -165,6 +165,8 @@ Focused on duration, distance, and their distributions by user type or cluster.
 
 {{< include Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md >}}
 
+{{< include Non-Tourist_Customer_Ride_Duration_Distribution.md >}}
+
 {{< include Non-Tourist_Customer_Ride_Count_by_Distance.md >}}
 
 {{< include Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md >}}

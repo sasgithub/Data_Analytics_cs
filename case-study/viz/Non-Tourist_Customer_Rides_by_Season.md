@@ -25,7 +25,7 @@ This chart highlights how seasonal factors influence casual ridership, such as w
 
 ###### Observations
 
--  Summer: Rides peak sharply, exceeding 600,000 rides—reflecting warm weather and extended daylight hours.
+-  Summer: Rides peak sharply, exceeding 600,000 rides. Reflecting warm weather and extended daylight hours.
 -  Fall: Second-highest ridership, over 400,000 rides, showing sustained use into cooler months.
 -  Spring: More modest totals (~220,000 rides), likely reflecting a gradual ramp-up in riding.
 -  Winter: Lowest ridership (under 200,000), consistent with reduced bike use in cold conditions.

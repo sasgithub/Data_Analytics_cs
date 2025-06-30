@@ -1,20 +1,24 @@
-Provenance for non_loop_rides_df
-🟢 1️⃣ Start with non_tourist_customer_rides_df
+## Provenance for non_loop_rides_df
 
-    This already had:
-        Only customer rides
-        Only non-tourist stations (presumably filtered upstream)
+### Data Origin
 
-🟢 2️⃣ Filter out loop rides
+** Source Table:**
+1 Start with non_tourist_customer_rides_df
+
+  -  This already had:
+     -   Only customer rides
+     -   Only non-tourist stations (presumably filtered upstream)
+
+2 Filter out loop rides
 
 non_loop_rides_df <- non_tourist_customer_rides_df %>%
   filter(start_station_id != end_station_id)
 
-✅ Result:
+  Result:
 
     Only rides starting and ending at different stations
 
-🟢 3️⃣ Attach start and end station coordinates from stations_df
+3 Attach start and end station coordinates from stations_df
 
 non_loop_rides_df <- non_loop_rides_df %>%
   left_join(
@@ -34,19 +38,12 @@ non_loop_rides_df <- non_loop_rides_df %>%
     by = "end_station_id"
   )
 
-
-
-✅ Result:
+  Result:
 
     Added start and end lat/lon
     Computed haversine distance
 
-🟢 4️⃣ (Apparently rejoined different station metadata)
-
-
-
-
-🟢 4️⃣  Recompute distance
+4  Recompute distance
 
 non_loop_rides_df <- non_loop_rides_df %>%
   mutate(
@@ -57,8 +54,7 @@ non_loop_rides_df <- non_loop_rides_df %>%
     distance_km = distance_m / 1000
   )
 
-✅ Result:
+  Result:
 
-    Recomputed distance_m and distance_km using (start_long, start_lat) instead of (start_lon, start_lat)
-
+    Recomputed distance_m and distance_km using (start_long, start_lat) 
 
