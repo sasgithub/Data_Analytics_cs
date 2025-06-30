@@ -163,38 +163,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-tourist-proportion-of-daily-rides-by-hour-and-day-type" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-proportion-of-daily-rides-by-hour-and-day-type">Non-Tourist Proportion of Daily Rides by Hour and Day Type</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" alt=" Heatmap showing the hourly distribution of non-tourist rides as a proportion of daily rides, separated by weekday and weekend. Weekday rides peak between 17:00 and 18:00, while weekend rides show a broader distribution from late morning through the afternoon." class="figure-img"> </a>
+<a href="../images/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" alt="Heatmap showing the hourly distribution of non-tourist rides as a proportion of daily rides, separated by weekday and weekend. Weekday rides peak between 17:00 and 18:00, while weekend rides show a broader distribution from late morning through the afternoon." class="figure-img"> </a>
 <figcaption>
 Proportion of daily non-tourist rides by hour of day and day type (weekday vs.&nbsp;weekend). Weekdays show a clear peak in the late afternoon commute hours, while weekends have a more uniform midday distribution.
 </figcaption>
 </figure>
-<section id="non-tourist-proportion-of-daily-rides-by-hour-and-day-type-1" class="level5">
-<h5 class="anchored" data-anchor-id="non-tourist-proportion-of-daily-rides-by-hour-and-day-type-1">Non-Tourist Proportion of Daily Rides by Hour and Day Type</h5>
-<p>This heatmap visualizes the hourly share of total daily rides for non-tourist users, broken out by <strong>Day Type</strong> (Weekday vs.&nbsp;Weekend). Darker orange indicates a higher proportion of rides within that hour relative to the day’s total.</p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This heatmap shows the <strong>hourly share of total daily rides</strong> for non-tourist customer rides, split by <strong>day type</strong> (Weekday vs.&nbsp;Weekend). Darker colors indicate higher proportions of each day’s total rides occurring in that hour.</p>
 </section>
-<section id="key-observations" class="level5">
-<h5 class="anchored" data-anchor-id="key-observations">Key Observations:</h5>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><strong>Weekdays</strong> show a pronounced peak around <strong>17:00–18:00</strong>, corresponding to the evening commute.</li>
-<li><strong>Weekend</strong> ride proportions are more evenly spread from <strong>late morning through mid-afternoon</strong>, peaking slightly between <strong>12:00–16:00</strong>.</li>
-<li>Early morning (before 6:00) and late evening (after 21:00) show minimal ride activity for both day types.</li>
+<li><strong>X-Axis (Hour of Day):</strong>
+<ul>
+<li>Ranges from 0 to 23.</li>
+<li>Represents the ride start hour in local time.</li>
+</ul></li>
+<li><strong>Y-Axis (Day Type):</strong>
+<ul>
+<li>Two categories: Weekday and Weekend.</li>
+</ul></li>
+<li><strong>Fill Color (Proportion):</strong>
+<ul>
+<li>Gradient from white (low) to dark orange (high).</li>
+<li>Indicates the fraction of the day’s total rides occurring in each hour.</li>
+</ul></li>
 </ul>
-<p>This visualization provides insight into how ride timing differs based on routine schedules, further supporting inferences about commuter versus recreational behavior.</p>
 </section>
-<section id="r-code-used-to-generate-chart" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Weekdays:</strong>
+<ul>
+<li>Clear late afternoon peak around <strong>17:00–18:00</strong>, consistent with evening commute patterns.</li>
+<li>Lower activity in early morning and late evening.</li>
+</ul></li>
+<li><strong>Weekends:</strong>
+<ul>
+<li>More even distribution across <strong>10:00–16:00</strong>, suggesting recreational or discretionary use.</li>
+<li>No strong commute-style spike.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>The contrast between weekday and weekend timing supports the hypothesis that weekday rides are more likely commuting or errands, while weekend rides are more leisurely.</li>
+<li>Operators could align staffing, bike redistribution, or promotions to these temporal patterns.</li>
+</ul>
+</section>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
+<p>This chart can help: - Model hourly demand by day type. - Optimize fleet distribution and availability during peak periods. - Inform marketing or pricing strategies aligned to usage timing.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Ride Records:</strong> Filtered for non-tourist customer rides (excluding stations flagged as tourist destinations).</li>
+<li><strong>Derived Columns:</strong> Hour extracted from local start time; day type assigned as Weekday or Weekend.</li>
+<li><strong>Aggregation:</strong> Hourly counts normalized to proportions of each day’s total rides.</li>
+</ul>
+<section id="r-code-used-to-generate-the-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_props, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> week_part, <span class="at">fill =</span> prop)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Proportion of Daily Rides by Hour and Day Type"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Day Type"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Ride Proportion"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Proportion of Daily Rides by Hour and Day Type"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Hour of Day"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Day Type"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Ride Proportion"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 </section>
 

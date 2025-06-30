@@ -209,8 +209,8 @@ Hourly distribution of customer rides originating from non-tourist stations, sho
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<ul>
-<li><strong>Data Source:</strong>
+<section id="data-source" class="level6">
+<h6 class="anchored" data-anchor-id="data-source">Data Source:</h6>
 <ul>
 <li>Pre-processed dataframe <code>rides_by_hour_weekpart</code>
 <ul>
@@ -221,9 +221,10 @@ Hourly distribution of customer rides originating from non-tourist stations, sho
 <li>time converted to local time</li>
 </ul></li>
 </ul></li>
-</ul></li>
-<li><strong>R Code Used to Generate Chart:</strong></li>
 </ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
@@ -238,6 +239,7 @@ Hourly distribution of customer rides originating from non-tourist stations, sho
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 </section>
 

@@ -175,14 +175,14 @@ Ride duration distribution for customers and subscribers. Subscriber rides tend 
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><strong>X-Axis</strong>: Ride duration in minutes, from 0 to 200 minutes.</li>
-<li><strong>Y-Axis</strong>: Count of rides in each duration bin.</li>
-<li><strong>Bars</strong>:
+<li><strong>X-Axis:</strong> Ride duration in minutes, from 0 to 200 minutes.</li>
+<li><strong>Y-Axis:</strong> Count of rides in each duration bin.</li>
+<li><strong>Bars:</strong>
 <ul>
-<li><strong>Blue (Subscribers)</strong>: Rides are tightly clustered around shorter durations.</li>
-<li><strong>Orange (Customers)</strong>: Rides are more spread out, with a longer tail.</li>
+<li><strong>Blue (Subscribers):</strong> Rides tightly clustered around shorter durations.</li>
+<li><strong>Orange (Customers):</strong> Rides more spread out, with a longer tail.</li>
 </ul></li>
-<li><strong>Bin Width</strong>: 2 minutes per bar.</li>
+<li><strong>Bin Width:</strong> 2 minutes per bar.</li>
 </ul>
 </section>
 <section id="purpose" class="level5">
@@ -192,13 +192,13 @@ Ride duration distribution for customers and subscribers. Subscriber rides tend 
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><strong>Subscribers</strong>:
+<li><strong>Subscribers:</strong>
 <ul>
 <li>Majority of rides are under 30 minutes.</li>
 <li>Strong peak around 10–15 minutes.</li>
 <li>Rapid drop-off after 30 minutes, suggesting time-constrained rides (possibly to avoid overage fees).</li>
 </ul></li>
-<li><strong>Customers</strong>:
+<li><strong>Customers:</strong>
 <ul>
 <li>Ride duration distribution is flatter and broader.</li>
 <li>Significant number of rides extend beyond 30 minutes.</li>
@@ -209,7 +209,7 @@ Ride duration distribution for customers and subscribers. Subscriber rides tend 
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
-<li><strong>Subscriber rides</strong> are likely utilitarian — such as commuting or quick errands — and are likely influenced by pricing plans that encourage shorter trips.</li>
+<li><strong>Subscriber rides</strong> are likely utilitarian—commutes or quick errands—and shaped by pricing plans that encourage shorter trips.</li>
 <li><strong>Customer rides</strong> are more exploratory or recreational, often longer and less time-sensitive.</li>
 <li>The chart highlights a fundamental behavioral difference in how the system is used by each group.</li>
 </ul>
@@ -218,40 +218,22 @@ Ride duration distribution for customers and subscribers. Subscriber rides tend 
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
 <li>Duration is measured from ride start to ride end.</li>
-<li>Rides over 200 minutes are excluded from the chart for scale clarity.</li>
-<li>The bin width used for this histogram is likely around 1 minute per bar, offering detailed resolution at shorter durations.</li>
+<li>Rides over 200 minutes are excluded for scale clarity.</li>
+<li>The bin width used here is 2 minutes, offering good resolution of short trips.</li>
 </ul>
 </section>
-<section id="data-source" class="level5">
-<h5 class="anchored" data-anchor-id="data-source">Data Source</h5>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">    (end_time - start_time) / 60.0 AS duration_min</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE user_type IN (0, 1)</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">    AND end_time &gt; start_time</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">    AND (end_time - start_time) &lt; 12000</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Disconnect</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="r-code-used-to-generate-chart" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_durations, <span class="fu">aes</span>(<span class="at">x =</span> duration_min, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ride Duration Distribution"</span>, <span class="at">x =</span> <span class="st">"Duration (minutes)"</span>, <span class="at">y =</span> <span class="st">"Ride Count"</span>) <span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"subscriber"</span> <span class="ot">=</span> <span class="st">"#1f77b4"</span>, <span class="st">"customer"</span> <span class="ot">=</span> <span class="st">"#ff7f0e"</span>)) <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span> </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_durations, <span class="fu">aes</span>(<span class="at">x =</span> duration_min, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">position =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ride Duration Distribution"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Duration (minutes)"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Ride Count"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"subscriber"</span> <span class="ot">=</span> <span class="st">"#1f77b4"</span>, <span class="st">"customer"</span> <span class="ot">=</span> <span class="st">"#ff7f0e"</span>)) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

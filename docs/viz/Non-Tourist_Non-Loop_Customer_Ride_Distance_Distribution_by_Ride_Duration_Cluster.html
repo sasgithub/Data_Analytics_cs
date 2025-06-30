@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -130,91 +165,90 @@ ul.task-list li input[type="checkbox"] {
 <figure class="float-right figure">
 <a href="../images/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" alt="Density plot showing the distribution of ride distances in kilometers for non-tourist, non-loop customer rides, grouped into Short, Medium, and Long duration clusters. Short rides peak around 1–2 km, Medium rides span 2–6 km, and Long rides extend beyond 6 km." class="figure-img"> </a>
 <figcaption>
-Ride Distance Distribution by Duration Cluster (Customer Rides Only) This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
+Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br> This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled as Short, Medium, and Long.</p>
+<p>This kernel density plot illustrates the distribution of <strong>ride distances</strong> (in kilometers) for <strong>non-tourist, non-loop customer rides</strong>, broken out by <strong>ride duration clusters</strong> labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.</p>
 </section>
-<section id="axes" class="level5">
-<h5 class="anchored" data-anchor-id="axes">Axes</h5>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
 <li><strong>X-Axis (Distance in km)</strong>:
 <ul>
 <li>Ranges from 0 to 10 km.</li>
-<li>Represents the straight-line distance from the start stations to the end stations (the minimum possilbe distatnce covered). Do not confuse this with the actual distance ridden, we have no way of knowing that from the currently available data.</li>
+<li>Represents the straight-line distance between start and end stations (minimum possible distance). Note: this is <strong>not</strong> actual path distance.</li>
 </ul></li>
 <li><strong>Y-Axis (Density)</strong>:
 <ul>
-<li>Represents the probability density of ride distances within each cluster.</li>
-<li>Higher peaks indicate more common distances in that cluster.</li>
+<li>Probability density of ride distances within each cluster.</li>
+<li>Higher peaks = more common distances.</li>
 </ul></li>
-</ul>
-</section>
-<section id="cluster-colors" class="level5">
-<h5 class="anchored" data-anchor-id="cluster-colors">Cluster Colors</h5>
+<li><strong>Cluster Colors</strong>:
 <ul>
-<li><strong>Short (Blue)</strong>:
-<ul>
-<li>Peaks sharply between 0.5–2.5 km.</li>
-<li>Characterized by high density at shorter distances and a quick drop-off after 3 km.</li>
-</ul></li>
-<li><strong>Medium (Green)</strong>:
-<ul>
-<li>Peaks broadly from ~2.5 km to 6 km.</li>
-<li>Forms a wider and flatter distribution, indicating greater variability in ride lengths.</li>
-</ul></li>
-<li><strong>Long (Red/Pink)</strong>:
-<ul>
-<li>Starts lower but maintains a relatively even presence across 3–10 km.</li>
-<li>Longest tail, with density extending up to the maximum distance shown (10 km).</li>
+<li><strong>Short (Blue)</strong> – sharp peak around 1–2 km.</li>
+<li><strong>Medium (Green)</strong> – broad distribution across ~2.5–6 km.</li>
+<li><strong>Long (Red/Pink)</strong> – flatter spread across 3–10 km.</li>
 </ul></li>
 </ul>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><strong>Short Cluster</strong>:
+<li><strong>Short rides</strong>:
 <ul>
-<li>Highest density of all clusters.</li>
-<li>Indicates that most customer rides classified as “short” are under 3 km.</li>
-<li>May reflect last-mile or station-to-neighborhood travel.</li>
+<li>Highest density overall.</li>
+<li>Strong preference for distances under 3 km.</li>
 </ul></li>
-<li><strong>Medium Cluster</strong>:
+<li><strong>Medium rides</strong>:
 <ul>
 <li>Broadest range of distances.</li>
-<li>Overlaps with both short and long clusters, suggesting transitional ride behavior.</li>
+<li>Transitional usage pattern overlapping short and long rides.</li>
 </ul></li>
-<li><strong>Long Cluster</strong>:
+<li><strong>Long rides</strong>:
 <ul>
-<li>Less frequent but not rare.</li>
-<li>Ride distances in this group begin at approximatley 1.5 km and extend up to 10 km.</li>
-<li>Possibly includes destination-oriented or special-purpose trips.</li>
+<li>Less frequent but cover widest distance range.</li>
 </ul></li>
 </ul>
 </section>
-<section id="interpretations" class="level5">
-<h5 class="anchored" data-anchor-id="interpretations">Interpretations</h5>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
-<li><strong>Behavioral Insights</strong>:
-<ul>
-<li>The sharp peak of the short cluster implies highly consistent short-distance use, likely for errands or short hops.</li>
-<li>The medium cluster suggests a flexible usage pattern, potentially including both commuting and recreational trips.</li>
-<li>Long-duration rides, although less common, cover the widest distance range, reflecting diverse travel purposes.</li>
-</ul></li>
-<li><strong>Data Characteristics</strong>:
-<ul>
-<li>Rides were filtered to exclude tourist, subscribers and loop rides, increasing the likelihood that these reflect <strong>practical</strong> customer travel behavior (e.g., commuting, errands).</li>
-<li>Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.</li>
-</ul></li>
+<li>Short-duration trips are likely local, last-mile or neighborhood errands.</li>
+<li>Medium rides reflect mixed use: commuting and recreation.</li>
+<li>Long rides are more destination-focused or leisurely.</li>
 </ul>
 </section>
 <section id="use-case" class="level5">
 <h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
-<p>This chart helps: - Understand ride behavior by duration across distance ranges. - Support clustering-based segmentation strategies. - Inform infrastructure placement, pricing models, or service design for non-tourist use cases.</p>
+<p>This chart helps: - Understand non-tourist customer ride behavior segmented by trip duration. - Support targeted strategies for operations and pricing. - Inform planning of infrastructure, such as dock placement or service areas.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).</li>
+<li><strong>Distance Calculation</strong>: Haversine distance between station coordinates.</li>
+</ul>
+<section id="r-code-used-to-generate-the-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart:</h6>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km, <span class="at">fill =</span> duration_cluster)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Short"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medium"</span> <span class="ot">=</span> <span class="st">"green"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Long"</span> <span class="ot">=</span> <span class="st">"red"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist, Non-Loop Customers Ride Distance (km) Distribution by Ride Duration Cluster"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Distance (km)"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Duration Cluster"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 </section>
 

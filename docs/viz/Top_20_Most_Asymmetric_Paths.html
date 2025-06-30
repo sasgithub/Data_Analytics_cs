@@ -128,31 +128,66 @@ ul.task-list li input[type="checkbox"] {
 <section id="top-20-most-asymmetric-paths" class="level4">
 <h4 class="anchored" data-anchor-id="top-20-most-asymmetric-paths">Top 20 Most Asymmetric Paths</h4>
 <figure class="float-right figure">
-<a href="../images/Top_20_Most_Asymmetric_Paths.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths.png" alt=" Side-by-side horizontal bar charts showing the top 20 most asymmetric bike path pairs for customers (left) and subscribers (right). Each bar represents a directional path with a high imbalance between ride counts in one direction versus the reverse." class="figure-img"> </a>
+<a href="../images/Top_20_Most_Asymmetric_Paths.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths.png" alt="Side-by-side horizontal bar charts showing the top 20 most asymmetric bike path pairs for customers (left) and subscribers (right). Each bar represents a directional path with a high imbalance between ride counts in one direction versus the reverse." class="figure-img"> </a>
 <figcaption>
 Top 20 most asymmetric ride paths by user type. Asymmetry ratio is calculated as the proportion of rides taken in one direction relative to the total rides between two stations. Distinct path preferences emerge between customers and subscribers.
 </figcaption>
 </figure>
-<section id="top-20-most-asymmetric-paths-by-user-type" class="level5">
-<h5 class="anchored" data-anchor-id="top-20-most-asymmetric-paths-by-user-type">Top 20 Most Asymmetric Paths by User Type</h5>
-<p>This side-by-side horizontal bar chart identifies the <strong>20 most directionally imbalanced ride paths</strong> (i.e., asymmetric) for each user type — <strong>customers</strong> on the left and <strong>subscribers</strong> on the right.</p>
-<section id="what-is-asymmetry" class="level6">
-<h6 class="anchored" data-anchor-id="what-is-asymmetry">What is Asymmetry?</h6>
-<p>The <strong>asymmetry ratio</strong> is defined as: &gt; rides in one direction / total rides in both directions</p>
-<p>Values closer to 1.0 indicate strong directional bias.</p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This side-by-side horizontal bar chart displays the <strong>20 most directionally imbalanced station pairs</strong> for each user type: <strong>customers</strong> and <strong>subscribers</strong>. These paths have the highest <strong>asymmetry ratios</strong>, indicating strong one-way usage patterns.</p>
 </section>
-<section id="key-observations" class="level6">
-<h6 class="anchored" data-anchor-id="key-observations">Key Observations:</h6>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><strong>Customer paths</strong> tend to involve routes to and from major downtown hubs like Canal St, Clinton St, and Wacker Dr — possibly reflecting less predictable, one-way tourist or ad hoc travel.</li>
-<li><strong>Subscriber paths</strong> are more concentrated near recreational or scenic areas like <strong>Columbus Dr</strong>, <strong>Streeter Dr</strong>, and <strong>Lake Shore Dr</strong>, hinting at commuting or habitual use involving these corridors.</li>
-<li>Subscribers’ top asymmetric paths skew toward locations like <strong>Millennium Park</strong>, <strong>McCormick Place</strong>, and <strong>DuSable Harbor</strong>, supporting recreational or last-mile transit interpretations.</li>
-<li>Despite both groups sharing some geographical overlap, their most imbalanced paths differ significantly in direction and endpoint distribution.</li>
+<li><strong>X-Axis</strong>: Asymmetry Ratio (ranging up to ~1.0).</li>
+<li><strong>Y-Axis</strong>: Station pair labels (listed within each bar).</li>
+<li><strong>Panels</strong>:
+<ul>
+<li><strong>Left</strong>: Top asymmetric paths for Customers.</li>
+<li><strong>Right</strong>: Top asymmetric paths for Subscribers.</li>
+</ul></li>
 </ul>
-<p>This visualization helps highlight the behavioral contrast in directional ride patterns between user types.</p>
-
-
 </section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li><strong>Customers</strong>:
+<ul>
+<li>Top asymmetric paths often involve major downtown locations such as Canal St, Clinton St, and Wacker Dr.</li>
+<li>Patterns likely reflect tourism, drop-offs, or infrequent return trips.</li>
+</ul></li>
+<li><strong>Subscribers</strong>:
+<ul>
+<li>Asymmetries cluster around recreational and waterfront areas such as Columbus Dr, Streeter Dr, Lake Shore Dr, Millennium Park, and McCormick Place.</li>
+<li>Patterns suggest consistent commuting or recreational flows.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li><strong>Asymmetry Ratio</strong>:
+<ul>
+<li>Defined as: &gt; rides in one direction / total rides between the two stations.</li>
+<li>Values close to <strong>1.0</strong> mean most trips occur in a single direction.</li>
+</ul></li>
+<li><strong>Behavioral Insight</strong>:
+<ul>
+<li>Customer asymmetry is oriented toward downtown ad hoc travel.</li>
+<li>Subscriber asymmetry is more tied to commuting and lakefront destinations.</li>
+</ul></li>
+<li><strong>Comparison</strong>:
+<ul>
+<li>Even when overlapping in geography, the dominant flow directions and endpoints differ between user groups.</li>
+</ul></li>
+</ul>
+</section>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
+<p>This visualization supports: - Identifying rebalancing needs. - Targeting incentive programs to encourage return trips. - Understanding travel patterns for infrastructure planning and operational improvements.</p>
+
+
 </section>
 </section>
 

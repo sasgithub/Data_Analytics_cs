@@ -203,7 +203,8 @@ Winter ridership does not drop to zero, indicating some year-round demand.</code
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p><strong>Data Source:</strong></p>
+<section id="data-source" class="level6">
+<h6 class="anchored" data-anchor-id="data-source">Data Source:</h6>
 <ul>
 <li>non_tourist_customer_rides_df</li>
 <li>Filtered to include:
@@ -212,7 +213,9 @@ Winter ridership does not drop to zero, indicating some year-round demand.</code
 <li>start_station_id in the non-tourist station list</li>
 </ul></li>
 </ul>
-<p><strong>R Code Used to Generate Chart:</strong></p>
+</section>
+<section id="r-code-used-to-generate-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> month)) <span class="sc">+</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -224,6 +227,7 @@ Winter ridership does not drop to zero, indicating some year-round demand.</code
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 </section>
 

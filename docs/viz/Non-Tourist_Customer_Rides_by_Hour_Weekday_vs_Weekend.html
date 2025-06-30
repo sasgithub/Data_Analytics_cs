@@ -225,8 +225,22 @@ Hourly comparison of customer rides by day type (weekday vs weekend) at non-tour
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p><strong>Data Sources</strong> - Data Frame: rides_by_hour_weekpart - Filters Applied: - Only customer rides (casual users) - Rides originating from non-tourist stations - Grouped by hour of day and week_part (Weekday vs Weekend)</p>
-<p><strong>R Code Used to Generate Chart:</strong></p>
+<section id="data-sources" class="level6">
+<h6 class="anchored" data-anchor-id="data-sources">Data Sources</h6>
+<ul>
+<li>Data Frame: rides_by_hour_weekpart
+<ul>
+<li>Filters Applied:
+<ul>
+<li>Only customer rides (casual users)</li>
+<li>Rides originating from non-tourist stations</li>
+<li>Grouped by hour of day and week_part (Weekday vs Weekend)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_weekpart, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(</span>
@@ -241,6 +255,7 @@ Hourly comparison of customer rides by day type (weekday vs weekend) at non-tour
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 </section>
 

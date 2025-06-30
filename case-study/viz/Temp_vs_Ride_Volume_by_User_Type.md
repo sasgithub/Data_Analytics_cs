@@ -40,14 +40,14 @@ These patterns suggest that temperature strongly influences ridership among both
   - 2023–2025 (City of Chicago Data Portal)
 - **Weather Data:** Chicago Midway Airport hourly observations via Meteostat.
 
-##### Data Preparation
+###### Data Preparation
 
 - Rides aggregated per hour and user type (`COUNT(*) AS rides`).
 - Weather joined on hourly epoch timestamp (`start_time / 3600 * 3600`).
 - No filtering by precipitation.
 - LOESS smoothing applied within each user type facet.
 
-##### R Code Used to Generate Chart:
+###### R Code Used to Generate Chart:
 
 ```R
 ggplot(rides_weather_df, aes(x = temp, y = rides)) +

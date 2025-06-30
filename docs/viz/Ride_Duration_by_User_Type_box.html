@@ -219,9 +219,8 @@ Box plot of ride durations by user type. Subscribers have shorter, more consiste
 <li>2023–2025 (City of Chicago Data Portal)</li>
 </ul></li>
 </ul>
-</section>
-<section id="data-preparation" class="level5">
-<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
+<section id="data-preparation" class="level6">
+<h6 class="anchored" data-anchor-id="data-preparation">Data Preparation</h6>
 <p><strong>SQL Query Used to Retrieve Data:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
@@ -242,6 +241,7 @@ Box plot of ride durations by user type. Subscribers have shorter, more consiste
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Disconnect</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> <span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="r-code-used-to-generate-chart" class="level6">
 <h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ride_durations, <span class="fu">aes</span>(<span class="at">x =</span> user_type, <span class="at">y =</span> duration_min, <span class="at">fill =</span> user_type)) <span class="sc">+</span></span>

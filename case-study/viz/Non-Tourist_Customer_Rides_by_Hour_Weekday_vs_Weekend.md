@@ -52,14 +52,16 @@ This visualization is designed to isolate potential **commuting or habitual usag
 - Time is derived from the local timestamp of the ride start.
 
 ##### Data & Methods
-**Data Sources**
+
+###### Data Sources
+
 - Data Frame: rides_by_hour_weekpart
   - Filters Applied:
     - Only customer rides (casual users)
     - Rides originating from non-tourist stations
     - Grouped by hour of day and week_part (Weekday vs Weekend)
 
-**R Code Used to Generate Chart:**
+###### R Code Used to Generate Chart:
 
 ```r
 ggplot(rides_by_hour_weekpart, aes(x = hour, y = ride_count, fill = week_part)) +

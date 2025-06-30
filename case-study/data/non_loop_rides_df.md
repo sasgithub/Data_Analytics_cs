@@ -2,9 +2,7 @@ Provenance for non_loop_rides_df
 🟢 1️⃣ Start with non_tourist_customer_rides_df
 
     This already had:
-
         Only customer rides
-
         Only non-tourist stations (presumably filtered upstream)
 
 🟢 2️⃣ Filter out loop rides
@@ -41,7 +39,6 @@ non_loop_rides_df <- non_loop_rides_df %>%
 ✅ Result:
 
     Added start and end lat/lon
-
     Computed haversine distance
 
 🟢 4️⃣ (Apparently rejoined different station metadata)

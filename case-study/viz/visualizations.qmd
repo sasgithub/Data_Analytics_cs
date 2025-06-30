@@ -36,7 +36,7 @@ It was created in R using Leaflet.
   <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored lines between bike stations, representing top 10 ride paths by user type">
   </a>
   <figcaption>
-  This interactive map shows the top 10 most frequently traveled station-to-station ride paths for a selected rider group—All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
+  This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
   </figcaption>
 </figure>
 
@@ -144,6 +144,8 @@ Ride behavior as it relates to temperature (and optionally precipitation).
 
 {{< include average_hourly_rides_vs_temp_2_bucket_smooth.md >}}
 
+{{< include Normalized_Avg_Hourly_Rides_vs_Temperature.md >}}
+
 
 ### ⏳ Ride Duration and Distance Distributions
 
@@ -168,8 +170,6 @@ Focused on duration, distance, and their distributions by user type or cluster.
 {{< include Non-Tourist_Customer_Distribution_Station_to_Station_Distance.md >}}
 
 {{< include Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md >}}
-
-{{< include Non-Tourist_Non_Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster_201M_Grid.md >}}
 
 {{< include Non-Tourist_Customer_Loop_Ride_Length_Distribution.md >}}
 

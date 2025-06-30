@@ -231,8 +231,18 @@ Hourly ride counts at non-tourist stations, grouped by season and separated by w
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<p>Data source: - <code>non_tourist_customer_rides_df</code> - Filtered for user_type = 1. - Filtered to non-tourist station IDs.</p>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
+<section id="data-source" class="level6">
+<h6 class="anchored" data-anchor-id="data-source">Data source:</h6>
+<ul>
+<li><code>non_tourist_customer_rides_df</code>
+<ul>
+<li>Filtered for user_type = 1.</li>
+<li>Filtered to non-tourist station IDs.</li>
+</ul></li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-the-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_by_hour_season, <span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> ride_count, <span class="at">fill =</span> week_part)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
@@ -248,6 +258,7 @@ Hourly ride counts at non-tourist stations, grouped by season and separated by w
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 </section>
 

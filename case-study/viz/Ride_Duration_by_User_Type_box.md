@@ -47,7 +47,7 @@ The data reinforces prior findings that:
   - 2013–2019 (S3 archive)
   - 2023–2025 (City of Chicago Data Portal)
 
-##### Data Preparation
+###### Data Preparation
 
 **SQL Query Used to Retrieve Data:**
 

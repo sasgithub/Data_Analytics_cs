@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -128,14 +163,62 @@ ul.task-list li input[type="checkbox"] {
 <section id="non-tourist-customer-ride-duration-for-loop-rides" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-for-loop-rides">Non-Tourist Customer Ride Duration for Loop Rides</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="Density plot showing the ride duration distribution for non-tourist loop rides by customers. A steep peak occurs at short durations under 10 minutes, with a long tapering tail up to 150 minutes." class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Ride duration density for non-tourist loop rides taken by customers. The strong concentration of short rides suggests quick, casual trips returning to the same station.
 </figcaption>
 </figure>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This density plot shows the <strong>distribution of ride lengths (in minutes)</strong> for customer rides that <strong>start and end at the same station</strong>—so-called <strong>loop rides</strong>—excluding trips involving tourist stations.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
+<ul>
+<li><strong>X-Axis:</strong> Ride Length (minutes), ranging from 0 to 150.</li>
+<li><strong>Y-Axis:</strong> Density (area under curve sums to 1).</li>
+<li><strong>Fill Color:</strong> Orange shading under the curve.</li>
+</ul>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<ul>
+<li>Clear peak between <strong>3–7 minutes</strong>, indicating many short loop trips.</li>
+<li>Steady decline in frequency as ride durations increase.</li>
+<li>Very long rides (over ~60 minutes) are rare but do exist.</li>
+</ul>
+</section>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li>The strong skew toward short rides reinforces the idea that many loop trips are <strong>quick, casual uses</strong>, possibly for errands or brief leisure.</li>
+<li>The lack of a secondary peak suggests there is not a distinct long-ride group among non-tourist customers.</li>
+</ul>
+</section>
+<section id="technical-notes" class="level5">
+<h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
+<ul>
+<li>This subset was filtered to include only <strong>loop rides</strong> (<code>start_station_id == end_station_id</code>) and to exclude known tourist stations.</li>
+<li>Durations are calculated as ride end time minus start time, expressed in minutes.</li>
+<li>Smoothed density estimation was applied rather than a histogram.</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-the-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart</h5>
+<p>Unfortunately, the exact R code could not be recovered.<br>
+However, it likely resembled:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(loop_rides_non_tourist_df, <span class="fu">aes</span>(<span class="at">x =</span> ride_length_min)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Non-Tourist Customer Ride Duration for Loop Rides"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ride Length (minutes)"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

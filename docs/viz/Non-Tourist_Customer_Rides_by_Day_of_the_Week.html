@@ -212,8 +212,8 @@ Total customer rides per day of week at non-tourist stations, highlighting the c
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
-<ul>
-<li><strong>Data Source:</strong>
+<section id="data-source" class="level6">
+<h6 class="anchored" data-anchor-id="data-source">Data Source:</h6>
 <ul>
 <li>Pre-processed dataframe <code>non_tourist_customer_rides_df</code>
 <ul>
@@ -223,9 +223,10 @@ Total customer rides per day of week at non-tourist stations, highlighting the c
 <li><code>customer</code> user type</li>
 </ul></li>
 </ul></li>
-</ul></li>
-<li><strong>R Code Used to Generate Chart:</strong></li>
 </ul>
+</section>
+<section id="r-code-used-to-generate-chart" class="level6">
+<h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> day_of_week)) <span class="sc">+</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
@@ -237,6 +238,7 @@ Total customer rides per day of week at non-tourist stations, highlighting the c
 <p><br style="clear: both;"><br></p>
 
 
+</section>
 </section>
 </section>
 

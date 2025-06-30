@@ -5,69 +5,76 @@
   <img src="../images/thumbnails/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" alt="Density plot showing the distribution of ride distances in kilometers for non-tourist, non-loop customer rides, grouped into Short, Medium, and Long duration clusters. Short rides peak around 1–2 km, Medium rides span 2–6 km, and Long rides extend beyond 6 km.">
   </a>
   <figcaption>
-   Ride Distance Distribution by Duration Cluster (Customer Rides Only)
-This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
+    Ride Distance Distribution by Duration Cluster (Customer Rides Only)<br>
+    This density plot compares ride distances for non-tourist, non-loop customer rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
   </figcaption>
 </figure>
 
 ##### Overview
-This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled as Short, Medium, and Long.
 
-##### Axes
+This kernel density plot illustrates the distribution of **ride distances** (in kilometers) for **non-tourist, non-loop customer rides**, broken out by **ride duration clusters** labeled Short, Medium, and Long. Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.
+
+##### Chart Details
 
 - **X-Axis (Distance in km)**:
   - Ranges from 0 to 10 km.
-  - Represents the straight-line distance from the start stations to the end stations (the minimum possilbe distatnce covered). Do not confuse this with the actual distance ridden, we have no way of knowing that from the currently available data.
+  - Represents the straight-line distance between start and end stations (minimum possible distance). Note: this is **not** actual path distance.
 
 - **Y-Axis (Density)**:
-  - Represents the probability density of ride distances within each cluster.
-  - Higher peaks indicate more common distances in that cluster.
+  - Probability density of ride distances within each cluster.
+  - Higher peaks = more common distances.
 
-##### Cluster Colors
-
-- **Short (Blue)**:
-  - Peaks sharply between 0.5–2.5 km.
-  - Characterized by high density at shorter distances and a quick drop-off after 3 km.
-
-- **Medium (Green)**:
-  - Peaks broadly from ~2.5 km to 6 km.
-  - Forms a wider and flatter distribution, indicating greater variability in ride lengths.
-
-- **Long (Red/Pink)**:
-  - Starts lower but maintains a relatively even presence across 3–10 km.
-  - Longest tail, with density extending up to the maximum distance shown (10 km).
+- **Cluster Colors**:
+  - **Short (Blue)** – sharp peak around 1–2 km.
+  - **Medium (Green)** – broad distribution across ~2.5–6 km.
+  - **Long (Red/Pink)** – flatter spread across 3–10 km.
 
 ##### Observations
 
-- **Short Cluster**:
-  - Highest density of all clusters.
-  - Indicates that most customer rides classified as “short” are under 3 km.
-  - May reflect last-mile or station-to-neighborhood travel.
-
-- **Medium Cluster**:
+- **Short rides**:
+  - Highest density overall.
+  - Strong preference for distances under 3 km.
+- **Medium rides**:
   - Broadest range of distances.
-  - Overlaps with both short and long clusters, suggesting transitional ride behavior.
+  - Transitional usage pattern overlapping short and long rides.
+- **Long rides**:
+  - Less frequent but cover widest distance range.
 
-- **Long Cluster**:
-  - Less frequent but not rare.
-  - Ride distances in this group begin at approximatley 1.5 km and extend up to 10 km.
-  - Possibly includes destination-oriented or special-purpose trips.
+##### Interpretation
 
-##### Interpretations
-
-- **Behavioral Insights**:
-  - The sharp peak of the short cluster implies highly consistent short-distance use, likely for errands or short hops.
-  - The medium cluster suggests a flexible usage pattern, potentially including both commuting and recreational trips.
-  - Long-duration rides, although less common, cover the widest distance range, reflecting diverse travel purposes.
-
-- **Data Characteristics**:
-  - Rides were filtered to exclude tourist, subscribers and loop rides, increasing the likelihood that these reflect **practical** customer travel behavior (e.g., commuting, errands).
-  - Clustering these customer rides by duration helps uncover distinct usage patterns — such as short errand-like trips versus longer recreational journeys — without needing to segment riders any further or rely on additional metadata.
+- Short-duration trips are likely local, last-mile or neighborhood errands.
+- Medium rides reflect mixed use: commuting and recreation.
+- Long rides are more destination-focused or leisurely.
 
 ##### Use Case
 
 This chart helps:
-- Understand ride behavior by duration across distance ranges.
-- Support clustering-based segmentation strategies.
-- Inform infrastructure placement, pricing models, or service design for non-tourist use cases.
+- Understand non-tourist customer ride behavior segmented by trip duration.
+- Support targeted strategies for operations and pricing.
+- Inform planning of infrastructure, such as dock placement or service areas.
+
+##### Data Sources
+
+- **Ride Records**: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).
+- **Distance Calculation**: Haversine distance between station coordinates.
+
+###### R Code Used to Generate the Chart:
+
+```r
+ggplot(non_loop_rides_df, aes(x = distance_km, fill = duration_cluster)) +
+  geom_density(alpha = 0.5) +
+  scale_fill_manual(values = c(
+    "Short" = "blue",
+    "Medium" = "green",
+    "Long" = "red"
+  )) +
+  labs(
+    title = "Non-Tourist, Non-Loop Customers Ride Distance (km) Distribution by Ride Duration Cluster",
+    x = "Distance (km)",
+    y = "Density",
+    fill = "Duration Cluster"
+  ) +
+  theme_minimal()
+```
+
 

@@ -36,7 +36,9 @@ This chart highlights how seasonal factors influence casual ridership, such as w
 -  Even excluding tourist hotspots, ridership in summer triples or quadruples winter levels.
 -  These patterns can inform resource allocation (e.g., rebalancing bikes) and maintenance scheduling.
 
-##### Data Source
+##### Data & Methods
+
+###### Data Source:
 
 Filtered rides from the dataset:
 -  non_tourist_customer_rides_df
@@ -44,7 +46,7 @@ Filtered rides from the dataset:
      -  user_type = customer
      -  Start station ID in non-tourist stations list
 
-##### R Code Used to Generate Chart:
+###### R Code Used to Generate Chart:
 
 ```R
 ggplot(non_tourist_customer_rides_df, aes(x = season)) +

@@ -127,9 +127,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Provenance for non_loop_rides_df 🟢 1️⃣ Start with non_tourist_customer_rides_df</p>
 <pre><code>This already had:
-
     Only customer rides
-
     Only non-tourist stations (presumably filtered upstream)</code></pre>
 <p>🟢 2️⃣ Filter out loop rides</p>
 <p>non_loop_rides_df &lt;- non_tourist_customer_rides_df %&gt;% filter(start_station_id != end_station_id)</p>
@@ -139,7 +137,6 @@ ul.task-list li input[type="checkbox"] {
 <p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% left_join( stations_df %&gt;% rename( start_station_id = station_id, start_lat = lat, start_long = long ), by = “start_station_id” ) %&gt;% left_join( stations_df %&gt;% rename( end_station_id = station_id, end_lat = lat, end_long = long ), by = “end_station_id” )</p>
 <p>✅ Result:</p>
 <pre><code>Added start and end lat/lon
-
 Computed haversine distance</code></pre>
 <p>🟢 4️⃣ (Apparently rejoined different station metadata)</p>
 <p>🟢 4️⃣ Recompute distance</p>

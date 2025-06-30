@@ -160,117 +160,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="chart-description-normalized-average-hourly-rides-vs-temperature" class="level4">
-<h4 class="anchored" data-anchor-id="chart-description-normalized-average-hourly-rides-vs-temperature">📊 Chart Description: Normalized Average Hourly Rides vs Temperature</h4>
-<figure class="chartbox figure">
-<a href="../images/Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full-sized chart"> <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius" class="figure-img"> </a>
-<figcaption class="small-caption">
+<section id="normalized-average-hourly-rides-vs-temperature" class="level4">
+<h4 class="anchored" data-anchor-id="normalized-average-hourly-rides-vs-temperature">Normalized Average Hourly Rides vs Temperature</h4>
+<figure class="float-right figure">
+<a href="../images/Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full-sized chart"> <img src="../images/thumbnails/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius." class="figure-img"> </a>
+<figcaption>
 Normalized average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C.
 </figcaption>
 </figure>
-<p>This line chart displays how bike ride frequency varies with temperature, separated by user type. The data is normalized, meaning each line ranges from 0 to 1 to emphasize the shape of the trend rather than absolute ride counts. The x-axis shows temperature in degrees Celsius, and the y-axis shows normalized average hourly rides.</p>
-<p>There are three colored lines:</p>
+<section id="overview" class="level5">
+<h5 class="anchored" data-anchor-id="overview">Overview</h5>
+<p>This line chart displays how bike ride frequency varies with temperature, separated by user type. Data is <strong>normalized</strong>, meaning each series is scaled between 0 and 1 to emphasize <strong>trend shape</strong> rather than absolute counts.</p>
+</section>
+<section id="chart-details" class="level5">
+<h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li>Dark blue line for Subscribers</li>
-<li>Dark orange line for Customers</li>
-<li>Black line for the Total (combined average)</li>
+<li><strong>X-Axis (Temperature °C):</strong>
+<ul>
+<li>Ranges approximately -10°C to +35°C.</li>
+</ul></li>
+<li><strong>Y-Axis (Normalized Average Hourly Rides):</strong>
+<ul>
+<li>Scaled 0–1 within each series.</li>
+</ul></li>
+<li><strong>Lines:</strong>
+<ul>
+<li><strong>Dark blue:</strong> Subscribers.</li>
+<li><strong>Dark orange:</strong> Customers.</li>
+<li><strong>Black:</strong> Combined total average.</li>
+</ul></li>
 </ul>
 </section>
-<section id="what-the-chart-shows" class="level4">
-<h4 class="anchored" data-anchor-id="what-the-chart-shows">📈 What the chart shows:</h4>
-<pre><code>All three lines follow a similar bell-shaped curve, indicating that ride volume increases with temperature up to a point and then declines slightly.</code></pre>
-<dl>
-<dt>Below 5°C:</dt>
-<dd>
-All lines are low. Subscribers still ride more than customers, but both are at their lowest levels.
-</dd>
-<dt>From 5°C to 25°C:</dt>
-<dd>
-All user types increase their riding sharply, with customers increasing more rapidly than subscribers.
-</dd>
-<dt>Around 25°C:</dt>
-<dd>
-The normalized ride volume peaks for all users. This temperature appears to be optimal for biking.
-</dd>
-<dt>Beyond 30°C:</dt>
-<dd>
-Ride volume begins to decline slightly, especially for customers, suggesting heat discourages casual riding more than subscriber riding.
-</dd>
-</dl>
-</section>
-<section id="comparison-by-user-type" class="level4">
-<h4 class="anchored" data-anchor-id="comparison-by-user-type">📊 Comparison by User Type:</h4>
-<pre><code>Customers (dark orange line) are more sensitive to temperature changes. They ride less in the cold and more in warm weather, but their participation falls more steeply when it's too hot.
-
-Subscribers (dark blue line) have a flatter, more stable curve, meaning their ride behavior is more consistent across a range of temperatures, likely because they are commuting or riding out of necessity.
-
-The Total line (black) always lies between the two other lines, as expected from an average.</code></pre>
-</section>
-<section id="general-observations" class="level4">
-<h4 class="anchored" data-anchor-id="general-observations">🔍 General Observations:</h4>
-<pre><code>The shape of the curves is very similar across all user types, indicating that temperature influences casual customers and subscribers in a similar way — warmer weather increases ridership for everyone.
-
-The "total" line (black) consistently lies between the customer (dark orange) and subscriber (dark blue) lines, as expected from an average or composite.</code></pre>
-</section>
-<section id="temperature-effects" class="level4">
-<h4 class="anchored" data-anchor-id="temperature-effects">🌡️ Temperature Effects:</h4>
-<dl>
-<dt>Below ~5°C (≈ 41°F):</dt>
-<dd>
-All ride volumes are low. This likely reflects discomfort, poor road conditions, or safety concerns — especially for casual riders.
-</dd>
-<dt>5°C to 25°C:</dt>
-<dd>
-Steady and significant rise in ride volume, particularly among customers. This temperature range is ideal for recreational and commuter use. It suggests good biking weather for most users.
-</dd>
-<dt>Around 25°C (~77°F):</dt>
-<dd>
-Appears to be the peak ridership temperature — the “sweet spot” for biking in Chicago (or similar climates), with maximum participation across both customer types.
-</dd>
-<dt>Above 30°C (~86°F):</dt>
-<dd>
-Slight drop-off in ride frequency, especially among casual riders, implying that excessive heat becomes a deterrent to non-essential trips. Subscribers are less affected, possibly due to commuting needs or higher tolerance.
-</dd>
-</dl>
-</section>
-<section id="behavioral-insights-celsius-context" class="level4">
-<h4 class="anchored" data-anchor-id="behavioral-insights-celsius-context">🤔 Behavioral Insights (Celsius Context):</h4>
-<p>|Temp Range (°C)|Customer Behavior|Subscriber Behavior|Interpretation| |&lt;5°C|Low ridership|Moderately low|Cold weather suppresses casual rides more strongly| |5–25°C|Steep increase|Moderate increase|Warm-up boosts ridership, especially casual use| |~25°C|Peak ridership|Near-peak|Ideal biking conditions for both groups| |&gt;30°C|Drop or plateau|Slight decline or steady|Hot weather reduces recreational riding|</p>
-<p>📊 Comparison by User Type:</p>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
 <ul>
-<li><p>Customers (dark orange line) are more sensitive to temperature changes. They ride less in the cold and more in warm weather, but their participation falls more steeply when it’s too hot.</p></li>
-<li><p>Subscribers (dark blue line) have a flatter, more stable curve, meaning their ride behavior is more consistent across a range of temperatures, likely because they are commuting or riding out of necessity.</p></li>
-<li><p>The Total line (black) always lies between the two other lines, as expected from an average.</p></li>
+<li>All series follow a <strong>bell-shaped curve</strong>, peaking near <strong>25°C (~77°F)</strong>.</li>
+<li><strong>Below 5°C:</strong>
+<ul>
+<li>All ride volume is very low.</li>
+</ul></li>
+<li><strong>5–25°C:</strong>
+<ul>
+<li>Sharp increase in ridership, especially among customers.</li>
+</ul></li>
+<li><strong>&gt;30°C:</strong>
+<ul>
+<li>Slight decline in rides, more pronounced for customers.</li>
+</ul></li>
 </ul>
 </section>
-<section id="conclusion" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion">✅ Conclusion:</h4>
-<p>Casual users are more sensitive to weather extremes, while subscribers demonstrate more consistent use—likely reflecting commute and utility rather than leisure.</p>
+<section id="interpretation" class="level5">
+<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<ul>
+<li><strong>Subscribers:</strong> More consistent usage, reflecting commuting or necessity.</li>
+<li><strong>Customers:</strong> More sensitive to temperature, showing higher warm-weather peaks and steeper hot/cold drop-offs.</li>
+<li>The normalized pattern confirms <strong>temperature is a primary driver</strong> for all user types.</li>
+</ul>
 </section>
-<section id="production-details" class="level4">
-<h4 class="anchored" data-anchor-id="production-details">Production Details</h4>
-<p>#####R source code used to produce the chart</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(normalized_df, <span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> normalized_rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Normalized Avg Hourly Rides vs Temperature"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Temperature (°F)"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="st">"Normalized Avg Hourly Rides"</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"User Type"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"subs"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"cust"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>, <span class="st">"avg"</span> <span class="ot">=</span> <span class="st">"black"</span>)) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="behavioral-insights" class="level5">
+<h5 class="anchored" data-anchor-id="behavioral-insights">Behavioral Insights</h5>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 27%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Temperature Range</th>
+<th>Customer Behavior</th>
+<th>Subscriber Behavior</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;5°C</td>
+<td>Very low ridership</td>
+<td>Moderately low</td>
+<td>Cold strongly suppresses casual rides</td>
+</tr>
+<tr class="even">
+<td>5–25°C</td>
+<td>Steep increase</td>
+<td>Moderate increase</td>
+<td>Warmer weather encourages use</td>
+</tr>
+<tr class="odd">
+<td>~25°C</td>
+<td>Peak ridership</td>
+<td>Near-peak</td>
+<td>Ideal riding conditions</td>
+</tr>
+<tr class="even">
+<td>30-25°C</td>
+<td>Decline</td>
+<td>Slight increase</td>
+<td>Heat discourages casual trips</td>
+</tr>
+<tr class="odd">
+<td>&gt;35°C</td>
+<td>Sharp Decline</td>
+<td>Sharp Decline</td>
+<td>Extreme heat discourages all trips</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="data-source" class="level3">
-<h3 class="anchored" data-anchor-id="data-source">Data Source</h3>
-<p><strong>R Code Used to Generate the Chart:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> avg_df  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"/data/temp_vs_rides_avg.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Normalize each column to 0-1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> normalized_df <span class="ot">&lt;-</span> avg_df <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(subs, cust, avg), <span class="sc">~</span> (. <span class="sc">-</span> <span class="fu">min</span>(.)) <span class="sc">/</span> (<span class="fu">max</span>(.) <span class="sc">-</span> <span class="fu">min</span>(.)))) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(subs, cust, avg), <span class="at">names_to =</span> <span class="st">"user_type"</span>, <span class="at">values_to =</span> <span class="st">"normalized_rides"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="use-case" class="level5">
+<h5 class="anchored" data-anchor-id="use-case">Use Case</h5>
+<p>This visualization is useful for: - Understanding seasonal ride patterns. - Modeling demand sensitivity to weather. - Designing promotions and fleet strategies.</p>
+</section>
+<section id="data-sources" class="level5">
+<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
+<ul>
+<li><strong>Ride Counts:</strong> Aggregated hourly ride counts per user type.</li>
+<li><strong>Temperature:</strong> Hourly observations joined on timestamp.</li>
+<li><strong>Normalization:</strong> Each series scaled to [0–1].</li>
+</ul>
+</section>
+<section id="r-code-used-to-generate-the-chart" class="level5">
+<h5 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart:</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(normalized_df, <span class="fu">aes</span>(<span class="at">x =</span> temp_bin, <span class="at">y =</span> normalized_rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Normalized Avg Hourly Rides vs Temperature"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature (°C)"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Normalized Avg Hourly Rides"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"User Type"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"subs"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"cust"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>, <span class="st">"avg"</span> <span class="ot">=</span> <span class="st">"black"</span>)) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
