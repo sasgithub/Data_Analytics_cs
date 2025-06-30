@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Hourly_Rides_vs_Temp.svg" alt="Line chart showing total hourly rides plotted against temperature in 2°C increments. Separate lines for Total rides, Subscribers, and Customers show ridership increasing steadily to a peak near 26°C, then declining at higher temperatures.">
+  <img src="../images/Hourly_Rides_vs_Temp.svg" alt="Line chart showing total hourly rides plotted against temperature in 2°C increments. Separate lines for Total rides, Subscribers, and Customers show ridership increasing steadily to a peak near 26°C, then declining at higher temperatures.">
   </a>
   <figcaption>
   Hourly ride counts by temperature bin, with separate curves for Total, Subscriber, and Customer rides. Warmer temperatures strongly correlate with increased bike usage, especially among Customers.

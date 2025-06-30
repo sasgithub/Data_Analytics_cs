@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_by_User_Type_box.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Ride_Duration_by_User_Type_box.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Ride_Duration_by_User_Type_box.png" alt="Box plot comparing ride durations for subscribers and customers. Subscribers have a tighter interquartile range and lower median duration, while customers show a wider spread with longer outliers.">
   </a>
   <figcaption>
     Box plot of ride durations by user type. Subscribers have shorter, more consistent trips, while customers exhibit longer and more variable ride times.

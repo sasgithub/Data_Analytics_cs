@@ -2,10 +2,10 @@
 
 <figure class="float-right">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="ALT_TEXT">
+  <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bucket and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures.">
   </a>
   <figcaption>
-  FIGCAPTION
+  Average hourly rides by temperature bucket and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
   </figcaption>
 </figure>
 

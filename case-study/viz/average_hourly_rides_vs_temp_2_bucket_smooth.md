@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures.">
+  <img src="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures.">
   </a>
   <figcaption>
   Average hourly ride volume by temperature (2°C buckets) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.

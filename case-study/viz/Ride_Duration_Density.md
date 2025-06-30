@@ -2,10 +2,10 @@
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Ride_Duration_Density.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for customers and subscribers. Subscriber rides show a sharp peak near 10 minutes, while customer rides have a broader, flatter distribution.">
   </a>
   <figcaption>
-  FIGCAPTION
+    Density plot of ride durations by user type. Subscribers tend to take shorter trips, while customers have more varied and longer rides.
   </figcaption>
 </figure>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>hourly_ride_volume_vs_temperature – Bike share case-study</title>
+<title>rides_weather – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -160,76 +125,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="hourly-ride-volume-vs-temperature" class="level4">
-<h4 class="anchored" data-anchor-id="hourly-ride-volume-vs-temperature">Hourly Ride Volume vs Temperature</h4>
-<figure class="float-right figure">
-<a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
-<figcaption>
-<span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
-</figcaption>
-</figure>
-<section id="overview" class="level5">
-<h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p><span id="glossary-LOESS">LOESS</span>-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.</p>
-<ul>
-<li><strong>X-Axis:</strong> Air temperature in °C.</li>
-<li><strong>Y-Axis:</strong> Number of rides per hour.</li>
-<li><strong>Lines:</strong> <span id="glossary-LOESS">LOESS</span> smooth for each user type.
-<ul>
-<li><strong>Blue:</strong> Subscribers.</li>
-<li><strong>Red:</strong> Customers.</li>
-</ul></li>
-</ul>
-</section>
-<section id="observations" class="level5">
-<h5 class="anchored" data-anchor-id="observations">Observations</h5>
-<ul>
-<li>Ride counts rise with temperature from below 0°C through the 20s.</li>
-<li>Unlike binned histograms, no clear decline is visible above ~30°C.</li>
-<li>Customer volume grows faster with temperature than subscriber volume.</li>
-</ul>
-</section>
-<section id="interpretation" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
-<p>The continuous <span id="glossary-LOESS">LOESS</span> smoothing aggregates all hours (including some without rides), potentially obscuring the decline at extreme temperatures seen in binned charts. This chart reflects the <em>overall association</em> between hourly temperatures and ridership, rather than the distribution of rides alone.</p>
-</section>
-<section id="data-sources" class="level5">
-<h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
-<ul>
-<li><strong>Trip Data:</strong> Divvy trip records from:
-<ul>
-<li>2013–2019 (S3 archive)</li>
-<li>2023–2025 (City of Chicago Data Portal)</li>
-</ul></li>
-<li><strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</li>
-</ul>
-</section>
-<section id="data-preparation" class="level5">
-<h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
-<ul>
-<li>Rides aggregated per hour and user type (<code>COUNT(*) AS rides</code>).</li>
-<li>Weather joined on hourly epoch timestamp (<code>start_time / 3600 * 3600</code>).</li>
-<li>No filter applied to exclude zero-ride hours (i.e., hours with no rides are included as 0).</li>
-<li>Used as input to <span id="glossary-LOESS">LOESS</span> smoothing, resulting in a different trend shape compared to temperature bin summaries.</li>
-</ul>
-</section>
-<section id="r-code-used-to-generate-chart" class="level5">
-<h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rides_weather_df, <span class="fu">aes</span>(<span class="at">x =</span> temp, <span class="at">y =</span> rides, <span class="at">color =</span> user_type)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">scale_cut =</span> <span class="fu">cut_short_scale</span>())) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"subscriber"</span> <span class="ot">=</span> <span class="st">"blue"</span>, <span class="st">"customer"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Hourly Ride Volume vs Temperature"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Temperature (°C)"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Hourly Ride Volume"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"User Type"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br style="clear: both;"><br></p>
+<section id="creation" class="level3">
+<h3 class="anchored" data-anchor-id="creation">Creation</h3>
+<p>REATE VIEW rides_weather AS SELECT w.epoch AS epoch, – seconds since 1970‑01‑01 UTC r.user_type, COALESCE(r.rides, 0) AS rides, – 0 if no trips that hour w.temp, w.dwpt, w.rhum, w.prcp, w.wdir, w.wspd, w.coco FROM hourly_weather AS w LEFT JOIN rides_per_hour AS r ON r.epoch = w.epoch</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
