@@ -12,9 +12,9 @@ This page presents visualizations from the case study. Visuals are grouped into 
 
 ---
 
-## 📈 Interactive Visuals
+## Interactive Visuals
 
-### 🚴 Top Stations Map (Leaflet)
+### Top Stations Map (Leaflet)
 
 <figure class="float-right">
   <a href="../Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
@@ -29,7 +29,7 @@ This interactive map of the top 50 stations includes the top 50 stations by numb
 
 It was created in R using Leaflet.
 
-###  Tableau Sheets
+### Tableau Sheets
 
 <figure class="float-right">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization">
@@ -100,9 +100,9 @@ This visualization reveals important asymmetries in how ride paths are used:
 -   Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
 -   Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.
 
-## 🖼️ Static Visualizations
+## Static Visualizations
 
-### ⏰ Temporal Patterns
+### Temporal Patterns
 
 Rides analyzed across time dimensions like hour, day, month, or season.
 
@@ -124,7 +124,7 @@ Rides analyzed across time dimensions like hour, day, month, or season.
 
 {{< include Difference_in_Ride_Proportions_Weekday-Weekend.md >}}
 
-### 🌡️ Temperature and Weather Effects
+### Temperature and Weather Effects
 
 Ride behavior as it relates to temperature (and optionally precipitation).
 
@@ -147,7 +147,7 @@ Ride behavior as it relates to temperature (and optionally precipitation).
 {{< include Normalized_Avg_Hourly_Rides_vs_Temperature.md >}}
 
 
-### ⏳ Ride Duration and Distance Distributions
+### Ride Duration and Distance Distributions
 
 Focused on duration, distance, and their distributions by user type or cluster.
 
@@ -173,7 +173,7 @@ Focused on duration, distance, and their distributions by user type or cluster.
 
 {{< include Non-Tourist_Customer_Loop_Ride_Length_Distribution.md >}}
 
-### 🗺️ Spatial Patterns
+### Spatial Patterns
 
 This section presents spatial insights into non-tourist customer rides, highlighting both where trips originate and terminate (station popularity) and how far riders typically travel between stations. Together, these views illustrate usage density and trip distances across the system.
 
@@ -189,7 +189,7 @@ Insights about bikes themselves and system-level metrics.
 
 {{< include bike_ride_bucket_histogram.md >}}
 
-### 🔄 Route Asymmetry
+### Route Asymmetry
 
 Where paths are not balanced in both directions by user type.
 
@@ -198,7 +198,7 @@ Where paths are not balanced in both directions by user type.
 {{< include Top_20_Most_Asymmetric_Paths_by_User_Type.md >}}
 
 
-## 🖥️ ScreenShots
+## ScreenShots
 
 {{< include Divvy_Stations_in_QGIS.md >}}
 
