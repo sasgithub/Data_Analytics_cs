@@ -29,3 +29,11 @@ pre.sourceCode.gnuplot {
   padding: 0.75em;
   border-radius: 4px;
 }
+
+/* Fix contrast to pass WCAG AA. */
+blockquote p,
+blockquote p strong,
+figcaption {
+  color: #6b7884 !important;
+}
+
