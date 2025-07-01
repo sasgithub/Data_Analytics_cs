@@ -27,9 +27,10 @@ This multi-panel grouped bar chart compares **hourly ride activity** across the 
 ##### Purpose
 
 The visualization aims to:
-- Quantify the impact of **seasonal changes** on ridership volume.
-- Identify **daily commute-like patterns** even among non-subscribers.
-- Highlight how weekends differ from weekdays in temporal distribution.
+
+-   Quantify the impact of **seasonal changes** on ridership volume.
+-   Identify **daily commute-like patterns** even among non-subscribers.
+-   Highlight how weekends differ from weekdays in temporal distribution.
 
 ##### Observations
 

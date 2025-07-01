@@ -32,11 +32,9 @@ This visualization is intended to illustrate seasonal variation in usage, exclud
 
 ##### Interpretation
 
-    The clear summer peak suggests that casual riders strongly prefer warm-weather months.
-
-    The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.
-
-    Winter ridership does not drop to zero, indicating some year-round demand.
+-  The clear summer peak suggests that casual riders strongly prefer warm-weather months.
+-  The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.
+-  Winter ridership does not drop to zero, indicating some year-round demand.
 
 ##### Data & Methods
 

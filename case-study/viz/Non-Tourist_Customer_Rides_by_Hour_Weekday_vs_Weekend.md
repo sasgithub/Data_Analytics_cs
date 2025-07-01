@@ -47,7 +47,7 @@ This visualization is designed to isolate potential **commuting or habitual usag
 ##### Technical Notes
 
 - Ride records are filtered to include only those starting at **non-tourist stations**.
-- Users included are labeled as `customer` (i.e., non-subscribers).
+- Users included are labeled as `Customers` (i.e., non-subscribers).
 - “Weekday” includes Monday through Friday; “Weekend” includes Saturday and Sunday.
 - Time is derived from the local timestamp of the ride start.
 

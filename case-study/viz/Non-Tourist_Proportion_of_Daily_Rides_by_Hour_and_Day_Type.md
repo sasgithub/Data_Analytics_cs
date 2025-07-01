@@ -43,10 +43,11 @@ This heatmap shows the **hourly share of total daily rides** for non-tourist cus
 
 ##### Use Case
 
-This chart can help:
-- Model hourly demand by day type.
-- Optimize fleet distribution and availability during peak periods.
-- Inform marketing or pricing strategies aligned to usage timing.
+This chart can help
+
+-   Model hourly demand by day type.
+-   Optimize fleet distribution and availability during peak periods.
+-   Inform marketing or pricing strategies aligned to usage timing.
 
 ##### Data Sources
 

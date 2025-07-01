@@ -54,7 +54,7 @@ This visualization highlights differences in spatial behavior between groups:
 - Customers tend to use routes near the lakefront and popular tourist zones.
 - Subscribers favor more distributed, commuter-oriented paths.
 
-“Station usage differs substantially by rider type, bu not in the expected way.”
+“Station usage differs substantially by rider type, but not in the expected way.”
 
 <figure class="float-right">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization">
@@ -86,8 +86,8 @@ This view emphasizes which ride paths are dominated by Subscribers (often commut
 #### Sheet 3: Subscriber Ratio Distribution by Path (Histogram)
 
 This histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.
--  The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.
 
+-  The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.
 -  Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).
 
 The chart can be sorted by:

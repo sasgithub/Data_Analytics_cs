@@ -195,11 +195,11 @@ Monthly distribution of customer rides at non-tourist stations, illustrating cle
 </section>
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
-<pre><code>The clear summer peak suggests that casual riders strongly prefer warm-weather months.
-
-The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.
-
-Winter ridership does not drop to zero, indicating some year-round demand.</code></pre>
+<ul>
+<li>The clear summer peak suggests that casual riders strongly prefer warm-weather months.</li>
+<li>The exclusion of tourist stations reinforces that these are local usage patterns, not driven primarily by visitors.</li>
+<li>Winter ridership does not drop to zero, indicating some year-round demand.</li>
+</ul>
 </section>
 <section id="data-methods" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h5>
@@ -216,14 +216,14 @@ Winter ridership does not drop to zero, indicating some year-round demand.</code
 </section>
 <section id="r-code-used-to-generate-chart" class="level6">
 <h6 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h6>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> month)) <span class="sc">+</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Rides by Month"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Month"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_tourist_customer_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> month)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">labs</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">title =</span> <span class="st">"Non-Tourist Customer Rides by Month"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Month"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Number of Rides"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     ) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br style="clear: both;"><br></p>
 
 

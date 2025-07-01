@@ -13,9 +13,10 @@ format: html
 # How Does a Bike-Share Navigate Speedy Success?
 
 This project began as the capstone case study for the [Google Data Analytics Certificate](https://www.coursera.org/professional-certificates/google-data-analytics), which presents a fictional company named **Cyclistic**. The business goal:  
+
 **Determine how casual riders and annual members use Cyclistic bikes differently and identify strategies to convert more casual users into annual members.**
 
-To bring this scenario into the real world, I extended the analysis using **actual Divvy bike-share data** from the City of Chicago, covering rides from 2013 through early 2025. I also incorporated **hourly weather data** and **geospatial analysis** to enhance the depth and utility of the findings.
+To bring this scenario into the real world, I extended the analysis using **Divvy bike-share data** from the City of Chicago, covering rides from 2013 through early 2025, rather than just a single year. I also incorporated **hourly weather data** and **geospatial analysis** to enhance the depth and utility of the findings.
 
 ---
 
@@ -24,7 +25,7 @@ To bring this scenario into the real world, I extended the analysis using **actu
 This project satisfies the requirements of the Google Data Analytics capstone while also serving as a portfolio piece demonstrating:
 
 - Independent sourcing and integration of multi-year real-world data
-- Use of tools beyond the course scope (e.g., SQLite, Leaflet, Tableau, shell scripting)
+- Use of tools beyond the course scope (e.g., SQLite, Leaflet, Quarto, shell scripting, Python)
 - Realistic data cleaning, transformation, and exploratory analysis
 
 The fictional business challenge of **Cyclistic** is explored through the lens of actual **Divvy** usage patterns.
@@ -33,7 +34,7 @@ The fictional business challenge of **Cyclistic** is explored through the lens o
 
 ## Business Task
 
-How do casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?
+How do [Customers](glossary.qmd) (casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?
 
 ## Data Sources
 
@@ -41,7 +42,7 @@ The analysis is based on the following datasets:
 
 - Divvy Bike Trip Data (2013–2025)[^note1] : This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal.  The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive .  Please note, rides from the time period of the COVID-19 Pandemic are not included.
 - Chicago Weather Data (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns.
-- Tourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Willis Tower) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.
+- Tourist Attractions Dataset (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Lincoln Park Zoo) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.
 
 ### Attribution
 - City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data
@@ -49,7 +50,7 @@ The analysis is based on the following datasets:
 - Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
 - Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.
 
-[^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that date is not representative of normal bike usage.
+[^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
 
 ---
 
@@ -59,9 +60,80 @@ The analysis is based on the following datasets:
 
 ## Summary of Findings
 
+High level overview;
+  
+
+  Two types of recommendations
+  1  Actions to take based on the limited information we have now.
+  2  Actions to enhance the information collection system
+
+Here's an example of the first case.
+  The main goal is to get more subscribers, one way (presumably) is targeted advertising, but with the de-identified information we have now that's difficult, we don't have contact info, we don't have demographics, what we do have is some knowledge about where people who use the system are. They are at the stations. We know which stations have a high number of subscriber and a high number of customers. Sense the customers are viewed as the pool from which most new subscribers will come it makes sense to spend our limit advertising budget where there are a high number of customer. There are stations that are very popular with subscribers (more than 90% of the rides from those stations are by subscribers) but those are not a good target as there are not enough customers to see the adds and subscribe to make it worthwhile. There are currently stations with a very high percentage of customer rides, but perhaps there is a good reason subscribe rides are low there (tourism perhaps). Which means it not worthwhile to try and recruit subscribers there either. So we concentrate on the most popular combined use stations, not sure if that means putting up fliers there, signage, or boots on the ground trying to sign up customers.
+
+Here is the second case.
+  If we got access to actual identifying information for customers we could identify customers who's usage pattern already demonstrates activity that identifies them as likely subscribers (perhaps it might even save them money). So the collection of identifying information should begin immediately because with it all kind of options for analysis and advertising open up that are currently unavailable.
+
+There are of course lots of other things which I'll just briefly list;
+  Bike tracking - currently we have only a start and end station where the bike actually goes is unknown. Tracking devices are getting cheaper ever day.
+  Lunch and Ride - There are a lot of rides midday. Is that office workers looking for a quick ride for exercise on there lunch break? Let's find out, no let's encourage it.
+  Last mile commuters - All the big commuter terminals should be viewed as a recruiting ground for subscribers. Why walk the rest of the way to work when you could ride. Save your cab money for when the weather is bad.
+
+Maybe this is enough to get the ball rolling.
+
+  
+
+ 
 ---
 
 ## Implications and Recommendations
+
+
+### Recommendations 
+  
+### Rider Differentiation
+Currently, with the available data, there is no way to differentiate individual riders. So there is no way to compile the following information;
+-  Frequency and Recency
+   - Do riders ride daily, weekly, or sporadically?
+   - How does frequency change over seasons or years?
+   - What sort of usage pattern leads to churns (stops riding) and when?
+
+-  Rider Lifecycle
+   -  Time between rides.
+   -  How patterns evolve (e.g., do weekend riders turn into commuters).
+
+-  Retention and Cohort Analysis
+   -  How long do riders stay active?
+   -  How do retention curves differ by membership type, or initial riding habits?
+
+-  Ride type Segmentation
+   -  Detect mixed behaviors (someone commuting and recreating).
+   -  Cluster riders based on temporal patterns (e.g., M-F rush hour vs. weekends).
+   -  Track how these patterns shift (do weekend riders become weekday commuters?).  
+
+  So getting access to information to identify individual riders will allow for a much clearer model of the system to be built.
+
+### Rider Identification
+Like with rider differentiation there is currently no way to identify individual riders, so there is now way to do any of the following (presumably, identity would include some contact info);
+
+-   Pricing and Subscription Impact
+    *  See how price changes affect the riding frequency of individual users
+    *  Who downgrades or upgrades memberships?
+    *  See how free-ride promotions or loyalty rewards affect long-term behavior?
+
+-   Equity and Demographics (if linked to identity)  
+    *  Demographic usage patterns (age, gender) across time.
+    *  Disparities in access (income, neighborhood).
+    *  Tailoring outreach to underrepresented groups.
+
+-   Rider Safety and Risk Profiling      
+    *  Individuals involved in repeat incidents (e.g., crashes).
+    *  Correlation between riding style (speed, trip length) and safety events.
+    *  Custom interventions for high-risk riders.
+
+-   Churn Prediction and Proactive Retention
+    *  Build predictive models: “Which users are at high risk of quitting?”
+    *  Trigger targeted interventions before churn happens.
+    *  Quantify which factors (weather, pricing, station closures) drive individuals away.  
 
 ---
 
