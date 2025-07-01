@@ -39,6 +39,7 @@ This chart shows the **20 most directionally imbalanced station pairs** for cust
 ##### Use Case
 
 Supports:
+
 - Rebalancing plans.
 - Infrastructure decisions.
 - Targeted marketing to address directional demand.

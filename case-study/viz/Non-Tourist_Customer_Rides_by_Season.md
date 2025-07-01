@@ -41,6 +41,7 @@ This chart highlights how seasonal factors influence casual ridership, such as w
 ###### Data Source:
 
 Filtered rides from the dataset:
+
 -  non_tourist_customer_rides_df
   -  Filters Applied:
      -  user_type = customer

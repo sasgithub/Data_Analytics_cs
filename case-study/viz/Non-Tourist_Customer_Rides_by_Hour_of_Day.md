@@ -35,8 +35,10 @@ To identify when non-tourist customer rides occur most frequently and to reveal 
 ##### Interpretation
 
 The clear peak around **5 PM** suggests:
-- After-work recreation or errands.
+
+- After work recreation or errands.
 - Possible casual commuting behavior.
+
 The modest morning volume and sustained midday usage indicate that, while some rides may be utilitarian, many are likely discretionary trips by locals.
 
 ##### Technical Notes
