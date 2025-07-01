@@ -49,6 +49,7 @@ This kernel density plot illustrates the distribution of **ride distances** (in 
 ##### Use Case
 
 This chart helps:
+
 - Understand non-tourist customer ride behavior segmented by trip duration.
 - Support targeted strategies for operations and pricing.
 - Inform planning of infrastructure, such as dock placement or service areas.

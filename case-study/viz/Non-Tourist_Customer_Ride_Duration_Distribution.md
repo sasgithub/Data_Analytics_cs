@@ -36,6 +36,7 @@ This histogram depicts the **distribution of ride durations** (in minutes) for c
 ##### Use Case
 
 This chart is helpful for:
+
 - Informing policies about time-based pricing tiers.
 - Understanding baseline trip durations among casual riders.
 - Supporting planning of rebalancing or maintenance cycles.

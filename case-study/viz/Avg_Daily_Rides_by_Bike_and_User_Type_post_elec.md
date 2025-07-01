@@ -61,6 +61,7 @@ This bar chart displays the **average number of daily rides** by **bike type**, 
 ##### Use Case
 
 This visualization supports:
+
 - Infrastructure planning (e.g., expansion of electric charging or docking stations),
 - Marketing strategy (targeting modal preferences by user type),
 - Evaluating post-launch success of electric mobility options.

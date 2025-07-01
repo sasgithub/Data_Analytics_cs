@@ -45,6 +45,7 @@ This side-by-side horizontal bar chart displays the **20 most directionally imba
 ##### Use Case
 
 This visualization supports:
+
 - Identifying rebalancing needs.
 - Targeting incentive programs to encourage return trips.
 - Understanding travel patterns for infrastructure planning and operational improvements.
