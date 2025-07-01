@@ -38,6 +38,7 @@ This box plot compares the **distribution of ride durations** between subscriber
 ##### Interpretation
 
 The data reinforces prior findings that:
+
 - **Subscribers** ride mainly for commuting or quick tasks, resulting in shorter, predictable durations.
 - **Customers** tend to use bikes more recreationally, leading to longer, less consistent trips.
 

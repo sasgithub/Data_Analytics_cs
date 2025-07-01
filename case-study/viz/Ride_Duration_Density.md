@@ -36,6 +36,7 @@ This density plot visualizes the **distribution of ride durations** for customer
 ##### Interpretation
 
 The contrasting shapes highlight different usage patterns:
+
 - **Subscribers** prioritize efficiency and short trips, likely influenced by pricing incentives and commute needs.
 - **Customers** are more likely to take longer rides with varied trip purposes.
 

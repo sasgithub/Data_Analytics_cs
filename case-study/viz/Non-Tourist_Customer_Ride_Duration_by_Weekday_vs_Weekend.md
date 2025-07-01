@@ -38,6 +38,7 @@ This kernel density plot compares **ride durations (in minutes)** for non-touris
 ##### Use Case
 
 This chart can be applied to:
+
 - Demand modeling and pricing strategies sensitive to day type.
 - User segmentation based on duration patterns.
 - Planning operational resources around expected trip lengths.

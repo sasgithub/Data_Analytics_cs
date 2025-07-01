@@ -56,6 +56,7 @@ This line chart panel shows the total ride volume across 2°C temperature bins, 
 ##### Use Case
 
 This visualization helps:
+
 - Quantify the impact of weather on bike share demand.
 - Support decisions around dynamic pricing, rebalancing, or user alerts based on forecasted weather.
 - Segment usage patterns based on environmental conditions, without requiring detailed user data beyond type.

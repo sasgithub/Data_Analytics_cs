@@ -53,6 +53,7 @@ This line chart displays how bike ride frequency varies with temperature, separa
 ##### Use Case
 
 This visualization is useful for:
+
 - Understanding seasonal ride patterns.
 - Modeling demand sensitivity to weather.
 - Designing promotions and fleet strategies.

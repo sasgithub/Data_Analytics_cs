@@ -35,6 +35,7 @@ This density plot illustrates the **distribution of ride durations** (in minutes
 ##### Use Case
 
 This visualization is useful for:
+
 - Understanding the central tendency and spread of ride lengths.
 - Supporting decisions about pricing (e.g., time-based fees).
 - Tailoring operational planning for short-trip dominance among customer riders.
