@@ -50,7 +50,7 @@ Below is the SQL command used to prepare the dataset:
 .mode tabs
 .output temp_vs_rides.tsv
 
-WITH binned AS (                          -- 2 °C comfort‑oriented buckets
+WITH binned AS (                          -- 2 °C comfort‑oriented bins
     SELECT
         CAST(temp / 2.0 AS INT) * 2              AS temp_bin,         -- –10,‑8,…,34
         r.user_type,

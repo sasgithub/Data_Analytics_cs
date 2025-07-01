@@ -1,11 +1,11 @@
-#### Average Hourly Rides vs Temperature (2° Buckets with Cubic Spline Interpolation)
+#### Average Hourly Rides vs Temperature (2° Bins with Cubic Spline Interpolation)
 
 <figure class="float-right">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures.">
   </a>
   <figcaption>
-  Average hourly ride volume by temperature (2°C buckets) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
+  Average hourly ride volume by temperature (2°C bin) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
   </figcaption>
 </figure>
 
@@ -16,7 +16,7 @@ This chart presents the **average number of hourly bike rides** as a function of
 
 - **X-Axis**: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.
 - **Y-Axis**: Average hourly ride count.
-- **Line**: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and bucketed by temperature.
+- **Line**: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and binned by temperature.
 
 ##### Purpose
 This visualization illustrates how temperature alone affects overall ridership behavior, independent of time of day, day of week, or rider category.
@@ -37,7 +37,7 @@ This visualization illustrates how temperature alone affects overall ridership b
 ##### Technical Notes
 
 - Rides were grouped into **2°C increments** based on the temperature at ride start times.
-- The “2-bucket” term refers to this binning, which reduces noise by aggregating similar readings.
+- The “2-bin” term refers to this binning, which reduces noise by aggregating similar readings.
 - The curve was further smoothed using **cubic spline interpolation**, creating a continuous line that passes through the averaged data points.
 
 ##### Data Sources
@@ -54,7 +54,7 @@ This visualization illustrates how temperature alone affects overall ridership b
 .output temp_vs_rides.dat
 WITH t AS (
   SELECT
-    CAST(temp / 2.0 AS INT)*2  AS temp_bin,   -- 2 °C buckets: …, 14, 16, 18 …
+    CAST(temp / 2.0 AS INT)*2  AS temp_bin,   -- 2 °C bin: …, 14, 16, 18 …
     AVG(rides)                 AS avg_rides
   FROM rides_weather
   GROUP BY temp_bin

@@ -1,21 +1,21 @@
-#### Total Hourly Rides vs Temperature by User Type (2°C Buckets)
+#### Total Hourly Rides vs Temperature by User Type (2°C Bins)
 
 <figure class="float-right">
   <a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bucket, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts.">
+  <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bin, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts.">
   </a>
   <figcaption>
-  Total hourly rides by temperature bucket (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
+  Total hourly rides by temperature bin (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This chart shows how total rides vary with temperature, split between **Subscribers** and **Customers**. Ride counts are aggregated by temperature buckets, offering a side-by-side view of weather sensitivity by user group.
+This chart shows how total rides vary with temperature, split between **Subscribers** and **Customers**. Ride counts are aggregated by temperature bins, offering a side-by-side view of weather sensitivity by user group.
 
 ##### Chart Details
 
-- **X-Axis**: Temperature in degrees Celsius, grouped into 2°C buckets.
+- **X-Axis**: Temperature in degrees Celsius, grouped into 2°C bins.
 - **Y-Axis**: Total number of rides aggregated per hourly bin across the dataset.
 - **Lines**:
   - **Subscribers**: Typically exhibit a sharper peak in moderate temperature ranges.
@@ -45,7 +45,7 @@ The visualization helps compare how different user types respond to temperature 
 
 ##### Technical Notes
 
-- Temperatures are binned into 2°C increments based on conditions at the start of each ride.
+- Temperatures are binned in 2°C increments based on conditions at the start of each ride.
 - Rides were grouped and summed by user type for each temperature bin, then aggregated hourly.
 
 <br style="clear: both;"></br>

@@ -160,12 +160,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="average-hourly-rides-vs-temperature-2-buckets" class="level4">
-<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</h4>
+<section id="average-hourly-rides-vs-temperature-2-bins" class="level4">
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-bins">Average Hourly Rides vs Temperature (2° Bins)</h4>
 <figure class="float-right figure">
-<a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bucket and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures." class="figure-img"> </a>
+<a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bin and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures." class="figure-img"> </a>
 <figcaption>
-Average hourly rides by temperature bucket and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
+Average hourly rides by temperature bin and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
@@ -177,7 +177,7 @@ Average hourly rides by temperature bucket and user type. Both subscribers and c
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
-<li><strong>Line</strong>: A single curve showing average ride volume across all users, bucketed by temperature.</li>
+<li><strong>Line</strong>: A single curve showing average ride volume across all users, binned by temperature.</li>
 </ul>
 </section>
 <section id="purpose" class="level5">
@@ -204,15 +204,15 @@ Average hourly rides by temperature bucket and user type. Both subscribers and c
 <section id="technical-notes" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
-<li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
-<li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
+<li>Rides are put into bins with 2°C increments based on the temperature at ride start times.</li>
+<li>The “2-bin” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span>          <span class="co">-- we only want raw numbers</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs            <span class="co">-- gnuplot likes tab‑ or space‑separated columns</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.dat</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C buckets: …, 14, 16, 18 …</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>

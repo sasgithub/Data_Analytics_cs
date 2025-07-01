@@ -17,7 +17,7 @@ This line chart shows the **total number of rides** grouped into **2°C temperat
 
 - **X-Axis (Temperature in °C, binned)**:
   - Ranges from approximately –25°C to +35°C.
-  - Each point represents a 2-degree bucket of hourly temperatures.
+  - Each point represents a 2-degree bin of hourly temperatures.
 
 - **Y-Axis (Total Rides)**:
   - Ranges from 0 to over 3 million rides per bin.

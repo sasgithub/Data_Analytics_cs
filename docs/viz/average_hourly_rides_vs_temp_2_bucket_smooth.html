@@ -160,12 +160,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" class="level4">
-<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with Cubic Spline Interpolation)</h4>
+<section id="average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation" class="level4">
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Bins with Cubic Spline Interpolation)</h4>
 <figure class="float-right figure">
 <a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures." class="figure-img"> </a>
 <figcaption>
-Average hourly ride volume by temperature (2°C buckets) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
+Average hourly ride volume by temperature (2°C bin) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
@@ -177,7 +177,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
-<li><strong>Line</strong>: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and bucketed by temperature.</li>
+<li><strong>Line</strong>: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and binned by temperature.</li>
 </ul>
 </section>
 <section id="purpose" class="level5">
@@ -205,7 +205,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
 <li>Rides were grouped into <strong>2°C increments</strong> based on the temperature at ride start times.</li>
-<li>The “2-bucket” term refers to this binning, which reduces noise by aggregating similar readings.</li>
+<li>The “2-bin” term refers to this binning, which reduces noise by aggregating similar readings.</li>
 <li>The curve was further smoothed using <strong>cubic spline interpolation</strong>, creating a continuous line that passes through the averaged data points.</li>
 </ul>
 </section>
@@ -223,7 +223,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.dat</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C buckets: …, 14, 16, 18 …</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C bin: …, 14, 16, 18 …</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>

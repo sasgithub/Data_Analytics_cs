@@ -125,22 +125,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets" class="level4">
-<h4 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets">Total Hourly Rides vs Temperature by User Type (2°C Buckets)</h4>
+<section id="total-hourly-rides-vs-temperature-by-user-type-2c-bins" class="level4">
+<h4 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-by-user-type-2c-bins">Total Hourly Rides vs Temperature by User Type (2°C Bins)</h4>
 <figure class="float-right figure">
-<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bucket, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts." class="figure-img"> </a>
+<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bin, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts." class="figure-img"> </a>
 <figcaption>
-Total hourly rides by temperature bucket (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
+Total hourly rides by temperature bin (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This chart shows how total rides vary with temperature, split between <strong>Subscribers</strong> and <strong>Customers</strong>. Ride counts are aggregated by temperature buckets, offering a side-by-side view of weather sensitivity by user group.</p>
+<p>This chart shows how total rides vary with temperature, split between <strong>Subscribers</strong> and <strong>Customers</strong>. Ride counts are aggregated by temperature bins, offering a side-by-side view of weather sensitivity by user group.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
 <ul>
-<li><strong>X-Axis</strong>: Temperature in degrees Celsius, grouped into 2°C buckets.</li>
+<li><strong>X-Axis</strong>: Temperature in degrees Celsius, grouped into 2°C bins.</li>
 <li><strong>Y-Axis</strong>: Total number of rides aggregated per hourly bin across the dataset.</li>
 <li><strong>Lines</strong>:
 <ul>
@@ -181,7 +181,7 @@ Total hourly rides by temperature bucket (2°C), separated by user type. Subscri
 <section id="technical-notes" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes">Technical Notes</h5>
 <ul>
-<li>Temperatures are binned into 2°C increments based on conditions at the start of each ride.</li>
+<li>Temperatures are binned in 2°C increments based on conditions at the start of each ride.</li>
 <li>Rides were grouped and summed by user type for each temperature bin, then aggregated hourly.</li>
 </ul>
 <p><br style="clear: both;"><br></p>

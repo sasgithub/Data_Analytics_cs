@@ -189,9 +189,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#frequency-of-temperature-bins" id="toc-frequency-of-temperature-bins" class="nav-link" data-scroll-target="#frequency-of-temperature-bins">Frequency of Temperature Bins</a></li>
   <li><a href="#ride-volume-by-temperature-and-precipitation" id="toc-ride-volume-by-temperature-and-precipitation" class="nav-link" data-scroll-target="#ride-volume-by-temperature-and-precipitation">Ride Volume by Temperature and Precipitation</a></li>
   <li><a href="#temperature-vs-ride-volume-by-user-type" id="toc-temperature-vs-ride-volume-by-user-type" class="nav-link" data-scroll-target="#temperature-vs-ride-volume-by-user-type">Temperature vs Ride Volume by User Type</a></li>
-  <li><a href="#total-hourly-rides-vs-temperature-by-user-type-2c-buckets" id="toc-total-hourly-rides-vs-temperature-by-user-type-2c-buckets" class="nav-link" data-scroll-target="#total-hourly-rides-vs-temperature-by-user-type-2c-buckets">Total Hourly Rides vs Temperature by User Type (2°C Buckets)</a></li>
-  <li><a href="#average-hourly-rides-vs-temperature-2-buckets" id="toc-average-hourly-rides-vs-temperature-2-buckets" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</a></li>
-  <li><a href="#average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" id="toc-average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with Cubic Spline Interpolation)</a></li>
+  <li><a href="#total-hourly-rides-vs-temperature-by-user-type-2c-bins" id="toc-total-hourly-rides-vs-temperature-by-user-type-2c-bins" class="nav-link" data-scroll-target="#total-hourly-rides-vs-temperature-by-user-type-2c-bins">Total Hourly Rides vs Temperature by User Type (2°C Bins)</a></li>
+  <li><a href="#average-hourly-rides-vs-temperature-2-bins" id="toc-average-hourly-rides-vs-temperature-2-bins" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-bins">Average Hourly Rides vs Temperature (2° Bins)</a></li>
+  <li><a href="#average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation" id="toc-average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation" class="nav-link" data-scroll-target="#average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Bins with Cubic Spline Interpolation)</a></li>
   <li><a href="#normalized-average-hourly-rides-vs-temperature" id="toc-normalized-average-hourly-rides-vs-temperature" class="nav-link" data-scroll-target="#normalized-average-hourly-rides-vs-temperature">Normalized Average Hourly Rides vs Temperature</a></li>
   </ul></li>
   <li><a href="#ride-duration-and-distance-distributions" id="toc-ride-duration-and-distance-distributions" class="nav-link" data-scroll-target="#ride-duration-and-distance-distributions">Ride Duration and Distance Distributions</a>
@@ -1153,7 +1153,7 @@ Hourly ride counts by temperature bin, with separate curves for Total, Subscribe
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.tsv</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (                          <span class="co">-- 2 °C comfort‑oriented buckets</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (                          <span class="co">-- 2 °C comfort‑oriented bins</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span>              <span class="kw">AS</span> temp_bin,         <span class="co">-- –10,‑8,…,34</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
@@ -1526,22 +1526,22 @@ Hourly ride volume by temperature, faceted by user type. Warmer temperatures cor
 </section>
 </section>
 </section>
-<section id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets" class="level4">
-<h4 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-by-user-type-2c-buckets">Total Hourly Rides vs Temperature by User Type (2°C Buckets)</h4>
+<section id="total-hourly-rides-vs-temperature-by-user-type-2c-bins" class="level4">
+<h4 class="anchored" data-anchor-id="total-hourly-rides-vs-temperature-by-user-type-2c-bins">Total Hourly Rides vs Temperature by User Type (2°C Bins)</h4>
 <figure class="float-right figure">
-<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bucket, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts." class="figure-img"> </a>
+<a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bin, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts." class="figure-img"> </a>
 <figcaption>
-Total hourly rides by temperature bucket (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
+Total hourly rides by temperature bin (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
 </figcaption>
 </figure>
 <section id="overview-13" class="level5">
 <h5 class="anchored" data-anchor-id="overview-13">Overview</h5>
-<p>This chart shows how total rides vary with temperature, split between <strong>Subscribers</strong> and <strong>Customers</strong>. Ride counts are aggregated by temperature buckets, offering a side-by-side view of weather sensitivity by user group.</p>
+<p>This chart shows how total rides vary with temperature, split between <strong>Subscribers</strong> and <strong>Customers</strong>. Ride counts are aggregated by temperature bins, offering a side-by-side view of weather sensitivity by user group.</p>
 </section>
 <section id="chart-details-12" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details-12">Chart Details</h5>
 <ul>
-<li><strong>X-Axis</strong>: Temperature in degrees Celsius, grouped into 2°C buckets.</li>
+<li><strong>X-Axis</strong>: Temperature in degrees Celsius, grouped into 2°C bins.</li>
 <li><strong>Y-Axis</strong>: Total number of rides aggregated per hourly bin across the dataset.</li>
 <li><strong>Lines</strong>:
 <ul>
@@ -1582,18 +1582,18 @@ Total hourly rides by temperature bucket (2°C), separated by user type. Subscri
 <section id="technical-notes-5" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes-5">Technical Notes</h5>
 <ul>
-<li>Temperatures are binned into 2°C increments based on conditions at the start of each ride.</li>
+<li>Temperatures are binned in 2°C increments based on conditions at the start of each ride.</li>
 <li>Rides were grouped and summed by user type for each temperature bin, then aggregated hourly.</li>
 </ul>
 <p><br style="clear: both;"><br></p>
 </section>
 </section>
-<section id="average-hourly-rides-vs-temperature-2-buckets" class="level4">
-<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets">Average Hourly Rides vs Temperature (2° Buckets)</h4>
+<section id="average-hourly-rides-vs-temperature-2-bins" class="level4">
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-bins">Average Hourly Rides vs Temperature (2° Bins)</h4>
 <figure class="float-right figure">
-<a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bucket and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures." class="figure-img"> </a>
+<a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bin and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures." class="figure-img"> </a>
 <figcaption>
-Average hourly rides by temperature bucket and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
+Average hourly rides by temperature bin and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
 </figcaption>
 </figure>
 <section id="overview-14" class="level5">
@@ -1605,7 +1605,7 @@ Average hourly rides by temperature bucket and user type. Both subscribers and c
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
-<li><strong>Line</strong>: A single curve showing average ride volume across all users, bucketed by temperature.</li>
+<li><strong>Line</strong>: A single curve showing average ride volume across all users, binned by temperature.</li>
 </ul>
 </section>
 <section id="purpose-8" class="level5">
@@ -1632,15 +1632,15 @@ Average hourly rides by temperature bucket and user type. Both subscribers and c
 <section id="technical-notes-6" class="level5">
 <h5 class="anchored" data-anchor-id="technical-notes-6">Technical Notes</h5>
 <ul>
-<li>Rides are put into bucked with 2°C increments based on the temperature at ride start times.</li>
-<li>The “2-bucket” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
+<li>Rides are put into bins with 2°C increments based on the temperature at ride start times.</li>
+<li>The “2-bin” term refers to the fact that the temperatures readings were grouped into bins of 2°C. Binning is a form of data smoothing applied to reduce noise.</li>
 </ul>
 <div class="sourceCode" id="cb16"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span>          <span class="co">-- we only want raw numbers</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs            <span class="co">-- gnuplot likes tab‑ or space‑separated columns</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.dat</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C buckets: …, 14, 16, 18 …</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
@@ -1662,12 +1662,12 @@ set key off
 plot "temp_vs_rides.dat" using 1:2 with linespoints lw 2 pt 7</code></pre>
 </section>
 </section>
-<section id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation" class="level4">
-<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-buckets-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Buckets with Cubic Spline Interpolation)</h4>
+<section id="average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation" class="level4">
+<h4 class="anchored" data-anchor-id="average-hourly-rides-vs-temperature-2-bins-with-cubic-spline-interpolation">Average Hourly Rides vs Temperature (2° Bins with Cubic Spline Interpolation)</h4>
 <figure class="float-right figure">
 <a href="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" target="_blank" title="Select image to open full sized chart"> <img src="../images/average_hourly_rides_vs_temp_2_bucket_smooth.svg" alt="Line chart showing average hourly bike rides by temperature, with cubic spline smoothing applied to highlight the trend. Rides increase steadily with temperature up to about 25°C and decline at higher temperatures." class="figure-img"> </a>
 <figcaption>
-Average hourly ride volume by temperature (2°C buckets) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
+Average hourly ride volume by temperature (2°C bin) with cubic spline interpolation to highlight overall trends in ridership as temperatures rise and fall.
 </figcaption>
 </figure>
 <section id="overview-15" class="level5">
@@ -1679,7 +1679,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <ul>
 <li><strong>X-Axis</strong>: Temperature in degrees Celsius, ranging from below -10°C to above 35°C.</li>
 <li><strong>Y-Axis</strong>: Average hourly ride count.</li>
-<li><strong>Line</strong>: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and bucketed by temperature.</li>
+<li><strong>Line</strong>: A single curve showing average ride volume across all users, smoothed with cubic spline interpolation and binned by temperature.</li>
 </ul>
 </section>
 <section id="purpose-9" class="level5">
@@ -1707,7 +1707,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <h5 class="anchored" data-anchor-id="technical-notes-7">Technical Notes</h5>
 <ul>
 <li>Rides were grouped into <strong>2°C increments</strong> based on the temperature at ride start times.</li>
-<li>The “2-bucket” term refers to this binning, which reduces noise by aggregating similar readings.</li>
+<li>The “2-bin” term refers to this binning, which reduces noise by aggregating similar readings.</li>
 <li>The curve was further smoothed using <strong>cubic spline interpolation</strong>, creating a continuous line that passes through the averaged data points.</li>
 </ul>
 </section>
@@ -1725,7 +1725,7 @@ Average hourly ride volume by temperature (2°C buckets) with cubic spline inter
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides.dat</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C buckets: …, 14, 16, 18 …</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C bin: …, 14, 16, 18 …</span></span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
@@ -3148,7 +3148,7 @@ Distribution of total ride counts per bike across the fleet, highlighting underu
 </figure>
 <section id="overview-32" class="level5">
 <h5 class="anchored" data-anchor-id="overview-32">Overview</h5>
-<p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
+<p>This histogram visualizes the distribution of <strong>total ride counts per bike</strong>, grouped into bins of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset’s timespan.</p>
 </section>
 <section id="axes" class="level5">
 <h5 class="anchored" data-anchor-id="axes">Axes</h5>

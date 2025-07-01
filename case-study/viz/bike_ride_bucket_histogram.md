@@ -10,7 +10,7 @@
 </figure>
 
 ##### Overview
-This histogram visualizes the distribution of **total ride counts per bike**, grouped into buckets of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset's timespan.
+This histogram visualizes the distribution of **total ride counts per bike**, grouped into bins of 100 rides each. It provides insight into how evenly or unevenly individual bikes are used over the dataset's timespan.
 
 ##### Axes
 
