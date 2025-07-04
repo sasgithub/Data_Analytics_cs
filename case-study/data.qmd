@@ -1,5 +1,5 @@
 ---
-title: "📦 Data Sources and Cleaning"
+title: "Data Sources and Cleaning"
 format: html
 ---
 
@@ -7,15 +7,16 @@ format: html
 I'm actively building out my case study as part of the Google Data Analytics Capstone.  
 Full write-up, code, and visualizations will be available soon!
 
-## 🗂️ Overview
+## Overview
 
 This project integrates and analyzes Divvy bike-share trip data, station data, and Chicago weather data. The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data.
 
 ---
 
-## 📦 Data Sources
+## Data Source
 
 - **Divvy Trip Data**: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
+- ** Divvy Station Data**: [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data_preview)
 - **Weather Data**: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
 - **Tourist Stations**: Custom dataset created from Google Maps lat/Long queries
 
@@ -23,7 +24,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
 ---
 
-## 🚟️ Ride Data Cleaning
+## Ride Data Cleaning
 
 1. **Removed pandemic-period rides:**
 
@@ -78,7 +79,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
    * Some station data was manually extracted from Excel, then converted to CSV for uniform processing.
 
-## ☁️ Weather Data Cleaning
+##  Weather Data Cleaning
 
 1. **Selected Midway Airport station (72534):**
 
@@ -92,7 +93,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
    * Combined `date` and `hour` fields into datetime, then converted to UNIX epoch to align with ride timestamps.
 
-## 💡 Notes
+## Notes
 
 * All transformations were tracked in versioned scripts and logged in `logs/workLog.md`.
 * Weather data cleaning steps were scripted in `src/load_weather.R`.
@@ -101,7 +102,7 @@ See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.h
 
 ---
 
-## 📋 License
+## License
 
 Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](Legal/City_of_Chicago_disclaimer.txt).
 

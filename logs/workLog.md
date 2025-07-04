@@ -5,7 +5,7 @@ I started off by looking at
 
 A lot of data there, at least to store on my laptop. I started off just
 downloading and examining the first file. An unzip -l let me see it's
-just a CSV file and what I assume is the resource fork. I'm using Linux
+just a CSV file and what I assume is the [resource fork](../glossary.qmd#glossary-resource-fork). I'm using Linux
 so I don't care about the resource fork so I extracted it with unzip.
 
 Examining the file I see the first line list the field names, they are
@@ -647,6 +647,7 @@ into the database, throwing away any fields we don't want to use.
 CSV files provided through the Meteostat bulk data interface use commas
 as separators. Each file provides the following columns:
 
+```text
   ---- ------ -------------------------------------------- ---------
   1    date   The date string (format: YYYY-MM-DD)         String
   2    hour   The hour (UTC)                               Integer
@@ -662,6 +663,7 @@ as separators. Each file provides the following columns:
   12   tsun   The one hour sunshine total in minutes (m)   Integer
   13   coco   The weather condition code                   Integer
   ---- ------ -------------------------------------------- ---------
+```
 
 More information on the data formats and weather condition codes (COCO)
 is available [here](https://dev.meteostat.net/formats.html) and included
@@ -670,6 +672,7 @@ below;.
 Weather conditions are indicated by an integer value between 1 and 27
 according to this list:
 
+```text
   ---- ---------------------
   1    Clear
   2    Fair
@@ -699,6 +702,7 @@ according to this list:
   26   Heavy Thunderstorm
   27   Storm
   ---- ---------------------
+```
 
 The data from Midway contains no entries for snow, peak wind gust or
 total sunsine (minutes). So we can drop those columns. Also most people
@@ -717,7 +721,7 @@ it will allow for easy joins and faster comparisons. Also the Midway
 data did not contain any column headings, so we'll add them since it's
 easier than adding them later in R.
 
-```R
+```r
 > df <- read.csv("/home/sas/classes/Google/data-analytics/data/midway_weather.csv", stringsAsFac
 tors = FALSE)
 > head(df)
@@ -778,7 +782,7 @@ tors = FALSE)
 ```
 Now we'll create a table for this data in SQLite
 
-```R
+```r
 > install.packages("RSQLite")
 > con <- dbConnect(RSQLite::SQLite(), "/home/sas/classes/Google/data-analytics/data/caseStudy.db")
 > dbExecute(con, "
@@ -805,7 +809,7 @@ Now it's time for some weather. First off it would be nice if the rides
 were broken down by hour like the weather data. So let's create a view
 that does that.
 
-```SQL
+```sql
 CREATE VIEW rides_per_hour AS
 SELECT
   CAST((start_time / 3600) * 3600 AS INTEGER) AS epoch, -- start of hour 
@@ -822,7 +826,7 @@ GROUP BY epoch, user_type;
 Now we can create a table with one entry per hour that joins rides and
 weather
 
-```SQL
+```sql
 CREATE TABLE rides_per_hour_tbl AS
 SELECT
   CAST((start_time / 3600) * 3600 AS INTEGER) AS epoch,
@@ -837,14 +841,14 @@ GROUP BY epoch, user_type;
 Let's create an index so we don't have divide by 3600 for every row
 every time
 
-```SQL
+```sql
 CREATE INDEX idx_rides_per_hour_epoch
   ON rides_per_hour_tbl(epoch, user_type);
 ```
 
 Now we'll add a view that joins with the weather data
 
-```SQL
+```sql
 CREATE VIEW rides_weather AS
 SELECT
   w.epoch                          AS epoch,        -- seconds since 1970‑01‑01 UTC
@@ -865,7 +869,7 @@ LEFT JOIN rides_per_hour AS r
 Now we'll do some **data integrity checks **first we'll look for time
 travelers
 
-```SQL
+```sql
 select count(\*) from rides where start_time \> end_time;
 ```
 190
@@ -873,13 +877,13 @@ select count(\*) from rides where start_time \> end_time;
 Cyclistic has a strict no time travel policy to avoid any paradoxes that
 might arise, so we'll drop those rows
 
-```SQL
+```sql
 delete from riders where start_time > end_time;
 ```
 
 Next up those zero length rides
 
-```SQL
+```sql
 select count(*) from rides where start_time = end_time and
 start_station_id = end_station_id;
 ```
@@ -888,14 +892,14 @@ start_station_id = end_station_id;
 If they took no time and went nowhere that shouldn't count as a ride...
 so
 
-```SQL
+```sql
 delete from rides where start_time = end_time and start_station_id =
 end_station_id;
 ```
 
 Where there any that took no time, but did go somewhere?
 
-```SQL
+```sql
 select count(*) from rides where start_time = end_time and
 start_station_id <> end_station_id;
 ```
@@ -905,7 +909,7 @@ To go somewhere in zero time implies teleportation and Cyclistic has a
 rule against using it's bikes for teleportation. In any event
 teleportation does not count as a ride
 
-```SQL
+```sql
 delete from rides where start_time = end_time and start_station_id \<\>
 end_station_id;
 ```
@@ -914,12 +918,12 @@ We could look at conflicts where a bike is in use on more than one ride
 at the same time, but that query is harry, given there are more than 28
 million rows with a non null bike_id and 6526 unique bike_id's.
 
-```SQL
+```sql
 select count(*) from rides where bike_id <> '';
 ```
 20080691
 
-```SQL
+```sql
 SELECT COUNT(DISTINCT bike_id) AS unique_bikes FROM rides;
 ```
 6526
@@ -928,14 +932,14 @@ So I think as a compromise we'll grab a small sample of bikes and check
 them for conflicts. I think doing just one should let us get an idea of
 how long this will take and how big a sample we can use.
 
-```SQL
+```sql
 select bike_id from rides where bike_id <> '' order by random() limit 1;
 ```
 2311
 
 Yea, yea, it's not random but good enough for a test.
 
-```SQL
+```sql
 SELECT a.ride_id AS ride_a,
        b.ride_id AS ride_b,
        a.start_time AS start_a,
@@ -950,6 +954,7 @@ JOIN rides b
  AND a.start_time < b.end_time
 WHERE a.bike_id = '2311' limit 10;
 ```
+
 ```text
 rride_a  ride_b  start_a     end_a       start_b     end_b     
 ------  ------  ----------  ----------  ----------  ----------
@@ -958,9 +963,10 @@ rride_a  ride_b  start_a     end_a       start_b     end_b
 
 Well that looks suspiciously like a duplicate
 
-```SQL
+```sql
 select \* from rides where ride_id = 19178 or ride_id = 20842;
 ```
+
 ```text
 ride_id  bike_type  bike_id  start_time  end_time    start_station_id  end_station_id  user_type  gender  birth_year
 -------  ---------  -------  ----------  ----------  ----------------  --------------  ---------  ------  ----------
@@ -979,11 +985,12 @@ cp caseStudy.db caseStudy_backup.db
 
 Now let's take a look at just how many duplicates there are
 
-```SQL
+```sql
 SELECT count(\*) FROM rides WHERE rowid NOT IN (
 SELECT MIN(rowid) FROM rides GROUP BY bike_id, start_time, end_time
 ) ;
 ```
+
 ```text
 count(*)
 --------
@@ -992,7 +999,7 @@ count(*)
 
 Well that's not too bad out of more than 28 million rows.
 
-```SQL
+```sql
 delete
 FROM rides
 WHERE rowid NOT IN (
@@ -1004,6 +1011,7 @@ GROUP BY bike_id, start_time, end_time
 ```bash
 sqlite > select count(*) from rides;
 ```
+
 ```text
 count(*)
 --------
@@ -1012,7 +1020,7 @@ count(*)
 
 So now back to looking at rides on a bike that have overlapping times
 
-```SQL
+```sql
 SELECT a.ride_id AS ride_a,
        b.ride_id AS ride_b,
        a.start_time AS start_a,
@@ -1026,6 +1034,7 @@ JOIN rides b
  AND a.end_time > b.start_time
  AND a.start_time < b.end_time limit 10;
 ```
+
 ```text
 ride_a  ride_b  start_a     end_a       start_b     end_b     
 ------  ------  ----------  ----------  ----------  ----------
@@ -1043,7 +1052,7 @@ ride_a  ride_b  start_a     end_a       start_b     end_b
 
 Cleaning that up a bit
 
-```SQL
+```sql
 select ride_id, bike_id as bike, start_time, end_time, start_station_id as start, end_station_id as end from rider_readable where ride_id in (38307, 38341, 70772, 71240, 72510, 72511, 96565, 96570, 96571, 96573, 96574);
 ```
 ```text
@@ -1066,14 +1075,14 @@ We've got a couple of 1 minute rides that didn't go anywhere and a 2
 minute ride that didn't go anywhere. Those don't sound like successful
 rides, so off then go
 
-```SQL
+``sql
 delete from rides where ride_id in (38307, 38341, 71240);
 ```
 
 We've got a 10 minute and an 11 minute ride with the same bike between
 the same stations. We'll keep the one with the smallest ride_id
 
-```SQL
+```sql
 delete from rides where ride_id = 72511;
 ```
 
@@ -1081,14 +1090,14 @@ Now we have 5 rides that start within 4 minutes and end within 2 minutes
 of each other and use the same bike between the same stations. So again
 we keep the one with the smallest ride_id
 
-```SQL
+```sql
 delete from rides where ride_id in (96570, 96571, 96573, 96574);
 ```
 
 Let's take a look at the breakdown of rides between subscribers and
 casual riders
 
-```SQL
+```sql
 SELECT user_type, COUNT(*) AS Rides
 FROM rides
 GROUP BY user_type;
@@ -1104,7 +1113,7 @@ user_type  Rides
 We need to investigate those 194 who aren't subscribers or causal
 riders.
 
-```SQL
+```sql
 select count(*) from rides where user_type IS NULL;
 ```
 ```text
@@ -1116,7 +1125,7 @@ count(*)
 So they are all NULL. They won't be any use in determining how
 subscribers and casual riders differ, so we'll go ahead and drop these.
 
-```SQL
+```sql
 delete from rides where user_type IS NULL;
 ```
 
@@ -1125,7 +1134,7 @@ delete from rides where user_type IS NULL;
 We'll start by looking at record counts of all the tables. First we'll
 run a query to generate the SQL statement for all that tables.
 
-```SQL
+```sql
 SELECT 
   'SELECT ''' || name || ''' AS table_name, COUNT(*) AS row_count FROM "' || name || '"' || 
   ' UNION ALL '
@@ -1142,12 +1151,13 @@ SELECT 'rides_per_hour_tbl' AS table_name, COUNT(*) AS row_count FROM "rides_per
 We need to trim that "UNION ALL" off the last line. Then we just run the
 query
 
-```SQL
+```sql
 SELECT 'stations' AS table_name, COUNT(*) AS row_count FROM "stations" UNION ALL 
 SELECT 'rides' AS table_name, COUNT(*) AS row_count FROM "rides" UNION ALL 
 SELECT 'hourly_weather' AS table_name, COUNT(*) AS row_count FROM "hourly_weather" UNION ALL 
 SELECT 'rides_per_hour_tbl' AS table_name, COUNT(*) AS row_count FROM "rides_per_hour_tbl" ;
 ```
+
 ```text
 table_name          row_count
 ------------------  ---------
@@ -1159,9 +1169,10 @@ rides_per_hour_tbl  139994
 
 Getting the MAX ride times for subscribers and customers
 
-```SQL
+```sql
 select ride_id, max(end_time-start_time), user_type from rides group by user_type; 
 ```
+
 ```text
 ride_id   max(end_time-start_time)  user_type
 --------  ------------------------  ---------
@@ -1172,9 +1183,10 @@ ride_id   max(end_time-start_time)  user_type
 That's a long time, I hope those bikes have comfortable seats. I wonder
 how many of these long rides there are?
 
-```SQL
+```sql
 select count(*) as longer_than_a_month, user_type from rides where end_time-start_time > 2592000 group by user_type; 
 ```
+
 ```text
 longer_than_a_month  user_type
 -------------------  ---------
@@ -1184,10 +1196,11 @@ longer_than_a_month  user_type
 
 OK, it wasn't a month it was 30 days ... how about a week
 
-```SQL
+```sql
 select count(*) as longer_than_a_week, user_type from rides where
 end_time-start_time > 604800 group by user_type; 
 ```
+
 ```text
 longer_than_a_week  user_type
 ------------------  ---------
@@ -1197,9 +1210,10 @@ longer_than_a_week  user_type
 
 Longer than a day
 
-```SQL
+```sql
 select count(*) as longer_than_a_day, user_type from rides where end_time-start_time > 604800 group by user_type; 
 ```
+
 ```text
 longer_than_a_day  user_type
 -----------------  ---------
@@ -1213,7 +1227,7 @@ it's better to just make sure we exclude them from any queries where
 they may skew the results. Like what we're looking at next, the average
 ride length
 
-```SQL
+```sql
 SELECT
   CASE user_type
        WHEN 0 THEN 'subscriber'
@@ -1225,6 +1239,7 @@ FROM rides where end_time - start_time < 86400
 GROUP BY user_type
 ORDER BY user_type; 
 ```
+
 ```text
 user_type   avg_seconds  avg_minutes
 ----------  -----------  -----------
@@ -1235,7 +1250,7 @@ subscriber  730.9        12.2
 So customer's rides are a little less than 3 times longer than
 subscriber's rides. I wonder what that looks like broken out by weekdays
 
-```SQL
+```sql
 SELECT
   /* translate user_type codes just like in rider_readable */
   CASE user_type
@@ -1261,6 +1276,7 @@ FROM rides  where end_time - start_time < 86400
 GROUP BY user_type, weekday
 ORDER BY user_type, weekday_num; 
 ```
+
 ```text
 user_type   weekday_num  weekday  avg_seconds  avg_minutes
 ----------  -----------  -------  -----------  -----------
@@ -1287,7 +1303,7 @@ on the weekends. Oh well, follow the data.
 
 Now let's see who's taking those midnight rides
 
-```SQL
+```sql
 SELECT
   /* translate the user‑type codes */
   CASE user_type
@@ -1303,6 +1319,7 @@ FROM rides
 GROUP BY user_type, hour_of_day
 ORDER BY user_type, hour_of_day;        -- keeps 00→23 order
 ```
+
 ```text
 user_type   hour_of_day  ride_count
 ----------  -----------  ----------
@@ -1361,7 +1378,7 @@ the middle of the night. Don't forget these times of UTC.
 
 Let's look at the breakdown of the number of rides by weekday
 
-```SQL
+```sql
 SELECT 
   CASE strftime('%w', start_time, 'unixepoch')
     WHEN '0' THEN 'Sun'
@@ -1380,6 +1397,7 @@ GROUP BY
 ORDER BY 
   strftime('%w', start_time, 'unixepoch'); --ensures proper weekday order
 ```  
+
 ```text
 weekday  ride_count
 -------  ----------
@@ -1394,7 +1412,7 @@ Sat      4052638
 
 Then we should also have a look the number of rides by months
 
-```SQL
+```sql
 SELECT 
   CASE strftime('%m', start_time, 'unixepoch')
     WHEN '01' THEN 'Jan'
@@ -1418,6 +1436,7 @@ GROUP BY
 ORDER BY 
   strftime('%m', start_time, 'unixepoch'); --ensures proper month order
 ```  
+
 ```text
 weekday  ride_count
 -------  ----------
@@ -1446,10 +1465,12 @@ awk -F',' 'NR==1 {
   print $4 "," $5 "," $6 "," $7 "," $8 "," $9 "," path_id;
 }' station_pairs.csv > reshaped_pairs.csv
 ```
+
 ```bash
 sqlite3 caseStudy.db < asymmetry.sql > asymmetry.out
 ```
-```R
+
+```r
 > library(ggplot2)
 > library(dplyr)
 
@@ -1509,7 +1530,7 @@ dbl (5): count_ab, count_ba, diff, total, asymmetry_ratio
 +     )
 ```
 
-```R
+```r
 > library(DBI)
 > library(RSQLite)
 > library(dplyr)
@@ -1704,9 +1725,11 @@ Removed 2 rows containing non-finite outside the scale range
 +         opacity = 1
 +     )
 > 
+```
 
 We’ll take a look at how e-bikes have affected ride duration.
 
+```r
 > post_electric_rides_df <- dbGetQuery(con, "SELECT
 +   DATE(start_time, 'unixepoch') AS ride_date,
 +   user_type,
@@ -1786,7 +1809,7 @@ So I manually collected 24 tourist attractions GPS coordinate from
 Google Maps and we'll use those to cull the stations for the next steps
 in the analysis.
 
-```R
+```r
 > library(geosphere)
 > stations_df <- dbGetQuery(con, "SELECT station_id, name, latitude AS lat, longitude AS long FROM stations")
 > attractions_df <- read.csv("/home/sas/classes/Google/data-analytics/data/tourist_attractions.csv", stringsAsFactors = FALSE)
@@ -1810,13 +1833,13 @@ in the analysis.
 
 Combine the nearby stations into a dataframe
 
-```R
+```r
 > nearby_stations_df <- bind_rows(nearby_stations_list)
 ```
 
 Exclude These from the Full Stations List
 
-```R
+```r
 > 
 > stations_non_tourist_df <- stations_df %>%
 +     filter(!(name %in% nearby_stations_df$name))
@@ -1827,7 +1850,7 @@ Now we'll create an SQL statement to select rides between non-tourist
 stations for customers, but let's get a count first to see if R can
 handle that much data.
 
-```R
+```r
 > station_ids_sql <- paste(sprintf("%s", stations_non_tourist_df$station_id), collapse = ", ")
 > 
 > count_query <- sprintf("
@@ -1846,7 +1869,7 @@ handle that much data.
 That's probably at the limit for R Studio on my laptop, so we'll take
 the safe route and try just rides after the introduction of e-bikes
 
-```R
+```r
 > 
 > station_ids_sql <- paste(sprintf("%s", stations_non_tourist_df$station_id), collapse = ", ")
 > 
@@ -1866,7 +1889,7 @@ the safe route and try just rides after the introduction of e-bikes
 
 That's manageable.
 
-```R
+```r
 > ride_query <- sprintf("
 +   SELECT
 +     ride_id,
@@ -1886,7 +1909,7 @@ That's manageable.
 > 
 ```
 
-```R
+```r
 > library(tidyr)
 > 
 > # Combine start and end stations into one column and count
@@ -1919,7 +1942,7 @@ That's manageable.
 
 We'll need some names for these stations
 
-```R
+```r
 > station_counts <- bind_rows(
 +     non_tourist_customer_rides_df %>% select(station_id = start_station_id),
 +     non_tourist_customer_rides_df %>% select(station_id = end_station_id)
@@ -1970,7 +1993,7 @@ smart for it's own good. There is a real problem though, Streeter Dr &
 Grand Ave is a big tourist area near Navy Pier. Unfortunately not near
 enough.
 
-```R
+```r
 > 
 > library(geosphere)
 > distances <- distHaversine(
@@ -1995,7 +2018,7 @@ enough.
 Since the aim is to exclude tourist we'll have to recalculate the
 non-tourist stations with a bigger radius, say 600.
 
-```R
+```r
 > find_nearby_stations <- function(attraction, stations, radius = 600) {
 +     print(attraction)  # or print(attraction[c("long", "lat")])
 +     
@@ -2023,7 +2046,7 @@ non-tourist stations with a bigger radius, say 600.
 
 Well that didn't seem to work
 
-```R
+```r
 > nearby_stations_df <- bind_rows(nearby_stations_list)
 > attractions_df <- attractions_df %>%
 +     mutate(attraction_id = row_number())
@@ -2199,7 +2222,7 @@ commuters than we did. Oh well on to take a look at the duration of
 these non-tourist rides. But first a little cleanup that data frame is
 getting bloated.
 
-```R
+```r
 > non_tourist_customer_rides_df$hour_utc <- NULL 
 > non_tourist_customer_rides_df$start_datetime_utc <- NULL 
 > non_tourist_customer_rides_df$start_datetime <- NULL 
@@ -2208,7 +2231,7 @@ getting bloated.
 
 Now let's add the ride duration in minutes.
 
-```R
+```r
 > non_tourist_customer_rides_df <- non_tourist_customer_rides_df %>%
 +     mutate(
 +         ride_length_min = (end_time - start_time) / 60
@@ -2240,7 +2263,7 @@ and the 1 minute rides are probably noise
 
 We can probably go down to 150 for these
 
-```R
+```r
 > 
 > non_tourist_customer_rides_df <- non_tourist_customer_rides_df %>%
 +     filter(ride_length_min < 150)
@@ -2259,7 +2282,7 @@ We can probably go down to 150 for these
 
 A smoother option
 
-```R
+```r
 > ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min)) +
 +     geom_density(fill = "darkorange") +
 +     labs(
@@ -2272,7 +2295,7 @@ A smoother option
 
 Now let's break it down by weekday vs weekend.
 
-```R
+```r
 > ggplot(non_tourist_customer_rides_df, aes(x = ride_length_min, fill = week_part)) +
 +     geom_density(alpha = 0.4) +
 +     scale_fill_manual(values = c("Weekday" = "darkblue", "Weekend" = "darkorange")) +
@@ -2288,9 +2311,10 @@ Now let's break it down by weekday vs weekend.
 
 Did we look at the overall rides per year yet?  I think we missed that one.
 
-```SQL
+```sql
 sqlite> select strftime('%Y', start_time, 'unixepoch') as year, count(*) from rides group by year order by year;
 ```
+
 ```text
 year  count(*)
 ----  --------

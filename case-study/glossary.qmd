@@ -15,9 +15,9 @@ Average Daily Rides
 :   The total number of rides for a specific category (e.g., bike type or user type), divided by the number of days in the analysis period. This metric normalizes ride volume to allow comparisons across bike types or groups.
 :::
 
-:::{#glossary-bucket}
-Bucket
-:   A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.
+:::{#glossary-bin}
+Bin
+:   A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride bins.
 :::
 
 :::{#glossary-cluster}
@@ -89,6 +89,15 @@ Normalization (Normalized Ride Volume)
 :::{#glossary-peak-concurrency}
 Peak Concurrency
 :   The highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times.  Also referred to as **max simultaneous rides**. This metric helps assess system load, infrastructure limits, and usage spikes.
+:::
+
+:::{#glossary-resource-fork}
+Resource Fork
+:   A named fork or stream within a file on Apple's Hierarchical File System (HFS) and its successor HFS+, designed to store structured metadata and application resources. Every file in classic Mac OS consisted of at least two forks: a data fork and a resource fork.
+
+* Data Fork: Contained a simple stream of bytes, representing the primary content a user would typically associate with the file (e.g., text, image bitmap data, etc.). This is analogous to a standard file on Unix or Windows systems.
+* Resource Fork: Contained a structured collection of resources, managed by the Resource Manager.  Each resource was defined by a type (a four-character code like ICON or snd ) and a unique ID.  This system allowed for efficient loading and modification of application assets like icons, fonts, sounds, cursors, and UI layouts (menus, windows) without recompiling the application's main executable code stored in the data fork.
+
 :::
 
 :::{#glossary-rcpb}

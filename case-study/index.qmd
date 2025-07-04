@@ -34,7 +34,16 @@ The fictional business challenge of **Cyclistic** is explored through the lens o
 
 ## Business Task
 
-How do [Customers](glossary.qmd) (casual riders and annual members use Divvy bikes differently, and how can that inform marketing strategies?
+How do [Customers](glossary.qmd#glossary-customer;) riders and [Subscribers](glossary.qmd#glossary-subscriber) use bikes differently, and how can that inform marketing strategies?
+
+### Key Questions
+
+
+
+### Stakeholders
+
+
+---
 
 ## Data Sources
 
@@ -50,9 +59,30 @@ The analysis is based on the following datasets:
 - Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
 - Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.
 
+### Data Limitations and Biases
+
+
+
+### Tools Used
+
+- **SQLite** - Used to store all large table and do any intensive queries.
+
+- **R (via RStudio)** – Primary environment for analysis and visualization generation.
+  - Key libraries:
+
+    - `dplyr`, `tidyr`, and `lubridate` for data wrangling
+    - `DBI`, `RSQLite`, and `dbplyr` for seamless interaction with SQLite
+    - `leaflet` for dynamic, interactive mapping of station data
+
+**Tableau** - Chosen for its unique suitability for certain interactive visuals.
+
+**Gnuplot** - Used for quick visuals when the data was not in RStudio.
+
 [^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
 
 ---
+
+
 
 ## Key Metrics and Analysis
 
@@ -85,11 +115,61 @@ Maybe this is enough to get the ball rolling.
  
 ---
 
-## Implications and Recommendations
+## Recommendations
 
 
 ### Recommendations 
-  
+
+Recommendations are grouped into two categories:
+
+1   **Take Action with Existing Data**
+    -  Focus subscriber recruitment efforts at combined-use stations (those with both high subscriber and high casual use). These locations offer the greatest opportunity to reach likely subscribers without wasting resources.
+    -  Avoid stations dominated by one user type, such as tourist-heavy stations (high casual %) or commuter-heavy hubs (high subscriber %), where conversions are less likely.
+    -  Design messaging campaigns around use cases we can detect now, such as midday riders ("Lunch & Ride") or first/last-mile commuters at major transit hubs.
+
+2   **Improve Data Collection Capabilities**
+    -  Begin collecting optional identifying information (e.g., opt-in email, zip code) to enable customer segmentation and direct outreach.
+    -  Investigate cost-effective bike tracking options (e.g., GPS devices) to understand actual rider paths, enabling better infrastructure planning and rebalancing.
+    -  Incorporate optional demographic data to improve equity analysis and targeted messaging.
+
+
+---
+
+## Next Steps
+
+To operationalize these recommendations, we propose the following next steps:
+
+-  Determaine budget for pilot outreach campaign in order to determine it's size. 
+   -  Once the number of stations to be included in the pilot is known, rank Stations by User Mix and Volume
+   -  Use ride data to identify stations with highest levels of both subscribers and customers.
+   -  Target these stations for pilot outreach.
+
+-  Design and Deploy a Pilot Campaign
+   -  Create simple, location-based advertising (flyers, signage, QR codes) at selected stations.
+   -  Test messages tied to observed patterns like midday riding or commuting.
+
+ - Legal and Technical Feasibility Study
+   -  Evaluate the privacy and technical implications of collecting user-level identifiers.
+   -  Draft opt-in language for future implementation.
+
+-  Bike Tracking Feasibility Assessment
+   -  Research GPS vendor options.
+   -  Estimate cost and define success metrics for a limited pilot.
+
+-  Team Engagement
+   -  Share findings with marketing and operations.
+   -  Assign owners for the outreach pilot and the data enhancement study.
+
+## Appendix
+
+- [Visualizations](viz/visualizations.qmd)
+
+- [Work Log](logs/workLog.md)
+
+
+
+
+
 ### Rider Differentiation
 Currently, with the available data, there is no way to differentiate individual riders. So there is no way to compile the following information;
 -  Frequency and Recency
@@ -134,9 +214,4 @@ Like with rider differentiation there is currently no way to identify individual
     *  Build predictive models: “Which users are at high risk of quitting?”
     *  Trigger targeted interventions before churn happens.
     *  Quantify which factors (weather, pricing, station closures) drive individuals away.  
-
----
-
-## Next Steps
-
 
