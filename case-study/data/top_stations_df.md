@@ -1,4 +1,51 @@
-# Query top 50 stations per user_type
+## Provenance for `top_stations_df`
+
+### Data Origin
+- **Source Tables:**  
+
+  - `rides` table (trip records)  
+  - `stations` table (station metadata)  
+
+### Query Details
+This query identified the 50 most-used start stations for each user type.
+
+**Steps:**
+
+1. **Join:**  
+
+   - Joined `rides.start_station_id` to `stations.station_id`.
+
+2. **Aggregation:**  
+
+   - Counted the number of rides starting at each station, grouped by `station_id` and `user_type`.
+
+3. **Ranking:**  
+
+   - Applied `ROW_NUMBER()` partitioned by `user_type`, ordered by descending `COUNT(*)`.
+
+4. **Filter:**  
+
+   - Selected only rows where the rank (`rn`) was ≤ 50.
+
+### Selected Fields
+- `station_id`: Unique ID of the station.
+- `name`: Station name.
+- `lat`, `long`: Latitude and longitude of the station.
+- `user_type`: `subscriber` or `customer`.
+- `ride_count`: Total number of rides starting at this station for the user type.
+- `rn`: Rank within the top 50 for the user type.
+
+### Purpose and Use
+This dataset was used to:
+
+- Highlight the highest-volume stations by user segment.
+- Generate maps and visualizations of popular start locations.
+- Support station targeting strategies and user behavior analysis.
+
+
+### Command Used
+
+```r
 query <- "
 WITH ranked_stations AS (
   SELECT
@@ -29,4 +76,5 @@ head(top_stations_df)
 4        144     Kingsbury St & Kinzie St 41.88918 -87.63851 subscriber     191005  4
 5       1141        Canal St & Madison St 41.88209 -87.63983 subscriber     189285  5
 6        802    Columbus Dr & Randolph St 41.88473 -87.61952 subscriber     172803  6
+```
 

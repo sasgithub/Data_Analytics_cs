@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -121,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#query-top-50-stations-per-user_type" id="toc-query-top-50-stations-per-user_type" class="nav-link active" data-scroll-target="#query-top-50-stations-per-user_type">Query top 50 stations per user_type</a></li>
+  <li><a href="#provenance-for-top_stations_df" id="toc-provenance-for-top_stations_df" class="nav-link active" data-scroll-target="#provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></a></li>
   </ul>
 </nav>
     </div>
@@ -131,13 +166,97 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="query-top-50-stations-per-user_type" class="level1">
-<h1>Query top 50 stations per user_type</h1>
-<p>query &lt;- ” WITH ranked_stations AS ( SELECT s.station_id, s.name, s.lat, s.long, CASE user_type WHEN 0 THEN ‘subscriber’ WHEN 1 THEN ‘customer’ END AS user_type, COUNT(<em>) AS ride_count, ROW_NUMBER() OVER (PARTITION BY user_type ORDER BY COUNT(</em>) DESC) AS rn FROM rides JOIN stations AS s ON rides.start_station_id = s.station_id GROUP BY s.station_id, user_type ) SELECT * FROM ranked_stations WHERE rn &lt;= 50; ”</p>
-<p>top_stations_df &lt;- dbGetQuery(con, query)</p>
-<p>head(top_stations_df) station_id name lat long user_type ride_count rn 1 666 Clinton St &amp; Washington Blvd 41.88338 -87.64117 subscriber 312299 1 2 73 Canal St &amp; Adams St 41.87926 -87.63990 subscriber 300498 2 3 751 Clinton St &amp; Madison St 41.88275 -87.64119 subscriber 250116 3 4 144 Kingsbury St &amp; Kinzie St 41.88918 -87.63851 subscriber 191005 4 5 1141 Canal St &amp; Madison St 41.88209 -87.63983 subscriber 189285 5 6 802 Columbus Dr &amp; Randolph St 41.88473 -87.61952 subscriber 172803 6</p>
+<section id="provenance-for-top_stations_df" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></h2>
+<section id="data-origin" class="level3">
+<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<ul>
+<li><p><strong>Source Tables:</strong></p>
+<ul>
+<li><code>rides</code> table (trip records)<br>
+</li>
+<li><code>stations</code> table (station metadata)</li>
+</ul></li>
+</ul>
+</section>
+<section id="query-details" class="level3">
+<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
+<p>This query identified the 50 most-used start stations for each user type.</p>
+<p><strong>Steps:</strong></p>
+<ol type="1">
+<li><p><strong>Join:</strong></p>
+<ul>
+<li>Joined <code>rides.start_station_id</code> to <code>stations.station_id</code>.</li>
+</ul></li>
+<li><p><strong>Aggregation:</strong></p>
+<ul>
+<li>Counted the number of rides starting at each station, grouped by <code>station_id</code> and <code>user_type</code>.</li>
+</ul></li>
+<li><p><strong>Ranking:</strong></p>
+<ul>
+<li>Applied <code>ROW_NUMBER()</code> partitioned by <code>user_type</code>, ordered by descending <code>COUNT(*)</code>.</li>
+</ul></li>
+<li><p><strong>Filter:</strong></p>
+<ul>
+<li>Selected only rows where the rank (<code>rn</code>) was ≤ 50.</li>
+</ul></li>
+</ol>
+</section>
+<section id="selected-fields" class="level3">
+<h3 class="anchored" data-anchor-id="selected-fields">Selected Fields</h3>
+<ul>
+<li><code>station_id</code>: Unique ID of the station.</li>
+<li><code>name</code>: Station name.</li>
+<li><code>lat</code>, <code>long</code>: Latitude and longitude of the station.</li>
+<li><code>user_type</code>: <code>subscriber</code> or <code>customer</code>.</li>
+<li><code>ride_count</code>: Total number of rides starting at this station for the user type.</li>
+<li><code>rn</code>: Rank within the top 50 for the user type.</li>
+</ul>
+</section>
+<section id="purpose-and-use" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h3>
+<p>This dataset was used to:</p>
+<ul>
+<li>Highlight the highest-volume stations by user segment.</li>
+<li>Generate maps and visualizations of popular start locations.</li>
+<li>Support station targeting strategies and user behavior analysis.</li>
+</ul>
+</section>
+<section id="command-used" class="level3">
+<h3 class="anchored" data-anchor-id="command-used">Command Used</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH ranked_stations AS (</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">    s.station_id,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">    s.name,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">    s.lat,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">    s.long,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS ride_count,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ROW_NUMBER() OVER (PARTITION BY user_type ORDER BY COUNT(*) DESC) AS rn</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">  JOIN stations AS s ON rides.start_station_id = s.station_id</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY s.station_id, user_type</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT * FROM ranked_stations WHERE rn &lt;= 50;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(top_stations_df)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  station_id                         name      lat      long  user_type ride_count rn</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        <span class="dv">666</span> Clinton St <span class="sc">&amp;</span> Washington Blvd <span class="fl">41.88338</span> <span class="sc">-</span><span class="fl">87.64117</span> subscriber     <span class="dv">312299</span>  <span class="dv">1</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         <span class="dv">73</span>          Canal St <span class="sc">&amp;</span> Adams St <span class="fl">41.87926</span> <span class="sc">-</span><span class="fl">87.63990</span> subscriber     <span class="dv">300498</span>  <span class="dv">2</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>        <span class="dv">751</span>      Clinton St <span class="sc">&amp;</span> Madison St <span class="fl">41.88275</span> <span class="sc">-</span><span class="fl">87.64119</span> subscriber     <span class="dv">250116</span>  <span class="dv">3</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>        <span class="dv">144</span>     Kingsbury St <span class="sc">&amp;</span> Kinzie St <span class="fl">41.88918</span> <span class="sc">-</span><span class="fl">87.63851</span> subscriber     <span class="dv">191005</span>  <span class="dv">4</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>       <span class="dv">1141</span>        Canal St <span class="sc">&amp;</span> Madison St <span class="fl">41.88209</span> <span class="sc">-</span><span class="fl">87.63983</span> subscriber     <span class="dv">189285</span>  <span class="dv">5</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>        <span class="dv">802</span>    Columbus Dr <span class="sc">&amp;</span> Randolph St <span class="fl">41.88473</span> <span class="sc">-</span><span class="fl">87.61952</span> subscriber     <span class="dv">172803</span>  <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

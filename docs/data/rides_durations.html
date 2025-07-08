@@ -121,7 +121,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min" id="toc-pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min" class="nav-link active" data-scroll-target="#pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min">Pull ride durations for valid subscriber/customer rides under 200 min</a></li>
+  <li><a href="#provenance-for-ride_durations" id="toc-provenance-for-ride_durations" class="nav-link active" data-scroll-target="#provenance-for-ride_durations">Provenance for <code>ride_durations</code></a></li>
+  <li><a href="#pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min" id="toc-pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min" class="nav-link" data-scroll-target="#pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min">Pull ride durations for valid subscriber/customer rides under 200 min</a></li>
   </ul>
 </nav>
     </div>
@@ -131,7 +132,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="provenance-for-ride_durations" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h2>
+<section id="data-origin" class="level3">
+<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<ul>
+<li><strong>Source Table:</strong><br>
+<code>rides</code> table in the SQLite database</li>
+</ul>
+</section>
+<section id="query-details" class="level3">
+<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
+<p>This query extracted per-trip durations in minutes with the following conditions:</p>
+<ul>
+<li><p><strong>user_type:</strong><br>
+Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>) or 1 (<code>customer</code>).</p></li>
+<li><p><strong>Duration Constraints:</strong></p>
+<ul>
+<li>Excluded records where <code>end_time &lt;= start_time</code> (negative or zero durations).</li>
+<li>Excluded unusually long rides (over ~3.3 hours), specifically durations ≥ 12,000 seconds.</li>
+</ul></li>
+</ul>
+</section>
+<section id="selected-fields" class="level3">
+<h3 class="anchored" data-anchor-id="selected-fields">Selected Fields</h3>
+<ul>
+<li><p><code>user_type</code> (converted to label: subscriber or customer)</p></li>
+<li><p><code>duration_min</code>: Ride duration in minutes, computed as</p>
+<pre><code>(end_time - start_time) / 60.0</code></pre></li>
+</ul>
+</section>
+<section id="purpose-and-use" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h3>
+<p>This dataset was used to:</p>
+<ul>
+<li>Summarize ride duration distributions by user type.</li>
+<li>Create histograms and density plots.</li>
+<li>Calculate summary statistics (mean, median, percentiles) of trip durations.</li>
+</ul>
+</section>
+<section id="command-used" class="level3">
+<h3 class="anchored" data-anchor-id="command-used">Command Used</h3>
 <p>```R # Connect to the SQLite database con &lt;- dbConnect(RSQLite::SQLite(), “caseStudy.db”)</p>
+</section>
+</section>
 <section id="pull-ride-durations-for-valid-subscribercustomer-rides-under-200-min" class="level1">
 <h1>Pull ride durations for valid subscriber/customer rides under 200 min</h1>
 <p>ride_durations &lt;- dbGetQuery(con, ” SELECT CASE user_type WHEN 0 THEN ‘subscriber’ WHEN 1 THEN ‘customer’ END AS user_type, (end_time - start_time) / 60.0 AS duration_min FROM rides WHERE user_type IN (0, 1) AND end_time &gt; start_time AND (end_time - start_time) &lt; 12000 “)</p>

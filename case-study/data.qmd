@@ -123,10 +123,11 @@ The two sources used different field structures and naming conventions.
 | Birth year             | `BIRTH YEAR`                                            | *(Not present)*                              |
 
 **Notes on Differences**
-- In the historic file, gender and birth year were available, but only for Subscribers.
-- In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.
-- Trip duration was no longer a provided field and had to be calculated.
-- User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study
+
+ - In the historic file, gender and birth year were available, but only for Subscribers.
+ - In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.
+ - Trip duration was no longer a provided field and had to be calculated.
+ - User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study
 
 ---
 
@@ -449,7 +450,7 @@ The cleaned datasets were integrated to create unified analysis tables:
 **Tourist Station Identification**
 
    - In R, tourist station proximity was determined by calculating geodesic distances between station coordinates and tourist attractions.
-   - Stations within 200 meters of an attraction were identified as likely tourist-serving.
+   - Stations within 600 meters of an attraction were identified as likely tourist-serving.
    - This information was used in R to filter trips for commuter-focused analyses.
    - No flags or updates were applied to the stations data stored in SQLite.
 
@@ -542,7 +543,7 @@ The hourly weather dataset was validated to ensure temporal coverage and consist
 
 **Completeness Audit**
 
-  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd/#glossary-CTE) generating the complete expected hourly series.
+  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd#glossary-CTE) generating the complete expected hourly series.
   -  Found ~400 missing hourly observations, typically occurring in small contiguous blocks (e.g., a few hours) rather than extended gaps.
   -  These missing rows are likely due to intermittent data collection lapses at the weather station or data ingestion issues from the Meteostat source.
 

@@ -394,7 +394,13 @@ I’m actively building out my case study as part of the Google Data Analytics C
 </tr>
 </tbody>
 </table>
-<p><strong>Notes on Differences</strong> - In the historic file, gender and birth year were available, but only for Subscribers. - In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs. - Trip duration was no longer a provided field and had to be calculated. - User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study</p>
+<p><strong>Notes on Differences</strong></p>
+<ul>
+<li>In the historic file, gender and birth year were available, but only for Subscribers.</li>
+<li>In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.</li>
+<li>Trip duration was no longer a provided field and had to be calculated.</li>
+<li>User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study</li>
+</ul>
 <hr>
 </section>
 <section id="chicago-weather-data" class="level2">
@@ -818,7 +824,7 @@ start_station_id != end_station_id</code></pre></li>
 <p><strong>Tourist Station Identification</strong></p>
 <ul>
 <li>In R, tourist station proximity was determined by calculating geodesic distances between station coordinates and tourist attractions.</li>
-<li>Stations within 200 meters of an attraction were identified as likely tourist-serving.</li>
+<li>Stations within 600 meters of an attraction were identified as likely tourist-serving.</li>
 <li>This information was used in R to filter trips for commuter-focused analyses.</li>
 <li>No flags or updates were applied to the stations data stored in SQLite.</li>
 </ul>
@@ -914,7 +920,7 @@ start_station_id != end_station_id</code></pre></li>
 Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <p><strong>Completeness Audit</strong></p>
 <ul>
-<li>Queried for missing hourly timestamps using a recursive <a href="glossary.qmd/#glossary-CTE">CTE</a> generating the complete expected hourly series.</li>
+<li>Queried for missing hourly timestamps using a recursive <a href="./glossary.html#glossary-CTE">CTE</a> generating the complete expected hourly series.</li>
 <li>Found ~400 missing hourly observations, typically occurring in small contiguous blocks (e.g., a few hours) rather than extended gaps.</li>
 <li>These missing rows are likely due to intermittent data collection lapses at the weather station or data ingestion issues from the Meteostat source.</li>
 </ul>

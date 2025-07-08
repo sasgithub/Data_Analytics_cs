@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>hourly_weather – Bike share case-study</title>
+<title>asym_data – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-for-hourly_weather-table-and-data-frame" id="toc-provenance-for-hourly_weather-table-and-data-frame" class="nav-link active" data-scroll-target="#provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,114 +160,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-for-hourly_weather-table-and-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<section id="asym_data" class="level3">
+<h3 class="anchored" data-anchor-id="asym_data">asym_data</h3>
+<p><strong>Data Origin</strong><br>
+Loaded from the CSV file <code>asymmetry.csv</code>, which was generated as a summary of directional ride imbalances between pairs of stations.</p>
+<p><strong>How Created</strong><br>
+Read directly into R using <code>readr::read_csv()</code>:</p>
+<p><strong>Purpose and Use in Analysis</strong></p>
 <ul>
-<li><strong>Source File:</strong><br>
-<code>midway_weather.csv</code> (downloaded from Meteostat bulk data interface)<br>
-</li>
-<li><strong>Original Fields:</strong><br>
-Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind Direction, Wind Speed, Peak Wind Gust, Pressure, Sunshine Minutes, Weather Code</li>
+<li>Provides counts of rides in each direction between pairs of stations.</li>
+<li>Used to compute asymmetry ratios and identify directional imbalances in station-to-station flows.</li>
+<li>Supports visualizations and prioritization of locations with high directional skew.</li>
 </ul>
-</section>
-<section id="processing-and-cleaning-steps" class="level3">
-<h3 class="anchored" data-anchor-id="processing-and-cleaning-steps">Processing and Cleaning Steps</h3>
-<ol type="1">
-<li><strong>Field Selection and Removal</strong>
+<p><strong>Columns</strong></p>
 <ul>
-<li>Dropped columns not required for analysis:
-<ul>
-<li><code>snow</code> (missing for all records)</li>
-<li><code>wpgt</code> (peak wind gust, missing for all records)</li>
-<li><code>pres</code> (pressure, excluded as not directly relevant)</li>
-<li><code>tsun</code> (sunshine duration, missing for all records)</li>
-</ul></li>
-<li>Retained key weather metrics (temperature, dew point, humidity, precipitation, wind direction/speed, condition code).</li>
-</ul></li>
-<li><strong>Date-Time Normalization</strong>
-<ul>
-<li>Created a combined datetime column by merging <code>Date</code> and <code>Hour</code>.</li>
-<li>Converted datetime to POSIXct format in UTC timezone.</li>
-<li>Transformed datetime into Unix epoch integer seconds (<code>epoch</code>).</li>
-</ul></li>
-<li><strong>Column Reordering and Cleanup</strong>
-<ul>
-<li>Moved <code>epoch</code> to the first column.</li>
-<li>Removed intermediate columns:
-<ul>
-<li><code>Date</code></li>
-<li><code>Hour</code></li>
-<li><code>datetime</code></li>
-</ul></li>
-</ul></li>
-<li><strong>Schema in R</strong>
-<ul>
-<li><p>Final in-memory dataframe columns:</p>
-<pre><code>epoch, temp, dwpt, rhum, prcp, wdir, wspd, coco</code></pre></li>
-</ul></li>
-<li><strong>Database Load</strong>
-<ul>
-<li>Created <code>hourly_weather</code> SQLite table with the same schema.</li>
-<li>Inserted all cleaned records via <code>dbWriteTable()</code>.</li>
-</ul></li>
-</ol>
-</section>
-<section id="how-this-fits-into-the-flow" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h3>
-<p>This table was used as the authoritative hourly weather reference for: - Joining with hourly aggregated ride counts (<code>rides_per_hour</code> view). - Creating the <code>rides_weather</code> view combining weather and ridership patterns. - Supporting time series and correlation analyses of temperature, precipitation, and ride volume.</p>
-</section>
-<section id="steps-used" class="level3">
-<h3 class="anchored" data-anchor-id="steps-used">Steps Used</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/midway_weather.csv"</span>, stringsAsFac</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">tors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(df)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        Date Hour Temp dwpt rhum prcp snow wdir wspd wpgt   pres tsun coco</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2013-06-27</span>    <span class="dv">0</span> <span class="fl">27.2</span> <span class="fl">19.3</span>   <span class="dv">62</span>    <span class="dv">0</span>   <span class="cn">NA</span>  <span class="dv">270</span> <span class="fl">18.4</span>   <span class="cn">NA</span> <span class="fl">1005.7</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2013-06-27</span>    <span class="dv">1</span> <span class="fl">24.4</span> <span class="fl">18.8</span>   <span class="dv">71</span>    <span class="dv">0</span>   <span class="cn">NA</span>   <span class="dv">10</span> <span class="fl">16.6</span>   <span class="cn">NA</span> <span class="fl">1005.7</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">2013-06-27</span>    <span class="dv">2</span> <span class="fl">23.3</span> <span class="fl">18.4</span>   <span class="dv">74</span>    <span class="dv">0</span>   <span class="cn">NA</span>   <span class="dv">20</span> <span class="fl">11.2</span>   <span class="cn">NA</span> <span class="fl">1006.5</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">2013-06-27</span>    <span class="dv">3</span> <span class="fl">23.3</span> <span class="fl">18.4</span>   <span class="dv">74</span>    <span class="dv">0</span>   <span class="cn">NA</span>   <span class="dv">30</span>  <span class="fl">9.4</span>   <span class="cn">NA</span> <span class="fl">1006.7</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">2013-06-27</span>    <span class="dv">4</span> <span class="fl">22.8</span> <span class="fl">17.7</span>   <span class="dv">73</span>    <span class="dv">0</span>   <span class="cn">NA</span>   <span class="dv">10</span>  <span class="fl">5.4</span>   <span class="cn">NA</span> <span class="fl">1007.0</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">2013-06-27</span>    <span class="dv">5</span> <span class="fl">22.2</span> <span class="fl">18.4</span>   <span class="dv">79</span>    <span class="dv">0</span>   <span class="cn">NA</span>  <span class="dv">350</span>  <span class="fl">9.4</span>   <span class="cn">NA</span> <span class="fl">1007.8</span>   <span class="cn">NA</span>   <span class="cn">NA</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(dplyr)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>snow)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>wpgt, <span class="sc">-</span>pres)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>tsun)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df<span class="sc">$</span>datetime <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="fu">paste</span>(df<span class="sc">$</span>Date, <span class="fu">sprintf</span>(<span class="st">"%02d:00:00"</span>, df<span class="sc">$</span>Hour)), <span class="at">format=</span><span class="st">"%Y-%m-%d %H:</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">%M:%S"</span>, <span class="at">tz=</span><span class="st">"UTC"</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df<span class="sc">$</span>epoch <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>datetime)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> df <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"epoch"</span>, <span class="fu">setdiff</span>(<span class="fu">names</span>(df), <span class="st">"epoch"</span>))]</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Date)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>Hour)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>datetime)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a> <span class="fu">head</span>(df)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       epoch Temp dwpt rhum prcp wdir wspd coco</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1372291200</span> <span class="fl">27.2</span> <span class="fl">19.3</span>   <span class="dv">62</span>    <span class="dv">0</span>  <span class="dv">270</span> <span class="fl">18.4</span>   <span class="cn">NA</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">1372294800</span> <span class="fl">24.4</span> <span class="fl">18.8</span>   <span class="dv">71</span>    <span class="dv">0</span>   <span class="dv">10</span> <span class="fl">16.6</span>   <span class="cn">NA</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">1372298400</span> <span class="fl">23.3</span> <span class="fl">18.4</span>   <span class="dv">74</span>    <span class="dv">0</span>   <span class="dv">20</span> <span class="fl">11.2</span>   <span class="cn">NA</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">1372302000</span> <span class="fl">23.3</span> <span class="fl">18.4</span>   <span class="dv">74</span>    <span class="dv">0</span>   <span class="dv">30</span>  <span class="fl">9.4</span>   <span class="cn">NA</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">1372305600</span> <span class="fl">22.8</span> <span class="fl">17.7</span>   <span class="dv">73</span>    <span class="dv">0</span>   <span class="dv">10</span>  <span class="fl">5.4</span>   <span class="cn">NA</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">1372309200</span> <span class="fl">22.2</span> <span class="fl">18.4</span>   <span class="dv">79</span>    <span class="dv">0</span>  <span class="dv">350</span>  <span class="fl">9.4</span>   <span class="cn">NA</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"/home/sas/classes/Google/data-analytics/data/caseStudy.db"</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dbExecute</span>(con, <span class="st">"</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">+    CREATE TABLE hourly_weather (</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">+      epoch INTEGER PRIMARY KEY,</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="st">+      temp REAL,</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">+      dwpt REAL,</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">+      rhum INTEGER,</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">+      prcp REAL,</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">+      wdir INTEGER,</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">+      wspd REAL,</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="st">+      coco INTEGER</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="st">+   )</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="st">+ "</span>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dbWriteTable</span>(con, <span class="st">"hourly_weather"</span>, df, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li>user_type_label: Label for the user type (subscriber or customer).</li>
+<li>station_a_name: Name of the origin station.</li>
+<li>station_b_name: Name of the destination station.</li>
+<li>count_ab: Number of rides from A to B.</li>
+<li>count_ba: Number of rides from B to A.</li>
+<li>diff: Absolute difference in counts.</li>
+<li>total: Sum of rides in both directions.</li>
+<li>asymmetry_ratio: Proportion of rides in the more frequent direction.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>asym_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/asymmetry.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

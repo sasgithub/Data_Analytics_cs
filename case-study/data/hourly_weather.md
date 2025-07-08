@@ -1,4 +1,53 @@
-### Import
+## Provenance for `hourly_weather` Table and Data Frame
+
+### Data Origin
+- **Source File:**  
+  `midway_weather.csv` (downloaded from Meteostat bulk data interface)  
+- **Original Fields:**  
+  Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind Direction, Wind Speed, Peak Wind Gust, Pressure, Sunshine Minutes, Weather Code  
+
+### Processing and Cleaning Steps
+
+1. **Field Selection and Removal**
+   - Dropped columns not required for analysis:
+     - `snow` (missing for all records)
+     - `wpgt` (peak wind gust, missing for all records)
+     - `pres` (pressure, excluded as not directly relevant)
+     - `tsun` (sunshine duration, missing for all records)
+   - Retained key weather metrics (temperature, dew point, humidity, precipitation, wind direction/speed, condition code).
+
+2. **Date-Time Normalization**
+   - Created a combined datetime column by merging `Date` and `Hour`.
+   - Converted datetime to POSIXct format in UTC timezone.
+   - Transformed datetime into Unix epoch integer seconds (`epoch`).
+
+3. **Column Reordering and Cleanup**
+   - Moved `epoch` to the first column.
+   - Removed intermediate columns:
+     - `Date`
+     - `Hour`
+     - `datetime`
+
+4. **Schema in R**
+   - Final in-memory dataframe columns:
+
+     ```
+     epoch, temp, dwpt, rhum, prcp, wdir, wspd, coco
+     ```
+
+5. **Database Load**
+   - Created `hourly_weather` SQLite table with the same schema.
+   - Inserted all cleaned records via `dbWriteTable()`.
+
+### How this fits into the flow
+This table was used as the authoritative hourly weather reference for:
+- Joining with hourly aggregated ride counts (`rides_per_hour` view).
+- Creating the `rides_weather` view combining weather and ridership patterns.
+- Supporting time series and correlation analyses of temperature, precipitation, and ride volume.
+
+
+### Steps Used
+
 ```r
 > df <- read.csv("/home/sas/classes/Google/data-analytics/data/midway_weather.csv", stringsAsFac
 tors = FALSE)
@@ -46,8 +95,3 @@ con <- dbConnect(RSQLite::SQLite(), "/home/sas/classes/Google/data-analytics/dat
 + ")
 > dbWriteTable(con, "hourly_weather", df, append = TRUE)
 ```
-
-### Cleaning
-
-
-
