@@ -25,6 +25,16 @@ Cluster (Ride Duration Cluster)
 :   A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into **Short**, **Medium**, and **Long** clusters to distinguish different usage behaviors.
 :::
 
+:::{#glossary-CTE}
+:   Common Table Expression (CTE)
+A Common Table Expression (CTE) is a temporary named result set defined within a SQL query using the WITH keyword. CTEs make complex queries easier to read and maintain by allowing intermediate results to be referenced by name as if they were tables.
+
+CTEs can be:
+
+ -  Non-recursive: Used like a simple, named subquery.
+ -  Recursive: Used to perform iterative operations such as generating sequences or traversing hierarchical data.
+:::
+
 :::{#glossary-customer}
 Customer
 :   A user who does not have an annual or recurring membership. Customers include Day Pass riders, single-ride users, and other casual or pay-per-use riders. All non-subscriber users are classified as customers.  The term casual rider might also be used for customers, but for this case study only the term customer is used.

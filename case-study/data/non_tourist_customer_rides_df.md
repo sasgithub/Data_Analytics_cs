@@ -27,11 +27,17 @@ With these filters:
 
 ### How this fits into the flow
 
-This dataset forms the foundational rides subset from which many other frames were derived:
+This dataset forms the **foundational rides subset** from which many other frames were derived:
 
 -  non_loop_rides_df
+-  loop_rides_non_tourist_df
+-  ride_durations
+-  ride_props
+-  binned_rides
+-  temp_bins
+-  rides_by_hour_weekpart
+-  rides_by_hour_season
 
-**List others**
 
 ** Full Query Text **
 

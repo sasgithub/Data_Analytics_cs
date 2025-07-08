@@ -160,6 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<p>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
@@ -169,6 +170,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Rationale for January 2023 Start Date</strong></p>
+<p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns—including trip frequency, duration, and user preferences—the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
+<p>The post_electric_rides_df and daily_avg_df data frames were derived exclusively from rides after this introduction date. This separation allows for:</p>
+<ul>
+<li>Focused analysis of e-bike utilization compared to traditional bikes.</li>
+<li>Comparison of subscriber and casual user behaviors in the e-bike era.</li>
+<li>Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.</li>
+</ul>
 
 
 

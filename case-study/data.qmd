@@ -1,106 +1,656 @@
----
-title: "Data Sources and Cleaning"
-format: html
----
-
 🚧 **This project is currently a work in progress.**  
-I'm actively building out my case study as part of the Google Data Analytics Capstone.  
+I'm actively building out my case study as part of the Google Data Analytics Capstone.
 Full write-up, code, and visualizations will be available soon!
 
 ## Overview
 
-This project integrates and analyzes Divvy bike-share trip data, station data, and Chicago weather data. The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data.
+This project integrates and analyzes Divvy bike-share trip data, station data, Chicago weather data and tourist attraction data. 
+
+**Divvy Trip Data**
+- This dataset includes detailed records of individual bike share trips in Chicago, obtained from the Divvy S3 archive and the City of Chicago Data Portal. It covers rides taken between 2013 and 2025. The data includes start and end times, stations, bike types, and user categories.
+
+**Divvy Stations Data**
+- This dataset describes Divvy station locations, capacities, and metadata across multiple years. It was sourced from publicly available CSV and Excel files published by Divvy.
+
+**Chicago Weather Data**
+- Hourly weather observations from Chicago Midway Airport (Via Meteostat) were used to analyze the impact of weather conditions on ride volume.
+
+**Tourist Attractions Data**
+- A small collection of tourist attractions in Chicago with coordinates used to help isolate commuter-focused activity.
+
+The cleaning steps below describe the transformations, filters, and fixes applied to ensure high-quality, analysis-ready data.
 
 ---
 
-## Data Source
+# Data Description
 
-- **Divvy Trip Data**: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
-- ** Divvy Station Data**: [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data_preview)
-- **Weather Data**: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
-- **Tourist Stations**: Custom dataset created from Google Maps lat/Long queries
+## 2.1 Divvy Station Data
 
-See the [📦 Data Sources](https://sasgithub.github.io/Data_Analytics_cs/data.html) page for more details and attribution.
+**Description**
+
+The Divvy Stations dataset provides reference information about the bike share stations used in the trip data. These records describe the station names, geographic locations, capacity, and other operational metadata at various points in time.
+
+**Attributions**
+
+Sources: [City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data_preview) and [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html)
+
+**Purpose and Use in the Analysis**
+
+This dataset can be joined to trip records to:
+
+  -  Assign precise geographic coordinates to trip start and end points.
+  -  Enable mapping of station locations to visualize ride volumes and user type distributions.
+  -  Support identification of high-potential recruitment stations based on ride counts and rider mix.
+  -  Facilitate spatial filtering (e.g., excluding stations likely dominated by tourist traffic).
+
+**Files Included**
+
+Divvy_Bicycle_Stations_20250501.csv
+Divvy_Stations_2013.csv
+Divvy_Stations_2014-Q1Q2.csv
+Divvy_Stations_2014-Q1Q2.xlsx
+Divvy_Stations_2014-Q3Q4.csv
+
+**Schema Differences**
+
+| Column Name                  | 20250501 CSV       | 2013 CSV        | 2014 Q1/Q2 CSV  | 2014 Q3/Q4 CSV  | Notes / Comments                              |
+| ---------------------------- | ------------------ | --------------- | --------------- | --------------- | --------------------------------------------- |
+| `id` / `ID`                  | `ID`               | `id`            | `id`            | `id`            | Same concept, but capitalized in 2025 version |
+| `Station Name` / `name`      | `Station Name`     | `name`          | `name`          | `name`          | Naming format differs; same data              |
+| `Short Name`                 | `Short Name`       | *(not present)* | *(not present)* | *(not present)* | Only in 2025                                  |
+| `Total Docks` / `dpcapacity` | `Total Docks`      | `dpcapacity`    | `dpcapacity`    | `dpcapacity`    | Renamed in 2025                               |
+| `Docks in Service`           | `Docks in Service` | *(not present)* | *(not present)* | *(not present)* | New metric in 2025                            |
+| `Status`                     | `Status`           | *(not present)* | *(not present)* | *(not present)* | Only in 2025, e.g., "In Service"              |
+| `latitude`                   | `Latitude`         | `latitude`      | `latitude`      | `latitude`      | Capitalized in 2025                           |
+| `longitude`                  | `Longitude`        | `longitude`     | `longitude`     | `longitude`     | Capitalized in 2025                           |
+| `Location`                   | `Location`         | *(not present)* | *(not present)* | *(not present)* | WKT-style `POINT (lng lat)` string            |
+| `landmark`                   | *(not present)*    | `landmark`      | *(not present)* | *(not present)* | Only in 2013, probably a foreign key          |
+| `online date`                | *(not present)*    | `online date`   | `online date`   | *(not present)* | Free-form date strings, inconsistent format   |
+| `dateCreated`                | *(not present)*    | *(not present)* | *(not present)* | `dateCreated`   | Alternative timestamp in Q3/Q4                |
+
+**Notes on Differences**
+
+-  The 20250501 dataset is richer, possibly reflecting a modern API schema (includes operational status, short name, docks in service, and WKT geometry).
+-  Earlier CSV files use different naming conventions (snake_case vs. Title Case), and some fields have changed names entirely (e.g., dpcapacity to Total Docks).
+-  Timestamps (online date, dateCreated) have inconsistent formats:
+
+   - MM/DD/YYYY (2013)
+   - YYYY/MM/DD (2014 Q1/Q2)
+   - DD/MM/YYYY hh:mm (2014 Q3/Q4)
+
+---
+
+## 2.2 Divvy Trip Data
+
+**Description**
+The trip dataset contains detailed records of individual rides taken within the Divvy bike share system. These records capture start and end times, station information, trip duration, and user types.
+
+**Attributions**
+
+Sources: [Divvy Trip Archive](https://divvy-tripdata.s3.amazonaws.com/index.html) and 
+[City of Chicago Data Portal](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data)
+
+**Purpose and Use in the Analysis**
+This dataset was the primary source of ride activity and user behavior:
+
+  -  Provided ride-level detail to calculate trip durations, frequencies, and patterns over time.
+  -  Enabled segmentation of rides by user type (member vs. casual).
+  -  Supported trend analysis (e.g., seasonality, weekday vs. weekend usage).
+  -  Served as the basis for linking with station and weather data to enrich the context of each trip.
+
+
+**Files Included**
+The data was compiled from two groups of files
+- **Historic aggregated file:**
+  - `Divvy_Trips_20250501.csv` (covering 2013–2019)
+- **Monthly files:**
+  - `202306-divvy-tripdata.csv` through `202504-divvy-tripdata.csv` (covering June 2023–April 2025)
+
+**Schema Differences**
+The two sources used different field structures and naming conventions.
+
+| Field Name             | Historic File (`Divvy_Trips_20250501.csv`)              | Monthly Files (`2023–2025`)                  |
+|------------------------|---------------------------------------------------------|-----------------------------------------------|
+| Trip identifier        | `TRIP ID`                                               | `ride_id`                                    |
+| Bike identifier        | `BIKE ID`                                               | `rideable_type` (bike type instead of ID)    |
+| Start time             | `START TIME`                                            | `started_at`                                 |
+| End time               | `STOP TIME`                                             | `ended_at`                                   |
+| Start station info     | `FROM STATION ID`, `FROM STATION NAME`, `FROM LATITUDE`, `FROM LONGITUDE`, `FROM LOCATION` | `start_station_id`, `start_station_name`, `start_lat`, `start_lng` |
+| End station info       | `TO STATION ID`, `TO STATION NAME`, `TO LATITUDE`, `TO LONGITUDE`, `TO LOCATION` | `end_station_id`, `end_station_name`, `end_lat`, `end_lng` |
+| Trip duration          | `TRIP DURATION`                                         | *(Not present – must calculate)*             |
+| User type              | `USER TYPE` (Subscriber**Attribution**/Customer)                       | `member_casual` (member/casual)              |
+| Gender                 | `GENDER`                                                | *(Not present)*                              |
+| Birth year             | `BIRTH YEAR`                                            | *(Not present)*                              |
+
+**Notes on Differences**
+- In the historic file, gender and birth year were available, but only for Subscribers.
+- In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.
+- Trip duration was no longer a provided field and had to be calculated.
+- User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study
 
 ---
 
-## Ride Data Cleaning
+## 2.3 Chicago Weather Data 
 
-1. **Removed pandemic-period rides:**
+**Description**
+The weather data, provided by Meteostat, includes hourly observations collected at Midway Airport, representing general conditions in Chicago. Variables include timestamp, temperature, precipitation, wind speed, and descriptive weather codes. This data supported analysis of how weather influenced trip patterns. Data was sourced from Midway Airport (MDW), located on Chicago’s southwest side, and is considered representative of general weather conditions across the city.
 
-   * Dropped all rides with `start_time > Jan 1, 2020` to avoid skew due to COVID-19 lockdown.
-   * Also removed one late outlier from April 2020.
+**Attribution**
 
-2. **Removed zero-duration loop rides:**
+Source: [Meteostat Hourly Bulk Data](https://bulk.meteostat.net/v2/hourly/72534.csv.gz)
 
-   * Filtered out rides where `start_time == end_time` **and** `start_station_id == end_station_id`.
+**Purpose and Use in the Analysis**
 
-3. **Removed "teleportation" rides:**
+This dataset augmented trip data to explore environmental influences:
 
-   * Rides with `start_time == end_time` **but** different start and end stations were eliminated.
+  -  Allowed correlation of temperature, precipitation, and wind with daily and hourly ride volumes.
+  -  Supported modeling of weather impacts on user type behavior and trip duration.
+  -  Provided contextual insights when interpreting demand fluctuations (e.g., low ridership on stormy days).
 
-4. **Eliminated negative-duration rides ("time travelers"):**
+**Schema**
 
-   * Rides where `start_time > end_time` were removed.
+The CSV file provided through the Meteostat bulk data interface use commas as separators and provides the following columns:
 
-5. **Dropped long-duration rides:**
+|Parameter | Description | Type |
+|----------|-------------|------|
+|`date` | The date string (format: YYYY-MM-DD) | String |
+|`hour` | The hour (UTC) | Integer |
+|`temp` | The air temperature in °C | Float |
+|`dwpt` | The dew point in °C | Float |
+|`rhum` | The relative humidity in percent (%) | Integer |
+|`prcp` | The one hour precipitation total in mm | Float |
+|`snow` | The snow depth in mm | Integer|
+|`wdir` | The wind direction in degrees (°) | Integer |
+|`wspd` | The average wind speed in km/h | Float |
+|`wpgt` | The peak wind gust in km/h | Float |
+|`pres` | The sea-level air pressure in hPa | Float |
+|`tsun` | The one hour sunshine total in minutes (m) | Integer |
+|`coco` | The weather condition code | Integer |
 
-   * Excluded rides longer than 24 hours (`duration > 86400` seconds).
-   * These were excluded from analysis but retained in the database.
-
-6. **Filtered rides missing user type:**
-
-   * Removed 194 rides with `user_type IS NULL`.
-
-7. **Deduplicated rides:**
-
-   * Removed \~2,767 duplicate records where `bike_id`, `start_time`, and `end_time` were identical.
-
-8. **Filtered overlapping rides per bike:**
-
-   * For bikes with multiple overlapping rides, kept the ride with the lowest `ride_id`.
-
-## 📍 Station Data Cleaning
-
-1. **Allowed stations with same name but different coordinates:**
-
-   * Replaced unique constraint on `name` with composite index:
-
-     ```SQL
-     CREATE UNIQUE INDEX uniq_vector ON stations(name, lat, long);
-     CREATE INDEX idx_name ON stations(name);
-     ```
-
-2. **Renamed ambiguous duplicates:**
-
-   * Manually added suffixes like " II" to disambiguate repeated station names at different coordinates.
-
-3. **Normalized source formats:**
-
-   * Some station data was manually extracted from Excel, then converted to CSV for uniform processing.
-
-##  Weather Data Cleaning
-
-1. **Selected Midway Airport station (72534):**
-
-   * Chosen for completeness and consistency across years.
-
-2. **Dropped unused or missing columns:**
-
-   * `snow`, `wpgt`, `tsun`, `pres`, and `datetime` were excluded from final dataset.
-
-3. **Created `epoch` column for joins:**
-
-   * Combined `date` and `hour` fields into datetime, then converted to UNIX epoch to align with ride timestamps.
-
-## Notes
-
-* All transformations were tracked in versioned scripts and logged in `logs/workLog.md`.
-* Weather data cleaning steps were scripted in `src/load_weather.R`.
-* Station and ride data were validated and transformed via shell scripts and SQLite.
-
+More information on the data formats and weather condition codes (COCO) is available from [Meteostat](https://dev.meteostat.net/formats.html)
 
 ---
+
+## 2.4 Tourist Attractions Data
+
+**Description**
+A small dataset manually created to identify major tourist destinations in Chicago (e.g., Navy Pier, Millennium Park, The Art Institute). Latitude and longitude coordinates were obtained using Google Maps to enable spatial filtering of rides that likely involve tourist activity. This data set was used to filter out stations located near popular visitor destinations or major cultural attractions for a subset of the analysis. These stations assumedly, typically exhibit high volumes of tourist riders, a group less likely to purchase subscriptions.
+
+**Attribution**
+
+Source: Custom dataset created from Google Maps lat/Long queries - [tourist_attractions.csv](data/tourist_attractions.csv)
+
+**Purpose and Use in the Analysis**
+
+This dataset was created to help isolate commuter-focused activity:
+
+  -  Enabled spatial filtering to exclude rides likely associated with tourism.
+  -  Improved analysis of subscription conversion potential by focusing on resident and commuting patterns.
+  -  Provided a basis for sensitivity testing (comparing metrics with and without tourist station data).
+
+**Schema**
+
+|Parameter | Description |  Type  |
+|----------|-------------|--------|
+|name      |Location Name| String |
+|lat       |  Latitude   | Float  |
+|long      | longitude   | Float  | 
+
+---
+
+## 3.1 Divvy Station Data Cleaning and Harmonization
+
+To combine the files into a unified dataset, the following steps were performed:
+
+1. **Field Standardization**
+   - Renamed fields to a consistent schema:
+     - `station_id` (new stations ID generated, see schema)
+     - `name`
+     - `short name` (retained but field has not been used)
+     - `lat`
+     - `long`
+     - `dbcap` (retained but field has not been used)
+     - `online_date` (Combined `online date` and `dateCreated` into a single online_date field (though this was not ultimately used in the analysis).
+     
+   - Deleted fields no longer needed:
+   
+     - `Docks in Service` (assumed to be current data)
+     - `Status` (assumed to be current data, we're concerned with historical usage)
+     - `Location` (for our purposes this just duplicates the lat/long)hourly_weather
+     - `landmark` (no evidence could be found about what this integer represents)
+
+2. **Date-Time Formatting**
+   - Parsed dates from different formats:
+     - `MM/DD/YYYY` (2013)
+     - `YYYY/MM/DD` (2014 Q1/Q2)
+     - `DD/MM/YYYY hh:mm` (2014 Q3/Q4) 
+   - Converted all timestamps to Unix epoch seconds.
+   - Combined online data and dateCreated into a single field
+  
+3. **`Docks in Service` Removal**
+   - This field appears to be a current value (i.e. the number of docks currently in service).  We know the number of docks at a station change over time, but without the dates and times those changes occur if is of little value to use when analyzing historical data.
+
+4. **`Location` Removal**
+   - The `Location` column, which contained WKT-style POINT (longitude latitude) strings duplicating the existing numeric Latitude and Longitude fields, was removed to simplify the dataset. Since our analysis uses numeric coordinates directly, this field offered no additional utility and was excluded to reduce redundancy and potential confusion.
+   
+5. **`landmark` Removal**
+   - The `landmark` field, which contains integers ranging from 1 to 440. It was assumed these were a foreign key into some other table but no evidence of that could be found nor evidence of what that field was suppose to represent.  Not knowing what it represented left no justification to retain it.
+   
+6. **`Status` Removal**
+   - The Status field, present only in the most recent stations dataset, contained categorical values indicating whether a station was active (e.g., In Service, Not In Service, Not Installed). Because historical station records did not include this field, and our analysis focused on aggregated ride patterns across the full time range (2013–2025) rather than on station operational status at a point in time, this field was excluded. Retaining it would have introduced inconsistent data availability across records without contributing meaningful insights to trip-level analysis.
+   
+7.  **`dbcap` and `Short Name` Retained**
+    - Although not required for the planned analyses, dbcap (dock capacity) and Short Name were retained to maintain completeness and allow for potential future work. dbcap can provide context about station size, while Short Name preserves internal identifiers that may support joins with other datasets.
+
+8. **`station_id` Replacement**
+    - The original station IDs (integers and later UUIDs) were inconsistent and lacked a reliable mapping. To resolve this, a new auto-incrementing station_id primary key was auto assigned. Uniqueness was enforced with a unique index on (name, lat, long) to accommodate minor naming inconsistencies and ensure each physical station location is treated as distinct. The legacy IDs were removed to avoid ambiguity and ensure consistent station references across datasets.
+
+9.  **Concatenation**
+   - Combined all records from CSV files into a single master stations table using the bash script [load_stations_table.sh](../src/load_stations_table.sh)
+
+10. **Renamed ambiguous duplicates**
+   - Manually added suffixes like " II” to disambiguate repeated station names at different coordinates.
+
+11. **Normalized source formats**
+
+   - One stations data file, namely Divvy_Stations_2014-Q1Q2.xlsx, was provided in Excel format rather than the standard CSV. So it was manually converted to CSV using Gnumeric for uniform processing.
+
+---
+
+## 3.2 Divvy Trip Data Cleaning and Harmonization
+
+To combine the files into a unified dataset, the following steps were performed:
+
+1. **Field Standardization**
+   - Renamed fields to a consistent schema:
+     - `ride_id`
+     - `bike_type`
+     - `bike_id`
+     - `start_time`
+     - `end_time`
+     - `start_station_id`
+     - `end_station_id`
+     - `user_type`
+     - `gender` (set to NA if missing)
+     - `birth_year` (set to NA if missing)
+   - Deleted fields no longer needed:
+     - `start_station_name` (station names are available in stations file)
+     - `end_station_name` (station names are available in stations file)
+     - `start_lat` (coordinates of stations are available in the stations file)
+     - `start_lng` (coordinates of stations are available in the stations file)
+     - `end_lat` (coordinates of stations are available in the stations file)
+     - `end_lng` (coordinates of stations are available in the stations file)
+     - `trip_duration` (no need to store a file you can calculate)
+
+2. **Date-Time Formatting**
+   - Parsed dates from different formats:
+     - `MM/DD/YYYY hh:mm:ss AM/PM` (historic file)
+     - `YYYY-MM-DD hh:mm:ss` (modern files)
+   - Converted all timestamps to Unix epoch seconds.
+
+3. **`Trip Duration` Removal**
+   In this project, trip_duration was omitted from the final dataset to reduce storage size. Because duration can be **easily computed** from the start and end timestamps, storing it introduces unnecessary redundancy.
+
+```
+     trip_duration = end_time - start_time (in seconds)
+```
+   While keeping trip_duration can simplify some analysis workflows, in this case the primary concern was **limiting the dataset size**, particularly given the large volume of records spanning multiple years and the storage capacity of my laptop. The minimal computational overhead required to recalculate duration dynamically was considered an acceptable trade-off for improved efficiency in data storage.
+        
+4. **User Type Harmonization**
+   - Mapped:
+   hourly_weather
+     - `USER TYPE = "Subscriber"` and `member_casual = "member"` to user_type = 0
+     - `USER TYPE = "Customer"` and `member_casual = "casual"` to user_type = 1
+
+5. **Gender Harmonization**
+   - Mapped:
+   
+     - `GENDER = "Male"` to `gender = 0`
+     - `GENDER = "Female"` to `gender = 1`
+     - `GENDER = NULL` or no gender field to `gender = NULL`
+     hourly_weather
+   - It was verified that there were only three values for gender (Male, Female, NULL) in the dataset
+
+6. **Bike Type Standardization**
+   - For records where `bike_type` was not present it was set to `''`.
+
+7. **Missing Fields Handling**
+   - For the fields user_type and gender, if the columns were missing, NULL was inserted.
+   - For all other fields if that columns was missing `''` was inserted.
+
+8. **Concatenation**
+   - Combined all records from CSV files into a single master trips table using the bash script [load_rides.sh](../src/load_rides.sh)
+
+9. **Pandemic-Period Ride Removal**
+
+   - Dropped all rides with `start_time` after **Jan 1, 2020** to avoid skew due to COVID-19 lockdowns and major service disruptions.
+   - Additionally removed a single late outlier from April 2020.
+
+10. **Data Cleaning**
+   - Removed records with:
+     - Missing start or end station IDs
+   - Filtered trips exceeding 24 hours as likely errors.
+   
+11. **Zero-Duration Loop Rides**
+
+    - Filtered out rides where:
+    
+      ```
+      start_time == end_time
+      AND
+      start_station_id == end_station_id
+      ```
+    - These rides likely indicate bikes checked in and out without actual use.
+
+12. **“Teleportation” Rides Removal**
+
+    - Eliminated rides with:
+    
+      ```
+      start_time == end_timehourly_weather
+      AND
+      start_station_id != end_station_id
+      ```
+    - Such records are implausible and assumed to be data entry errors.
+
+13. **Negative-Duration (“Time Traveler”) Rides**
+
+    - Removed records where:
+    
+      ```
+      start_time > end_time
+      ```
+    - These observations are invalid.
+
+14. **Long-Duration Rides**
+
+    - Excluded rides longer than **24 hours** (`duration > 86,400 seconds`).
+    - Note: These records were excluded from the main analysis but retained in the database for reference.
+
+15. **Missing User Type**
+
+    - Removed 194 rides with `user_type IS NULL` to ensure consistent classification.
+
+16. **Duplicate Rides**
+
+    - Deduplicated ~2,767 records where:
+    
+      ```
+      bike_id, start_time, and end_time
+      ```
+      were identical.
+
+17. **Overlapping Rides per Bike**
+
+    - For cases where the same bike appeared in multiple rides with overlapping times, retained the ride with the **lowest `ride_id`**, assuming it reflected the canonical record.
+
+---
+
+## 3.3 Chicago Weather Data Cleaning and Harmonization
+
+1. **Field Standardization**
+   - Renamed fields to a consistent schema:
+     - `epoch`
+     - `temp`
+     - `dwpt`
+     - `rhum`
+     - `prcp`
+     - `wdir`
+     - `wspd`
+     - `coco`
+   - Deleted fields no longer needed:
+     - `snow` 
+     - `wpgt` 
+     - `pres` 
+     - `tsun` 
+     
+2. **Date-Time Formatting**
+   - `date` was a string formatted as YYYY-MM-DD
+   - `hour` was an integer 0-23
+   - These were combined into a proper datetime, then converted to epoch (UTC)
+   
+3. **`snow`, `wpgt` and `tsun` removal**
+   - There were no entries for snow, peak wind gust or total sunshine included in the data set.  As Chicago obviously experienced all three of these at some point during the studies time frame we can safely assume that this was a failure in collection rather the an observation of its absence. So these fields were dropped.
+    
+4. **`pres` Removal**
+   - Most people do not consciously notice changes in air pressure, unless it's extreme. While air pressure might correlate with some weather conditions (e.g., low pressure with storms), it's not the pressure itself that influences behavior, but rather the weather phenomena that accompany it. So the `pres` field was dropped.
+   
+---
+
+## 4. Data Integration
+
+The cleaned datasets were integrated to create unified analysis tables:
+
+**Trip-to-Station Linking**
+
+   - Trips were associated with stations during data loading:
+
+     - `start_station_id` was assigned by matching trip coordinates to a unique station record.
+     - Because matching was enforced at ingestion time, **100% of trip records have valid `start_station_id` references.**
+   - No further joins to station metadata were needed during integration.
+
+**Hourly Aggregation of Rides**
+
+   - Because weather data was recorded hourly, trip timestamps were aggregated to hourly intervals:
+
+     - A view `rides_per_hour` counted trips per hour and user type.
+     - A table `rides_per_hour_tbl` materialized the same aggregation to improve query performance.
+     - An index `idx_rides_per_hour_epoch` was created on `(epoch, user_type)`.
+
+**Weather Data Linking**
+
+   - Hourly ride counts were joined to weather observations using epoch timestamps rounded to the start of each hour.
+   - A view `rides_weather` was created to combine:
+
+     - Hourly weather measurements.
+     - Counts of rides by user type.
+     - For hours with no rides, `rides` was set to `0`.
+
+**Tourist Station Identification**
+
+   - In R, tourist station proximity was determined by calculating geodesic distances between station coordinates and tourist attractions.
+   - Stations within 200 meters of an attraction were identified as likely tourist-serving.
+   - This information was used in R to filter trips for commuter-focused analyses.
+   - No flags or updates were applied to the stations data stored in SQLite.
+
+**Derived Aggregates**
+
+   - Summary tables were created for visualization and modeling, including:
+     - Total rides per station.
+     - Rides by user type and hour.
+     - Weather-adjusted ride counts.
+
+---
+
+## 5. Assumptions and Limitations
+
+- Older trip data lacked bike type information.
+- Newer trip data lacked bike ID information.
+- Gender and birth year were available only for subscribers in the historic dataset and nonexistent in modern datasets, limiting demographic analysis.
+- Station IDs may have been reassigned over time.  Thus they were replaced.
+- The weather data contains approximately 400 missing hourly records over the study period. These gaps were not interpolated and could introduce slight bias in time-sensitive analyses.
+-
+
+---
+
+## 6. Data Validation
+
+Following data cleaning and harmonization, a series of validation checks were performed to confirm dataset completeness, consistency, and readiness for analysis.
+
+## 6.1 Divvy Stations Data Validation
+
+**Record Counts and Uniqueness**
+
+ -  Verified total number of unique stations matched the number of records in the consolidated table (station_id was confirmed to be unique).
+ -  Confirmed no duplicate (name, lat, long) entries after deduplication.
+
+**Range and Geographic Consistency**
+
+ -  Ensured all latitude values were between 41.6 and 42.1, and longitude between -88 and -87, corresponding to the Chicago area.
+ -  Checked that dock capacity (dbcap) was non-negative.
+
+**Referential Integrity**
+
+ -  Cross-referenced station_id assignments against original station names and coordinates to confirm correct mapping.
+ 
+## 6.2 Divvy Trip Data Validation
+
+**Record Counts**
+
+  -  Compared total trip counts to expected aggregates based on source files.
+  -  Verified no rows were dropped unintentionally during concatenation.
+
+**Temporal Validity**
+
+  -  Confirmed all trips had:
+
+     -   start_time <= end_time
+     -   Timestamps within the 2013–2019 and 2023–2025 date ranges.
+     -   No future-dated rides.
+
+**Duration and Consistency Checks**
+
+  -  Validated ride durations were non-negative and less than 24 hours.
+  -  Confirmed removal of “teleportation” and negative-duration rides.
+
+**Referential Integrity**
+
+  -  Verified that start_station_id and end_station_id matched valid IDs in the stations table.
+  -  No orphaned trips remained.
+
+**Categorical Values**
+
+  -  Checked that user_type contained only standardized values (0: Subscriber, 1: Customer).
+  -  Confirmed gender only included 0 (Male), 1 (Female), or NULL.
+
+**Deduplication**
+
+  -  Ensured no duplicate rides remained (based on bike_id, start_time, end_time). 
+  
+## 6.3 Chicago Weather Data Validation
+
+The hourly weather dataset was validated to ensure temporal coverage and consistency.
+
+**Coverage Check**
+
+    Expected range:
+
+      - Start: 2013-06-27 00:00 UTC
+      - End: 2025-05-18 12:00 UTC
+
+    Expected count: ~10,4099 hourly records (~12 years).
+
+**Completeness Audit**
+
+  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd/#glossary-CTE) generating the complete expected hourly series.
+  -  Found ~400 missing hourly observations, typically occurring in small contiguous blocks (e.g., a few hours) rather than extended gaps.
+  -  These missing rows are likely due to intermittent data collection lapses at the weather station or data ingestion issues from the Meteostat source.
+
+**Handling Missing Data**
+
+  -  No imputation was performed for missing hourly rows.
+  -  For aggregate analyses (e.g., daily means), missing hours simply reduce the sample size for that day.
+  -  Users of the data should note that hourly-level analyses may not fully cover the time range.
+
+**Data Integrity**
+
+  -  All retained rows had valid numeric values for temperature and precipitation, with no obviously corrupt records (e.g., implausible temperatures).
+  -  Non-essential fields (snow, tsun, pres) were excluded as described in Data Cleaning.
+
+**Range Checks**
+
+  -  Ensured all numeric fields (temperature, humidity, precipitation) fell within plausible ranges for Chicago weather.
+  -  Confirmed no invalid (negative) precipitation amounts.
+
+## 6.4 Tourist Attractions Data Validation
+
+**Geographic Consistency**
+
+  -  Verified all attraction coordinates were within Chicago city boundaries.
+  -  Manually spot-checked coordinates against Google Maps for correctness.
+
+## 6.5 Summary of Validation Outcomes
+
+All datasets passed validation checks. Any invalid or inconsistent records were removed or corrected during the cleaning steps. Remaining records were confirmed to be internally consistent, complete within the defined scope, and suitable for downstream analysis.  
+
+---
+
+## 7. Outputs and Derived Data
+
+The following cleaned, aggregated, and derived datasets were created during the project:
+
+| Name                   |    Type     |            Description                        |
+| ---------------------- | ----------- | --------------------------------------------- |
+| `stations`             |SQLite Tables|Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.
+| `rides`                |SQLite Tables|Cleaned trip-level records, harmonized fields, and standardized timestamps.
+| `hourly_weather`       |SQLite Tables|Hourly weather observations from Midway Airport for the study period.
+| `rides_per_hour_tbl`   |SQLite Tables|A table with one entry per hour that joins rides and weather|
+
+| `rider_readable`       |SQLite Views|
+| `rides_per_hour`       |SQLite Views|Aggregated hourly ride counts, used to join with weather data.
+| `rides_weather`        |SQLite Views|Combined hourly weather and ride counts for modeling and visualization.|
+
+| `asym_top`             |R Data Frame|Stations with the largest asymmetry between user types.
+| `attractions_df`       |R Data Frame|List of tourist attractions with coordinates. 
+| `binned_rides`         |R Data Frame|
+| `daily_avg_df`         |R Data Frame|Average number of rides per day since January 2023, grouped by user type and bike type.|
+| `density_df`           |R Data Frame| 
+| `duration_by_type`     |R Data Frame|
+| `loop_rides_non_tourist`|R Data Frame|
+| `loop_rides_non_tourist_df`|R Data Frame|
+| `nearby_stations_df`   |R Data Frame|Stations within radius of tourist attractions.| 
+| `non_loop_rides_df`    |R Data Frame| 
+| `non_tourist_customer_rides_df`|R Data Frame|
+| `non_tourist_stations_df`|R Data Frame|Stations not near tourist attractions.|
+| `normalized_df`        |R Data Frame|
+| `peak_df`              |R Data Frame| 
+| `prop_df`              |R Data Frame| 
+| `prop_wide`            |R Data Frame|
+| `post_electric_rides_df`|R Data Frame|Daily ride counts and average durations since January 2023, broken down by user type and bike type.|
+| `ride_count`           |R Data Frame|
+| `ride_counts_by_distance`|R Data Frame|
+| `ride_durations`       |R Data Frame|
+| `ride_durations`       |R Data Frame|
+| `ride_props`           |R Data Frame|
+| `rides_by_hour_season` |R Data Frame|
+| `rides_by_hour_weekpart`|R Data Frame|
+| `rides_weather_df`    |R Data Frame|
+| `stations_non_tourist_df`|R Data Frame|
+| `stdres_df`           |R Data Frame|
+| `temp_bins`           |R Data Frame|
+| `top_non_tourist_stations`|R Data Frame|
+| `top_non_tourist_stations_named`|R Data Frame|
+| `top_stations_df`     |R Data Frame|
+| `weekday_rides_df`    |R Data Frame|
+
+| `asymmetry.csv`       | CSV File |Export of asymmetry analysis (user type differences).|
+| `attractions.csv`     | CSV File |  |
+| `bike_ride_buckets.csv`| CSV File |  |
+| `max_concurrent_rides_by_year.csv`| CSV File |Maximum concurrent rides observed per year.|
+| `reshaped_pairs.csv`  | CSV File |  |
+| `temp_distribution.csv`| CSV File |  |
+| `temp_vs_rides_avg.csv`| CSV File |  |
+| `temp_vs_rides_total.csv`| CSV File |  |
+| `tourist_attractions.csv`| CSV File |  |
+| `temp_vs_rides.tsv`    | TSV File |  |
+| `avg_temp_vs_rides.tsv`| TSV File |Tab-separated average rides per temp bin.  |
+| `temp_vs_rides_2.dat`  | Data File |  |
+
+
+| `top_stations.rds`  | RDS File |  |
+| `ride_durations.rds`| RDS File |  |
+
+**Notes:**
+
+  -  Some outputs (like rides_weather) are views, not materialized tables.
+  -  Any data frames created/generated in R and were not stored back into SQLite unless expressly stated so.
+  -  The .rds files were created in R for faster reloading and further analysis.
+  -  If you exported any additional CSV summaries or RDS snapshots, consider adding them here.
+    
+---
+
+## 8. Appendix 
+
 
 ## License
 
@@ -109,3 +659,4 @@ Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](
 <blockquote><p>Source: <a href="https://meteostat.net" target="_blank" rel="noopener noreferrer">Meteostat<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote>
 
 This case study is © 2025 Scott Sesher and provided under the MIT License. See [LICENSE](LICENSE) for details.
+

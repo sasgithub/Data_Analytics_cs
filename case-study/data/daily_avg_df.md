@@ -1,15 +1,12 @@
-Daily ride counts and average durations since January 2023, broken down by user type and bike type.
+Average number of rides per day since January 2023, grouped by user type and bike type.
 
 ```r
-post_electric_rides_df <- dbGetQuery(con, "SELECT
-   DATE(start_time, 'unixepoch') AS ride_date,
-   user_type,
-   bike_type,
-   COUNT(*) AS ride_count,
-   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes
-FROM rides
-WHERE start_time >= strftime('%s', '2023-01-01') -- first e-bike appeared
-GROUP BY ride_date, user_type, bike_type;")
+daily_avg_df <- post_electric_rides_df %>%
+    group_by(user_type, bike_type) %>%
+    summarise(
+        avg_rides_per_day = mean(ride_count),
+        .groups = "drop"
+    )
 ```
 
 **Rationale for January 2023 Start Date**
@@ -21,3 +18,4 @@ The post_electric_rides_df and daily_avg_df data frames were derived exclusively
  -  Focused analysis of e-bike utilization compared to traditional bikes.
  -  Comparison of subscriber and casual user behaviors in the e-bike era.
  -  Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.
+

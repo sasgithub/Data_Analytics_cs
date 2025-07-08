@@ -159,11 +159,11 @@ The total number of rides for a specific category (e.g., bike type or user type)
 </dd>
 </dl>
 </div>
-<div id="glossary-bucket">
+<div id="glossary-bin">
 <dl>
-<dt>Bucket</dt>
+<dt>Bin</dt>
 <dd>
-A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride buckets.
+A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride bins.
 </dd>
 </dl>
 </div>
@@ -174,6 +174,14 @@ A predefined range used to group continuous data, such as ride counts or tempera
 A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into <strong>Short</strong>, <strong>Medium</strong>, and <strong>Long</strong> clusters to distinguish different usage behaviors.
 </dd>
 </dl>
+</div>
+<div id="glossary-CTE">
+<p>: Common Table Expression (CTE) A Common Table Expression (CTE) is a temporary named result set defined within a SQL query using the WITH keyword. CTEs make complex queries easier to read and maintain by allowing intermediate results to be referenced by name as if they were tables.</p>
+<p>CTEs can be:</p>
+<ul>
+<li>Non-recursive: Used like a simple, named subquery.</li>
+<li>Recursive: Used to perform iterative operations such as generating sequences or traversing hierarchical data.</li>
+</ul>
 </div>
 <div id="glossary-customer">
 <dl>
@@ -270,6 +278,18 @@ The process of scaling data, typically between 0 and 1, to allow for comparisons
 The highest number of bike rides occurring simultaneously within a given time window (e.g., a day, month, or year). In this study, peak concurrency is equivalent to the maximum number of bikes in use at the same time, calculated using ride start and end times. Also referred to as <strong>max simultaneous rides</strong>. This metric helps assess system load, infrastructure limits, and usage spikes.
 </dd>
 </dl>
+</div>
+<div id="glossary-resource-fork">
+<dl>
+<dt>Resource Fork</dt>
+<dd>
+A named fork or stream within a file on Apple’s Hierarchical File System (HFS) and its successor HFS+, designed to store structured metadata and application resources. Every file in classic Mac OS consisted of at least two forks: a data fork and a resource fork.
+</dd>
+</dl>
+<ul>
+<li>Data Fork: Contained a simple stream of bytes, representing the primary content a user would typically associate with the file (e.g., text, image bitmap data, etc.). This is analogous to a standard file on Unix or Windows systems.</li>
+<li>Resource Fork: Contained a structured collection of resources, managed by the Resource Manager. Each resource was defined by a type (a four-character code like ICON or snd ) and a unique ID. This system allowed for efficient loading and modification of application assets like icons, fonts, sounds, cursors, and UI layouts (menus, windows) without recompiling the application’s main executable code stored in the data fork.</li>
+</ul>
 </div>
 <div id="glossary-rcpb">
 <dl>

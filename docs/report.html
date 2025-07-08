@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Scott Sesher">
 
-<title>non_tourist_customer_rides_df – Bike share case-study</title>
+<title>Case Study Report – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c1e379285a839a80e53a5f0e1316ec33.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -114,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Bike share case-study</span>
     </a>
   </div>
@@ -125,19 +91,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../viz/visualizations.html"> 
+    <a class="nav-link" href="./viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../data.html"> 
+    <a class="nav-link" href="./data.html"> 
 <span class="menu-text">Data Sources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../glossary.html"> 
+    <a class="nav-link" href="./glossary.html"> 
 <span class="menu-text">Glossary</span></a>
   </li>  
 </ul>
@@ -156,78 +122,182 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</a></li>
+  <li><a href="#business-task" id="toc-business-task" class="nav-link active" data-scroll-target="#business-task">Business Task</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#data-cleaning-steps" id="toc-data-cleaning-steps" class="nav-link" data-scroll-target="#data-cleaning-steps">Data Cleaning Steps</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
+  <li><a href="#validations" id="toc-validations" class="nav-link" data-scroll-target="#validations">Validations</a></li>
+  <li><a href="#key-metrics-and-analysis" id="toc-key-metrics-and-analysis" class="nav-link" data-scroll-target="#key-metrics-and-analysis">Key Metrics and Analysis</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Case Study Report</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="provenance-for-non_tourist_customer_rides_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
-<p>** Source Table:** rides table in SQLite database</p>
-</section>
-<section id="query-details" class="level3">
-<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
-<p>Query selects:</p>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Scott Sesher </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>🚧 This case study is currently under construction. Please check back soon for a complete walk-through, analysis, and visualizations.</p>
+</blockquote>
+<section id="business-task" class="level2">
+<h2 class="anchored" data-anchor-id="business-task">Business Task</h2>
+<p>How do <a href="./glossary.html#glossary-customer;">Customers</a> riders and <a href="./glossary.html#glossary-subscriber">Subscribers</a> use bikes differently, and how can that inform marketing strategies?</p>
+<section id="key-questions" class="level3">
+<h3 class="anchored" data-anchor-id="key-questions">Key Questions</h3>
 <ul>
-<li>ride_id</li>
-<li>start_time</li>
-<li>end_time</li>
-<li>start_station_id</li>
-<li>end_station_id</li>
-<li>bike_type</li>
+<li>Which stations have the highest potential to convert customer riders into subscribers?</li>
+<li>What rider behaviors and patterns can we leverage for targeted campaigns?</li>
+<li>How can data collection be improved to enhance marketing and operational strategies?</li>
+<li>How does weather effect subscribers and customers differently?</li>
 </ul>
-<p>With these filters:</p>
+</section>
+<section id="stakeholders" class="level3">
+<h3 class="anchored" data-anchor-id="stakeholders">Stakeholders</h3>
 <ul>
-<li>user_type = 1</li>
-<li>Meaning: customer (casual rider)</li>
-<li>start_station_id and end_station_id both in your non-tourist stations list (station_ids_sql)</li>
-<li>start_time &gt;= ‘2023-01-01’</li>
-<li>Meaning: rides starting on or after Jan 1, 2023</li>
+<li>Marketing team</li>
+<li>Executive leadership</li>
+<li>Operations team</li>
+<li>Product development team</li>
 </ul>
+<hr>
 </section>
-<section id="how-this-fits-into-the-flow" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h3>
-<p>This dataset forms the <strong>foundational rides subset</strong> from which many other frames were derived:</p>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<p>The analysis is based on the following datasets:</p>
+<p>• <strong>Divvy Bike Trip Data</strong> (2013–2025)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> : This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal. The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive . Please note, rides from the time period of the COVID-19 Pandemic are not included. - <strong>Divvy Bike Station Data</strong>: <a href="https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data_preview">City of Chicago Data Portal</a> • <strong>Chicago Weather Data</strong> (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns. • <strong>Tourist Attractions Dataset</strong> (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Lincoln Park Zoo) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.</p>
+<section id="attribution" class="level3">
+<h3 class="anchored" data-anchor-id="attribution">Attribution</h3>
+<p>• City of Chicago. (2025). Divvy Trips Datasets. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data • Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html • Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0) • Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.</p>
+</section>
+<section id="data-limitations-and-biases" class="level3">
+<h3 class="anchored" data-anchor-id="data-limitations-and-biases">Data Limitations and Biases</h3>
+</section>
+<section id="tools-used" class="level3">
+<h3 class="anchored" data-anchor-id="tools-used">Tools Used</h3>
+<p>• SQLite - Used to store all large table and do any intensive queries. • Key libraries:</p>
+<pre><code>• dplyr, tidyr, and lubridate for data wrangling
+• DBI, RSQLite, and dbplyr for seamless interaction with SQLite
+• leaflet for dynamic, interactive mapping of station data</code></pre>
+<p>Tableau - Chosen for its unique suitability for certain interactive visuals.</p>
+<p>Gnuplot - Used for quick visuals when the data was not in RStudio.</p>
+<hr>
+</section>
+</section>
+<section id="data-cleaning-steps" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning-steps">Data Cleaning Steps</h2>
+</section>
+<section id="assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
 <ul>
-<li>non_loop_rides_df</li>
-<li>loop_rides_non_tourist_df</li>
-<li>ride_durations</li>
-<li>ride_props</li>
-<li>binned_rides</li>
-<li>temp_bins</li>
-<li>rides_by_hour_weekpart</li>
-<li>rides_by_hour_season</li>
+<li>Stations with &gt;90% subscriber rides are commuter-focused hubs.</li>
+<li>Stations with high casual usage but low subscribers are likely tourist-oriented.</li>
+<li>Midday rides often represent “Lunch &amp; Ride” exercise trips.</li>
 </ul>
-<p>** Full Query Text **</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_query <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">" </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">     ride_id,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">     start_time,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">     end_time,</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">     start_station_id,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">     end_station_id,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">     bike_type</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">   FROM rides</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">   WHERE user_type = 1</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_station_id IN (%s)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">     AND end_station_id IN (%s)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_time &gt;= strftime('%%s', '2023-01-01')</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validations" class="level2">
+<h2 class="anchored" data-anchor-id="validations">Validations</h2>
+<hr>
+</section>
+<section id="key-metrics-and-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="key-metrics-and-analysis">Key Metrics and Analysis</h2>
+<section id="summary-statistics-and-insights" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics-and-insights">Summary Statistics and Insights</h3>
+<ul>
+<li>Identified stations with high mixed usage by casual and subscriber riders.</li>
+<li>Discovered midday ride peaks consistent with short exercise trips.</li>
+<li>Found major transit hubs with strong subscriber activity, indicating commuter use.</li>
+</ul>
+</section>
+<section id="trends-and-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="trends-and-patterns">Trends and patterns</h3>
+<ul>
+<li>Some stations show strong subscriber dominance, limiting recruitment opportunity.</li>
+</ul>
+<hr>
+</section>
+<section id="recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="recommendations">Recommendations</h3>
+<p>Recommendations are grouped into two categories:</p>
+<p>1 <strong>Take Action with Existing Data</strong> - Focus subscriber recruitment efforts at combined-use stations (those with both high subscriber and high casual use). These locations offer the greatest opportunity to reach likely subscribers without wasting resources. - Avoid stations dominated by one user type, such as tourist-heavy stations (high casual %) or commuter-heavy hubs (high subscriber %), where conversions are less likely. - Design messaging campaigns around use cases we can detect now, such as midday riders (“Lunch &amp; Ride”) or first/last-mile commuters at major transit hubs.</p>
+<p>2 <strong>Improve Data Collection Capabilities</strong> - Begin collecting optional identifying information (e.g., opt-in email, zip code) to enable customer segmentation and direct outreach. - Investigate cost-effective bike tracking options (e.g., GPS devices) to understand actual rider paths, enabling better infrastructure planning and rebalancing. - Incorporate optional demographic data to improve equity analysis and targeted messaging.</p>
+<hr>
+</section>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>To operationalize these recommendations, we propose the following next steps:</p>
+<ul>
+<li>Determaine budget for pilot outreach campaign in order to determine it’s size.
+<ul>
+<li>Once the number of stations to be included in the pilot is known, rank Stations by User Mix and Volume</li>
+<li>Use ride data to identify stations with highest levels of both subscribers and customers.</li>
+<li>Target these stations for pilot outreach.</li>
+</ul></li>
+<li>Design and Deploy a Pilot Campaign
+<ul>
+<li>Create simple, location-based advertising (flyers, signage, QR codes) at selected stations.</li>
+<li>Test messages tied to observed patterns like midday riding or commuting.</li>
+</ul></li>
+<li>Legal and Technical Feasibility Study
+<ul>
+<li>Evaluate the privacy and technical implications of collecting user-level identifiers.</li>
+<li>Draft opt-in language for future implementation.</li>
+</ul></li>
+<li>Bike Tracking Feasibility Assessment
+<ul>
+<li>Research GPS vendor options.</li>
+<li>Estimate cost and define success metrics for a limited pilot.</li>
+</ul></li>
+<li>Team Engagement
+<ul>
+<li>Share findings with marketing and operations.</li>
+<li>Assign owners for the outreach pilot and the data enhancement study.</li>
+</ul></li>
+</ul>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<ul>
+<li><p><a href="./viz/visualizations.html">Visualizations</a></p></li>
+<li><p><a href="../logs/workLog.md">Work Log</a></p></li>
+</ul>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
