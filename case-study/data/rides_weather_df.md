@@ -1,26 +1,42 @@
+## Provenance: `rides_weather_df`
 
+**Data Origin:**  
+Derived directly from the `rides_weather` view in the SQLite database.
 
-> rides_weather_df %>%
-+     mutate(
-+         temp_bin = floor(temp / 2) * 2,
-+         precip_label = case_when(
-+             is.na(prcp)      ~ "No data",
-+             prcp == 0        ~ "Dry",
-+             prcp > 0         ~ "Wet"
-+         )
-+     ) %>%
-+     group_by(temp_bin, user_type, precip_label) %>%
-+     summarise(rides = sum(rides), .groups = "drop") %>%
-+     ggplot(aes(x = temp_bin, y = rides, color = user_type)) +
-+     geom_line(size = 1) +
-+     facet_wrap(~ precip_label, nrow = 1) +
-+     labs(
-+         title = "Ride Volume by Temperature and Precipitation",
-+         subtitle = "2°C temperature bins grouped by rain condition",
-+         x = "Temperature Bin (°C)",
-+         y = "Total Rides",
-+         color = "User Type"
-+     ) +
-+     scale_x_continuous(breaks = seq(-30, 40, by = 10)) +
-+     theme_minimal(base_size = 14)
+**View Definition Recap (`rides_weather`):**  
+This view joins hourly weather observations to hourly ride counts:  
+- **Left Join:** `hourly_weather` (hourly measurements)  
+- **Left Join Target:** `rides_per_hour` (hourly ride counts by user type)  
+- **Columns Selected:**  
+  - `epoch` (UTC seconds)  
+  - `user_type` (`0=Subscriber`, `1=Customer`)  
+  - `rides` (hourly ride count)  
+  - `temp` (temperature °C)  
+  - `dwpt` (dewpoint °C)  
+  - `rhum` (relative humidity %)  
+  - `prcp` (precipitation mm)  
+  - `wdir` (wind direction °)  
+  - `wspd` (wind speed m/s)  
+  - `coco` (weather condition code)
+
+**How Imported:**  
+Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:  
+
+```r
+rides_weather_df <- dbReadTable(con, "rides_weather")
+```
+
+or
+
+```r
+rides_weather_df <- dbGetQuery(con, "SELECT * FROM rides_weather")
+```
+
+**Usage in Analysis:**
+This dataframe was used as the basis for:
+
+  -  Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots
+  -  Labeling precipitation conditions (Dry, Wet, No data)
+  -  Summarising rides by temperature and precipitation bins
+  -  Producing LOESS-smoothed plots of ride volume by temperature
 

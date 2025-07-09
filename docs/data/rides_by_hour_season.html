@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rides_weather_df – Bike share case-study</title>
+<title>rides_by_hour_season – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link active" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,37 +160,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-rides_weather_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></h2>
-<p><strong>Data Origin:</strong><br>
-Derived directly from the <code>rides_weather</code> view in the SQLite database.</p>
-<p><strong>View Definition Recap (<code>rides_weather</code>):</strong><br>
-This view joins hourly weather observations to hourly ride counts:<br>
-- <strong>Left Join:</strong> <code>hourly_weather</code> (hourly measurements)<br>
-- <strong>Left Join Target:</strong> <code>rides_per_hour</code> (hourly ride counts by user type)<br>
-- <strong>Columns Selected:</strong><br>
-- <code>epoch</code> (UTC seconds)<br>
-- <code>user_type</code> (<code>0=Subscriber</code>, <code>1=Customer</code>)<br>
-- <code>rides</code> (hourly ride count)<br>
-- <code>temp</code> (temperature °C)<br>
-- <code>dwpt</code> (dewpoint °C)<br>
-- <code>rhum</code> (relative humidity %)<br>
-- <code>prcp</code> (precipitation mm)<br>
-- <code>wdir</code> (wind direction °)<br>
-- <code>wspd</code> (wind speed m/s)<br>
-- <code>coco</code> (weather condition code)</p>
-<p><strong>How Imported:</strong><br>
-Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Usage in Analysis:</strong> This dataframe was used as the basis for:</p>
+<section id="provenance-rides_by_hour_season" class="level3">
+<h3 class="anchored" data-anchor-id="provenance-rides_by_hour_season">Provenance: <code>rides_by_hour_season</code></h3>
+<p>This data frame was created to analyze the temporal patterns of customer rides across seasons, weekdays, and hours.</p>
+<p><strong>Transformation Steps:</strong></p>
 <ul>
-<li>Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots</li>
-<li>Labeling precipitation conditions (Dry, Wet, No data)</li>
-<li>Summarising rides by temperature and precipitation bins</li>
-<li>Producing LOESS-smoothed plots of ride volume by temperature</li>
+<li><p><strong>Source:</strong></p>
+<ul>
+<li>Started from <code>non_tourist_customer_rides_df</code>, which contains rides filtered to exclude tourist stations.</li>
+</ul></li>
+<li><p><strong>Feature Engineering:</strong></p>
+<ul>
+<li><p>Extracted <code>hour</code> using <code>lubridate::hour()</code> from <code>start_localtime</code>.</p></li>
+<li><p>Created <code>week_part</code>:</p>
+<ul>
+<li><code>"Weekday"</code> if the day of week was Monday–Friday.</li>
+<li><code>"Weekend"</code> if Saturday or Sunday.</li>
+</ul></li>
+<li><p>Derived <code>season</code> using <code>case_when()</code>:</p>
+<ul>
+<li>December–February → <code>"Winter"</code></li>
+<li>March–May → <code>"Spring"</code></li>
+<li>June–August → <code>"Summer"</code></li>
+<li>September–November → <code>"Fall"</code></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Aggregation:</strong></p>
+<ul>
+<li>Counted rides grouped by <code>season</code>, <code>week_part</code>, and <code>hour</code>.</li>
+<li>Named the resulting count column <code>ride_count</code>.</li>
+</ul></li>
 </ul>
+<p>The resulting <code>rides_by_hour_season</code> data frame shows how ride volumes vary over the year and time of week/day.</p>
+<p><strong>Command Used</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_season <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">week_part =</span> <span class="fu">if_else</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">"Weekday"</span>, <span class="st">"Weekend"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">season =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"Winter"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">"Spring"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">"Summer"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>) <span class="sc">~</span> <span class="st">"Fall"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(season, week_part, hour, <span class="at">name =</span> <span class="st">"ride_count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

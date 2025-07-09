@@ -145,3 +145,8 @@ Visualization
 :   A graphical representation of data, such as bar charts, histograms, or density plots, used to communicate patterns and insights from the dataset.
 :::
 
+:::{#glossary-week-part}
+Week Part
+:   A categorical variable indicating whether a given timestamp falls on a Weekday or Weekend. Derived from the day of the week of a ride’s start_time. Monday through Friday are classified as **Weekday**. Saturday and Sunday are classified as **Weekend**.
+:::
+

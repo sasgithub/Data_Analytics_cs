@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rides_weather_df – Bike share case-study</title>
+<title>ride_counts_by_distance – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -156,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link active" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
+  <li><a href="#provenance-ride_counts_by_distance" id="toc-provenance-ride_counts_by_distance" class="nav-link active" data-scroll-target="#provenance-ride_counts_by_distance">Provenance: <code>ride_counts_by_distance</code></a></li>
   </ul>
 </nav>
     </div>
@@ -166,37 +166,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-rides_weather_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></h2>
+<section id="provenance-ride_counts_by_distance" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-ride_counts_by_distance">Provenance: <code>ride_counts_by_distance</code></h2>
 <p><strong>Data Origin:</strong><br>
-Derived directly from the <code>rides_weather</code> view in the SQLite database.</p>
-<p><strong>View Definition Recap (<code>rides_weather</code>):</strong><br>
-This view joins hourly weather observations to hourly ride counts:<br>
-- <strong>Left Join:</strong> <code>hourly_weather</code> (hourly measurements)<br>
-- <strong>Left Join Target:</strong> <code>rides_per_hour</code> (hourly ride counts by user type)<br>
-- <strong>Columns Selected:</strong><br>
-- <code>epoch</code> (UTC seconds)<br>
-- <code>user_type</code> (<code>0=Subscriber</code>, <code>1=Customer</code>)<br>
-- <code>rides</code> (hourly ride count)<br>
-- <code>temp</code> (temperature °C)<br>
-- <code>dwpt</code> (dewpoint °C)<br>
-- <code>rhum</code> (relative humidity %)<br>
-- <code>prcp</code> (precipitation mm)<br>
-- <code>wdir</code> (wind direction °)<br>
-- <code>wspd</code> (wind speed m/s)<br>
-- <code>coco</code> (weather condition code)</p>
-<p><strong>How Imported:</strong><br>
-Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Usage in Analysis:</strong> This dataframe was used as the basis for:</p>
+Derived from <code>non_loop_rides_df</code>, which includes only non-loop rides by customer riders starting and ending at non-tourist stations on or after 2023-01-01. This dataframe also contains a <code>distance_km</code> column representing the calculated ride distance in kilometers.</p>
+<p><strong>Transformation Details:</strong><br>
+This data frame was created to analyze the distribution of ride distances:</p>
+<ol type="1">
+<li><strong>Filter:</strong>
 <ul>
-<li>Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots</li>
-<li>Labeling precipitation conditions (Dry, Wet, No data)</li>
-<li>Summarising rides by temperature and precipitation bins</li>
-<li>Producing LOESS-smoothed plots of ride volume by temperature</li>
-</ul>
+<li>Only includes rides with <code>distance_km ≤ 10</code> to focus on short to moderate trips.</li>
+</ul></li>
+<li><strong>Binning:</strong>
+<ul>
+<li><p>Distances are binned in 0.1 km increments:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This bins values like 1.04 km and 1.06 km into 1.0 km and 1.1 km respectively.</p></li>
+</ul></li>
+<li><strong>Aggregation:</strong>
+<ul>
+<li>Rides are then counted per distance bin using <code>count(distance_bin)</code>.</li>
+</ul></li>
+</ol>
+<p><strong>Purpose:</strong><br>
+This summary enables visualization or statistical analysis of how ride frequency varies with distance, and is useful for understanding behavioral patterns like the most common trip lengths among casual non-tourist users.</p>
+<p><strong>Code Used</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rides_weather_df – Bike share case-study</title>
+<title>stdres_df – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -156,7 +156,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link active" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
+  <li><a href="#provenance-stdres_df-r-data-frame" id="toc-provenance-stdres_df-r-data-frame" class="nav-link active" data-scroll-target="#provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</a></li>
+  <li><a href="#now-ride_matrix-looks-like" id="toc-now-ride_matrix-looks-like" class="nav-link" data-scroll-target="#now-ride_matrix-looks-like">Now ride_matrix looks like:</a></li>
+  <li><a href="#weekday-weekend" id="toc-weekday-weekend" class="nav-link" data-scroll-target="#weekday-weekend">Weekday Weekend</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">0 123 45</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">1 100 42</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">…</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">23 89 30</a></li>
+  <li><a href="#perform-the-chi-squared-test-of-independence" id="toc-perform-the-chi-squared-test-of-independence" class="nav-link" data-scroll-target="#perform-the-chi-squared-test-of-independence">Perform the chi-squared test of independence</a></li>
+  <li><a href="#extract-standardized-residuals-measure-of-deviation" id="toc-extract-standardized-residuals-measure-of-deviation" class="nav-link" data-scroll-target="#extract-standardized-residuals-measure-of-deviation">Extract standardized residuals (measure of deviation)</a></li>
+  <li><a href="#re-attach-hour-labels-to-the-residuals" id="toc-re-attach-hour-labels-to-the-residuals" class="nav-link" data-scroll-target="#re-attach-hour-labels-to-the-residuals">Re-attach hour labels to the residuals</a></li>
+  <li><a href="#the-resulting-stdres_df-contains" id="toc-the-resulting-stdres_df-contains" class="nav-link" data-scroll-target="#the-resulting-stdres_df-contains">The resulting stdres_df contains:</a></li>
+  <li><a href="#weekday-residuals-weekend-residuals-and-the-hour" id="toc-weekday-residuals-weekend-residuals-and-the-hour" class="nav-link" data-scroll-target="#weekday-residuals-weekend-residuals-and-the-hour">Weekday residuals, Weekend residuals, and the hour</a></li>
   </ul>
 </nav>
     </div>
@@ -166,37 +177,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-rides_weather_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></h2>
-<p><strong>Data Origin:</strong><br>
-Derived directly from the <code>rides_weather</code> view in the SQLite database.</p>
-<p><strong>View Definition Recap (<code>rides_weather</code>):</strong><br>
-This view joins hourly weather observations to hourly ride counts:<br>
-- <strong>Left Join:</strong> <code>hourly_weather</code> (hourly measurements)<br>
-- <strong>Left Join Target:</strong> <code>rides_per_hour</code> (hourly ride counts by user type)<br>
-- <strong>Columns Selected:</strong><br>
-- <code>epoch</code> (UTC seconds)<br>
-- <code>user_type</code> (<code>0=Subscriber</code>, <code>1=Customer</code>)<br>
-- <code>rides</code> (hourly ride count)<br>
-- <code>temp</code> (temperature °C)<br>
-- <code>dwpt</code> (dewpoint °C)<br>
-- <code>rhum</code> (relative humidity %)<br>
-- <code>prcp</code> (precipitation mm)<br>
-- <code>wdir</code> (wind direction °)<br>
-- <code>wspd</code> (wind speed m/s)<br>
-- <code>coco</code> (weather condition code)</p>
-<p><strong>How Imported:</strong><br>
-Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Usage in Analysis:</strong> This dataframe was used as the basis for:</p>
+<section id="provenance-stdres_df-r-data-frame" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</h2>
+<p>This data frame contains the standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part (Weekday vs Weekend).</p>
+<p><strong>Source Data:</strong> - <code>rides_by_hour_weekpart</code> — aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.</p>
+<p><strong>Processing Steps:</strong></p>
+<ol type="1">
+<li><strong>Reshape to Wide Matrix:</strong>
 <ul>
-<li>Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots</li>
-<li>Labeling precipitation conditions (Dry, Wet, No data)</li>
-<li>Summarising rides by temperature and precipitation bins</li>
-<li>Producing LOESS-smoothed plots of ride volume by temperature</li>
+<li>Pivot <code>rides_by_hour_weekpart</code> to a matrix with:
+<ul>
+<li>Rows = hours 0–23</li>
+<li>Columns = Weekday and Weekend ride counts.</li>
+</ul></li>
+<li>Fill any missing counts with zero.</li>
 </ul>
+```r # Start with rides_by_hour_weekpart (24 rows: one per hour) # Pivot so each hour has columns for Weekday and Weekend counts ride_matrix &lt;- rides_by_hour_weekpart %&gt;% tidyr::pivot_wider( names_from = week_part, values_from = ride_count, values_fill = 0 # fill missing combinations with 0 ) %&gt;% dplyr::arrange(hour) %&gt;% # ensure rows are in order by hour dplyr::select(-hour) %&gt;% # remove hour column so matrix is numeric as.matrix() # convert to numeric matrix (required for chisq.test)</li>
+</ol>
+</section>
+<section id="now-ride_matrix-looks-like" class="level1">
+<h1>Now ride_matrix looks like:</h1>
+</section>
+<section id="weekday-weekend" class="level1">
+<h1>Weekday Weekend</h1>
+</section>
+<section id="section" class="level1">
+<h1>0 123 45</h1>
+</section>
+<section id="section-1" class="level1">
+<h1>1 100 42</h1>
+</section>
+<section id="section-2" class="level1">
+<h1>…</h1>
+</section>
+<section id="section-3" class="level1">
+<h1>23 89 30</h1>
+</section>
+<section id="perform-the-chi-squared-test-of-independence" class="level1">
+<h1>Perform the chi-squared test of independence</h1>
+<p>test_result &lt;- chisq.test(ride_matrix)</p>
+</section>
+<section id="extract-standardized-residuals-measure-of-deviation" class="level1">
+<h1>Extract standardized residuals (measure of deviation)</h1>
+<p>stdres_df &lt;- as.data.frame(test_result$stdres)</p>
+</section>
+<section id="re-attach-hour-labels-to-the-residuals" class="level1">
+<h1>Re-attach hour labels to the residuals</h1>
+<p>stdres_df$hour &lt;- 0:23</p>
+</section>
+<section id="the-resulting-stdres_df-contains" class="level1">
+<h1>The resulting stdres_df contains:</h1>
+</section>
+<section id="weekday-residuals-weekend-residuals-and-the-hour" class="level1">
+<h1>Weekday residuals, Weekend residuals, and the hour</h1>
+<pre><code>
+**Chi-squared Test:**
+
+  -  Performed Pearson’s chi-squared test to check independence between hour of day and week part.
+  -  Extracted standardized residuals (measure of contribution to the chi-squared statistic).
+
+```r
+test_result &lt;- chisq.test(ride_matrix)
+stdres_df &lt;- as.data.frame(test_result$stdres)</code></pre>
+<p><strong>Attach Hour Labels:</strong></p>
+<ul>
+<li>Added an hour column (0–23) for clarity.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>       stdres_df<span class="sc">$</span>hour <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Columns in stdres_df:</strong></p>
+<ul>
+<li>Weekday: Standardized residuals for Weekday counts.</li>
+<li>Weekend: Standardized residuals for Weekend counts.</li>
+<li>hour: Hour of day (0–23).</li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<pre><code>Residuals &gt; +2 or &lt; –2 indicate significantly more or fewer rides than expected under independence.</code></pre>
 
 
 </section>

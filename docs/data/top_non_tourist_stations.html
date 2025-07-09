@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>rides_weather_df – Bike share case-study</title>
+<title>top_non_tourist_stations – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,14 +151,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link active" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -166,37 +160,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-rides_weather_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></h2>
-<p><strong>Data Origin:</strong><br>
-Derived directly from the <code>rides_weather</code> view in the SQLite database.</p>
-<p><strong>View Definition Recap (<code>rides_weather</code>):</strong><br>
-This view joins hourly weather observations to hourly ride counts:<br>
-- <strong>Left Join:</strong> <code>hourly_weather</code> (hourly measurements)<br>
-- <strong>Left Join Target:</strong> <code>rides_per_hour</code> (hourly ride counts by user type)<br>
-- <strong>Columns Selected:</strong><br>
-- <code>epoch</code> (UTC seconds)<br>
-- <code>user_type</code> (<code>0=Subscriber</code>, <code>1=Customer</code>)<br>
-- <code>rides</code> (hourly ride count)<br>
-- <code>temp</code> (temperature °C)<br>
-- <code>dwpt</code> (dewpoint °C)<br>
-- <code>rhum</code> (relative humidity %)<br>
-- <code>prcp</code> (precipitation mm)<br>
-- <code>wdir</code> (wind direction °)<br>
-- <code>wspd</code> (wind speed m/s)<br>
-- <code>coco</code> (weather condition code)</p>
-<p><strong>How Imported:</strong><br>
-Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Usage in Analysis:</strong> This dataframe was used as the basis for:</p>
+<section id="provenance-top_non_tourist_stations" class="level3">
+<h3 class="anchored" data-anchor-id="provenance-top_non_tourist_stations">Provenance: <code>top_non_tourist_stations</code></h3>
+<p>This data frame was created by querying the SQLite <code>rides</code> table to identify stations with the highest number of <strong>customer</strong> rides that <strong>started or ended</strong> at non-tourist stations post Covid.</p>
 <ul>
-<li>Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots</li>
-<li>Labeling precipitation conditions (Dry, Wet, No data)</li>
-<li>Summarising rides by temperature and precipitation bins</li>
-<li>Producing LOESS-smoothed plots of ride volume by temperature</li>
+<li><strong>Source tables:</strong> <code>rides</code><br>
+</li>
+<li><strong>Filtering criteria:</strong>
+<ul>
+<li><code>user_type = 1</code> (customer)</li>
+<li><code>start_station_id</code> or <code>end_station_id</code> in the set of non-tourist stations (<code>station_ids_sql</code>)</li>
+<li><code>start_time &gt;= '2023-01-01'</code> (rides starting on or after January 1, 2023)</li>
+</ul></li>
+<li><strong>Aggregation:</strong>
+<ul>
+<li>Grouped by <code>start_station_id</code> (renamed to <code>station_id</code>)</li>
+<li>Counted rides per station</li>
+</ul></li>
 </ul>
+<p><strong>SQL Summary:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  start_station_id <span class="kw">AS</span> station_id,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> customer_ride_count</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> user_type <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> (start_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>non<span class="op">-</span>tourist station IDs<span class="op">&gt;</span>) <span class="kw">OR</span> end_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>same IDs<span class="op">&gt;</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> start_time <span class="op">&gt;=</span> strftime(<span class="st">'%s'</span>, <span class="st">'2023-01-01'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> station_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The resulting table <code>top_non_tourist_stations</code> lists each station along with the total number of customer rides associated with it, sorted in descending order (if subsequently sorted in R).</p>
 
 
 </section>

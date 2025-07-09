@@ -1008,7 +1008,7 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="even">
 <td><code>binned_rides</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Summarizes the average number of rides per 2 °C temperature bin, split by user type.</td>
 </tr>
 <tr class="odd">
 <td><code>daily_avg_df</code></td>
@@ -1018,7 +1018,7 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="even">
 <td><code>density_df</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Provides a smooth estimate of the distribution of ride distances.</td>
 </tr>
 <tr class="odd">
 <td><code>duration_by_type</code></td>
@@ -1028,82 +1028,72 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="even">
 <td><code>loop_rides_non_tourist</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Isolates non-tourist customer rides that form a complete loop.</td>
 </tr>
 <tr class="odd">
-<td><code>loop_rides_non_tourist_df</code></td>
-<td>R Data Frame</td>
-<td></td>
-</tr>
-<tr class="even">
 <td><code>nearby_stations_df</code></td>
 <td>R Data Frame</td>
 <td>Stations within radius of tourist attractions.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>non_loop_rides_df</code></td>
 <td>R Data Frame</td>
-<td>Only rides starting and ending at different station</td>
-</tr>
-<tr class="even">
-<td><code>non_tourist_customer_rides_df</code></td>
-<td>R Data Frame</td>
-<td></td>
+<td>Only rides starting and ending at different stations.</td>
 </tr>
 <tr class="odd">
+<td><code>non_tourist_customer_rides_df</code></td>
+<td>R Data Frame</td>
+<td>Is a <strong>foundational rides subset</strong> from which many other frames were derived.</td>
+</tr>
+<tr class="even">
 <td><code>non_tourist_stations_df</code></td>
 <td>R Data Frame</td>
 <td>Stations not near tourist attractions.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>normalized_df</code></td>
 <td>R Data Frame</td>
 <td>A normalized version of average ride counts across temperature bins</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>peak_df</code></td>
 <td>R Data Frame</td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>prop_df</code></td>
-<td>R Data Frame</td>
-<td></td>
+<td>Highlights the key distance values where the density of rides is locally maximized.</td>
 </tr>
 <tr class="odd">
+<td><code>prop_df</code></td>
+<td>R Data Frame</td>
+<td>Summarizes the hourly count of non-tourist customer rides split by <a href="./glossary.html#glossary-week-part">week part</a>.</td>
+</tr>
+<tr class="even">
 <td><code>prop_wide</code></td>
 <td>R Data Frame</td>
 <td>A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>post_electric_rides_df</code></td>
 <td>R Data Frame</td>
 <td>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</td>
 </tr>
-<tr class="odd">
-<td><code>ride_count</code></td>
-<td>R Data Frame</td>
-<td></td>
-</tr>
 <tr class="even">
 <td><code>ride_counts_by_distance</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Enables visualization or statistical analysis of how ride frequency varies with distance.</td>
 </tr>
 <tr class="odd">
 <td><code>ride_durations</code></td>
 <td>R Data Frame</td>
-<td>per-trip durations in minutes.</td>
+<td>Per-trip durations in minutes.</td>
 </tr>
 <tr class="even">
 <td><code>ride_props</code></td>
 <td>R Data Frame</td>
-<td>proportion of rides occurring in each hour relative to the total rides for that week part.</td>
+<td>Proportion of rides occurring in each hour relative to the total rides for that <a href="./glossary.html#glossary-week-part">week part</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>rides_by_hour_season</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Shows how ride volumes vary over the year and time of week/day.</td>
 </tr>
 <tr class="even">
 <td><code>rides_by_hour_weekpart</code></td>
@@ -1113,7 +1103,7 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="odd">
 <td><code>rides_weather_df</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Derived directly from the <code>rides_weather</code> view in the SQLite database.</td>
 </tr>
 <tr class="even">
 <td><code>stations_non_tourist_df</code></td>
@@ -1123,22 +1113,22 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="odd">
 <td><code>stdres_df</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part</td>
 </tr>
 <tr class="even">
-<td><code>temp_bins</code></td>
+<td><code>stdres_long</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Standardized residuals from a chi-squared test comparing hourly ride distributions between weekend and weekday</td>
 </tr>
 <tr class="odd">
 <td><code>top_non_tourist_stations</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Stations with the highest number of <strong>customer</strong> rides that <strong>started or ended</strong> at non-tourist stations.</td>
 </tr>
 <tr class="even">
 <td><code>top_non_tourist_stations_named</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Top 25 stations with the highest customer ride counts.</td>
 </tr>
 <tr class="odd">
 <td><code>top_stations_df</code></td>
@@ -1153,7 +1143,7 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 <tr class="odd">
 <td><code>weekday_rides_df</code></td>
 <td>R Data Frame</td>
-<td></td>
+<td>Enables time-of-day analysis of ride patterns across defined commuting periods.</td>
 </tr>
 </tbody>
 </table>
