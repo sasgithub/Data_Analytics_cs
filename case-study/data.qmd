@@ -542,7 +542,7 @@ The hourly weather dataset was validated to ensure temporal coverage and consist
 
 **Completeness Audit**
 
-  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd/#glossary-CTE) generating the complete expected hourly series.
+  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd#glossary-CTE) generating the complete expected hourly series.
   -  Found ~400 missing hourly observations, typically occurring in small contiguous blocks (e.g., a few hours) rather than extended gaps.
   -  These missing rows are likely due to intermittent data collection lapses at the weather station or data ingestion issues from the Meteostat source.
 
@@ -618,7 +618,7 @@ The following cleaned, aggregated, and derived datasets were created during the 
 |`top_non_tourist_stations`|R Data Frame|
 |`top_non_tourist_stations_named`|R Data Frame|
 |`top_stations_df`     |R Data Frame|50 most-used start stations for each user type|
-|`top_stations_df_offset`|R Data Frame|transformed version of [`top_stations_df`](top_stations_df.md) created to help improve visualization clarity|
+|`top_stations_df_offset`|R Data Frame|transformed version of [`top_stations_df`](data/top_stations_df.md) created to help improve visualization clarity|
 |`weekday_rides_df`    |R Data Frame|
 
 |`asymmetry.csv`       | CSV File |Export of asymmetry analysis (user type differences).|

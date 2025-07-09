@@ -9,7 +9,7 @@ This data frame was created to identify Divvy stations located near known touris
 **Source Data:**
 
 - [`stations_df`](stations_df.md): List of all Divvy stations with names and coordinates (from the `stations` table in SQLite).
-- [`attractions_df`](attractions.md): List of tourist attractions loaded from `attractions.csv`.
+- [`attractions_df`](attractions_df.md): List of tourist attractions loaded from `attractions.csv`.
 
 **Generation Steps:**
 
