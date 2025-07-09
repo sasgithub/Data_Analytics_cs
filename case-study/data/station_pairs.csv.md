@@ -48,5 +48,5 @@ Top 5,000 most frequent origin-destination station pairs, with ride counts split
   -   Rides where start and end stations are the same were excluded (WHERE r.start_station_id != r.end_station_id).
   -   Output includes lat/long for both stations to support mapping.
 
-Convienently available as [station_pairs.csv](station_pairs.csv) for your importing pleasure.
+Conveniently available as [station_pairs.csv](station_pairs.csv) for your importing pleasure.
 

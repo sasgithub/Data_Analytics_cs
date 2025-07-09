@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>station_pairs.csv – Bike share case-study</title>
+<title>ride_durations.rds – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -160,57 +125,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="station_pairs.csv" class="level3">
-<h3 class="anchored" data-anchor-id="station_pairs.csv"><code>station_pairs.csv</code></h3>
-<p><strong>Description:</strong><br>
-Top 5,000 most frequent origin-destination station pairs, with ride counts split by user type.</p>
-<p><strong>Provenance Details:</strong></p>
-<ul>
-<li><p><strong>Source Tables:</strong></p>
-<ul>
-<li><code>rides</code> table (trip records)<br>
-</li>
-<li><code>stations</code> table (station metadata)</li>
-</ul></li>
-<li><p><strong>Purpose:</strong><br>
-To analyze directional flows between stations, including the relative share of subscribers and customers, while collapsing bidirectional pairs into a single record.</p></li>
-<li><p><strong>Query Details:</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  s1.name <span class="kw">AS</span> station_a,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  s1.lat <span class="kw">AS</span> lat_a,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  s1.<span class="dt">long</span> <span class="kw">AS</span> lon_a,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  s2.name <span class="kw">AS</span> station_b,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  s2.lat <span class="kw">AS</span> lat_b,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  s2.<span class="dt">long</span> <span class="kw">AS</span> lon_b,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> subscriber_count,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> customer_count</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides r</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s1 <span class="kw">ON</span> r.start_station_id <span class="op">=</span> s1.station_id</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s2 <span class="kw">ON</span> r.end_station_id <span class="op">=</span> s2.station_id</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> r.start_station_id <span class="op">!=</span> r.end_station_id</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.start_station_id</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.end_station_id</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.end_station_id</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.start_station_id</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ride_count <span class="kw">DESC</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>This query ensures each pair is counted only once regardless of trip direction by always ordering station IDs (start_station_id and end_station_id).</li>
-<li>Rides where start and end stations are the same were excluded (WHERE r.start_station_id != r.end_station_id).</li>
-<li>Output includes lat/long for both stations to support mapping.</li>
-</ul>
-<p>Conveniently available as <a href="station_pairs.csv">station_pairs.csv</a> for your importing pleasure.</p>
+<p><strong>File:</strong> <code>ride_durations.rds</code></p>
+<p>This RDS file contains the <a href="../data/ride_durations.html"><code>ride_durations</code></a> data frame, which was created by querying the <code>rides</code> table to compute the duration of each trip in minutes. The SQL query selected rides where <code>end_time &gt; start_time</code> and excluded any rides longer than 12,000 seconds (approximately 3.3 hours) to filter out potential data errors. It also converted numeric <code>user_type</code> values into descriptive labels (<code>subscriber</code> and <code>customer</code>). The resulting data frame has one row per qualifying ride, including columns for <code>user_type</code> and <code>duration_min</code>. Saving to RDS enables efficient reuse of this pre-cleaned dataset for analysis of ride duration distributions without re-running the query each time.</p>
+<p>Convieniently available as <a href="ride_durations.rds">ride_durations.rds</a> for you importing pleasure.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

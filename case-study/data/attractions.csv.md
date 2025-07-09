@@ -20,4 +20,4 @@ A CSV file containing the list of tourist attractions in Chicago, each with name
 - Served as the primary input to generate `attractions_df`.
 - Used to identify stations within 600 meters of known tourist sites to help isolate commuter-focused stations.
 
-Convienently available as [attractions_csv](attractions_csv) for your importing pleasure.
+Conveniently available as [attractions_csv](attractions_csv) for your importing pleasure.
