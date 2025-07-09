@@ -160,6 +160,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="rides_by_hour_weekpart" class="level3">
+<h3 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h3>
+<p><strong>Description:</strong><br>
+Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.</p>
+<p><strong>Source &amp; Processing:</strong> - Input data: <a href="../data/non_tourist_customer_rides_df.html"><code>non_tourist_customer_rides_df</code></a> - Transformation steps in R: - Computed <code>hour</code> (0–23) using <code>lubridate::hour(start_localtime)</code>. - Created <code>week_part</code> as: - <code>"Weekend"</code> if the ride started on Saturday or Sunday (<code>wday</code> in {1,7}) - <code>"Weekday"</code> otherwise. - Grouped by <code>week_part</code> and <code>hour</code>. - Summarised to count total rides in each combination.</p>
+<p><strong>Purpose:</strong><br>
+This dataset is used to: - Analyze temporal riding patterns by day type. - Support visualization of hourly ride distributions. - Form the basis for calculating ride proportions (<code>ride_props</code>) and difference metrics (<code>prop_wide</code>).</p>
+<p>** Command Used**</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_weekpart <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">week_part =</span> <span class="fu">ifelse</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="st">"Weekend"</span>, <span class="st">"Weekday"</span>)) <span class="sc">%&gt;%</span></span>
@@ -167,6 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">ride_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

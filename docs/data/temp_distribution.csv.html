@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_stations_df_offset – Bike share case-study</title>
+<title>temp_distribution.csv – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,38 +160,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
-<p><strong>Type:</strong> R Data Frame</p>
+<section id="temp_distribution.csv" class="level3">
+<h3 class="anchored" data-anchor-id="temp_distribution.csv">temp_distribution.csv</h3>
+<p><strong>Description:</strong><br>
+CSV file summarizing the number of hourly observations per 2 °C temperature bin across the entire weather dataset.</p>
 <p><strong>Provenance:</strong></p>
-<p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
-<p><strong>Generation Steps:</strong></p>
-<ol type="1">
-<li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
-<li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
 <ul>
-<li>For <strong>subscribers</strong>: longitude shifted <em>west</em> by 0.0001 degrees.</li>
-<li>For <strong>customers</strong>: longitude shifted <em>east</em> by 0.0001 degrees.</li>
+<li><strong>Source Data:</strong>
+<ul>
+<li><code>hourly_weather</code> table in SQLite (specifically the <code>temp</code> column, representing degrees Celsius).</li>
 </ul></li>
-<li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
-</ol>
-<p><strong>Purpose:</strong></p>
-<p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
-<p><strong>Key Columns:</strong></p>
-<ul>
-<li><code>station_id</code></li>
-<li><code>name</code></li>
-<li><code>lat</code></li>
-<li><code>long</code></li>
-<li><code>user_type</code></li>
-<li><code>ride_count</code></li>
-<li><code>rn</code></li>
-<li><code>long_offset</code></li>
+<li><strong>Likely Process:</strong>
+<ol type="1">
+<li><p>Rounded or floored each <code>temp</code> value to the nearest even integer using a binning rule such as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Counted the number of hourly weather records falling into each bin.</p></li>
+<li><p>Output written as a CSV with two columns:</p>
+<pre><code>temp_bin,count</code></pre></li>
+</ol></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Sample SQL (reconstructed):</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>.output temp_distribution.csv</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> hourly_weather</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Usage Notes:</strong></p>
+<ul>
+<li>Useful for visualizing or validating the distribution of temperature observations in your weather data.</li>
+<li>Commonly referenced alongside avg_temp_vs_rides.tsv or temp_vs_rides_avg.csv to contextualize ride volume against sample sizes in each temperature bin.</li>
+</ul>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_stations_df_offset – Bike share case-study</title>
+<title>ride_durations – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,8 +151,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#provenance-for-ride_durations" id="toc-provenance-for-ride_durations" class="nav-link active" data-scroll-target="#provenance-for-ride_durations">Provenance for <code>ride_durations</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -160,40 +166,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
-<p><strong>Type:</strong> R Data Frame</p>
-<p><strong>Provenance:</strong></p>
-<p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
-<p><strong>Generation Steps:</strong></p>
-<ol type="1">
-<li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
-<li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
+<section id="provenance-for-ride_durations" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h2>
+<section id="data-origin" class="level3">
+<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
 <ul>
-<li>For <strong>subscribers</strong>: longitude shifted <em>west</em> by 0.0001 degrees.</li>
-<li>For <strong>customers</strong>: longitude shifted <em>east</em> by 0.0001 degrees.</li>
-</ul></li>
-<li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
-</ol>
-<p><strong>Purpose:</strong></p>
-<p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
-<p><strong>Key Columns:</strong></p>
-<ul>
-<li><code>station_id</code></li>
-<li><code>name</code></li>
-<li><code>lat</code></li>
-<li><code>long</code></li>
-<li><code>user_type</code></li>
-<li><code>ride_count</code></li>
-<li><code>rn</code></li>
-<li><code>long_offset</code></li>
+<li><strong>Source Table:</strong><br>
+<code>rides</code> table in the SQLite database</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="query-details" class="level3">
+<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
+<p>This query extracted per-trip durations in minutes with the following conditions:</p>
+<ul>
+<li><p><strong>user_type:</strong><br>
+Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>) or 1 (<code>customer</code>).</p></li>
+<li><p><strong>Duration Constraints:</strong></p>
+<ul>
+<li>Excluded records where <code>end_time &lt;= start_time</code> (negative or zero durations).</li>
+<li>Excluded unusually long rides (over ~3.3 hours), specifically durations ≥ 12,000 seconds.</li>
+</ul></li>
+</ul>
+</section>
+<section id="selected-fields" class="level3">
+<h3 class="anchored" data-anchor-id="selected-fields">Selected Fields</h3>
+<ul>
+<li><p><code>user_type</code> (converted to label: subscriber or customer)</p></li>
+<li><p><code>duration_min</code>: Ride duration in minutes, computed as</p>
+<pre><code>(end_time - start_time) / 60.0</code></pre></li>
+</ul>
+</section>
+<section id="purpose-and-use" class="level3">
+<h3 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h3>
+<p>This dataset was used to:</p>
+<ul>
+<li>Summarize ride duration distributions by user type.</li>
+<li>Create histograms and density plots.</li>
+<li>Calculate summary statistics (mean, median, percentiles) of trip durations.</li>
+</ul>
+</section>
+<section id="command-used" class="level3">
+<h3 class="anchored" data-anchor-id="command-used">Command Used</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">    (end_time - start_time) / 60.0 AS duration_min</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE user_type IN (0, 1)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">    AND end_time &gt; start_time</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">    AND (end_time - start_time) &lt; 12000</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

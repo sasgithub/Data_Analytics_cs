@@ -160,23 +160,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Data Sources</p>
-<p><strong>Data Source</strong>:</p>
+<section id="duration_by_type" class="level3">
+<h3 class="anchored" data-anchor-id="duration_by_type"><code>duration_by_type</code></h3>
+<p><strong>Description:</strong><br>
+Summarized ride duration statistics by user type and bike type.</p>
+<p><strong>Source &amp; Processing:</strong><br>
+- Derived from <a href="../data/post_electric_rides_df.html"><code>post_electric_rides_df</code></a>, which contains daily ride counts and average durations for rides since the introduction of e-bikes (January 1, 2023). - Grouped by <code>user_type</code> and <code>bike_type</code>. - For each group, calculated: - <code>avg_duration</code>: Mean of average ride durations (minutes). - <code>sd_duration</code>: Standard deviation of average ride durations. - User type labels were recoded to human-readable form (“Subscriber” and “Customer”).</p>
+<p><strong>Purpose:</strong><br>
+Provides a concise summary of ride duration behavior across different rider categories and bike types to support descriptive analysis and visualization.</p>
+<p><strong>Commands Used</strong>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>duration_by_type <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">avg_duration =</span> <span class="fu">mean</span>(avg_duration_minutes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">sd_duration =</span> <span class="fu">sd</span>(avg_duration_minutes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><strong>Data Transformation in R:</strong></li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>duration_by_type<span class="sc">$</span>user_type <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(duration_by_type<span class="sc">$</span>user_type),</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>duration_by_type<span class="sc">$</span>user_type <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(duration_by_type<span class="sc">$</span>user_type),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

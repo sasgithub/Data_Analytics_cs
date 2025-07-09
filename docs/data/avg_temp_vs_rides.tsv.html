@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_stations_df_offset – Bike share case-study</title>
+<title>avg_temp_vs_rides.tsv – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -160,38 +125,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
-<p><strong>Type:</strong> R Data Frame</p>
+<section id="avg_temp_vs_rides.tsv" class="level3">
+<h3 class="anchored" data-anchor-id="avg_temp_vs_rides.tsv">avg_temp_vs_rides.tsv</h3>
+<p><strong>Description:</strong><br>
+Tab-separated summary table aggregating the <em>average</em> hourly ride counts by temperature bin and user type.</p>
 <p><strong>Provenance:</strong></p>
-<p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
-<p><strong>Generation Steps:</strong></p>
-<ol type="1">
-<li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
-<li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
 <ul>
-<li>For <strong>subscribers</strong>: longitude shifted <em>west</em> by 0.0001 degrees.</li>
-<li>For <strong>customers</strong>: longitude shifted <em>east</em> by 0.0001 degrees.</li>
+<li><strong>Source Tables:</strong>
+<ul>
+<li><code>rides_per_hour_tbl</code> (pre-aggregated hourly ride counts)</li>
+<li><code>hourly_weather</code> (hourly temperature observations)</li>
 </ul></li>
-<li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
-</ol>
-<p><strong>Purpose:</strong></p>
-<p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
-<p><strong>Key Columns:</strong></p>
+<li><strong>Process:</strong>
+<ol type="1">
+<li><p>For each hour:</p>
 <ul>
-<li><code>station_id</code></li>
-<li><code>name</code></li>
-<li><code>lat</code></li>
-<li><code>long</code></li>
-<li><code>user_type</code></li>
-<li><code>ride_count</code></li>
-<li><code>rn</code></li>
-<li><code>long_offset</code></li>
+<li>Joined ride counts with weather by epoch timestamp.</li>
+<li>Binned temperatures into 2 °C intervals (e.g., –10, –8, …, 34).</li>
+</ul></li>
+<li><p>For each bin and user type, summed hourly rides.</p></li>
+<li><p>Calculated the <em>average</em> hourly rides in each bin, yielding:</p>
+<ul>
+<li><code>total</code>: average rides from all users</li>
+<li><code>subs</code>: average subscriber rides</li>
+<li><code>cust</code>: average customer rides</li>
+</ul></li>
+<li><p>Wrote results to a tab-separated file with columns:</p>
+<pre><code>temp_bin  total  subs  cust</code></pre></li>
+</ol></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>SQL Snippet:</strong> ```sql .headers off .mode tabs .output avg_temp_vs_rides.tsv</p>
+<p>WITH binned AS ( SELECT CAST(temp / 2.0 AS INT) * 2 AS temp_bin, r.user_type, SUM(r.rides) AS rides FROM rides_per_hour_tbl r JOIN hourly_weather w ON w.epoch = r.epoch GROUP BY temp_bin, r.user_type ), pivot AS ( SELECT temp_bin, AVG(rides) AS total, AVG(CASE WHEN user_type=‘subscriber’ THEN rides END) AS subs, AVG(CASE WHEN user_type=‘customer’ THEN rides END) AS cust FROM binned GROUP BY temp_bin ORDER BY temp_bin ) SELECT temp_bin, total, subs, cust FROM pivot;</p>
+<p>.output stdout</p>
 
 
 </section>

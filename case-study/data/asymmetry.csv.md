@@ -24,5 +24,5 @@ Supports analysis of directional imbalances in station-to-station traffic, helpi
 - Potential rebalancing priorities
 - Differences in patterns between subscribers and casual users
 
-*File available at:* [`asymmetry.csv`](../data/asymmetry.csv)
+*File available at:* [`asymmetry.csv`](asymmetry.csv)
 

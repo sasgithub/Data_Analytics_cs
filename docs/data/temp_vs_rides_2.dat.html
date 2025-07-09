@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_stations_df_offset – Bike share case-study</title>
+<title>temp_vs_rides_2.dat – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,38 +160,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
-<p><strong>Type:</strong> R Data Frame</p>
-<p><strong>Provenance:</strong></p>
-<p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
-<p><strong>Generation Steps:</strong></p>
-<ol type="1">
-<li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
-<li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
-<ul>
-<li>For <strong>subscribers</strong>: longitude shifted <em>west</em> by 0.0001 degrees.</li>
-<li>For <strong>customers</strong>: longitude shifted <em>east</em> by 0.0001 degrees.</li>
-</ul></li>
-<li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
-</ol>
-<p><strong>Purpose:</strong></p>
-<p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
-<p><strong>Key Columns:</strong></p>
-<ul>
-<li><code>station_id</code></li>
-<li><code>name</code></li>
-<li><code>lat</code></li>
-<li><code>long</code></li>
-<li><code>user_type</code></li>
-<li><code>ride_count</code></li>
-<li><code>rn</code></li>
-<li><code>long_offset</code></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="temp_vs_rides_2.dat" class="level3">
+<h3 class="anchored" data-anchor-id="temp_vs_rides_2.dat"><code>temp_vs_rides_2.dat</code></h3>
+<p><strong>Description:</strong><br>
+Tab-separated values file used as input to <code>gnuplot</code>, showing average ride volume per 2 °C temperature bin.</p>
+<p><strong>Origin:</strong> - Generated from the <code>rides_weather</code> view in SQLite using a SQL query that: - Bins temperatures into 2-degree Celsius intervals using <code>CAST(temp / 2.0 AS INT)*2</code>. - Computes the average number of rides per temperature bin. - SQL output mode set to: - No headers (<code>.headers off</code>) - Tab-separated (<code>.mode tabs</code>)</p>
+<p><strong>Purpose:</strong> - Used for visualizing how ride volume changes with temperature. - Designed for easy use in <code>gnuplot</code> or other plotting tools that prefer delimited plain-text input.</p>
+<p><strong>Query Used</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

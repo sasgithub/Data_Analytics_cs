@@ -160,9 +160,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="attractions_df" class="level3">
+<h3 class="anchored" data-anchor-id="attractions_df"><code>attractions_df</code></h3>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Provenance:</strong></p>
+<p>This data frame contains the list of tourist attractions in Chicago used to identify nearby Divvy stations likely to serve visitors rather than commuters.</p>
+<p><strong>Source Data:</strong></p>
+<ul>
+<li>Imported from the <a href="../data/attractions.csv.html"><code>attractions.csv</code></a> file.</li>
+</ul>
+<p><strong>Generation Steps:</strong></p>
+<ol type="1">
+<li><p>Loaded via <code>read.csv()</code> specifying <code>stringsAsFactors = FALSE</code>.</p></li>
+<li><p>Column names:</p>
+<ul>
+<li><code>Name</code> (attraction name)<br>
+</li>
+<li><code>lat</code> (latitude in decimal degrees)<br>
+</li>
+<li><code>long</code> (longitude in decimal degrees)</li>
+</ul></li>
+</ol>
+<p><strong>Purpose:</strong></p>
+<p>Provides the reference points for:</p>
+<ul>
+<li>Generating <code>nearby_stations_df</code> (stations within a defined proximity to attractions).</li>
+<li>Supporting spatial filtering to improve focus on commuter-oriented usage patterns.</li>
+</ul>
+<p><strong>Key Columns:</strong></p>
+<ul>
+<li><code>Name</code></li>
+<li><code>lat</code></li>
+<li><code>long</code></li>
+</ul>
+<p><strong>Note:</strong></p>
+<p>Compared to <a href="archive/tourist_attractions_csv"><code>tourist_attractions.csv</code></a>, this file:</p>
+<ul>
+<li>May have slightly less precise coordinates.</li>
+<li>Was retained for reproducibility and consistency in the final analysis.</li>
+</ul>
+<p><strong>Command Used</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>attractions_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/tourist_attractions.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

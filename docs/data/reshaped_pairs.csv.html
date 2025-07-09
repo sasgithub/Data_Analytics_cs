@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_stations_df_offset – Bike share case-study</title>
+<title>reshaped_pairs.csv – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -160,38 +125,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
-<p><strong>Type:</strong> R Data Frame</p>
+<section id="reshaped_pairs.csv" class="level3">
+<h3 class="anchored" data-anchor-id="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></h3>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Provenance:</strong></p>
-<p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
+<p>This dataset was created by reshaping aggregated station-to-station ride counts to support Tableau visualizations of directional flows.</p>
 <p><strong>Generation Steps:</strong></p>
 <ol type="1">
-<li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
-<li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
+<li><strong>Base File (<code>station_pairs.csv</code>):</strong>
 <ul>
-<li>For <strong>subscribers</strong>: longitude shifted <em>west</em> by 0.0001 degrees.</li>
-<li>For <strong>customers</strong>: longitude shifted <em>east</em> by 0.0001 degrees.</li>
+<li>Each row contained:
+<ul>
+<li>Two stations: A and B, including their names and coordinates.</li>
+<li>Aggregated counts:
+<ul>
+<li><code>total_rides</code>: Combined rides in both directions.</li>
+<li><code>subscriber_rides</code>: Rides by subscribers.</li>
+<li><code>customer_rides</code>: Rides by customers.</li>
 </ul></li>
-<li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
+</ul></li>
+</ul></li>
+<li><strong>Reshaping Logic:</strong>
+<ul>
+<li>Used <code>awk</code> to split each row into <strong>two rows</strong>, one for each station in the pair:
+<ul>
+<li>The first output row corresponds to Station A (<code>path_id = 1</code>).</li>
+<li>The second output row corresponds to Station B (<code>path_id = 2</code>).</li>
+</ul></li>
+<li>All ride counts were retained identically in both rows to enable Tableau to reconstruct paths by matching <code>path_id</code>.</li>
+</ul></li>
+<li><strong>Final Columns:</strong>
+<ul>
+<li><code>station_name</code>: Name of one station in the pair.</li>
+<li><code>lat</code>: Latitude of the station.</li>
+<li><code>lon</code>: Longitude of the station.</li>
+<li><code>total_rides</code>: Total rides between the two stations.</li>
+<li><code>subscriber_rides</code>: Subscriber rides between the two stations.</li>
+<li><code>customer_rides</code>: Customer rides between the two stations.</li>
+<li><code>path_id</code>: Unique identifier to group the two records back into a path.</li>
+</ul></li>
+<li><strong>Output:</strong>
+<ul>
+<li>Saved to <a href="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></a>.</li>
+</ul></li>
 </ol>
 <p><strong>Purpose:</strong></p>
-<p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
-<p><strong>Key Columns:</strong></p>
 <ul>
-<li><code>station_id</code></li>
-<li><code>name</code></li>
-<li><code>lat</code></li>
-<li><code>long</code></li>
-<li><code>user_type</code></li>
-<li><code>ride_count</code></li>
-<li><code>rn</code></li>
-<li><code>long_offset</code></li>
+<li>Used as the <strong>primary input to Tableau</strong> to visualize:
+<ul>
+<li>Ride volumes between station pairs.</li>
+<li>Directional flows.</li>
+<li>Customer vs.&nbsp;subscriber usage patterns.</li>
+</ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Example:</strong></p>
+<p>If <code>station_pairs.csv</code> contained:</p>
+<p>Station A, 41.88, -87.63, Station B, 41.89, -87.64, 500, 300, 200</p>
+<p>The <code>awk</code> command would produce <strong>two rows in <code>reshaped_pairs.csv</code></strong>:</p>
+<p>Station A,41.88,-87.63,500,300,200,1 Station B,41.89,-87.64,500,300,200,2</p>
 
 
 </section>

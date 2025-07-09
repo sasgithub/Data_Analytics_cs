@@ -123,11 +123,10 @@ The two sources used different field structures and naming conventions.
 | Birth year             | `BIRTH YEAR`                                            | *(Not present)*                              |
 
 **Notes on Differences**
-
- - In the historic file, gender and birth year were available, but only for Subscribers.
- - In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.
- - Trip duration was no longer a provided field and had to be calculated.
- - User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study
+- In the historic file, gender and birth year were available, but only for Subscribers.
+- In the modern files, bike type (classic, electric, docked, scooter) replaced bike IDs.
+- Trip duration was no longer a provided field and had to be calculated.
+- User type labels changed naming conventions. I decided to standardize on Subscriber/Customer for this case study
 
 ---
 
@@ -450,7 +449,7 @@ The cleaned datasets were integrated to create unified analysis tables:
 **Tourist Station Identification**
 
    - In R, tourist station proximity was determined by calculating geodesic distances between station coordinates and tourist attractions.
-   - Stations within 600 meters of an attraction were identified as likely tourist-serving.
+   - Stations within 200 meters of an attraction were identified as likely tourist-serving.
    - This information was used in R to filter trips for commuter-focused analyses.
    - No flags or updates were applied to the stations data stored in SQLite.
 
@@ -543,7 +542,7 @@ The hourly weather dataset was validated to ensure temporal coverage and consist
 
 **Completeness Audit**
 
-  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd#glossary-CTE) generating the complete expected hourly series.
+  -  Queried for missing hourly timestamps using a recursive [CTE](glossary.qmd/#glossary-CTE) generating the complete expected hourly series.
   -  Found ~400 missing hourly observations, typically occurring in small contiguous blocks (e.g., a few hours) rather than extended gaps.
   -  These missing rows are likely due to intermittent data collection lapses at the weather station or data ingestion issues from the Meteostat source.
 
@@ -582,64 +581,62 @@ The following cleaned, aggregated, and derived datasets were created during the 
 
 | Name                   |    Type     |            Description                        |
 | ---------------------- | ----------- | --------------------------------------------- |
-| `stations`             |SQLite Tables|Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.
-| `rides`                |SQLite Tables|Cleaned trip-level records, harmonized fields, and standardized timestamps.
-| `hourly_weather`       |SQLite Tables|Hourly weather observations from Midway Airport for the study period.
-| `rides_per_hour_tbl`   |SQLite Tables|A table with one entry per hour that joins rides and weather|
+|`stations`             |SQLite Tables|Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.
+|`rides`                |SQLite Tables|Cleaned trip-level records, harmonized fields, and standardized timestamps.
+|`hourly_weather`       |SQLite Tables|Hourly weather observations from Midway Airport for the study period.
+|`rides_per_hour_tbl`   |SQLite Tables|A table with one entry per hour that joins rides and weather|
+|`rider_readable`       |SQLite Views|A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.|
+|`rides_per_hour`       |SQLite Views|Aggregated hourly ride counts, used to join with weather data.
+|`rides_weather`        |SQLite Views|Combined hourly weather and ride counts for modeling and visualization.|
+|`asym_top`             |R Data Frame|Stations with the largest asymmetry between user types.
+|`attractions_df`       |R Data Frame|List of tourist attractions with coordinates. 
+|`binned_rides`         |R Data Frame|
+|`daily_avg_df`         |R Data Frame|Average number of rides per day since January 2023, grouped by user type and bike type.|
+|`density_df`           |R Data Frame| 
+|`duration_by_type`     |R Data Frame|Summarized ride duration statistics by user type and bike type.|
+|`loop_rides_non_tourist`|R Data Frame|
+|`loop_rides_non_tourist_df`|R Data Frame|
+|`nearby_stations_df`   |R Data Frame|Stations within radius of tourist attractions.| 
+|`non_loop_rides_df`    |R Data Frame|Only rides starting and ending at different station |
+|`non_tourist_customer_rides_df`|R Data Frame|
+|`non_tourist_stations_df`|R Data Frame|Stations not near tourist attractions.|
+|`normalized_df`        |R Data Frame|A normalized version of average ride counts across temperature bins|
+|`peak_df`              |R Data Frame| 
+|`prop_df`              |R Data Frame| 
+|`prop_wide`            |R Data Frame|A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.|
+|`post_electric_rides_df`|R Data Frame|Daily ride counts and average durations since January 2023, broken down by user type and bike type.|
+|`ride_count`           |R Data Frame|
+|`ride_counts_by_distance`|R Data Frame|
+|`ride_durations`       |R Data Frame|per-trip durations in minutes.|
+|`ride_props`           |R Data Frame|proportion of rides occurring in each hour relative to the total rides for that week part.|
+|`rides_by_hour_season` |R Data Frame|
+|`rides_by_hour_weekpart`|R Data Frame|Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.|
+|`rides_weather_df`    |R Data Frame|
+|`stations_non_tourist_df`|R Data Frame|all stations **not** within a defined proximity of tourist attractions|
+|`stdres_df`           |R Data Frame|
+|`temp_bins`           |R Data Frame|
+|`top_non_tourist_stations`|R Data Frame|
+|`top_non_tourist_stations_named`|R Data Frame|
+|`top_stations_df`     |R Data Frame|50 most-used start stations for each user type|
+|`top_stations_df_offset`|R Data Frame|transformed version of [`top_stations_df`](top_stations_df.md) created to help improve visualization clarity|
+|`weekday_rides_df`    |R Data Frame|
 
-| `rider_readable`       |SQLite Views|
-| `rides_per_hour`       |SQLite Views|Aggregated hourly ride counts, used to join with weather data.
-| `rides_weather`        |SQLite Views|Combined hourly weather and ride counts for modeling and visualization.|
-
-| `asym_top`             |R Data Frame|Stations with the largest asymmetry between user types.
-| `attractions_df`       |R Data Frame|List of tourist attractions with coordinates. 
-| `binned_rides`         |R Data Frame|
-| `daily_avg_df`         |R Data Frame|Average number of rides per day since January 2023, grouped by user type and bike type.|
-| `density_df`           |R Data Frame| 
-| `duration_by_type`     |R Data Frame|
-| `loop_rides_non_tourist`|R Data Frame|
-| `loop_rides_non_tourist_df`|R Data Frame|
-| `nearby_stations_df`   |R Data Frame|Stations within radius of tourist attractions.| 
-| `non_loop_rides_df`    |R Data Frame| 
-| `non_tourist_customer_rides_df`|R Data Frame|
-| `non_tourist_stations_df`|R Data Frame|Stations not near tourist attractions.|
-| `normalized_df`        |R Data Frame|
-| `peak_df`              |R Data Frame| 
-| `prop_df`              |R Data Frame| 
-| `prop_wide`            |R Data Frame|
-| `post_electric_rides_df`|R Data Frame|Daily ride counts and average durations since January 2023, broken down by user type and bike type.|
-| `ride_count`           |R Data Frame|
-| `ride_counts_by_distance`|R Data Frame|
-| `ride_durations`       |R Data Frame|
-| `ride_durations`       |R Data Frame|
-| `ride_props`           |R Data Frame|
-| `rides_by_hour_season` |R Data Frame|
-| `rides_by_hour_weekpart`|R Data Frame|
-| `rides_weather_df`    |R Data Frame|
-| `stations_non_tourist_df`|R Data Frame|
-| `stdres_df`           |R Data Frame|
-| `temp_bins`           |R Data Frame|
-| `top_non_tourist_stations`|R Data Frame|
-| `top_non_tourist_stations_named`|R Data Frame|
-| `top_stations_df`     |R Data Frame|
-| `weekday_rides_df`    |R Data Frame|
-
-| `asymmetry.csv`       | CSV File |Export of asymmetry analysis (user type differences).|
-| `attractions.csv`     | CSV File |  |
-| `bike_ride_buckets.csv`| CSV File |  |
-| `max_concurrent_rides_by_year.csv`| CSV File |Maximum concurrent rides observed per year.|
-| `reshaped_pairs.csv`  | CSV File |  |
-| `temp_distribution.csv`| CSV File |  |
-| `temp_vs_rides_avg.csv`| CSV File |  |
-| `temp_vs_rides_total.csv`| CSV File |  |
-| `tourist_attractions.csv`| CSV File |  |
-| `temp_vs_rides.tsv`    | TSV File |  |
-| `avg_temp_vs_rides.tsv`| TSV File |Tab-separated average rides per temp bin.  |
-| `temp_vs_rides_2.dat`  | Data File |  |
+|`asymmetry.csv`       | CSV File |Export of asymmetry analysis (user type differences).|
+|`attractions.csv`     | CSV File |CSV file containing a list of tourist attractions in Chicago, each with name and coordinates.|
+|`bike_ride_buckets.csv`| CSV File |A summary CSV showing how many bikes fall into each range of total rides taken.|
+|`max_concurrent_rides_by_year.csv`| CSV File |Maximum concurrent rides observed per year.|
+|`reshaped_pairs.csv`  | CSV File |Reshaped aggregated station-to-station ride counts to support Tableau visualizations.|
+|`station_paris.csv`   | CSV File |Top 5,000 most frequent origin-destination station pairs.|
+|`temp_distribution.csv`| CSV File |Summarizes the number of hourly observations per 2 °C temperature bin across the entire weather dataset|
+|`temp_vs_rides_avg.csv`| CSV File |A temperature-binned summary of average hourly ride counts across the study period.|
+|`temp_vs_rides_total.csv`| CSV File |  |
+|`temp_vs_rides.tsv`    | TSV File |  |
+|`avg_temp_vs_rides.tsv`| TSV File |Summary table aggregating the *average* hourly ride counts by temperature bin and user type.|
+|`temp_vs_rides_2.dat`  | Data File |Average ride volume per 2 °C temperature bin.|
 
 
-| `top_stations.rds`  | RDS File |  |
-| `ride_durations.rds`| RDS File |  |
+|`top_stations.rds`  | RDS File |  |
+|`ride_durations.rds`| RDS File |  |
 
 **Notes:**
 

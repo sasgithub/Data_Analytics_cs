@@ -160,12 +160,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="prop_wide" class="level3">
+<h3 class="anchored" data-anchor-id="prop_wide"><code>prop_wide</code></h3>
+<p><strong>Description:</strong><br>
+A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.</p>
+<p><strong>Source &amp; Processing:</strong><br>
+- Derived from <a href="../data/ride_props.html"><code>ride_props</code></a>, which contained the proportion of hourly rides within each <code>week_part</code> (Weekday vs.&nbsp;Weekend). - Transformation steps: - Selected <code>hour</code>, <code>week_part</code>, and <code>prop</code> columns. - Pivoted the data wider so each hour has separate columns for <code>Weekday</code> and <code>Weekend</code> proportions. - Computed a <code>diff</code> column showing the difference between weekday and weekend ride proportions.</p>
+<p><strong>Purpose:</strong><br>
+Enables straightforward comparison of ridership distribution by hour across weekdays and weekends, supporting visualizations and further analysis of temporal usage patterns.</p>
+<p><strong>Command Used</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>prop_wide <span class="ot">&lt;-</span> ride_props <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(hour, week_part, prop) <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> week_part, <span class="at">values_from =</span> prop) <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Weekday <span class="sc">-</span> Weekend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

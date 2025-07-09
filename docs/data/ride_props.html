@@ -160,11 +160,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="ride_props" class="level3">
+<h3 class="anchored" data-anchor-id="ride_props"><code>ride_props</code></h3>
+<p><strong>Description:</strong><br>
+Calculates the proportion of rides occurring in each hour relative to the total rides for that week part (Weekday or Weekend).</p>
+<p><strong>Provenance Details:</strong></p>
+<ul>
+<li><p><strong>Source Data Frame:</strong><br>
+<a href="../data/rides_by_hour_weekpart.html"><code>rides_by_hour_weekpart</code></a></p></li>
+<li><p><strong>Transformations:</strong></p>
+<ul>
+<li>Grouped by <code>week_part</code>.</li>
+<li>Computed the proportion of rides within each hour by dividing <code>ride_count</code> by the sum of <code>ride_count</code> in that week part.</li>
+</ul></li>
+<li><p><strong>Code:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ride_props <span class="ot">&lt;-</span> rides_by_hour_weekpart <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part) <span class="sc">%&gt;%</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop =</span> ride_count <span class="sc">/</span> <span class="fu">sum</span>(ride_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">prop =</span> ride_count <span class="sc">/</span> <span class="fu">sum</span>(ride_count)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>To facilitate comparison of hourly ride distribution between weekdays and weekends by normalizing counts into proportions.</li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

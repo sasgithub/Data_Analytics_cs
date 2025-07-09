@@ -244,16 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT * FROM ranked_stations WHERE rn &lt;= 50;</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(top_stations_df)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  station_id                         name      lat      long  user_type ride_count rn</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>        <span class="dv">666</span> Clinton St <span class="sc">&amp;</span> Washington Blvd <span class="fl">41.88338</span> <span class="sc">-</span><span class="fl">87.64117</span> subscriber     <span class="dv">312299</span>  <span class="dv">1</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>         <span class="dv">73</span>          Canal St <span class="sc">&amp;</span> Adams St <span class="fl">41.87926</span> <span class="sc">-</span><span class="fl">87.63990</span> subscriber     <span class="dv">300498</span>  <span class="dv">2</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>        <span class="dv">751</span>      Clinton St <span class="sc">&amp;</span> Madison St <span class="fl">41.88275</span> <span class="sc">-</span><span class="fl">87.64119</span> subscriber     <span class="dv">250116</span>  <span class="dv">3</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>        <span class="dv">144</span>     Kingsbury St <span class="sc">&amp;</span> Kinzie St <span class="fl">41.88918</span> <span class="sc">-</span><span class="fl">87.63851</span> subscriber     <span class="dv">191005</span>  <span class="dv">4</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>       <span class="dv">1141</span>        Canal St <span class="sc">&amp;</span> Madison St <span class="fl">41.88209</span> <span class="sc">-</span><span class="fl">87.63983</span> subscriber     <span class="dv">189285</span>  <span class="dv">5</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>        <span class="dv">802</span>    Columbus Dr <span class="sc">&amp;</span> Randolph St <span class="fl">41.88473</span> <span class="sc">-</span><span class="fl">87.61952</span> subscriber     <span class="dv">172803</span>  <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
