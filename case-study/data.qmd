@@ -212,7 +212,7 @@ To combine the files into a unified dataset, the following steps were performed:
      - `dbcap` (retained but field has not been used)
      - `online_date` (Combined `online date` and `dateCreated` into a single online_date field (though this was not ultimately used in the analysis).
      
-   - Deleted fields no longer needed:
+   - Deleted fields no longer needed:non_tourist_customer_rides_df
    
      - `Docks in Service` (assumed to be current data)
      - `Status` (assumed to be current data, we're concerned with historical usage)
@@ -581,56 +581,56 @@ The following cleaned, aggregated, and derived datasets were created during the 
 
 | Name                   |    Type     |            Description                        |
 | ---------------------- | ----------- | --------------------------------------------- |
-|[`stations`](stations.md)            |SQLite Tables|Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.
-|[`rides`](rides.md)               |SQLite Tables|Cleaned trip-level records, harmonized fields, and standardized timestamps.
-|[`hourly_weather`](hourly_weather.md)      |SQLite Tables|Hourly weather observations from Midway Airport for the study period.
-|[`rides_per_hour_tbl`](rides_per_hour_tbl.md)  |SQLite Tables|A table with one entry per hour that joins rides and weather|
-|[`rider_readable`](rider_readable.md)      |SQLite Views|A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.|
-|[`rides_per_hour`](rides_per_hour.md)      |SQLite Views|Aggregated hourly ride counts, used to join with weather data.
-|[`rides_weather`](rides_weather.md)       |SQLite Views|Combined hourly weather and ride counts for modeling and visualization.|
-|[`asym_top`](asym_top.md)            |R Data Frame|Stations with the largest asymmetry between user types.|
-|[`attractions_df`](attractions_df.md)      |R Data Frame|List of tourist attractions with coordinates. |
-|[`binned_rides`](binned_rides.md)        |R Data Frame|Summarizes the average number of rides per 2 °C temperature bin, split by user type.|
-|[`daily_avg_df`](daily_avg_df.md)        |R Data Frame|Average number of rides per day since January 2023, grouped by user type and bike type.|
-|[`density_df`](density_df.md)          |R Data Frame|Provides a smooth estimate of the distribution of ride distances.| 
-|[`duration_by_type`](duration_by_type.md)    |R Data Frame|Summarized ride duration statistics by user type and bike type.|
-|[`loop_rides_non_tourist`](loop_rides_non_tourist.md)|R Data Frame|Isolates non-tourist customer rides that form a complete loop.|
-|[`nearby_stations_df`](nearby_stations_df.md)  |R Data Frame|Stations within radius of tourist attractions.| 
-|[`non_loop_rides_df`](non_loop_rides_df.md)   |R Data Frame|Only rides starting and ending at different stations.|
-|[`non_tourist_customer_rides_df`](.md)|R Data Frame|Is a **foundational rides subset** from which many other frames were derived.|
-|[`non_tourist_stations_df](non_tourist_stations_df.md)`|R Data Frame|Stations not near tourist attractions.|
-|[`normalized_df`](normalized_df.md)       |R Data Frame|A normalized version of average ride counts across temperature bins|
-|[`peak_df`](peak_df.md)             |R Data Frame|Highlights the key distance values where the density of rides is locally maximized.|
-|[`prop_df`](prop_df.md)             |R Data Frame|Summarizes the hourly count of non-tourist customer rides split by [week part](glossary.qmd#glossary-week-part).|
-|[`prop_wide`](prop_wide.md)           |R Data Frame|A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.|
-|[`post_electric_rides_df`](post_electric_rides_df.md)|R Data Frame|Daily ride counts and average durations since January 2023, broken down by user type and bike type.|
-|[`ride_counts_by_distance`](ride_counts_by_distance.md)|R Data Frame|Enables visualization or statistical analysis of how ride frequency varies with distance.|
-|[`ride_durations`](ride_durations.md)      |R Data Frame|Per-trip durations in minutes.|
-|[`ride_props`](ride_props.md)          |R Data Frame|Proportion of rides occurring in each hour relative to the total rides for that [week part](glossary.qmd#glossary-week-part).|
-|[`rides_by_hour_season`](rides_by_hour_season.md)|R Data Frame|Shows how ride volumes vary over the year and time of week/day.|
-|[`rides_by_hour_weekpart`](rides_by_hour_weekpart.md)|R Data Frame|Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.|
-|[`rides_weather_df`](rides_weather_df.md)   |R Data Frame|Derived directly from the `rides_weather`](.md)view in the SQLite database.|
-|[`stations_non_tourist_df`](stations_non_tourist_df.md) |R Data Frame|all stations **not** within a defined proximity of tourist attractions|
-|[`stdres_df`](stdres_df.md)          |R Data Frame|Standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part|
-|[`stdres_long`](stdres_long.md)        |R Data Frame|Standardized residuals from a chi-squared test comparing hourly ride distributions between weekend and weekday|
-|[`top_non_tourist_stations`](top_non_tourist_stations.md)|R Data Frame|Stations with the highest number of **customer** rides that **started or ended** at non-tourist stations.|
-|[`top_non_tourist_stations_named`](top_non_tourist_stations_named.md)|R Data Frame|Top 25 stations with the highest customer ride counts.|
-|[`top_stations_df`](top_stations_df.md)    |R Data Frame|50 most-used start stations for each user type|
-|[`top_stations_df_offset`](top_stations_df_offset.md)|R Data Frame|transformed version of [`top_stations_df`](data/top_stations_df.md) created to help improve visualization clarity|
-|[`weekday_rides_df`](weekday_rides_df.md)   |R Data Frame|Enables time-of-day analysis of ride patterns across defined commuting periods.|
-|[`asymmetry.csv`](asymmetry.csv.md)      | CSV File |Export of asymmetry analysis (user type differences).|
-|[`attractions.csv`](attractions.csv.md)    | CSV File |CSV file containing a list of tourist attractions in Chicago, each with name and coordinates.|
-|[`bike_ride_buckets.csv`](bike_ride_buckets.csv.md)| CSV File |A summary CSV showing how many bikes fall into each range of total rides taken.|
-|[`max_concurrent_rides_by_year.csv`](max_concurrent_rides_by_year.csv.md)| CSV File |Maximum concurrent rides observed per year.|
-|[`reshaped_pairs.csv`](reshaped_pairs.csv.md) | CSV File |Reshaped aggregated station-to-station ride counts to support Tableau visualizations.|
-|[`station_paris.csv`](station_paris.csv.md)  | CSV File |Top 5,000 most frequent origin-destination station pairs.|
-|[`temp_distribution.csv`](temp_distribution.csv.md)| CSV File |Summarizes the number of hourly observations per 2 °C temperature bin across the entire weather dataset|
-|[`temp_vs_rides_avg.csv`](temp_vs_rides_avg.csv.md)| CSV File |A temperature-binned summary of average hourly ride counts across the study period.|
-|[`temp_vs_rides_total.csv`](temp_vs_rides_total.csv.md)| CSV File |Total number of rides observed in each 2 °C temperature bin, broken out by user type.|
-|[`avg_temp_vs_rides.tsv`](avg_temp_vs_rides.tsv.md)| TSV File |Summary table aggregating the *average* hourly ride counts by temperature bin and user type.|
-|[`temp_vs_rides_2.dat`](temp_vs_rides_2.dat.md) | Data File |Average ride volume per 2 °C temperature bin.|
-|[`nearby_stations_df.rds`](nearby_stations_df.rds.md)| RDS File |Contains the [nearby_stations_df](nearby_stations_df.md) data frame.|
-|[`stations_non_tourist_df.rds`](stations_non_tourist_df.rds.md)| RDS File |Contains the [`stations_non_tourist_df`](stations_non_tourist_df.md) data frame.|
+|[`stations`](data/stations.md)            |SQLite Tables|Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.
+|[`rides`](data/rides.md)               |SQLite Tables|Cleaned trip-level records, harmonized fields, and standardized timestamps.
+|[`hourly_weather`](data/hourly_weather.md)      |SQLite Tables|Hourly weather observations from Midway Airport for the study period.
+|[`rides_per_hour_tbl`](data/rides_per_hour_tbl.md)  |SQLite Tables|A table with one entry per hour that joins rides and weather|
+|[`rider_readable`](data/rider_readable.md)      |SQLite Views|A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.|
+|[`rides_per_hour`](data/rides_per_hour.md)      |SQLite Views|Aggregated hourly ride counts, used to join with weather data.
+|[`rides_weather`](data/rides_weather.md)       |SQLite Views|Combined hourly weather and ride counts for modeling and visualization.|
+|[`asym_top`](data/asym_top.md)            |R Data Frame|Stations with the largest asymmetry between user types.|
+|[`attractions_df`](data/attractions_df.md)      |R Data Frame|List of tourist attractions with coordinates. |
+|[`binned_rides`](data/binned_rides.md)        |R Data Frame|Summarizes the average number of rides per 2 °C temperature bin, split by user type.|
+|[`daily_avg_df`](data/daily_avg_df.md)        |R Data Frame|Average number of rides per day since January 2023, grouped by user type and bike type.|
+|[`density_df`](data/density_df.md)          |R Data Frame|Provides a smooth estimate of the distribution of ride distances.| 
+|[`duration_by_type`](data/duration_by_type.md)    |R Data Frame|Summarized ride duration statistics by user type and bike type.|
+|[`loop_rides_non_tourist`](data/loop_rides_non_tourist.md)|R Data Frame|Isolates non-tourist customer rides that form a complete loop.|
+|[`nearby_stations_df`](data/nearby_stations_df.md)  |R Data Frame|Stations within radius of tourist attractions.| 
+|[`non_loop_rides_df`](data/non_loop_rides_df.md)   |R Data Frame|Only rides starting and ending at different stations.|
+|[`non_tourist_customer_rides_df`](data/non_tourist_customer_rides_df.md)|R Data Frame|Is a **foundational rides subset** from which many other frames were derived.|
+|[`non_tourist_stations_df](data/non_tourist_stations_df.md)`|R Data Frame|Stations not near tourist attractions.|
+|[`normalized_df`](data/normalized_df.md)       |R Data Frame|A normalized version of average ride counts across temperature bins|
+|[`peak_df`](data/peak_df.md)             |R Data Frame|Highlights the key distance values where the density of rides is locally maximized.|
+|[`prop_df`](data/prop_df.md)             |R Data Frame|Summarizes the hourly count of non-tourist customer rides split by [week part](glossary.qmd#glossary-week-part).|
+|[`prop_wide`](data/prop_wide.md)           |R Data Frame|A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.|
+|[`post_electric_rides_df`](data/post_electric_rides_df.md)|R Data Frame|Daily ride counts and average durations since January 2023, broken down by user type and bike type.|
+|[`ride_counts_by_distance`](data/ride_counts_by_distance.md)|R Data Frame|Enables visualization or statistical analysis of how ride frequency varies with distance.|
+|[`ride_durations`](data/ride_durations.md)      |R Data Frame|Per-trip durations in minutes.|
+|[`ride_props`](data/ride_props.md)          |R Data Frame|Proportion of rides occurring in each hour relative to the total rides for that [week part](glossary.qmd#glossary-week-part).|
+|[`rides_by_hour_season`](data/rides_by_hour_season.md)|R Data Frame|Shows how ride volumes vary over the year and time of week/day.|
+|[`rides_by_hour_weekpart`](data/rides_by_hour_weekpart.md)|R Data Frame|Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.|
+|[`rides_weather_df`](data/rides_weather_df.md)   |R Data Frame|Derived directly from the `rides_weather`](data/rides_weather.md)view in the SQLite database.|
+|[`stations_non_tourist_df`](data/stations_non_tourist_df.md) |R Data Frame|all stations **not** within a defined proximity of tourist attractions|
+|[`stdres_df`](data/stdres_df.md)          |R Data Frame|Standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part|
+|[`stdres_long`](data/stdres_long.md)        |R Data Frame|Standardized residuals from a chi-squared test comparing hourly ride distributions between weekend and weekday|
+|[`top_non_tourist_stations`](data/top_non_tourist_stations.md)|R Data Frame|Stations with the highest number of **customer** rides that **started or ended** at non-tourist stations.|
+|[`top_non_tourist_stations_named`](data/top_non_tourist_stations_named.md)|R Data Frame|Top 25 stations with the highest customer ride counts.|
+|[`top_stations_df`](data/top_stations_df.md)    |R Data Frame|50 most-used start stations for each user type|
+|[`top_stations_df_offset`](data/top_stations_df_offset.md)|R Data Frame|Transformed version of [`top_stations_df`](data/top_stations_df.md) created to help improve visualization clarity|
+|[`weekday_rides_df`](data/weekday_rides_df.md)   |R Data Frame|Enables time-of-day analysis of ride patterns across defined commuting periods.|
+|[`asymmetry.csv`](data/asymmetry.csv.md)      | CSV File |Export of asymmetry analysis (user type differences).|
+|[`attractions.csv`](data/attractions.csv.md)    | CSV File |CSV file containing a list of tourist attractions in Chicago, each with name and coordinates.|
+|[`bike_ride_buckets.csv`](data/bike_ride_buckets.csv.md)| CSV File |A summary CSV showing how many bikes fall into each range of total rides taken.|
+|[`max_concurrent_rides_by_year.csv`](data/max_concurrent_rides_by_year.csv.md)| CSV File |Maximum concurrent rides observed per year.|
+|[`reshaped_pairs.csv`](data/reshaped_pairs.csv.md) | CSV File |Reshaped aggregated station-to-station ride counts to support Tableau visualizations.|
+|[`station_paris.csv`](data/station_pairs.csv.md)  | CSV File |Top 5,000 most frequent origin-destination station pairs.|
+|[`temp_distribution.csv`](data/temp_distribution.csv.md)| CSV File |Summarizes the number of hourly observations per 2 °C temperature bin across the entire weather dataset|
+|[`temp_vs_rides_avg.csv`](data/temp_vs_rides_avg.csv.md)| CSV File |A temperature-binned summary of average hourly ride counts across the study period.|
+|[`temp_vs_rides_total.csv`](data/temp_vs_rides_total.csv.md)| CSV File |Total number of rides observed in each 2 °C temperature bin, broken out by user type.|
+|[`avg_temp_vs_rides.tsv`](data/avg_temp_vs_rides.tsv.md)| TSV File |Summary table aggregating the *average* hourly ride counts by temperature bin and user type.|
+|[`temp_vs_rides_2.dat`](data/temp_vs_rides_2.dat.md) | Data File |Average ride volume per 2 °C temperature bin.|
+|[`nearby_stations_df.rds`](data/nearby_stations_df.rds.md)| RDS File |Contains the [nearby_stations_df](data/nearby_stations_df.md) data frame.|
+|[`stations_non_tourist_df.rds`](data/stations_non_tourist_df.rds.md)| RDS File |Contains the [`stations_non_tourist_df`](data/stations_non_tourist_df.md) data frame.|
 
 **Notes:**
 
@@ -643,8 +643,9 @@ The following cleaned, aggregated, and derived datasets were created during the 
 
 ## 8. Appendix 
 
+### 
 
-## License
+### License
 
 Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](Legal/City_of_Chicago_disclaimer.txt).
 

@@ -141,7 +141,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#summary-of-validation-outcomes" id="toc-summary-of-validation-outcomes" class="nav-link" data-scroll-target="#summary-of-validation-outcomes">6.5 Summary of Validation Outcomes</a></li>
   <li><a href="#outputs-and-derived-data" id="toc-outputs-and-derived-data" class="nav-link" data-scroll-target="#outputs-and-derived-data">7. Outputs and Derived Data</a></li>
   <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">8. Appendix</a></li>
-  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -547,7 +546,7 @@ I’m actively building out my case study as part of the Google Data Analytics C
 <li><code>dbcap</code> (retained but field has not been used)</li>
 <li><code>online_date</code> (Combined <code>online date</code> and <code>dateCreated</code> into a single online_date field (though this was not ultimately used in the analysis).</li>
 </ul></li>
-<li><p>Deleted fields no longer needed:</p>
+<li><p>Deleted fields no longer needed:non_tourist_customer_rides_df</p>
 <ul>
 <li><code>Docks in Service</code> (assumed to be current data)</li>
 <li><code>Status</code> (assumed to be current data, we’re concerned with historical usage)</li>
@@ -961,254 +960,254 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="stations.md"><code>stations</code></a></td>
+<td><a href="./data/stations.html"><code>stations</code></a></td>
 <td>SQLite Tables</td>
 <td>Master list of Divvy stations with standardized IDs, names, lat/long, and capacity.</td>
 </tr>
 <tr class="even">
-<td><a href="rides.md"><code>rides</code></a></td>
+<td><a href="./data/rides.html"><code>rides</code></a></td>
 <td>SQLite Tables</td>
 <td>Cleaned trip-level records, harmonized fields, and standardized timestamps.</td>
 </tr>
 <tr class="odd">
-<td><a href="hourly_weather.md"><code>hourly_weather</code></a></td>
+<td><a href="./data/hourly_weather.html"><code>hourly_weather</code></a></td>
 <td>SQLite Tables</td>
 <td>Hourly weather observations from Midway Airport for the study period.</td>
 </tr>
 <tr class="even">
-<td><a href="rides_per_hour_tbl.md"><code>rides_per_hour_tbl</code></a></td>
+<td><a href="./data/rides_per_hour_tbl.html"><code>rides_per_hour_tbl</code></a></td>
 <td>SQLite Tables</td>
 <td>A table with one entry per hour that joins rides and weather</td>
 </tr>
 <tr class="odd">
-<td><a href="rider_readable.md"><code>rider_readable</code></a></td>
+<td><a href="./data/rider_readable.html"><code>rider_readable</code></a></td>
 <td>SQLite Views</td>
 <td>A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.</td>
 </tr>
 <tr class="even">
-<td><a href="rides_per_hour.md"><code>rides_per_hour</code></a></td>
+<td><a href="./data/rides_per_hour.html"><code>rides_per_hour</code></a></td>
 <td>SQLite Views</td>
 <td>Aggregated hourly ride counts, used to join with weather data.</td>
 </tr>
 <tr class="odd">
-<td><a href="rides_weather.md"><code>rides_weather</code></a></td>
+<td><a href="./data/rides_weather.html"><code>rides_weather</code></a></td>
 <td>SQLite Views</td>
 <td>Combined hourly weather and ride counts for modeling and visualization.</td>
 </tr>
 <tr class="even">
-<td><a href="asym_top.md"><code>asym_top</code></a></td>
+<td><a href="./data/asym_top.html"><code>asym_top</code></a></td>
 <td>R Data Frame</td>
 <td>Stations with the largest asymmetry between user types.</td>
 </tr>
 <tr class="odd">
-<td><a href="attractions_df.md"><code>attractions_df</code></a></td>
+<td><a href="./data/attractions_df.html"><code>attractions_df</code></a></td>
 <td>R Data Frame</td>
 <td>List of tourist attractions with coordinates.</td>
 </tr>
 <tr class="even">
-<td><a href="binned_rides.md"><code>binned_rides</code></a></td>
+<td><a href="./data/binned_rides.html"><code>binned_rides</code></a></td>
 <td>R Data Frame</td>
 <td>Summarizes the average number of rides per 2 °C temperature bin, split by user type.</td>
 </tr>
 <tr class="odd">
-<td><a href="daily_avg_df.md"><code>daily_avg_df</code></a></td>
+<td><a href="./data/daily_avg_df.html"><code>daily_avg_df</code></a></td>
 <td>R Data Frame</td>
 <td>Average number of rides per day since January 2023, grouped by user type and bike type.</td>
 </tr>
 <tr class="even">
-<td><a href="density_df.md"><code>density_df</code></a></td>
+<td><a href="./data/density_df.html"><code>density_df</code></a></td>
 <td>R Data Frame</td>
 <td>Provides a smooth estimate of the distribution of ride distances.</td>
 </tr>
 <tr class="odd">
-<td><a href="duration_by_type.md"><code>duration_by_type</code></a></td>
+<td><a href="./data/duration_by_type.html"><code>duration_by_type</code></a></td>
 <td>R Data Frame</td>
 <td>Summarized ride duration statistics by user type and bike type.</td>
 </tr>
 <tr class="even">
-<td><a href="loop_rides_non_tourist.md"><code>loop_rides_non_tourist</code></a></td>
+<td><a href="./data/loop_rides_non_tourist.html"><code>loop_rides_non_tourist</code></a></td>
 <td>R Data Frame</td>
 <td>Isolates non-tourist customer rides that form a complete loop.</td>
 </tr>
 <tr class="odd">
-<td><a href="nearby_stations_df.md"><code>nearby_stations_df</code></a></td>
+<td><a href="./data/nearby_stations_df.html"><code>nearby_stations_df</code></a></td>
 <td>R Data Frame</td>
 <td>Stations within radius of tourist attractions.</td>
 </tr>
 <tr class="even">
-<td><a href="non_loop_rides_df.md"><code>non_loop_rides_df</code></a></td>
+<td><a href="./data/non_loop_rides_df.html"><code>non_loop_rides_df</code></a></td>
 <td>R Data Frame</td>
 <td>Only rides starting and ending at different stations.</td>
 </tr>
 <tr class="odd">
-<td><a href=".md"><code>non_tourist_customer_rides_df</code></a></td>
+<td><a href="./data/non_tourist_customer_rides_df.html"><code>non_tourist_customer_rides_df</code></a></td>
 <td>R Data Frame</td>
 <td>Is a <strong>foundational rides subset</strong> from which many other frames were derived.</td>
 </tr>
 <tr class="even">
-<td>[<code>non_tourist_stations_df](non_tourist_stations_df.md)</code></td>
+<td>[<code>non_tourist_stations_df](data/non_tourist_stations_df.md)</code></td>
 <td>R Data Frame</td>
 <td>Stations not near tourist attractions.</td>
 </tr>
 <tr class="odd">
-<td><a href="normalized_df.md"><code>normalized_df</code></a></td>
+<td><a href="./data/normalized_df.html"><code>normalized_df</code></a></td>
 <td>R Data Frame</td>
 <td>A normalized version of average ride counts across temperature bins</td>
 </tr>
 <tr class="even">
-<td><a href="peak_df.md"><code>peak_df</code></a></td>
+<td><a href="./data/peak_df.html"><code>peak_df</code></a></td>
 <td>R Data Frame</td>
 <td>Highlights the key distance values where the density of rides is locally maximized.</td>
 </tr>
 <tr class="odd">
-<td><a href="prop_df.md"><code>prop_df</code></a></td>
+<td><a href="./data/prop_df.html"><code>prop_df</code></a></td>
 <td>R Data Frame</td>
 <td>Summarizes the hourly count of non-tourist customer rides split by <a href="./glossary.html#glossary-week-part">week part</a>.</td>
 </tr>
 <tr class="even">
-<td><a href="prop_wide.md"><code>prop_wide</code></a></td>
+<td><a href="./data/prop_wide.html"><code>prop_wide</code></a></td>
 <td>R Data Frame</td>
 <td>A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.</td>
 </tr>
 <tr class="odd">
-<td><a href="post_electric_rides_df.md"><code>post_electric_rides_df</code></a></td>
+<td><a href="./data/post_electric_rides_df.html"><code>post_electric_rides_df</code></a></td>
 <td>R Data Frame</td>
 <td>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</td>
 </tr>
 <tr class="even">
-<td><a href="ride_counts_by_distance.md"><code>ride_counts_by_distance</code></a></td>
+<td><a href="./data/ride_counts_by_distance.html"><code>ride_counts_by_distance</code></a></td>
 <td>R Data Frame</td>
 <td>Enables visualization or statistical analysis of how ride frequency varies with distance.</td>
 </tr>
 <tr class="odd">
-<td><a href="ride_durations.md"><code>ride_durations</code></a></td>
+<td><a href="./data/ride_durations.html"><code>ride_durations</code></a></td>
 <td>R Data Frame</td>
 <td>Per-trip durations in minutes.</td>
 </tr>
 <tr class="even">
-<td><a href="ride_props.md"><code>ride_props</code></a></td>
+<td><a href="./data/ride_props.html"><code>ride_props</code></a></td>
 <td>R Data Frame</td>
 <td>Proportion of rides occurring in each hour relative to the total rides for that <a href="./glossary.html#glossary-week-part">week part</a>.</td>
 </tr>
 <tr class="odd">
-<td><a href="rides_by_hour_season.md"><code>rides_by_hour_season</code></a></td>
+<td><a href="./data/rides_by_hour_season.html"><code>rides_by_hour_season</code></a></td>
 <td>R Data Frame</td>
 <td>Shows how ride volumes vary over the year and time of week/day.</td>
 </tr>
 <tr class="even">
-<td><a href="rides_by_hour_weekpart.md"><code>rides_by_hour_weekpart</code></a></td>
+<td><a href="./data/rides_by_hour_weekpart.html"><code>rides_by_hour_weekpart</code></a></td>
 <td>R Data Frame</td>
 <td>Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.</td>
 </tr>
 <tr class="odd">
-<td><a href="rides_weather_df.md"><code>rides_weather_df</code></a></td>
+<td><a href="./data/rides_weather_df.html"><code>rides_weather_df</code></a></td>
 <td>R Data Frame</td>
-<td>Derived directly from the <code>rides_weather</code>](.md)view in the SQLite database.</td>
+<td>Derived directly from the <code>rides_weather</code>](data/rides_weather.md)view in the SQLite database.</td>
 </tr>
 <tr class="even">
-<td><a href="stations_non_tourist_df.md"><code>stations_non_tourist_df</code></a></td>
+<td><a href="./data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a></td>
 <td>R Data Frame</td>
 <td>all stations <strong>not</strong> within a defined proximity of tourist attractions</td>
 </tr>
 <tr class="odd">
-<td><a href="stdres_df.md"><code>stdres_df</code></a></td>
+<td><a href="./data/stdres_df.html"><code>stdres_df</code></a></td>
 <td>R Data Frame</td>
 <td>Standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part</td>
 </tr>
 <tr class="even">
-<td><a href="stdres_long.md"><code>stdres_long</code></a></td>
+<td><a href="./data/stdres_long.html"><code>stdres_long</code></a></td>
 <td>R Data Frame</td>
 <td>Standardized residuals from a chi-squared test comparing hourly ride distributions between weekend and weekday</td>
 </tr>
 <tr class="odd">
-<td><a href="top_non_tourist_stations.md"><code>top_non_tourist_stations</code></a></td>
+<td><a href="./data/top_non_tourist_stations.html"><code>top_non_tourist_stations</code></a></td>
 <td>R Data Frame</td>
 <td>Stations with the highest number of <strong>customer</strong> rides that <strong>started or ended</strong> at non-tourist stations.</td>
 </tr>
 <tr class="even">
-<td><a href="top_non_tourist_stations_named.md"><code>top_non_tourist_stations_named</code></a></td>
+<td><a href="./data/top_non_tourist_stations_named.html"><code>top_non_tourist_stations_named</code></a></td>
 <td>R Data Frame</td>
 <td>Top 25 stations with the highest customer ride counts.</td>
 </tr>
 <tr class="odd">
-<td><a href="top_stations_df.md"><code>top_stations_df</code></a></td>
+<td><a href="./data/top_stations_df.html"><code>top_stations_df</code></a></td>
 <td>R Data Frame</td>
 <td>50 most-used start stations for each user type</td>
 </tr>
 <tr class="even">
-<td><a href="top_stations_df_offset.md"><code>top_stations_df_offset</code></a></td>
+<td><a href="./data/top_stations_df_offset.html"><code>top_stations_df_offset</code></a></td>
 <td>R Data Frame</td>
-<td>transformed version of <a href="./data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity</td>
+<td>Transformed version of <a href="./data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity</td>
 </tr>
 <tr class="odd">
-<td><a href="weekday_rides_df.md"><code>weekday_rides_df</code></a></td>
+<td><a href="./data/weekday_rides_df.html"><code>weekday_rides_df</code></a></td>
 <td>R Data Frame</td>
 <td>Enables time-of-day analysis of ride patterns across defined commuting periods.</td>
 </tr>
 <tr class="even">
-<td><a href="asymmetry.csv.md"><code>asymmetry.csv</code></a></td>
+<td><a href="./data/asymmetry.csv.html"><code>asymmetry.csv</code></a></td>
 <td>CSV File</td>
 <td>Export of asymmetry analysis (user type differences).</td>
 </tr>
 <tr class="odd">
-<td><a href="attractions.csv.md"><code>attractions.csv</code></a></td>
+<td><a href="./data/attractions.csv.html"><code>attractions.csv</code></a></td>
 <td>CSV File</td>
 <td>CSV file containing a list of tourist attractions in Chicago, each with name and coordinates.</td>
 </tr>
 <tr class="even">
-<td><a href="bike_ride_buckets.csv.md"><code>bike_ride_buckets.csv</code></a></td>
+<td><a href="./data/bike_ride_buckets.csv.html"><code>bike_ride_buckets.csv</code></a></td>
 <td>CSV File</td>
 <td>A summary CSV showing how many bikes fall into each range of total rides taken.</td>
 </tr>
 <tr class="odd">
-<td><a href="max_concurrent_rides_by_year.csv.md"><code>max_concurrent_rides_by_year.csv</code></a></td>
+<td><a href="./data/max_concurrent_rides_by_year.csv.html"><code>max_concurrent_rides_by_year.csv</code></a></td>
 <td>CSV File</td>
 <td>Maximum concurrent rides observed per year.</td>
 </tr>
 <tr class="even">
-<td><a href="reshaped_pairs.csv.md"><code>reshaped_pairs.csv</code></a></td>
+<td><a href="./data/reshaped_pairs.csv.html"><code>reshaped_pairs.csv</code></a></td>
 <td>CSV File</td>
 <td>Reshaped aggregated station-to-station ride counts to support Tableau visualizations.</td>
 </tr>
 <tr class="odd">
-<td><a href="station_paris.csv.md"><code>station_paris.csv</code></a></td>
+<td><a href="./data/station_pairs.csv.html"><code>station_paris.csv</code></a></td>
 <td>CSV File</td>
 <td>Top 5,000 most frequent origin-destination station pairs.</td>
 </tr>
 <tr class="even">
-<td><a href="temp_distribution.csv.md"><code>temp_distribution.csv</code></a></td>
+<td><a href="./data/temp_distribution.csv.html"><code>temp_distribution.csv</code></a></td>
 <td>CSV File</td>
 <td>Summarizes the number of hourly observations per 2 °C temperature bin across the entire weather dataset</td>
 </tr>
 <tr class="odd">
-<td><a href="temp_vs_rides_avg.csv.md"><code>temp_vs_rides_avg.csv</code></a></td>
+<td><a href="./data/temp_vs_rides_avg.csv.html"><code>temp_vs_rides_avg.csv</code></a></td>
 <td>CSV File</td>
 <td>A temperature-binned summary of average hourly ride counts across the study period.</td>
 </tr>
 <tr class="even">
-<td><a href="temp_vs_rides_total.csv.md"><code>temp_vs_rides_total.csv</code></a></td>
+<td><a href="./data/temp_vs_rides_total.csv.html"><code>temp_vs_rides_total.csv</code></a></td>
 <td>CSV File</td>
 <td>Total number of rides observed in each 2 °C temperature bin, broken out by user type.</td>
 </tr>
 <tr class="odd">
-<td><a href="avg_temp_vs_rides.tsv.md"><code>avg_temp_vs_rides.tsv</code></a></td>
+<td><a href="./data/avg_temp_vs_rides.tsv.html"><code>avg_temp_vs_rides.tsv</code></a></td>
 <td>TSV File</td>
 <td>Summary table aggregating the <em>average</em> hourly ride counts by temperature bin and user type.</td>
 </tr>
 <tr class="even">
-<td><a href="temp_vs_rides_2.dat.md"><code>temp_vs_rides_2.dat</code></a></td>
+<td><a href="./data/temp_vs_rides_2.dat.html"><code>temp_vs_rides_2.dat</code></a></td>
 <td>Data File</td>
 <td>Average ride volume per 2 °C temperature bin.</td>
 </tr>
 <tr class="odd">
-<td><a href="nearby_stations_df.rds.md"><code>nearby_stations_df.rds</code></a></td>
+<td><a href="./data/nearby_stations_df.rds.html"><code>nearby_stations_df.rds</code></a></td>
 <td>RDS File</td>
-<td>Contains the <a href="nearby_stations_df.md">nearby_stations_df</a> data frame.</td>
+<td>Contains the <a href="./data/nearby_stations_df.html">nearby_stations_df</a> data frame.</td>
 </tr>
 <tr class="even">
-<td><a href="stations_non_tourist_df.rds.md"><code>stations_non_tourist_df.rds</code></a></td>
+<td><a href="./data/stations_non_tourist_df.rds.html"><code>stations_non_tourist_df.rds</code></a></td>
 <td>RDS File</td>
-<td>Contains the <a href="stations_non_tourist_df.md"><code>stations_non_tourist_df</code></a> data frame.</td>
+<td>Contains the <a href="./data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a> data frame.</td>
 </tr>
 </tbody>
 </table>
@@ -1223,9 +1222,11 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix">8. Appendix</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
 </section>
-<section id="license" class="level2">
-<h2 class="anchored" data-anchor-id="license">License</h2>
+<section id="license" class="level3">
+<h3 class="anchored" data-anchor-id="license">License</h3>
 <p>Divvy and City of Chicago data is subject to the City of Chicago <a href="Legal/City_of_Chicago_disclaimer.txt">Terms of Use</a>.</p>
 <blockquote class="blockquote">
 <p>
@@ -1235,6 +1236,7 @@ Source: <a href="https://meteostat.net" target="_blank" rel="noopener noreferrer
 <p>This case study is © 2025 Scott Sesher and provided under the MIT License. See <a href="LICENSE">LICENSE</a> for details.</p>
 
 
+</section>
 </section>
 </section>
 
