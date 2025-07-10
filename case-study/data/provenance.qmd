@@ -120,7 +120,7 @@ Where possible, each provenance entry includes a direct reference to related dat
 
 {{< include reshaped_pairs.csv.md >}}
 
-{{< include station_paris.csv.md >}}
+{{< include station_pairs.csv.md >}}
 
 {{< include temp_distribution.csv.md >}}
 
@@ -140,4 +140,8 @@ Where possible, each provenance entry includes a direct reference to related dat
 
 ### Miscilanious Files
 
-{{< include .md >}}
+{{< include avg_temp_vs_rides.tsv.md >}}
+
+{{< include temp_vs_rides_2.dat.md >}}
+
+

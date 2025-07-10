@@ -26,3 +26,5 @@ Supports analysis of directional imbalances in station-to-station traffic, helpi
 
 *File available at:* [`asymmetry.csv`](asymmetry.csv)
 
+*SQL Command Used:* [`asymmetry.sql](../../src/asymmetry.sql)
+
