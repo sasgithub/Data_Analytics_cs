@@ -1,0 +1,143 @@
+---
+title: "Data Provenance"
+format:
+  html:
+    toc: true
+---
+
+## Data Provenance
+
+This page documents the origins, transformations, and usage context of each derived dataset, table, and file included in this case study. 
+
+Provenance information helps ensure transparency and reproducibility of the analysis by clearly describing:
+
+- **Source data** — where each dataset or file originated
+- **Transformation steps** — how the data was cleaned, filtered, joined, or summarized
+- **Purpose** — what each output is used for in the project
+- **Sample code or queries** — where relevant, examples of the SQL or R steps that produced the output
+
+Where possible, each provenance entry includes a direct reference to related data sets.
+
+
+---
+
+### SQL Tables
+
+{{< include stations.md >}}
+
+{{< include rides.md >}}
+
+{{< include hourly_weather.md >}}
+
+{{< include rides_per_hour_tbl.md >}}
+
+---
+
+### SQL Views
+
+{{< include rider_readable.md >}}
+
+{{< include rides_per_hour.md >}}
+
+{{< include rides_weather.md >}}
+
+---
+
+### R Data Frames
+
+{{< include asym_top.md >}}
+
+{{< include attractions_df.md >}}
+
+{{< include asym_top.md >}}
+
+{{< include attractions_df.md >}}
+
+{{< include binned_rides.md >}}
+
+{{< include daily_avg_df.md >}}
+
+{{< include density_df.md >}}
+
+{{< include duration_by_type.md >}}
+
+{{< include loop_rides_non_tourist.md >}}
+
+{{< include nearby_stations_df.md >}}
+
+{{< include non_loop_rides_df.md >}}
+
+{{< include non_tourist_customer_rides_df.md >}}
+
+{{< include normalized_df.md >}}
+
+{{< include peak_df.md >}}
+
+{{< include prop_df.md >}}
+
+{{< include prop_wide.md >}}
+
+{{< include post_electric_rides_df.md >}}
+
+{{< include ride_counts_by_distance.md >}}
+
+{{< include ride_durations.md >}}
+
+{{< include ride_props.md >}}
+
+{{< include rides_by_hour_season.md >}}
+
+{{< include rides_by_hour_weekpart.md >}}
+
+{{< include rides_weather_df.md >}}
+
+{{< include stations_non_tourist_df.md >}}
+
+{{< include stdres_df.md >}}
+
+{{< include stdres_long.md >}}
+
+{{< include top_non_tourist_stations.md >}}
+
+{{< include top_non_tourist_stations_named.md >}}
+
+{{< include top_stations_df.md >}}
+
+{{< include top_stations_df_offset.md >}}
+
+---
+
+### CSV Files
+
+
+{{< include asymmetry.csv.md >}}
+
+{{< include attractions.csv.md >}}
+
+{{< include bike_ride_buckets.csv.md >}}
+
+{{< include max_concurrent_rides_by_year.csv.md >}}
+
+{{< include reshaped_pairs.csv.md >}}
+
+{{< include station_paris.csv.md >}}
+
+{{< include temp_distribution.csv.md >}}
+
+{{< include temp_vs_rides_avg.csv.md >}}
+
+{{< include temp_vs_rides_total.csv.md >}}
+
+---
+
+### RDS Files
+
+{{< include nearby_stations_df.rds.md >}}
+
+{{< include stations_non_tourist_df.rds.md >}}
+
+--- 
+
+### Miscilanious Files
+
+{{< include .md >}}
