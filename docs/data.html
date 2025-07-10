@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Scott Sesher">
+<meta name="dcterms.date" content="2025-07-01">
 
-<title>data – Bike share case-study</title>
+<title>Data Sources – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,9 +148,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Sources</h1>
+</div>
 
 
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Scott Sesher </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 1, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <p>🚧 <strong>This project is currently a work in progress.</strong><br>
@@ -1222,11 +1252,37 @@ Expected count: ~10,4099 hourly records (~12 years).</code></pre>
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix">8. Appendix</h2>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<section id="provenance" class="level3">
+<h3 class="anchored" data-anchor-id="provenance">Provenance</h3>
+<p>Detailed provenance information describing the origin, acquisition, and processing of the dataset is maintained in a separate file to avoid duplication and to enable independent versioning.</p>
+<p>The <a href="./data/provenance.html"><strong>Provenance</strong></a> is broken down in the following sections:</p>
+<ul>
+<li><a href="./data/provenance.html#sql-tables">SQL Tables</a></li>
+<li><a href="./data/provenance.html#sql-views">SQL Views</a></li>
+<li><a href="./data/provenance.html#r-data-frames">R Data Frames</a></li>
+<li><a href="./data/provenance.html#csv-files">CSV Files</a></li>
+<li><a href="./data/provenance.html#rds-files">RDS Files</a></li>
+<li><a href="./data/provenance.html#miscellaneous-files">Miscellaneous Files</a></li>
+</ul>
 </section>
-<section id="license" class="level3">
-<h3 class="anchored" data-anchor-id="license">License</h3>
+<section id="schema" class="level3">
+<h3 class="anchored" data-anchor-id="schema">Schema</h3>
+<p>The full Schema for the SQLite database is listed in the source archive.</p>
+<p><a href="../src/schema.sql"><strong>schema.sql:</strong></a></p>
+<ul>
+<li>SQL DDL statements defining all tables and views</li>
+<li>Data types and constraints</li>
+<li>Indexes and relationships</li>
+</ul>
+</section>
+<section id="attributions-and-licenses" class="level3">
+<h3 class="anchored" data-anchor-id="attributions-and-licenses">Attributions and Licenses</h3>
+<ul>
+<li>City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data</li>
+<li>Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html</li>
+<li>Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)</li>
+<li>Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.</li>
+</ul>
 <p>Divvy and City of Chicago data is subject to the City of Chicago <a href="Legal/City_of_Chicago_disclaimer.txt">Terms of Use</a>.</p>
 <blockquote class="blockquote">
 <p>

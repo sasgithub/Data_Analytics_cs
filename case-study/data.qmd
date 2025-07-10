@@ -1,3 +1,11 @@
+---
+title: "Data Sources"
+author: "Scott Sesher"
+date: "July 1, 2025"
+format: html
+---
+
+
 🚧 **This project is currently a work in progress.**  
 I'm actively building out my case study as part of the Google Data Analytics Capstone.
 Full write-up, code, and visualizations will be available soon!
@@ -643,9 +651,34 @@ The following cleaned, aggregated, and derived datasets were created during the 
 
 ## 8. Appendix 
 
-### 
+### Provenance
+Detailed provenance information describing the origin, acquisition, and processing of the dataset is maintained in a separate file to avoid duplication and to enable independent versioning.
 
-### License
+The [**Provenance**](data/provenance.qmd) is broken down in the following sections:
+
+ - [SQL Tables](data/provenance.qmd#sql-tables)
+ - [SQL Views](data/provenance.qmd#sql-views)
+ - [R Data Frames](data/provenance.qmd#r-data-frames)
+ - [CSV Files](data/provenance.qmd#csv-files)
+ - [RDS Files](data/provenance.qmd#rds-files)
+ - [Miscellaneous Files](data/provenance.qmd#miscellaneous-files)
+
+### Schema
+
+The full Schema for the SQLite database is listed in the source archive.
+
+[**schema.sql:**](../src/schema.sql)
+
+ -  SQL DDL statements defining all tables and views
+ -  Data types and constraints
+ -  Indexes and relationships
+
+### Attributions and Licenses
+
+- City of Chicago. (2025). Divvy Trips Dataset. https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg/about_data
+- Lyft. (2025). Divvy Trip Data Archive. https://divvy-tripdata.s3.amazonaws.com/index.html
+- Meteostat (https://meteostat.net). (2025). Hourly Weather Data – Midway Airport (72534). https://bulk.meteostat.net/v2/hourly/72534.csv.gz  Provided under the terms of the Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
+- Tourist location coordinates obtained via Google Maps (maps.google.com) for educational and analytical purposes.
 
 Divvy and City of Chicago data is subject to the City of Chicago [Terms of Use](Legal/City_of_Chicago_disclaimer.txt).
 

@@ -138,7 +138,7 @@ Where possible, each provenance entry includes a direct reference to related dat
 
 --- 
 
-### Miscilanious Files
+### Miscellaneous Files
 
 {{< include avg_temp_vs_rides.tsv.md >}}
 
