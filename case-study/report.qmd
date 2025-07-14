@@ -124,10 +124,6 @@ The following limitations and potential biases should be considered:
   -  Tool Familiarity:
     While the analyst is proficient in data cleaning, analysis, and visualization tools, some analyses could have benefited from specialized GIS or statistical modeling software to enhance spatial and temporal pattern detection.
 
-
-
-[^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
-
 ---
 
 ## Assumptions
@@ -206,7 +202,7 @@ Before focusing on subscriber and customer behavior differences, this section su
 
 This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00 AM CDT 2013 to Wednesday April 30<sup>th</sup> 11:59:40 PM CDT 2025, covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings
 
-:::{.details}
+::: {.details}
 **Rides Dataset Overview Table**
 | Metric                           | Value               |
 | -------------------------------- | ------------------- |
@@ -217,18 +213,17 @@ This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00
 | Mode ride duration[^note2]	   |  6.0 minutes        |
 | [Peak Concurrency](glossary#glossary-peak-concurrency)|  1178 rides         |
 
-[^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.
+
 :::
 
 **Stations Data**
 
-:::{.details}
 | Metric                                | Value                 |
 |---------------------------------------|-----------------------|
 | Number of stations                    |  1,266               |
 | Maximum Distance between stations     |  48.42 KM            |
 | Records with missing coordinates	|  0                   |
-:::
+
 
 
 -   Identified stations with high mixed usage by casual and subscriber riders.
@@ -364,3 +359,7 @@ The following technical artifacts are included to support transparency, reproduc
 
 - [Source Code Repository](https://github.com/sasgithub/Data_Analytics_cs): Contains all scripts, SQL schema definitions, and supporting materials used in this analysis. Refer to the README for setup instructions and file descriptions.
 
+#### Footnotes
+
+-  [^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
+-  [^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.

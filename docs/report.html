@@ -381,10 +381,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00 AM CDT 2013 to Wednesday April 30<sup>th</sup> 11:59:40 PM CDT 2025, covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings</p>
 <div class="details">
 <p><strong>Rides Dataset Overview Table</strong> | Metric | Value | | ——————————– | ——————- | | Total rides analyzed | 28,386,565 | | Time period covered | Jan 2020 – May 2025 | | Average ride duration | 16.9 minutes | | Median ride duration | 11.0 minutes | | Mode ride duration[^note2] | 6.0 minutes | | <a href="glossary#glossary-peak-concurrency">Peak Concurrency</a>| 1178 rides |</p>
-<p>[^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the <a href="#timestamp-precision-transition">Timestamp Precision Transition</a> section for details.</p>
 </div>
 <p><strong>Stations Data</strong></p>
-<div class="details">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -407,7 +405,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</div>
 <ul>
 <li>Identified stations with high mixed usage by casual and subscriber riders.</li>
 <li>Discovered midday ride peaks consistent with short exercise trips.</li>
@@ -543,8 +540,15 @@ ul.task-list li input[type="checkbox"] {
 <li><p><a href="../logs/workLog.md">Work Log</a>: A detailed technical journal documenting the development of this case study from initial data acquisition through schema evolution, data cleaning, weather integration, and exploratory analysis. Includes tooling decisions, troubleshooting notes, validation steps, and side explorations such as geospatial file decoding and performance optimization.</p></li>
 <li><p><a href="https://github.com/sasgithub/Data_Analytics_cs">Source Code Repository</a>: Contains all scripts, SQL schema definitions, and supporting materials used in this analysis. Refer to the README for setup instructions and file descriptions.</p></li>
 </ul>
+<section id="footnotes" class="level4">
+<h4 class="anchored" data-anchor-id="footnotes">Footnotes</h4>
+<ul>
+<li></li>
+<li>[^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the <a href="#timestamp-precision-transition">Timestamp Precision Transition</a> section for details.</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 
