@@ -14,6 +14,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: report.qmd
+        text: Report
       - href: viz/visualizations.qmd
         text: Visualizations
       - href: data.qmd

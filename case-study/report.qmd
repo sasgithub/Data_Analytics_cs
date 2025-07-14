@@ -213,7 +213,6 @@ This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00
 | Mode ride duration[^note2]	   |  6.0 minutes        |
 | [Peak Concurrency](glossary#glossary-peak-concurrency)|  1178 rides         |
 
-
 :::
 
 **Stations Data**
@@ -362,4 +361,4 @@ The following technical artifacts are included to support transparency, reproduc
 #### Footnotes
 
 -  [^note1]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
--  [^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.
+-  [^note2]: Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.
