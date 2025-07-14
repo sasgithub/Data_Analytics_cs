@@ -202,8 +202,10 @@ Before focusing on subscriber and customer behavior differences, this section su
 
 This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00 AM CDT 2013 to Wednesday April 30<sup>th</sup> 11:59:40 PM CDT 2025, covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings
 
-::: {.details}
+::: {.details markdown="1"}
+
 **Rides Dataset Overview Table**
+
 | Metric                           | Value               |
 | -------------------------------- | ------------------- |
 | Total rides analyzed         |  28,386,565             |
