@@ -21,13 +21,13 @@ This page presents visualizations from the case study. Visuals are grouped into 
   <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="ALT_TEXT">
   </a>
   <figcaption>
-  FIGCAPTION
+  Interactive map showing the 50 most active Divvy stations for subscribers and customers, between 2020 and 2025. Marker size indicates total ride count.
   </figcaption>
 </figure>
 
 This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.
 
-It was created in R using Leaflet.
+It was created in R using Leaflet. More details are available on [Kaggle](https://www.kaggle.com/code/yaid2r/top-stations-leaflet-demo/)
 
 ### Tableau Sheets
 
