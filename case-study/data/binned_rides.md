@@ -38,10 +38,10 @@ FROM pivot;
 
 **Output Columns:**
 
-  -  temp_bin — Temperature bin (°C).
-  -  total — Average rides across all user types.
-  -  subs — Average subscriber rides.
-  -  cust — Average customer rides.
+  -  temp_bin - Temperature bin (°C).
+  -  total - Average rides across all user types.
+  -  subs - Average subscriber rides.
+  -  cust - Average customer rides.
 
 **R Import:**
 The TSV was loaded and columns renamed for clarity:

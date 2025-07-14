@@ -11,7 +11,7 @@ A normalized version of average ride counts across temperature bins, prepared fo
   [`temp_vs_rides_avg.csv`](temp_vs_rides_avg.csv.md)
 
 - **Intermediate Object:**  
-  `avg_df` — loaded from CSV using `readr::read_csv()`
+  `avg_df` - loaded from CSV using `readr::read_csv()`
 
 - **Transformations:**
   - Applied min-max normalization (0–1 scale) to three columns: `subs`, `cust`, and `avg`.

@@ -129,6 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
@@ -212,10 +216,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This page documents the origins, transformations, and usage context of each derived dataset, table, and file included in this case study.</p>
 <p>Provenance information helps ensure transparency and reproducibility of the analysis by clearly describing:</p>
 <ul>
-<li><strong>Source data</strong> — where each dataset or file originated</li>
-<li><strong>Transformation steps</strong> — how the data was cleaned, filtered, joined, or summarized</li>
-<li><strong>Purpose</strong> — what each output is used for in the project</li>
-<li><strong>Sample code or queries</strong> — where relevant, examples of the SQL or R steps that produced the output</li>
+<li><strong>Source data</strong> - where each dataset or file originated</li>
+<li><strong>Transformation steps</strong> - how the data was cleaned, filtered, joined, or summarized</li>
+<li><strong>Purpose</strong> - what each output is used for in the project</li>
+<li><strong>Sample code or queries</strong> - where relevant, examples of the SQL or R steps that produced the output</li>
 </ul>
 <p>Where possible, each provenance entry includes a direct reference to related data sets.</p>
 <hr>
@@ -241,7 +245,7 @@ The canonical reference table of Divvy station locations, IDs, and metadata, sto
 </ul></li>
 <li><strong>Data Cleaning &amp; Harmonization:</strong>
 <ul>
-<li>All processing steps—field standardization, column removal, date parsing, ID reassignment, deduplication, and concatenation—are fully documented in <a href="../data.html#3-1-divvy-station-data-cleaning-and-harmonization">Section 3.1 of the Data Sources page</a>.</li>
+<li>All processing steps including field standardization, column removal, date parsing, ID reassignment, deduplication, and concatenation are fully documented in <a href="../data.html#3-1-divvy-station-data-cleaning-and-harmonization">Section 3.1 of the Data Sources page</a>.</li>
 </ul></li>
 <li><strong>Loading and Storage:</strong>
 <ul>
@@ -754,10 +758,10 @@ Same columns as <code>asym_data</code>, plus:<br>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output Columns:</strong></p>
 <ul>
-<li>temp_bin — Temperature bin (°C).</li>
-<li>total — Average rides across all user types.</li>
-<li>subs — Average subscriber rides.</li>
-<li>cust — Average customer rides.</li>
+<li>temp_bin - Temperature bin (°C).</li>
+<li>total - Average rides across all user types.</li>
+<li>subs - Average subscriber rides.</li>
+<li>cust - Average customer rides.</li>
 </ul>
 <p><strong>R Import:</strong> The TSV was loaded and columns renamed for clarity:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>binned_rides <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"avg_temp_vs_rides.tsv"</span>) <span class="sc">%&gt;%</span></span>
@@ -774,7 +778,7 @@ Same columns as <code>asym_data</code>, plus:<br>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">"drop"</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Rationale for January 2023 Start Date</strong></p>
-<p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns—including trip frequency, duration, and user preferences—the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
+<p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns, trip frequency, duration, and user preferences, the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
 <p>The post_electric_rides_df and daily_avg_df data frames were derived exclusively from rides after this introduction date. This separation allows for:</p>
 <ul>
 <li>Focused analysis of e-bike utilization compared to traditional bikes.</li>
@@ -960,7 +964,7 @@ A normalized version of average ride counts across temperature bins, prepared fo
 <li><p><strong>Source File:</strong><br>
 <a href="../data/temp_vs_rides_avg.csv.html"><code>temp_vs_rides_avg.csv</code></a></p></li>
 <li><p><strong>Intermediate Object:</strong><br>
-<code>avg_df</code> — loaded from CSV using <code>readr::read_csv()</code></p></li>
+<code>avg_df</code> - loaded from CSV using <code>readr::read_csv()</code></p></li>
 <li><p><strong>Transformations:</strong></p>
 <ul>
 <li>Applied min-max normalization (0–1 scale) to three columns: <code>subs</code>, <code>cust</code>, and <code>avg</code>.</li>
@@ -1038,7 +1042,7 @@ Enables straightforward comparison of ridership distribution by hour across week
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Rationale for January 2023 Start Date</strong></p>
-<p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns—including trip frequency, duration, and user preferences—the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
+<p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns, trip frequency, duration, and user preferences, the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
 <p>The post_electric_rides_df and daily_avg_df data frames were derived exclusively from rides after this introduction date. This separation allows for:</p>
 <ul>
 <li>Focused analysis of e-bike utilization compared to traditional bikes.</li>
@@ -1279,7 +1283,7 @@ It serves as the basis for filtering rides and identifying top stations less lik
 <section id="provenance-stdres_df-r-data-frame" class="level2">
 <h2 class="anchored" data-anchor-id="provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</h2>
 <p>This data frame contains the standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part (Weekday vs Weekend).</p>
-<p><strong>Source Data:</strong> - <code>rides_by_hour_weekpart</code> — aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.</p>
+<p><strong>Source Data:</strong> - <code>rides_by_hour_weekpart</code> - aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.</p>
 <p><strong>Processing Steps:</strong></p>
 <ol type="1">
 <li><strong>Reshape to Wide Matrix:</strong>

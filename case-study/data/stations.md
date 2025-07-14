@@ -14,7 +14,7 @@ The canonical reference table of Divvy station locations, IDs, and metadata, sto
     - `Divvy_Stations_2014-Q3Q4.csv`
 
 - **Data Cleaning & Harmonization:**
-  - All processing steps—field standardization, column removal, date parsing, ID reassignment, deduplication, and concatenation—are fully documented in [Section 3.1 of the Data Sources page](../data.html#3-1-divvy-station-data-cleaning-and-harmonization).
+  - All processing steps including field standardization, column removal, date parsing, ID reassignment, deduplication, and concatenation are fully documented in [Section 3.1 of the Data Sources page](../data.html#3-1-divvy-station-data-cleaning-and-harmonization).
 
 - **Loading and Storage:**
   - The cleaned records were inserted into the `stations` SQLite table via the `load_stations_table.sh` script.

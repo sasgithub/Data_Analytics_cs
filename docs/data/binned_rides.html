@@ -129,6 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
@@ -202,10 +206,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output Columns:</strong></p>
 <ul>
-<li>temp_bin — Temperature bin (°C).</li>
-<li>total — Average rides across all user types.</li>
-<li>subs — Average subscriber rides.</li>
-<li>cust — Average customer rides.</li>
+<li>temp_bin - Temperature bin (°C).</li>
+<li>total - Average rides across all user types.</li>
+<li>subs - Average subscriber rides.</li>
+<li>cust - Average customer rides.</li>
 </ul>
 <p><strong>R Import:</strong> The TSV was loaded and columns renamed for clarity:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>binned_rides <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_tsv</span>(<span class="st">"avg_temp_vs_rides.tsv"</span>) <span class="sc">%&gt;%</span></span>

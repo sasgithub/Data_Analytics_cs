@@ -253,15 +253,18 @@ To combine the files into a unified dataset, the following steps were performed:
 8. **`station_id` Replacement**
     - The original station IDs (integers and later UUIDs) were inconsistent and lacked a reliable mapping. To resolve this, a new auto-incrementing station_id primary key was auto assigned. Uniqueness was enforced with a unique index on (name, lat, long) to accommodate minor naming inconsistencies and ensure each physical station location is treated as distinct. The legacy IDs were removed to avoid ambiguity and ensure consistent station references across datasets.
 
-9.  **Concatenation**
-   - Combined all records from CSV files into a single master stations table using the bash script [load_stations_table.sh](../src/load_stations_table.sh)
+9. **Concatenation**
+    - Combined all records from CSV files into a single master stations table using the bash script [load_stations_table.sh](../src/load_stations_table.sh)
 
-10. **Renamed ambiguous duplicates**
-   - Manually added suffixes like " II” to disambiguate repeated station names at different coordinates.
+10. **Renamed Ambiguous Duplicates**
+     - Manually added suffixes like " II” to disambiguate repeated station names at different coordinates.
 
-11. **Normalized source formats**
+11. **Deleted Near Duplicated**
+     - Deleted all [unused  stations](glossary.qmd#glossary-unused-stations) (zero rides as either the start_station or end_station) if they were a [near duplicates](glossary.qmd#glossary-near-duplicate).
+     
+12. **Normalized Source Formats**
 
-   - One stations data file, namely Divvy_Stations_2014-Q1Q2.xlsx, was provided in Excel format rather than the standard CSV. So it was manually converted to CSV using Gnumeric for uniform processing.
+    - One stations data file, namely Divvy_Stations_2014-Q1Q2.xlsx, was provided in Excel format rather than the standard CSV. So it was manually converted to CSV using Gnumeric for uniform processing.
 
 ---
 

@@ -3,7 +3,7 @@
 This data frame contains the standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part (Weekday vs Weekend).
 
 **Source Data:**
-- `rides_by_hour_weekpart` — aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.
+- `rides_by_hour_weekpart` - aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.
 
 **Processing Steps:**
 

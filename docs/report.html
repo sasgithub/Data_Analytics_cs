@@ -95,6 +95,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="./report.html" aria-current="page"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
@@ -123,8 +127,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#business-task" id="toc-business-task" class="nav-link active" data-scroll-target="#business-task">Business Task</a></li>
-  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
-  <li><a href="#data-cleaning-steps" id="toc-data-cleaning-steps" class="nav-link" data-scroll-target="#data-cleaning-steps">Data Cleaning Steps</a></li>
+  <li><a href="#summary-of-data-sources" id="toc-summary-of-data-sources" class="nav-link" data-scroll-target="#summary-of-data-sources">Summary of Data Sources</a></li>
   <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions">Assumptions</a></li>
   <li><a href="#validations" id="toc-validations" class="nav-link" data-scroll-target="#validations">Validations</a></li>
   <li><a href="#key-metrics-and-analysis" id="toc-key-metrics-and-analysis" class="nav-link" data-scroll-target="#key-metrics-and-analysis">Key Metrics and Analysis</a></li>
@@ -187,8 +190,9 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<section id="summary-of-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-data-sources">Summary of Data Sources</h2>
+<p>For full data acquisition and cleaning details, see the <a href="./data.html">Data Sources</a> documentation and <a href="./data/provenance.html">Provenance</a>.</p>
 <p>The analysis is based on the following datasets:</p>
 <p>• <strong>Divvy Bike Trip Data</strong> (2013–2025)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> : This dataset includes anonymized ride-level data from Chicago’s Divvy bike sharing system. The bulk of the data (June 2013 through Sep 2019) (Divvy_Trips_20250501.csv) was obtained from the City of Chicago Data Portal. The rest (Oct 2019 through Jan 23 2020 and Jun 2023 – April 30 225) was downloaded from Divvy’s S3 archive . Please note, rides from the time period of the COVID-19 Pandemic are not included. - <strong>Divvy Bike Station Data</strong>: <a href="https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq/data_preview">City of Chicago Data Portal</a> • <strong>Chicago Weather Data</strong> (Hourly): Hourly weather data for Midway International Airport (station ID: 72534) was downloaded from the Metostat bulk archive. The dataset includes temperature, wind speed, precipitation, and other key weather indicators for correlation with bike usage patterns. • <strong>Tourist Attractions Dataset</strong> (Custom): A manually curated dataset of key tourist attractions in Chicago (e.g., Navy Pier, Millennium Park, Lincoln Park Zoo) was created to identify rides likely associated with tourism. Latitude and longitude coordinates were obtained using Google Maps for educational use and spatial filtering.</p>
 <section id="attribution" class="level3">
@@ -197,49 +201,244 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-limitations-and-biases" class="level3">
 <h3 class="anchored" data-anchor-id="data-limitations-and-biases">Data Limitations and Biases</h3>
+<p>The following limitations should be considered when interpreting the results of this analysis.</p>
+<section id="lack-of-individual-rider-tracking" class="level4">
+<h4 class="anchored" data-anchor-id="lack-of-individual-rider-tracking">Lack of Individual Rider Tracking</h4>
+<p>The available data does not include unique rider identifiers. As a result, all analyses are conducted at the trip level, rather than the rider level. This limitation affects the ability to develop insights in several important areas:</p>
+<section id="frequency-and-recency-analysis" class="level5">
+<h5 class="anchored" data-anchor-id="frequency-and-recency-analysis">Frequency and Recency Analysis</h5>
+<ul>
+<li>Understanding how often individual riders use the service (e.g., daily, weekly, sporadically).</li>
+<li>Tracking changes in usage frequency across seasons or years.</li>
+<li>Identifying patterns that precede churn (cessation of riding).</li>
+</ul>
 </section>
-<section id="tools-used" class="level3">
-<h3 class="anchored" data-anchor-id="tools-used">Tools Used</h3>
-<p>• SQLite - Used to store all large table and do any intensive queries. • Key libraries:</p>
-<pre><code>• dplyr, tidyr, and lubridate for data wrangling
-• DBI, RSQLite, and dbplyr for seamless interaction with SQLite
-• leaflet for dynamic, interactive mapping of station data</code></pre>
-<p>Tableau - Chosen for its unique suitability for certain interactive visuals.</p>
-<p>Gnuplot - Used for quick visuals when the data was not in RStudio.</p>
+<section id="rider-lifecycle-modeling" class="level5">
+<h5 class="anchored" data-anchor-id="rider-lifecycle-modeling">Rider Lifecycle Modeling</h5>
+<ul>
+<li>Measuring time between rides.</li>
+<li>Observing transitions, such as casual weekend riders becoming regular commuters.</li>
+</ul>
+</section>
+<section id="retention-and-cohort-analysis" class="level5">
+<h5 class="anchored" data-anchor-id="retention-and-cohort-analysis">Retention and Cohort Analysis</h5>
+<ul>
+<li>Estimating how long riders stay active after their first trip.</li>
+<li>Comparing retention curves across membership types or initial usage patterns.</li>
+</ul>
+</section>
+<section id="ride-type-segmentation" class="level5">
+<h5 class="anchored" data-anchor-id="ride-type-segmentation">Ride Type Segmentation</h5>
+<ul>
+<li>Detecting mixed behaviors (e.g., riders who both commute and recreate).</li>
+<li>Clustering users based on temporal riding patterns (weekday rush hour vs.&nbsp;weekend recreation).</li>
+<li>Tracking how these patterns evolve over time.</li>
+</ul>
+</section>
+<section id="pricing-and-subscription-impact" class="level5">
+<h5 class="anchored" data-anchor-id="pricing-and-subscription-impact">Pricing and Subscription Impact</h5>
+<ul>
+<li>Assessing how fare changes influence riding frequency for individual users.</li>
+<li>Determining who upgrades or downgrades memberships.</li>
+<li>Evaluating the effectiveness of promotions and loyalty programs on long-term engagement.</li>
+</ul>
+</section>
+<section id="equity-and-demographics" class="level5">
+<h5 class="anchored" data-anchor-id="equity-and-demographics">Equity and Demographics</h5>
+<ul>
+<li>Analyzing usage patterns by demographic factors (e.g., age, gender, income, neighborhood) if such attributes were linked to identity.</li>
+<li>Identifying disparities in access and usage among different populations.</li>
+<li>Supporting outreach efforts to underrepresented groups.</li>
+</ul>
+</section>
+<section id="safety-and-risk-profiling" class="level5">
+<h5 class="anchored" data-anchor-id="safety-and-risk-profiling">Safety and Risk Profiling</h5>
+<ul>
+<li>Monitoring riders involved in repeat incidents or crashes.</li>
+<li>Correlating individual riding styles (e.g., speed, trip length) with safety outcomes.</li>
+<li>Designing targeted interventions for higher-risk riders.</li>
+</ul>
+</section>
+<section id="churn-prediction-and-proactive-retention" class="level5">
+<h5 class="anchored" data-anchor-id="churn-prediction-and-proactive-retention">Churn Prediction and Proactive Retention</h5>
+<ul>
+<li>Building predictive models to identify riders at risk of discontinuing usage.</li>
+<li>Triggering proactive retention efforts before churn occurs.</li>
+<li>Quantifying how external factors (weather, pricing, station closures) affect rider disengagement.</li>
+</ul>
+<p>Access to individual-level identifiers, even in pseudonymized form, would enable a more comprehensive understanding of rider behavior, retention, equity, and safety over time.</p>
+</section>
+<section id="timestamp-precision-transition" class="level5">
+<h5 class="anchored" data-anchor-id="timestamp-precision-transition">Timestamp Precision Transition</h5>
+<p>Rides recorded prior to 2018 include timestamps stored only with minute-level precision. As a result, calculated ride durations for these records are always multiples of 60 seconds. Rides from 2018 onward include full second-level precision, enabling more accurate duration measurement. This change introduces visible clustering of durations in earlier years (e.g., peak on exact minutes), which should be considered when interpreting duration-based distributions and summary statistics.</p>
+<p>The following limitations and potential biases should be considered:</p>
+<ul>
+<li><strong>Temporal Coverage:</strong> Some months or years of data may be incomplete or missing, potentially affecting trend analysis.</li>
+<li><strong>Data Entry Errors:</strong> Despite cleaning, residual anomalies (e.g., overlapping trips, extreme durations) may remain.</li>
+<li><strong>Seasonality Bias:</strong> The dataset reflects strong seasonal usage patterns. Results may not generalize to other times of year.</li>
+<li><strong>Spatial Resolution:</strong> Station coordinates are approximate and do not capture micro-location context. Additionally, the dataset only records the start and end stations for each trip; the actual route taken by the rider is unknown. As a result, any distance calculations, routing assumptions, or exposure to specific infrastructure are approximate.</li>
+<li><strong>No Non-Ride Data:</strong> There is no information on attempted but unsuccessful rentals, limiting demand analysis.</li>
+<li><strong>Ride Purpose Inference:</strong> All trip purposes must be inferred.</li>
+<li><strong>Provider Processing:</strong> Source data may have been pre-processed before publication, with unknown filtering or adjustments.</li>
+<li><strong>Survivorship Bias:</strong> Only active stations and bikes are represented in the timeframe analyzed.</li>
+</ul>
+</section>
+</section>
+<section id="analyst-context-and-interpretive-limitations" class="level4">
+<h4 class="anchored" data-anchor-id="analyst-context-and-interpretive-limitations">Analyst Context and Interpretive Limitations</h4>
+<ul>
+<li><p>Geographic Familiarity: The analyst is not a resident of Chicago and has limited firsthand experience with local commuting patterns or neighborhood-level socioeconomic contexts. As a result, station-level inferences about commuter hubs, tourist destinations, or equity considerations are based solely on public data sources and may omit important local nuances.</p></li>
+<li><p>Bike Share Domain Experience: The analyst has not personally used bike share systems. Interpretations of riding patterns, motivations, and user behaviors are derived from publicly available literature and comparable case studies, rather than firsthand experience.</p></li>
+<li><p>Time and Scope Constraints: This analysis was conducted within a limited timeframe and scope. Certain exploratory directions (e.g., deeper weather modeling, granular station clustering) were deferred for potential future work.</p></li>
+<li><p>Tool Familiarity: While the analyst is proficient in data cleaning, analysis, and visualization tools, some analyses could have benefited from specialized GIS or statistical modeling software to enhance spatial and temporal pattern detection.</p></li>
+</ul>
 <hr>
 </section>
 </section>
-<section id="data-cleaning-steps" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning-steps">Data Cleaning Steps</h2>
 </section>
 <section id="assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
+<section id="time-and-date-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="time-and-date-assumptions">Time and Date Assumptions</h4>
 <ul>
+<li>All timestamps are stored and processed in UTC unless explicitly converted.</li>
+<li>Rides with durations exceeding 24 hours are assumed to be errors or unreturned bikes and are excluded from duration analyses.</li>
+<li>Missing timezone metadata in the source files is assumed to default to UTC, consistent with Divvy’s historical exports.</li>
+</ul>
+</section>
+<section id="data-completeness-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="data-completeness-assumptions">Data Completeness Assumptions</h4>
+<ul>
+<li>The Divvy Trip data is assumed to be a complete record of rides within the date range specified.</li>
+<li>Gaps in data for certain months (e.g., missing or partial files) are assumed to be either unavailable or intentionally omitted by the provider (data from the time of the COVID-19 pandemic is a good example of this).</li>
+</ul>
+</section>
+<section id="user-classification-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="user-classification-assumptions">User Classification Assumptions</h4>
+<ul>
+<li>Rides labeled as “<a href="./glossary.html#glossary-subscriber">Subscriber</a>” or “<a href="./glossary.html#glossary-member">member</a>” or are assumed to represent members with recurring plans.</li>
+<li>Rides labeled as “<a href="./glossary.html#glossary-customer">Customer</a>” or “<a href="./glossary.html#glossary-casual-user">casual</a>” are assumed to represent casual, pay-per-use riders.</li>
+<li>Null or unknown user types are excluded from ingestion as part of the main question this study seeks to answer is “How do <a href="./glossary.html#glossary-customer;">Customers</a> riders and <a href="./glossary.html#glossary-subscriber">Subscribers</a> use bikes differently”.</li>
+</ul>
+</section>
+<section id="station-data-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="station-data-assumptions">Station Data Assumptions</h4>
+<ul>
+<li>Stations with duplicate names but sufficiently distinct coordinates are assumed to be separate installations (e.g., multiple docks at the same intersection).</li>
+<li>When a station name conflicts across datasets, the most recent dataset is assumed to be authoritative.</li>
+<li>Station locations (lat/long) are assumed accurate to within ~20 meters, recognizing older records had lower precision.</li>
+</ul>
+</section>
+<section id="weather-data-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="weather-data-assumptions">Weather Data Assumptions</h4>
+<ul>
+<li>Weather conditions from Midway Airport are assumed to be broadly representative of the downtown Chicago area.</li>
+<li>Missing weather observations for isolated hours are assumed not to materially affect aggregate trends.</li>
+</ul>
+</section>
+<section id="behavioral-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="behavioral-assumptions">Behavioral Assumptions</h4>
+<ul>
+<li>All rides are assumed to represent legitimate use, except for explicitly excluded outliers (e.g., zero-duration rides, overlapping rides).</li>
+<li>Rides during the pandemic period are assumed to reflect atypical behavior and are excluded where appropriate to avoid skewing trends.</li>
 <li>Stations with &gt;90% subscriber rides are commuter-focused hubs.</li>
 <li>Stations with high casual usage but low subscribers are likely tourist-oriented.</li>
 <li>Midday rides often represent “Lunch &amp; Ride” exercise trips.</li>
 </ul>
 </section>
+<section id="modeling-and-analysis-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="modeling-and-analysis-assumptions">Modeling and Analysis Assumptions</h4>
+<ul>
+<li>Temporal aggregation (e.g., hourly or daily binning) does not introduce significant bias in patterns observed.</li>
+<li>The choice of thresholds (e.g., 24-hour ride duration, maximum acceptable duplicates) reflects domain-reasonable cutoffs and does not materially distort the dataset.</li>
+</ul>
+</section>
+</section>
 <section id="validations" class="level2">
 <h2 class="anchored" data-anchor-id="validations">Validations</h2>
+<p>To ensure data quality and analytical reliability, the following validations were performed:</p>
+<ul>
+<li><strong>Schema Consistency Checks:</strong> Verified that all data files conformed to the expected schema, accounting for changes in column names, data types, and field definitions over time.</li>
+<li><strong>Record Integrity:</strong> Identified and removed duplicate ride records and inconsistent bike usage records (e.g., overlapping rides for the same bike, etc).</li>
+<li><strong>Time Validity:</strong> Dropped rides with invalid or implausible timestamps (e.g., start times after end times, rides exceeding 24 hours).</li>
+<li><strong>User Type Validation:</strong> Removed records with null or unrecognized user type labels to maintain clarity in subscriber vs.&nbsp;customer analyses.</li>
+<li><strong>Station Data Reconciliation:</strong> Addressed variations and duplicates in station naming and coordinates, resolving conflicts where stations had inconsistent IDs or locations.</li>
+<li><strong>Weather Data Quality:</strong> Reviewed weather data and dropped weather data from times before the study time period, for the few missing values decided not to impute values but rather leave them NULL.</li>
+<li><strong>Referential Integrity:</strong> Enforced that all station IDs referenced in the rides table had corresponding records in the stations table at time of ingestion.</li>
+</ul>
+<p>Further technical detail, including code and step-by-step operations, is documented in the <a href="./data.html">data sources</a> and <a href="./data/provenance.html">Provenance</a>. Excruciating details may also be found in the <a href="./workLog.html">Work Log</a>.</p>
 <hr>
 </section>
 <section id="key-metrics-and-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="key-metrics-and-analysis">Key Metrics and Analysis</h2>
+<p>All figures referenced here are compiled in the <a href="./viz/visualizations.html">Visualization Compendium</a>.</p>
 <section id="summary-statistics-and-insights" class="level3">
 <h3 class="anchored" data-anchor-id="summary-statistics-and-insights">Summary Statistics and Insights</h3>
+<section id="data-overview" class="level4">
+<h4 class="anchored" data-anchor-id="data-overview">Data Overview</h4>
+<p>Before focusing on subscriber and customer behavior differences, this section summarizes the overall dataset characteristics.</p>
+<p><strong>Rides Data</strong></p>
+<p>This report utilized data stretching from Thursday June 27<sup>th</sup> 01:06:00 AM CDT 2013 to Wednesday April 30<sup>th</sup> 11:59:40 PM CDT 2025, covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings</p>
+<div class="details">
+<p><strong>Rides Dataset Overview Table</strong> | Metric | Value | | ——————————– | ——————- | | Total rides analyzed | 28,386,565 | | Time period covered | Jan 2020 – May 2025 | | Average ride duration | 16.9 minutes | | Median ride duration | 11.0 minutes | | Mode ride duration[^note2] | 6.0 minutes | | <a href="glossary#glossary-peak-concurrency">Peak Concurrency</a>| 1178 rides |</p>
+<p>[^note2] Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the <a href="#timestamp-precision-transition">Timestamp Precision Transition</a> section for details.</p>
+</div>
+<p><strong>Stations Data</strong></p>
+<div class="details">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of stations</td>
+<td>1,266</td>
+</tr>
+<tr class="even">
+<td>Maximum Distance between stations</td>
+<td>48.42 KM</td>
+</tr>
+<tr class="odd">
+<td>Records with missing coordinates</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <ul>
 <li>Identified stations with high mixed usage by casual and subscriber riders.</li>
 <li>Discovered midday ride peaks consistent with short exercise trips.</li>
 <li>Found major transit hubs with strong subscriber activity, indicating commuter use.</li>
 </ul>
 </section>
+</section>
 <section id="trends-and-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="trends-and-patterns">Trends and patterns</h3>
+<section id="temporal-patterns" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-patterns">Temporal Patterns</h4>
+</section>
+<section id="temperature-and-weather-effects" class="level4">
+<h4 class="anchored" data-anchor-id="temperature-and-weather-effects">Temperature and Weather Effects</h4>
+</section>
+<section id="ride-duration-and-distance-distributions" class="level4">
+<h4 class="anchored" data-anchor-id="ride-duration-and-distance-distributions">Ride Duration and Distance Distributions</h4>
+</section>
+<section id="spatial-patterns" class="level4">
+<h4 class="anchored" data-anchor-id="spatial-patterns">Spatial Patterns</h4>
+</section>
+<section id="fleet-usage-patterns" class="level4">
+<h4 class="anchored" data-anchor-id="fleet-usage-patterns">Fleet &amp; Usage Patterns</h4>
+</section>
+<section id="route-asymmetry" class="level4">
+<h4 class="anchored" data-anchor-id="route-asymmetry">Route Asymmetry</h4>
 <ul>
 <li>Some stations show strong subscriber dominance, limiting recruitment opportunity.</li>
 </ul>
 <hr>
+</section>
 </section>
 <section id="recommendations" class="level3">
 <h3 class="anchored" data-anchor-id="recommendations">Recommendations</h3>
@@ -253,7 +452,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
 <p>To operationalize these recommendations, we propose the following next steps:</p>
 <ul>
-<li>Determaine budget for pilot outreach campaign in order to determine it’s size.
+<li>Determine budget for pilot outreach campaign in order to determine its size.
 <ul>
 <li>Once the number of stations to be included in the pilot is known, rank Stations by User Mix and Volume</li>
 <li>Use ride data to identify stations with highest levels of both subscribers and customers.</li>
@@ -283,12 +482,70 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="appendix" class="level2">
 <h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<p>Additional resources related to this report are provided below for reference and further exploration:</p>
+<section id="visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="visualizations">Visualizations</h3>
+<p><a href="./viz/visualizations.html">Visualizations Compendium</a>: A curated collection of all visual outputs generated during this project, including analysis, interpretation, and methodology.</p>
 <ul>
-<li><p><a href="./viz/visualizations.html">Visualizations</a></p></li>
-<li><p><a href="../logs/workLog.md">Work Log</a></p></li>
+<li>Interactive Visuals
+<ul>
+<li><a href="./viz/visualizations.html#top-stations-map-leaflet">Top Stations Map</a></li>
+<li><a href="./viz/visualizations.html#tableau-sheets">Tableau Sheets</a></li>
+</ul></li>
+<li>Static Visualizations
+<ul>
+<li><a href="./viz/visualizations.html#temporal-patterns">Temporal Patterns</a></li>
+<li><a href="./viz/visualizations.html#temperature-and-weather-effects">Temperature and Weather Effects</a></li>
+<li><a href="./viz/visualizations.html#ride-duration-and-distance">Ride Duration and Distance Distributions</a></li>
+<li><a href="./viz/visualizations.html#spatial-patterns">Spatial Patterns</a></li>
+<li><a href="./viz/visualizations.html#fleet-usage-patterns">Fleet &amp; Usage Patterns</a></li>
+<li><a href="./viz/visualizations.html#route-asymmetry">Route Asymmetry</a></li>
+<li><a href="./viz/visualizations.html#screenshots">ScreenShots</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="provenance" class="level3">
+<h3 class="anchored" data-anchor-id="provenance">Provenance</h3>
+<p>Detailed provenance information describing the origin, acquisition, and processing of the dataset is maintained in a separate file to avoid duplication and to enable independent versioning.</p>
+<p>The <a href="./data/provenance.html"><strong>Provenance</strong></a> is broken down in the following sections:</p>
+<ul>
+<li><a href="./data/provenance.html#sql-tables">SQL Tables</a></li>
+<li><a href="./data/provenance.html#sql-views">SQL Views</a></li>
+<li><a href="./data/provenance.html#r-data-frames">R Data Frames</a></li>
+<li><a href="./data/provenance.html#csv-files">CSV Files</a></li>
+<li><a href="./data/provenance.html#rds-files">RDS Files</a></li>
+<li><a href="./data/provenance.html#miscellaneous-files">Miscellaneous Files</a></li>
+</ul>
+</section>
+<section id="schema" class="level3">
+<h3 class="anchored" data-anchor-id="schema">Schema</h3>
+<p>The full Schema for the SQLite database is listed in the source archive.</p>
+<p><a href="../src/schema.sql"><strong>schema.sql:</strong></a></p>
+<ul>
+<li>SQL DDL statements defining all tables and views</li>
+<li>Data types and constraints</li>
+<li>Indexes and relationships</li>
+</ul>
+</section>
+<section id="tools-used" class="level3">
+<h3 class="anchored" data-anchor-id="tools-used">Tools Used</h3>
+<p>• SQLite - Used to store all large table and do any intensive queries. • Key libraries:</p>
+<pre><code>• dplyr, tidyr, and lubridate for data wrangling
+• DBI, RSQLite, and dbplyr for seamless interaction with SQLite
+• leaflet for dynamic, interactive mapping of station data</code></pre>
+<p>Tableau - Chosen for its unique suitability for certain interactive visuals.</p>
+<p>Gnuplot - Used for quick visuals when the data was not in RStudio.</p>
+</section>
+<section id="supplementary-technical-resources" class="level3">
+<h3 class="anchored" data-anchor-id="supplementary-technical-resources">Supplementary Technical Resources</h3>
+<p>The following technical artifacts are included to support transparency, reproducibility, and further exploration of this case study:</p>
+<ul>
+<li><p><a href="../logs/workLog.md">Work Log</a>: A detailed technical journal documenting the development of this case study from initial data acquisition through schema evolution, data cleaning, weather integration, and exploratory analysis. Includes tooling decisions, troubleshooting notes, validation steps, and side explorations such as geospatial file decoding and performance optimization.</p></li>
+<li><p><a href="https://github.com/sasgithub/Data_Analytics_cs">Source Code Repository</a>: Contains all scripts, SQL schema definitions, and supporting materials used in this analysis. Refer to the README for setup instructions and file descriptions.</p></li>
 </ul>
 
 
+</section>
 </section>
 
 

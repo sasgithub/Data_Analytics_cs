@@ -1,12 +1,12 @@
 ---
-title: "Visualizations"
+title: "Visualizations Compendium"
 format:
   html:
     toc: true
     toc-depth: 4
 ---
 
-# 🚲 Visualization Gallery
+# Visualization 
 
 This page presents visualizations from the case study. Visuals are grouped into thematic sections covering time-based patterns, temperature effects, spatial behavior, and more.
 
@@ -183,7 +183,7 @@ This section presents spatial insights into non-tourist customer rides, highligh
 
 {{< include Non-Tourist_Customer_Distribution_Station_to_Station_Distance_spatial.md >}}
 
-###  Fleet & Usage Patterns
+### Fleet & Usage Patterns
 
 Insights about bikes themselves and system-level metrics.
 

@@ -129,6 +129,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
@@ -177,7 +181,7 @@ A normalized version of average ride counts across temperature bins, prepared fo
 <li><p><strong>Source File:</strong><br>
 <a href="../data/temp_vs_rides_avg.csv.html"><code>temp_vs_rides_avg.csv</code></a></p></li>
 <li><p><strong>Intermediate Object:</strong><br>
-<code>avg_df</code> — loaded from CSV using <code>readr::read_csv()</code></p></li>
+<code>avg_df</code> - loaded from CSV using <code>readr::read_csv()</code></p></li>
 <li><p><strong>Transformations:</strong></p>
 <ul>
 <li>Applied min-max normalization (0–1 scale) to three columns: <code>subs</code>, <code>cust</code>, and <code>avg</code>.</li>

@@ -96,6 +96,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./report.html"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./viz/visualizations.html"> 
 <span class="menu-text">Visualizations</span></a>
   </li>  
@@ -564,7 +568,7 @@ I’m actively building out my case study as part of the Google Data Analytics C
 <h2 class="anchored" data-anchor-id="divvy-station-data-cleaning-and-harmonization">3.1 Divvy Station Data Cleaning and Harmonization</h2>
 <p>To combine the files into a unified dataset, the following steps were performed:</p>
 <ol type="1">
-<li><strong>Field Standardization</strong>
+<li><p><strong>Field Standardization</strong></p>
 <ul>
 <li><p>Renamed fields to a consistent schema:</p>
 <ul>
@@ -584,7 +588,7 @@ I’m actively building out my case study as part of the Google Data Analytics C
 <li><code>landmark</code> (no evidence could be found about what this integer represents)</li>
 </ul></li>
 </ul></li>
-<li><strong>Date-Time Formatting</strong>
+<li><p><strong>Date-Time Formatting</strong></p>
 <ul>
 <li>Parsed dates from different formats:
 <ul>
@@ -595,47 +599,47 @@ I’m actively building out my case study as part of the Google Data Analytics C
 <li>Converted all timestamps to Unix epoch seconds.</li>
 <li>Combined online data and dateCreated into a single field</li>
 </ul></li>
-<li><strong><code>Docks in Service</code> Removal</strong>
+<li><p><strong><code>Docks in Service</code> Removal</strong></p>
 <ul>
 <li>This field appears to be a current value (i.e.&nbsp;the number of docks currently in service). We know the number of docks at a station change over time, but without the dates and times those changes occur if is of little value to use when analyzing historical data.</li>
 </ul></li>
-<li><strong><code>Location</code> Removal</strong>
+<li><p><strong><code>Location</code> Removal</strong></p>
 <ul>
 <li>The <code>Location</code> column, which contained WKT-style POINT (longitude latitude) strings duplicating the existing numeric Latitude and Longitude fields, was removed to simplify the dataset. Since our analysis uses numeric coordinates directly, this field offered no additional utility and was excluded to reduce redundancy and potential confusion.</li>
 </ul></li>
-<li><strong><code>landmark</code> Removal</strong>
+<li><p><strong><code>landmark</code> Removal</strong></p>
 <ul>
 <li>The <code>landmark</code> field, which contains integers ranging from 1 to 440. It was assumed these were a foreign key into some other table but no evidence of that could be found nor evidence of what that field was suppose to represent. Not knowing what it represented left no justification to retain it.</li>
 </ul></li>
-<li><strong><code>Status</code> Removal</strong>
+<li><p><strong><code>Status</code> Removal</strong></p>
 <ul>
 <li>The Status field, present only in the most recent stations dataset, contained categorical values indicating whether a station was active (e.g., In Service, Not In Service, Not Installed). Because historical station records did not include this field, and our analysis focused on aggregated ride patterns across the full time range (2013–2025) rather than on station operational status at a point in time, this field was excluded. Retaining it would have introduced inconsistent data availability across records without contributing meaningful insights to trip-level analysis.</li>
 </ul></li>
-<li><strong><code>dbcap</code> and <code>Short Name</code> Retained</strong>
+<li><p><strong><code>dbcap</code> and <code>Short Name</code> Retained</strong></p>
 <ul>
 <li>Although not required for the planned analyses, dbcap (dock capacity) and Short Name were retained to maintain completeness and allow for potential future work. dbcap can provide context about station size, while Short Name preserves internal identifiers that may support joins with other datasets.</li>
 </ul></li>
-<li><strong><code>station_id</code> Replacement</strong>
+<li><p><strong><code>station_id</code> Replacement</strong></p>
 <ul>
 <li>The original station IDs (integers and later UUIDs) were inconsistent and lacked a reliable mapping. To resolve this, a new auto-incrementing station_id primary key was auto assigned. Uniqueness was enforced with a unique index on (name, lat, long) to accommodate minor naming inconsistencies and ensure each physical station location is treated as distinct. The legacy IDs were removed to avoid ambiguity and ensure consistent station references across datasets.</li>
 </ul></li>
-<li><strong>Concatenation</strong></li>
-</ol>
+<li><p><strong>Concatenation</strong></p>
 <ul>
 <li>Combined all records from CSV files into a single master stations table using the bash script <a href="../src/load_stations_table.sh">load_stations_table.sh</a></li>
-</ul>
-<ol start="10" type="1">
-<li><strong>Renamed ambiguous duplicates</strong></li>
-</ol>
+</ul></li>
+<li><p><strong>Renamed Ambiguous Duplicates</strong></p>
 <ul>
 <li>Manually added suffixes like ” II” to disambiguate repeated station names at different coordinates.</li>
-</ul>
-<ol start="11" type="1">
-<li><strong>Normalized source formats</strong></li>
-</ol>
+</ul></li>
+<li><p><strong>Deleted Near Duplicated</strong></p>
+<ul>
+<li>Deleted all <a href="./glossary.html#glossary-unused-stations">unused stations</a> (zero rides as either the start_station or end_station) if they were a <a href="./glossary.html#glossary-near-duplicate">near duplicates</a>.</li>
+</ul></li>
+<li><p><strong>Normalized Source Formats</strong></p>
 <ul>
 <li>One stations data file, namely Divvy_Stations_2014-Q1Q2.xlsx, was provided in Excel format rather than the standard CSV. So it was manually converted to CSV using Gnumeric for uniform processing.</li>
-</ul>
+</ul></li>
+</ol>
 <hr>
 </section>
 <section id="divvy-trip-data-cleaning-and-harmonization" class="level2">

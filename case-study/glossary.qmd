@@ -20,6 +20,11 @@ Bin
 :   A predefined range used to group continuous data, such as ride counts or temperatures, for aggregation or visualization. For example, ride counts per bike may be grouped into 100-ride bins.
 :::
 
+:::{#glossary-casual-user}
+Casual User
+: A user who does not have an annual or recurring membership. for the purpose of this case study only the term `Customer` is used. See [Customer](#glossary-customer)
+:::
+
 :::{#glossary-cluster}
 Cluster (Ride Duration Cluster)
 :   A grouping of rides based on their duration using a clustering algorithm or predefined thresholds. In this study, rides are grouped into **Short**, **Medium**, and **Long** clusters to distinguish different usage behaviors.
@@ -81,6 +86,16 @@ Maximum Simultaneous Rides
 :   The maximum number of rides that were active at the same time during a given period (e.g., a year). Calculated by tracking ride start and end events, computing a running total of concurrent rides, and taking the peak value. This metric is used to assess fleet load and system demand during peak usage periods. Also know as **peak concurrency**
 :::
 
+:::{#glossary-member}
+Member
+:  A user who has an annual or recurring membership. For the purpose of this case study only the term `Subscriber` is used.  See [Subscriber](#glossary-subscriber)  
+:::
+
+:::{#glossary-near-duplicate}
+Near Duplicate
+:  A stations who's name or coordinates are very close to that of another station but no so close one can rule them as true duplicates.
+:::
+
 :::{#glossary-NTR}
 Non-Tourist Ride
 :   A ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.
@@ -107,7 +122,6 @@ Resource Fork
 
 * Data Fork: Contained a simple stream of bytes, representing the primary content a user would typically associate with the file (e.g., text, image bitmap data, etc.). This is analogous to a standard file on Unix or Windows systems.
 * Resource Fork: Contained a structured collection of resources, managed by the Resource Manager.  Each resource was defined by a type (a four-character code like ICON or snd ) and a unique ID.  This system allowed for efficient loading and modification of application assets like icons, fonts, sounds, cursors, and UI layouts (menus, windows) without recompiling the application's main executable code stored in the data fork.
-
 :::
 
 :::{#glossary-rcpb}
@@ -133,6 +147,11 @@ Station
 :::{#glossary-subscriber}
 Subscriber
 :   A user who holds an annual or annual-billed-monthly membership with the bike-sharing service.  Subscribers might also be know as members, but for the purpose of this case study only the term Subscriber is used.
+:::
+
+:::{#glossary-unused-stations}
+Unused Station
+:   A station that is not the `start_station` or `end_station` of any ride in the rides database.
 :::
 
 :::{#glossary-user-type}

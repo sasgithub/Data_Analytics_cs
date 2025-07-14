@@ -11,10 +11,10 @@ This page documents the origins, transformations, and usage context of each deri
 
 Provenance information helps ensure transparency and reproducibility of the analysis by clearly describing:
 
-- **Source data** — where each dataset or file originated
-- **Transformation steps** — how the data was cleaned, filtered, joined, or summarized
-- **Purpose** — what each output is used for in the project
-- **Sample code or queries** — where relevant, examples of the SQL or R steps that produced the output
+- **Source data** - where each dataset or file originated
+- **Transformation steps** - how the data was cleaned, filtered, joined, or summarized
+- **Purpose** - what each output is used for in the project
+- **Sample code or queries** - where relevant, examples of the SQL or R steps that produced the output
 
 Where possible, each provenance entry includes a direct reference to related data sets.
 
