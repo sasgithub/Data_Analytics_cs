@@ -2,22 +2,22 @@
 
 <figure class="float-right">
   <a href="../images/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" alt="Horizontal bar chart showing the top 25 non-tourist stations ranked by the total number of customer rides.">
+  <img src="../images/thumbnails/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" alt="Horizontal bar chart showing the top 25 non-tourist stations ranked by the total number of Customer rides.">
   </a>
   <figcaption>
-    Top 25 stations (excluding tourist locations) ranked by total customer ride volume. Bars highlight the most frequently used start locations among casual riders.
+    Top 25 stations (excluding tourist locations) ranked by total Customer ride volume. Bars highlight the most frequently used start locations among Customers.
   </figcaption>
 </figure>
 
 
 ##### Overview
 
-This horizontal bar chart displays the **25 non-tourist stations with the highest number of customer rides**. Each bar represents a single station, ranked from lowest to highest.
+This horizontal bar chart displays the **25 non-tourist stations with the highest number of [Customer](../glossary.qmd#glossary-customer) rides**. Each bar represents a single station, ranked from lowest to highest.
 
 ##### Chart Details
 
 - **X-Axis:** Station names (rotated vertically by using `coord_flip()`).
-- **Y-Axis:** Number of customer rides originating at each station.
+- **Y-Axis:** Number of Customer rides originating at each station.
 - **Bars:**
   - Colored steel blue.
   - Sorted so that the most-used stations appear at the top of the chart.
@@ -26,7 +26,7 @@ This horizontal bar chart displays the **25 non-tourist stations with the highes
 
 - The highest-ranking stations have significantly more rides than those near the bottom of the top 25.
 - Usage distribution shows a steep drop-off after the first few most popular stations.
-- This pattern suggests localized hubs of casual rider activity outside major tourist zones.
+- This pattern suggests localized hubs of Customers activity outside major tourist zones.
 
 ##### Interpretation
 

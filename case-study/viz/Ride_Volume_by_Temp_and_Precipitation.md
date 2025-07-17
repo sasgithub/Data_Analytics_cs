@@ -2,11 +2,11 @@
 
 <figure class="float-right">
   <a href="../images/Ride_Volume_by_Temp_and_Precipitation.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types.">
+  <img src="../images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types.">
   </a>
   <figcaption>
   Ride Volume by Temperature and Rain Condition
-This panel chart shows total ride volume for subscribers and customers, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+This panel chart shows total ride volume for **[Subscribers](../glossary#glossary-subscriber)** and **[customers](../glossary#glossary-)**, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
   </figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ This line chart panel shows the total ride volume across 2°C temperature bins, 
 
 ###### Dry Conditions
 - **Most ride volume occurs here**, peaking between 20–26°C.
-- Subscribers consistently log more rides than customers across all temperature bins.
+- Subscribers consistently log more rides than Customers across all temperature bins.
 - Clear bell-shaped distribution centered around optimal riding weather (20–25°C).
 
 ###### No Data
@@ -45,13 +45,13 @@ This line chart panel shows the total ride volume across 2°C temperature bins, 
 
 ###### Wet Conditions
 - Dramatic decrease in ride volume for both user types.
-- Subscriber and customer patterns flatten and converge, showing less variance in behavior when it's raining.
+- Subscriber and Customer patterns flatten and converge, showing less variance in behavior when it's raining.
 
 ##### Interpretation
 
 - **Temperature strongly influences ridership**, with optimal weather (20–25°C) showing the highest activity.
 - **Precipitation is a major deterrent**, suppressing ride volume across all temperatures.
-- **Subscribers** ride more often and in a wider temperature range than customers, especially when conditions are dry.
+- **Subscribers** ride more often and in a wider temperature range than Customers, especially when conditions are dry.
 
 ##### Use Case
 

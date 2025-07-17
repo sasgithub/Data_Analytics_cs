@@ -167,14 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="top-20-most-asymmetric-paths-by-user-type" class="level4">
 <h4 class="anchored" data-anchor-id="top-20-most-asymmetric-paths-by-user-type">Top 20 Most Asymmetric Paths by User Type</h4>
 <figure class="float-right figure">
-<a href="../images/Top_20_Most_Asymmetric_Paths_by_User_Type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths_by_User_Type.png" alt="Bar charts comparing the top 20 most asymmetric bike share paths for customers and subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio." class="figure-img"> </a>
+<a href="../images/Top_20_Most_Asymmetric_Paths_by_User_Type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths_by_User_Type.png" alt="Bar charts comparing the top 20 most asymmetric bike share paths for Customers and Subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio." class="figure-img"> </a>
 <figcaption>
-Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
+Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while Subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This chart shows the <strong>20 most directionally imbalanced station pairs</strong> for customers and subscribers, ranked by asymmetry ratio. Each bar represents a station-to-station path where trips predominantly flow in one direction.</p>
+<p>This chart shows the <strong>20 most directionally imbalanced station pairs</strong> for <strong><a href="../glossary.html#glossary-customer">Customers</a></strong> and <strong><a href="../glossary.html#glossary-subscriber">Subscriber</a></strong>, ranked by asymmetry ratio. Each bar represents a station-to-station path where trips predominantly flow in one direction.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
@@ -186,7 +186,8 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 <li><strong>Y-Axis</strong>: Station pairs, labeled inside the bars.</li>
 <li><strong>Panels</strong>:
 <ul>
-<li>One for each user type (Customer and Subscriber).</li>
+<li>Left panel: Top asymmetric paths for Customers</li>
+<li>Right panel: Top asymmetric paths for Subscribers</li>
 </ul></li>
 </ul>
 </section>
@@ -210,6 +211,24 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 </section>
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
+<dl>
+<dt>Asymmetry Ratio</dt>
+<dd>
+A value approaching 1 indicates heavy one-way usage between a pair of stations. Rides commonly occur in one direction but rarely the other.
+</dd>
+<dt>Customer Patterns</dt>
+<dd>
+Concentrated near transit stations and central business districts. Reflect unidirectional use, possibly due to nearby public transit hubs, tourism drop-offs, or lack of return trips.
+</dd>
+<dt>Subscriber Patterns</dt>
+<dd>
+Focus on lakefront access (e.g., Streeter Dr, Lake Shore Dr) and commuter endpoints. Suggest consistent commuting flows where riders may use other transportation methods for return trips (e.g., walking or transit).
+</dd>
+<dt>Contrast</dt>
+<dd>
+While Customers show asymmetry in the urban core, Subscribers show it around recreational or edge areas.
+</dd>
+</dl>
 <ul>
 <li>Asymmetry highlights operational imbalances and user behavior patterns.</li>
 <li>Paths with high one-way traffic often require rebalancing or targeted incentives.</li>
@@ -250,44 +269,6 @@ Top 20 bike-share station pairs with the most directional imbalance by user type
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="top-20-most-asymmetric-paths-by-user-type-1" class="level4">
-<h4 class="anchored" data-anchor-id="top-20-most-asymmetric-paths-by-user-type-1">Top 20 Most Asymmetric Paths by User Type</h4>
-<figure class="float-right figure">
-<a href="../images/Top_20_Most_Asymmetric_Paths_by_User_Type.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths_by_User_Type.png" alt="Bar charts comparing the top 20 most asymmetric bike share paths for customers and subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio." class="figure-img"> </a>
-<figcaption>
-Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
-</figcaption>
-</figure>
-<section id="image-notes" class="level5">
-<h5 class="anchored" data-anchor-id="image-notes">📝 Image Notes</h5>
-<p>Title: Top 20 Most Asymmetric Paths by User Type X-Axis: Asymmetry Ratio (from 0.0 to ~0.7) Panels: Two side-by-side bar charts</p>
-<ul>
-<li>Left panel: Top asymmetric paths for Customers</li>
-<li>Right panel: Top asymmetric paths for Subscribers</li>
-</ul>
-</section>
-<section id="interpretation-1" class="level5">
-<h5 class="anchored" data-anchor-id="interpretation-1">Interpretation</h5>
-<dl>
-<dt>Asymmetry Ratio</dt>
-<dd>
-A value approaching 1 indicates heavy one-way usage between a pair of stations. Rides commonly occur in one direction but rarely the other.
-</dd>
-<dt>Customer Patterns</dt>
-<dd>
-Concentrated near transit stations and central business districts. Reflect unidirectional use, possibly due to nearby public transit hubs, tourism drop-offs, or lack of return trips.
-</dd>
-<dt>Subscriber Patterns</dt>
-<dd>
-Focus on lakefront access (e.g., Streeter Dr, Lake Shore Dr) and commuter endpoints. Suggest consistent commuting flows where riders may use other transportation methods for return trips (e.g., walking or transit).
-</dd>
-<dt>Contrast</dt>
-<dd>
-While customers show asymmetry in the urban core, subscribers show it around recreational or edge areas.
-</dd>
-</dl>
 
 
 </section>

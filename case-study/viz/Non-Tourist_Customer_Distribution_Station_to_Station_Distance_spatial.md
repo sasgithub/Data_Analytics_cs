@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of station-to-station distances under 10 km for non-tourist customer rides, with peaks labeled around 1 km and 2.5 km.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of station-to-station distances under 10 km for non-tourist Customer rides, with peaks labeled around 1 km and 2.5 km.">
   </a>
   <figcaption>
-    Distribution of station-to-station distances for non-tourist customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
+    Distribution of station-to-station distances for non-tourist Customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot visualizes the distribution of **station-to-station distances under 10 km** for rides taken by **customer (non-subscriber) riders** that did not involve tourist stations. The focus on shorter trips reveals finer patterns in local travel behavior.
+This density plot visualizes the distribution of **station-to-station distances under 10 km** for rides taken by **[Customer](../glossary.qmd#glossary-customer) riders** that did not involve tourist stations. The focus on shorter trips reveals finer patterns in local travel behavior.
 
 ##### Chart Details
 
@@ -33,11 +33,11 @@ By excluding longer trips (>10 km), this chart provides a clearer view of the mo
 
 ##### Interpretation
 
-- **Short-Distance Focus:** The dual peaks reinforce that casual users primarily rely on the system for short urban journeys.
+- **Short-Distance Focus:** The dual peaks reinforce that Customers primarily rely on the system for short urban journeys.
 - **Potential Trip Typologies:**
   - ~1 km: Last-mile or neighborhood-scale trips.
   - ~2–3 km: Short errands or transit connections.
-- The low density beyond 5 km indicates that even non-tourist customers rarely use the bikes for longer travel.
+- The low density beyond 5 km indicates that even non-tourist Customers rarely use the bikes for longer travel.
 
 ##### Technical Notes
 

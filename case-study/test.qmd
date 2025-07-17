@@ -1,0 +1,12 @@
+---
+title: Callout Test
+format: html
+---
+
+# Callout Test
+
+> [!NOTE]- 
+> ## This is a collapsible callout
+>
+> This text should be hidden by default.
+

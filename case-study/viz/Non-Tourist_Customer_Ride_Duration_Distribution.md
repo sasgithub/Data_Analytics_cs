@@ -2,17 +2,17 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for non-tourist customer trips. Most rides are under 20 minutes, with frequency declining rapidly thereafter.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for non-tourist Customer trips. Most rides are under 20 minutes, with frequency declining rapidly thereafter.">
   </a>
   <figcaption>
-    Distribution of ride durations for non-tourist customer trips.<br>
+    Distribution of ride durations for non-tourist Customer trips.<br>
     The histogram shows that the vast majority of trips are short in duration, tapering off beyond 20 minutes.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This histogram depicts the **distribution of ride durations** (in minutes) for casual rides that start and end outside tourist areas. Each bar represents the count of trips falling within a 5-minute interval.
+This histogram depicts the **distribution of ride durations** (in minutes) for [Customer](../glossary.qmd#glossary-customer) rides that start and end outside tourist areas. Each bar represents the count of trips falling within a 5-minute interval.
 
 ##### Chart Details
 
@@ -29,7 +29,7 @@ This histogram depicts the **distribution of ride durations** (in minutes) for c
 
 ##### Interpretation
 
-- Casual riders overwhelmingly use the system for **short trips**.
+- Customers riders overwhelmingly use the system for **short trips**.
 - The lack of secondary peaks suggests uniform trip purposes, likely errands or last-mile transport.
 - Longer rides may reflect recreational or exploratory use, but they are relatively rare.
 
@@ -38,7 +38,7 @@ This histogram depicts the **distribution of ride durations** (in minutes) for c
 This chart is helpful for:
 
 - Informing policies about time-based pricing tiers.
-- Understanding baseline trip durations among casual riders.
+- Understanding baseline trip durations among Customers.
 - Supporting planning of rebalancing or maintenance cycles.
 
 ##### Technical Notes

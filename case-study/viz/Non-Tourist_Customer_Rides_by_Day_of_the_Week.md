@@ -2,26 +2,26 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing Customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday.">
   </a>
   <figcaption>
-  Total customer rides per day of week at non-tourist stations, highlighting the clear weekend peaks in ridership.
+  Total **[Customer](../glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations, highlighting the clear weekend peaks in ridership.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This bar chart displays the total number of **customer rides** at **non-tourist stations**, grouped by day of the week. By focusing on non-tourist stations, the visualization emphasizes local usage patterns rather than rides taken by visitors.
+This bar chart displays the total number of **Customer rides** at **non-tourist stations**, grouped by day of the week. By focusing on non-tourist stations, the visualization emphasizes local usage patterns rather than rides taken by visitors.
 
 ##### Chart Details
 
 - **X-Axis**: Day of the week (Sunday through Saturday)
 - **Y-Axis**: Total ride count per day
-- **Bars**: Aggregate counts of rides initiated by customers at non-tourist stations
+- **Bars**: Aggregate counts of rides initiated by Customers at non-tourist stations
 
 ##### Purpose
 
-To illustrate weekly patterns in casual (customer) ridership among local users, highlighting which days see higher or lower activity.
+To illustrate weekly patterns in Customer ridership among local users, highlighting which days see higher or lower activity.
 
 ##### Observations
 
@@ -31,7 +31,7 @@ To illustrate weekly patterns in casual (customer) ridership among local users, 
 
 ##### Interpretation
 
-- The clear weekend peak suggests most customer rides are discretionary trips taken for leisure rather than routine commuting.
+- The clear weekend peak suggests most Customer rides are discretionary trips taken for leisure rather than routine commuting.
 - The relative uniformity of weekday rides indicates a stable but smaller base of casual usage during the workweek.
 
 ##### Technical Notes

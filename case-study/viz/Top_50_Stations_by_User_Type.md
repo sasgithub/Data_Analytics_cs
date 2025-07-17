@@ -5,18 +5,18 @@
   <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="Map of Top 50 Stations by User Type">
   </a>
   <figcaption>
-  Top 50 stations for subscribers (blue) and customers (red). Dot size scales with ride count.
+  Top 50 stations for Subscribers (blue) and Customers (red). Dot size scales with ride count.
   </figcaption>
 </figure>
 
 ##### Overview  
 
-This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.
+This interactive map of the top 50 stations includes the top 50 stations by number of Subscriber rides and the top 50 stations by number of Customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for Subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for Customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both Subscribers and Customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (Subscriber or Customer as appropriate), so that stations with more rides are larger dots.
 
 ##### Chart Details
 
-- **Blue dots** represent stations ranked in the top 50 for **subscriber rides**.
-- **Red dots** represent stations ranked in the top 50 for **customer rides**.
+- **Blue dots** represent stations ranked in the top 50 for **Subscriber rides**.
+- **Red dots** represent stations ranked in the top 50 for **Customer rides**.
 - Dots are **offset slightly** to avoid overlap in cases where a station ranks in the top 50 for both groups.
 - **Circle size** is proportional to the total ride volume of each station.
 - A pop-up displays station name, rank, user type, and formatted ride count.
@@ -25,11 +25,11 @@ This interactive map of the top 50 stations includes the top 50 stations by numb
 
 - Some stations appear prominently for both user types, indicating shared high-traffic locations.
 - Certain clusters (particularly in tourist-heavy or commuter-focused areas) are strongly associated with one user group.
-- A visual concentration of customer stations appears near popular attractions.
+- A visual concentration of Customer stations appears near popular attractions.
 
 ##### Interpretation
 
-The visualization underscores behavioral differences between subscribers (likely commuters or regular riders) and customers (potentially tourists or occasional users). Identifying these patterns supports targeted operational decisions, such as bike rebalancing and station expansion.
+The visualization underscores behavioral differences between Subscribers (likely commuters or regular riders) and Customers (potentially tourists or occasional users). Identifying these patterns supports targeted operational decisions, such as bike rebalancing and station expansion.
 
 ##### Use Case
 

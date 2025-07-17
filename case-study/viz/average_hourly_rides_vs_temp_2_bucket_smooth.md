@@ -10,7 +10,7 @@
 </figure>
 
 ##### Overview
-This chart presents the **average number of hourly bike rides** as a function of **temperature (°C)**. The data is aggregated across all users, without distinguishing between subscriber or casual rider types.
+This chart presents the **average number of hourly bike rides** as a function of **temperature (°C)**. The data is aggregated across all users, without distinguishing between [Subscriber](../glossary.qmd#glossary-subscriber) or [Customer](../glossary.qmd#glossary-customer) types.
 
 ##### Chart Details
 

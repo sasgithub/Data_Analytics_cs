@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.svg" alt="Line chart showing average hourly ride counts by temperature, with separate lines for all rides, subscriber rides, and customer rides.">
+  <img src="../images/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.svg" alt="Line chart showing average hourly ride counts by temperature, with separate lines for all rides, Subscriber rides, and Customer rides.">
   </a>
   <figcaption>
     Average hourly ride counts by temperature (°C), separated by user type. Temperature is binned in 2-degree increments, with data recorded hourly.
@@ -10,7 +10,7 @@
 
 ##### Overview
 
-This line chart shows the **average number of rides per hour** as a function of temperature, separated by **subscribers** and **customers**. 
+This line chart shows the **average number of rides per hour** as a function of temperature, separated by [Subscribers](../glossary.qmd#glossary-subscriber) and [Customers](../glossary.qmd#glossary-customer). 
 
 ##### Chart Details
 
@@ -30,7 +30,7 @@ This line chart shows the **average number of rides per hour** as a function of 
 
 ##### Interpretation
 
-- The consistent gap between subscriber and customer lines suggests **subscribers are more temperature-resilient**.
+- The consistent gap between Subscriber and Customer lines suggests **subscribers are more temperature-resilient**.
 - The plateau beyond 30 °C differs from some other plots where high heat reduced ridership. This could reflect aggregation smoothing or time-of-day confounding.
 - Overall, this supports modeling temperature as a **key driver** of hourly ride volume.
 

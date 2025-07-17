@@ -11,7 +11,7 @@
 
 ##### Overview
 
-This bar chart visualizes the **average ride duration** (in minutes) for each **bike type**, segmented by **user type** (Subscriber vs Customer), covering the period after electric bikes and scooters were introduced.
+This bar chart visualizes the **average ride duration** (in minutes) for each **bike type**, segmented by **user type** ([Subscriber](../glossary.qmd#glossary-subscriber) vs [Customer](../glossary.qmd#glossary-cusomer)), covering the period after electric bikes and scooters were introduced.
 
 ##### Axes and Groupings
 
@@ -43,13 +43,13 @@ This bar chart visualizes the **average ride duration** (in minutes) for each **
   - Customers have slightly longer rides than subscribers.
 
 - **Variability**:
-  - Docked bike rides by customers have large error bars, indicating substantial variation in trip lengths.
+  - Docked bike rides by Customers have large error bars, indicating substantial variation in trip lengths.
 
 ##### Interpretation
 
 - **Customer Behavior**:
   - Non-subscribers take significantly longer trips on docked bikes, possibly reflecting more casual or exploratory riding.
-  - For all bike types, customers tend to ride longer than subscribers.
+  - For all bike types, Customers tend to ride longer than subscribers.
 
 - **Subscriber Behavior**:
   - Subscribers’ ride durations are generally shorter and more consistent, likely due to commuting or time-sensitive trips.

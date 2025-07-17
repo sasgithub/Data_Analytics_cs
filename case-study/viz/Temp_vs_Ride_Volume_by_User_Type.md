@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Temp_vs_Ride_Volume_by_User_Type.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Temp_vs_Ride_Volume_by_User_Type.png" alt=" Line chart with two panels comparing hourly ride volume versus temperature for customers and subscribers. Both show a strong positive correlation with temperature, with ride volume increasing sharply as temperatures rise above freezing.">
+  <img src="../images/thumbnails/Temp_vs_Ride_Volume_by_User_Type.png" alt=" Line chart with two panels comparing hourly ride volume versus temperature for Customers and Subscribers. Both show a strong positive correlation with temperature, with ride volume increasing sharply as temperatures rise above freezing.">
   </a>
   <figcaption>
-   Hourly ride volume by temperature, faceted by user type. Warmer temperatures correlate strongly with increased ride volume for both customers and subscribers, with subscriber volume remaining higher across all temperatures.
+   Hourly ride volume by temperature, faceted by user type. Warmer temperatures correlate strongly with increased ride volume for both **[Customers](../glossary.qmd#glossary-customer)** and **[Subscribers](../glossary.qmd#glossary-subscriber)**, with Subscriber volume remaining higher across almost all temperatures.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This dual-panel line plot compares **hourly ride volume** to **temperature (°C)** for each user type separately. It illustrates how customers and subscribers respond differently to temperature changes.
+This dual-panel line plot compares **hourly ride volume** to **temperature (°C)** for each user type separately. It illustrates how Customers and Subscribers respond differently to temperature changes.
 
 ##### Chart Details
 

@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Count_by_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Count_by_Distance.png" alt="Bar chart showing the number of non-tourist customer rides by the straight-line distance between start and end stations, with prominent peaks at about 0.85 km and 1.35 km.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Count_by_Distance.png" alt="Bar chart showing the number of non-tourist Customer rides by the straight-line distance between start and end stations, with prominent peaks at about 0.85 km and 1.35 km.">
   </a>
   <figcaption>
-    Ride count by station-to-station distance for non-tourist customer trips, highlighting common trip lengths in the 0–2 km range.
+    Ride count by station-to-station distance for non-tourist Customer trips, highlighting common trip lengths in the 0–2 km range.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This bar chart shows the **number of non-tourist customer rides** grouped by the straight-line distance between the starting and ending stations. The visualization makes clear which distance ranges are most commonly traveled.
+This bar chart shows the **number of non-tourist [Customer](../glossary.qmd#glossary-customer) rides** grouped by the straight-line distance between the starting and ending stations. The visualization makes clear which distance ranges are most commonly traveled.
 
 ##### Chart Details
 
@@ -27,7 +27,7 @@ This bar chart shows the **number of non-tourist customer rides** grouped by the
   - ~0.85 km: 58,268 rides.
   - ~1.35 km: 54,563 rides.
 - Sharp drop-off beyond 2 km, with very few rides exceeding 5 km.
-- The shape strongly suggests most casual rides occur within a short radius.
+- The shape strongly suggests most Customer rides occur within a short radius.
 
 ##### Interpretation
 

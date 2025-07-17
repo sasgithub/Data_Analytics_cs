@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for customers and subscribers. Subscriber rides show a sharp peak near 10 minutes, while customer rides have a broader, flatter distribution.">
+  <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for Customers and Subscribers. Subscriber rides show a sharp peak near 10 minutes, while Customer rides have a broader, flatter distribution.">
   </a>
   <figcaption>
-    Density plot of ride durations by user type. Subscribers tend to take shorter trips, while customers have more varied and longer rides.
+    Density plot of ride durations by user type. **[Subscribers](../glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](../glossary.qmd#glossary-customer) have more varied and longer rides.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot visualizes the **distribution of ride durations** for customers and subscribers, providing a smoothed alternative to histograms for easier comparison of patterns.
+This density plot visualizes the **distribution of ride durations** for Customers and Subscribers, providing a smoothed alternative to histograms for easier comparison of patterns.
 
 ##### Chart Details
 

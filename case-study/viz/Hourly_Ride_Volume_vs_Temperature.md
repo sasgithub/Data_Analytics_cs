@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to customers (red line). Ride volume increases steadily from below freezing to 35°C.">
+  <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to Customers (red line). Ride volume increases steadily from below freezing to 35°C.">
   </a>
   <figcaption>
-  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
+  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing Customers and Subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
   </figcaption>
 </figure>
 
 ##### Overview
 
-  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing customers and subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
+  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing [Customers](../glossary.qmd#glossary-customer) and [Subscribers](../glossary.qmd#glossary-subscriber). Patterns remain elevated at higher temperatures due to the smoothing method.
 
 - **X-Axis:** Air temperature in °C.
 - **Y-Axis:** Number of rides per hour.
@@ -23,7 +23,7 @@
 
 - Ride counts rise with temperature from below 0°C through the 20s.
 - Unlike binned histograms, no clear decline is visible above ~30°C.
-- Customer volume grows faster with temperature than subscriber volume.
+- Customer volume grows faster with temperature than Subscriber volume.
 
 ##### Interpretation
 
@@ -41,7 +41,7 @@ The continuous [LOESS](../glossary.qmd#glossary-LOESS) smoothing aggregates all 
 - Rides aggregated per hour and user type (`COUNT(*) AS rides`).
 - Weather joined on hourly epoch timestamp (`start_time / 3600 * 3600`).
 - No filter applied to exclude zero-ride hours (i.e., hours with no rides are included as 0).
-- Used as input to (../glossary.qmd#glossary-LOESS) smoothing, resulting in a different trend shape compared to temperature bin summaries.
+- Used as input to [LOESS](../glossary.qmd#glossary-LOESS) smoothing, resulting in a different trend shape compared to temperature bin summaries.
 
 
 ##### R Code Used to Generate Chart:

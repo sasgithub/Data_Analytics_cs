@@ -2,17 +2,17 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist customer trips. The curve is strongly right-skewed, with most rides under 15 minutes.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist Customer rides. The curve is strongly right-skewed, with most rides under 15 minutes.">
   </a>
   <figcaption>
     Ride Duration Density for Non-Tourist Customer Trips.<br>
-    This smoothed density plot shows how ride lengths are distributed among customer (non-subscriber) rides that do not involve tourist stations.
+    This smoothed density plot shows how ride lengths are distributed among Customer (non-Subscriber) rides that do not involve tourist stations.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot illustrates the **distribution of ride durations** (in minutes) for trips taken by **non-tourist customers**. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.
+This density plot illustrates the **distribution of ride durations** (in minutes) for trips taken by **non-tourist Customers**. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.
 
 ##### Chart Details
 
@@ -28,7 +28,7 @@ This density plot illustrates the **distribution of ride durations** (in minutes
 
 ##### Interpretation
 
-- Short rides dominate customer usage patterns, consistent with quick errands or intra-neighborhood trips.
+- Short rides dominate Customer usage patterns, consistent with quick errands or intra-neighborhood trips.
 - The lack of a secondary peak suggests relatively uniform short-duration behavior among these riders.
 - Longer rides may represent recreational trips or exploratory use.
 
@@ -38,12 +38,12 @@ This visualization is useful for:
 
 - Understanding the central tendency and spread of ride lengths.
 - Supporting decisions about pricing (e.g., time-based fees).
-- Tailoring operational planning for short-trip dominance among customer riders.
+- Tailoring operational planning for short-trip dominance among Customer riders.
 
 ##### Technical Notes
 
 - **Data Filtering:**
-  - Only includes `customer` rides.
+  - Only includes `Customer` rides.
   - Excludes trips starting or ending at tourist stations.
 - **Ride Length Calculation:**
   - `(end_time - start_time) / 60`.
@@ -52,7 +52,7 @@ This visualization is useful for:
 ##### Data Sources
 
 - **Data Frame:** `non_tourist_customer_rides_df`
-  - Created by filtering the `rides` table to include only customer trips with relevant station IDs.
+  - Created by filtering the `rides` table to include only Customer rides with relevant station IDs.
   - Converted timestamps to local time for consistency.
 
 ##### R Code Used to Generate Chart:

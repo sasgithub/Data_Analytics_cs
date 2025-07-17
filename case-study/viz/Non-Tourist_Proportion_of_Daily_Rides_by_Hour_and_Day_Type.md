@@ -11,7 +11,7 @@
 
 ##### Overview
 
-This heatmap shows the **hourly share of total daily rides** for non-tourist customer rides, split by **day type** (Weekday vs. Weekend). Darker colors indicate higher proportions of each day’s total rides occurring in that hour.
+This heatmap shows the **hourly share of total daily rides** for non-tourist **[Customer](../glossary.qmd#glossary-customer)** rides, split by **day type** (Weekday vs. Weekend). Darker colors indicate higher proportions of each day’s total rides occurring in that hour.
 
 ##### Chart Details
 
@@ -51,7 +51,7 @@ This chart can help
 
 ##### Data Sources
 
-- **Ride Records:** Filtered for non-tourist customer rides (excluding stations flagged as tourist destinations).
+- **Ride Records:** Filtered for non-tourist Customer rides (excluding stations flagged as tourist destinations).
 - **Derived Columns:** Hour extracted from local start time; day type assigned as Weekday or Weekend.
 - **Aggregation:** Hourly counts normalized to proportions of each day’s total rides.
 

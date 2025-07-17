@@ -5,7 +5,7 @@
     <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius.">
   </a>
   <figcaption>
-    Normalized average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C.
+    Normalized average hourly rides by temperature (°C), showing Subscriber, Customer, and total ride volume peaking near 25°C.
   </figcaption>
 </figure>
 
@@ -20,8 +20,8 @@ This line chart displays how bike ride frequency varies with temperature, separa
 - **Y-Axis (Normalized Average Hourly Rides):**
   - Scaled 0–1 within each series.
 - **Lines:**
-  - **Dark blue:** Subscribers.
-  - **Dark orange:** Customers.
+  - **Dark blue:** [Subscribers](../glossary.qmd#glossary-subscriber).
+  - **Dark orange:** [Customers](../glossary.qmd#glossary-customer).
   - **Black:** Combined total average.
 
 ##### Observations
@@ -30,9 +30,9 @@ This line chart displays how bike ride frequency varies with temperature, separa
 - **Below 5°C:**
   - All ride volume is very low.
 - **5–25°C:**
-  - Sharp increase in ridership, especially among customers.
+  - Sharp increase in ridership, especially among Customers.
 - **>30°C:**
-  - Slight decline in rides, more pronounced for customers.
+  - Slight decline in rides, more pronounced for Customers.
 
 ##### Interpretation
 
@@ -44,10 +44,10 @@ This line chart displays how bike ride frequency varies with temperature, separa
 
 | Temperature Range | Customer Behavior | Subscriber Behavior | Interpretation |
 |--------------------|--------------------|---------------------|----------------|
-| <5°C | Very low ridership | Moderately low | Cold strongly suppresses casual rides |
+| <5°C | Very low ridership | Moderately low | Cold strongly suppresses Customer rides |
 | 5–25°C | Steep increase | Moderate increase | Warmer weather encourages use |
 | ~25°C | Peak ridership | Near-peak | Ideal riding conditions |
-| 30-25°C | Decline | Slight increase | Heat discourages casual trips |
+| 30-25°C | Decline | Slight increase | Heat discourages Customer trips |
 | >35°C |Sharp Decline| Sharp Decline | Extreme heat discourages all trips |
 
 ##### Use Case

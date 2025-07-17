@@ -84,10 +84,10 @@ High level overview;
   2  Actions to enhance the information collection system
 
 Here's an example of the first case.
-  The main goal is to get more subscribers, one way (presumably) is targeted advertising, but with the de-identified information we have now that's difficult, we don't have contact info, we don't have demographics, what we do have is some knowledge about where people who use the system are. They are at the stations. We know which stations have a high number of subscriber and a high number of customers. Sense the customers are viewed as the pool from which most new subscribers will come it makes sense to spend our limit advertising budget where there are a high number of customer. There are stations that are very popular with subscribers (more than 90% of the rides from those stations are by subscribers) but those are not a good target as there are not enough customers to see the adds and subscribe to make it worthwhile. There are currently stations with a very high percentage of customer rides, but perhaps there is a good reason subscribe rides are low there (tourism perhaps). Which means it not worthwhile to try and recruit subscribers there either. So we concentrate on the most popular combined use stations, not sure if that means putting up fliers there, signage, or boots on the ground trying to sign up customers.
+  The main goal is to get more subscribers, one way (presumably) is targeted advertising, but with the de-identified information we have now that's difficult, we don't have contact info, we don't have demographics, what we do have is some knowledge about where people who use the system are. They are at the stations. We know which stations have a high number of Subscriber and a high number of Customers. Sense the Customers are viewed as the pool from which most new subscribers will come it makes sense to spend our limit advertising budget where there are a high number of Customer. There are stations that are very popular with subscribers (more than 90% of the rides from those stations are by subscribers) but those are not a good target as there are not enough Customers to see the adds and subscribe to make it worthwhile. There are currently stations with a very high percentage of Customer rides, but perhaps there is a good reason subscribe rides are low there (tourism perhaps). Which means it not worthwhile to try and recruit subscribers there either. So we concentrate on the most popular combined use stations, not sure if that means putting up fliers there, signage, or boots on the ground trying to sign up Customers.
 
 Here is the second case.
-  If we got access to actual identifying information for customers we could identify customers who's usage pattern already demonstrates activity that identifies them as likely subscribers (perhaps it might even save them money). So the collection of identifying information should begin immediately because with it all kind of options for analysis and advertising open up that are currently unavailable.
+  If we got access to actual identifying information for Customers we could identify Customers who's usage pattern already demonstrates activity that identifies them as likely subscribers (perhaps it might even save them money). So the collection of identifying information should begin immediately because with it all kind of options for analysis and advertising open up that are currently unavailable.
 
 There are of course lots of other things which I'll just briefly list;
   Bike tracking - currently we have only a start and end station where the bike actually goes is unknown. Tracking devices are getting cheaper ever day.
@@ -127,7 +127,7 @@ To operationalize these recommendations, we propose the following next steps:
 
 -  Determaine budget for pilot outreach campaign in order to determine it's size. 
    -  Once the number of stations to be included in the pilot is known, rank Stations by User Mix and Volume
-   -  Use ride data to identify stations with highest levels of both subscribers and customers.
+   -  Use ride data to identify stations with highest levels of both Subscribers and Customers.
    -  Target these stations for pilot outreach.
 
 -  Design and Deploy a Pilot Campaign

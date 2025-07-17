@@ -5,7 +5,7 @@
   <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C.">
   </a>
   <figcaption>
-  Average hourly rides by temperature (°C), showing subscriber, customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; subscribers remain steadier.
+  Average hourly rides by temperature (°C), showing Subscriber, Customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; Subscribers remain steadier.
   </figcaption>
 </figure>
 
@@ -18,8 +18,8 @@ This chart illustrates the relationship between **ambient temperature (°C)** an
 Three ride categories are plotted:
 
 - **Total Rides** (all users)
-- **Subscribers** (dark blue line)
-- **Customers** (dark orange line)
+- **[Subscribers](../glossary.qmd#glossary-subscriber)** (dark blue line)
+- **[Customers](../glossary.qmd#glossary-customer)** (dark orange line)
 
 ##### Insights:
 

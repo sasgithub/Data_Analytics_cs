@@ -167,14 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers" class="level4">
 <h4 class="anchored" data-anchor-id="ride-duration-distribution-by-weekday-vs-weekend-non-tourist-customers">Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes." class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist Customer rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes." class="figure-img"> </a>
 <figcaption>
-Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
+Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density plot shows the distribution of ride durations in minutes for non-tourist Customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This kernel density plot compares <strong>ride durations (in minutes)</strong> for non-tourist customer bike rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
+<p>This kernel density plot compares <strong>ride durations (in minutes)</strong> for non-tourist Customer rides, distinguishing between <strong>weekday</strong> and <strong>weekend</strong> behavior. It focuses exclusively on <strong>non-subscriber</strong> riders whose trips did <strong>not</strong> start or end near tourist destinations.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
@@ -202,7 +202,7 @@ Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density p
 <ul>
 <li>Weekday trips are likely <strong>task-focused</strong> (errands, commuting).</li>
 <li>Weekend trips are more <strong>discretionary</strong> and potentially recreational.</li>
-<li>The consistent shape across days supports the idea of habitual short-distance usage among non-tourist customers.</li>
+<li>The consistent shape across days supports the idea of habitual short-distance usage among non-tourist Customers.</li>
 </ul>
 </section>
 <section id="use-case" class="level5">
@@ -232,7 +232,7 @@ Ride Duration Distribution by Day Type (Customer Rides Only).<br> This density p
 <ul>
 <li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
 <ul>
-<li>Derived from the <code>rides</code> table filtered for customer trips, start/end station IDs, and date range.</li>
+<li>Derived from the <code>rides</code> table filtered for Customer trips, start/end station IDs, and date range.</li>
 <li>Preprocessed with timezone adjustment to Chicago local time.</li>
 </ul></li>
 </ul>

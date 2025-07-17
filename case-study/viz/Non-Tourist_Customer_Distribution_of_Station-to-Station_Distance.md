@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing the distribution of ride distances between start and end stations for non-tourist customer rides. Labeled peaks mark commonly traveled distance ranges.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing the distribution of ride distances between start and end stations for non-tourist Customer rides. Labeled peaks mark commonly traveled distance ranges.">
   </a>
   <figcaption>
-  Density plot of station-to-station distances for non-tourist customer rides. Distinct peaks highlight preferred trip lengths and usage patterns.
+  Density plot of station-to-station distances for non-tourist Customer rides. Distinct peaks highlight preferred trip lengths and usage patterns.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot shows the **distribution of ride distances** (in kilometers) for **non-tourist customer rides** where the start and end stations differ (i.e., excluding loops). Labeled peaks call attention to common trip lengths.
+This density plot shows the **distribution of ride distances** (in kilometers) for **non-tourist [Customer](../glossary.qmd#glossary-customer) rides** where the start and end stations differ (i.e., excluding loops). Labeled peaks call attention to common trip lengths.
 
 ##### Chart Details
 

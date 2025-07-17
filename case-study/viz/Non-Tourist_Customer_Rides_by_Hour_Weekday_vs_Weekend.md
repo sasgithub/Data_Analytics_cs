@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly Customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours.">
   </a>
   <figcaption>
-  Hourly comparison of customer rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
+  Hourly comparison of **[Customer](../glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This grouped bar chart compares **customer ride activity** across hours of the day, split by **weekday** and **weekend**, limited to **non-tourist stations**. It highlights behavioral shifts in usage patterns between workdays and leisure days.
+This grouped bar chart compares **Customer ride activity** across hours of the day, split by **weekday** and **weekend**, limited to **non-tourist stations**. It highlights behavioral shifts in usage patterns between workdays and leisure days.
 
 ##### Chart Details
 
@@ -40,14 +40,14 @@ This visualization is designed to isolate potential **commuting or habitual usag
 
 ##### Interpretation
 
-- The sharp peak at 5 PM on weekdays strongly suggests **commuter behavior**, even among casual (non-subscriber) users.
+- The sharp peak at 5 PM on weekdays strongly suggests **commuter behavior**, even among Customer (non-Subscriber) users.
 - The flatter weekend profile indicates a **more recreational or errand-driven pattern**, with rides spread across daylight hours.
 - Filtering out tourist stations helps reinforce the interpretation that these behaviors stem from **local usage**, not tourism.
 
 ##### Technical Notes
 
 - Ride records are filtered to include only those starting at **non-tourist stations**.
-- Users included are labeled as `Customers` (i.e., non-subscribers).
+- Users included are labeled as `Customers` (i.e., non-Subscribers).
 - “Weekday” includes Monday through Friday; “Weekend” includes Saturday and Sunday.
 - Time is derived from the local timestamp of the ride start.
 
@@ -57,7 +57,7 @@ This visualization is designed to isolate potential **commuting or habitual usag
 
 - Data Frame: rides_by_hour_weekpart
   - Filters Applied:
-    - Only customer rides (casual users)
+    - Only Customer rides 
     - Rides originating from non-tourist stations
     - Grouped by hour of day and week_part (Weekday vs Weekend)
 

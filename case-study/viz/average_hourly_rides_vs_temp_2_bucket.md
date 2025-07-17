@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bin and user type, with separate lines for subscribers and customers. Ride counts increase with temperature for both groups, with customers showing a stronger response at higher temperatures.">
+  <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bin and user type, with separate lines for Subscribers and Customers. Ride counts increase with temperature for both groups, with Customers showing a stronger response at higher temperatures.">
   </a>
   <figcaption>
-  Average hourly rides by temperature bin and user type. Both subscribers and customers take more rides as temperatures increase, but customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among casual riders.
+  Average hourly rides by temperature bin and user type. Both Subscribers and Customers take more rides as temperatures increase, but Customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among Customers.
   </figcaption>
 </figure>
 
 
 ##### Overview
-This chart presents the **average number of hourly bike rides** as a function of **temperature (°C)**. The data is aggregated across all users, without distinguishing between subscriber or casual rider types.
+This chart presents the **average number of hourly bike rides** as a function of **temperature (°C)**. The data is aggregated across all users, without distinguishing between [Subscriber](../glossary.qmd#glossary-subscriber) or [Customer](../glossary.qmd#glossary-customer) types.
 
 ##### Chart Details
 

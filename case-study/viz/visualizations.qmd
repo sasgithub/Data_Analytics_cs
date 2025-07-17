@@ -110,19 +110,19 @@ Rides analyzed across time dimensions like hour, day, month, or season.
 
 {{< include Non-Tourist_Customer_Rides_by_Day_of_the_Week.md >}}
 
+{{< include Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md >}}
+
+{{< include Difference_in_Ride_Proportions_Weekday-Weekend.md >}}
+
 {{< include Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md >}}
 
 {{< include Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md >}}
 
+{{< include Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md >}}
+
 {{< include Non-Tourist_Customer_Rides_by_Month.md >}}
 
 {{< include Non-Tourist_Customer_Rides_by_Season.md >}}
-
-{{< include Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.md >}}
-
-{{< include Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.md >}}
-
-{{< include Difference_in_Ride_Proportions_Weekday-Weekend.md >}}
 
 ### Temperature and Weather Effects
 

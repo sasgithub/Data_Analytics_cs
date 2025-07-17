@@ -11,7 +11,7 @@
 
 ##### Overview
 
-This multi-panel grouped bar chart compares **hourly ride activity** across the four seasons, separated into **weekday** and **weekend** usage, restricted to non-tourist stations. It provides a clear view of how both **time of day** and **seasonality** influence ridership behavior among casual users.
+This multi-panel grouped bar chart compares **hourly ride activity** across the four seasons, separated into **weekday** and **weekend** usage, restricted to non-tourist stations. It provides a clear view of how both **time of day** and **seasonality** influence ridership behavior among Customers.
 
 ##### Chart Details
 
@@ -45,7 +45,7 @@ The visualization aims to:
 
 ##### Interpretation
 
-- Strong **weekday afternoon peaks** in warm months support the idea of commuting or routine trips by casual riders.
+- Strong **weekday afternoon peaks** in warm months support the idea of commuting or routine trips by Customers.
 - Weekend rides remain relatively stable across seasons, indicating recreation and errands.
 - Winter conditions significantly suppress all ride activity.
 

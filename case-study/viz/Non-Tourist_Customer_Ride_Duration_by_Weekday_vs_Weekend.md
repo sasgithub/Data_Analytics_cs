@@ -2,17 +2,17 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
-    <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist customer bike rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes.">
+    <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist Customer rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes.">
   </a>
   <figcaption>
     Ride Duration Distribution by Day Type (Customer Rides Only).<br>
-    This density plot shows the distribution of ride durations in minutes for non-tourist customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
+    This density plot shows the distribution of ride durations in minutes for non-tourist Customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This kernel density plot compares **ride durations (in minutes)** for non-tourist customer bike rides, distinguishing between **weekday** and **weekend** behavior. It focuses exclusively on **non-subscriber** riders whose trips did **not** start or end near tourist destinations.
+This kernel density plot compares **ride durations (in minutes)** for non-tourist Customer rides, distinguishing between **weekday** and **weekend** behavior. It focuses exclusively on **non-subscriber** riders whose trips did **not** start or end near tourist destinations.
 
 ##### Chart Details
 
@@ -33,7 +33,7 @@ This kernel density plot compares **ride durations (in minutes)** for non-touris
 
 - Weekday trips are likely **task-focused** (errands, commuting).
 - Weekend trips are more **discretionary** and potentially recreational.
-- The consistent shape across days supports the idea of habitual short-distance usage among non-tourist customers.
+- The consistent shape across days supports the idea of habitual short-distance usage among non-tourist Customers.
 
 ##### Use Case
 
@@ -55,7 +55,7 @@ This chart can be applied to:
 ##### Data Sources
 
 - **Data Frame:** `non_tourist_customer_rides_df`
-  - Derived from the `rides` table filtered for customer trips, start/end station IDs, and date range.
+  - Derived from the `rides` table filtered for Customer trips, start/end station IDs, and date range.
   - Preprocessed with timezone adjustment to Chicago local time.
 
 ##### R Code Used to Generate Chart:

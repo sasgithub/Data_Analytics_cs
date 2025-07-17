@@ -2,7 +2,7 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" alt="Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist customer rides. Points are densely clustered under 5 km and 50 minutes, with a blue linear reference line indicating expected travel time. Wide variation in durations is visible across short distances.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" alt="Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist Customer rides. Points are densely clustered under 5 km and 50 minutes, with a blue linear reference line indicating expected travel time. Wide variation in durations is visible across short distances.">
   </a>
   <figcaption>
   Ride Duration vs. Station Distance (Non-Tourist Customer Rides)<br>
@@ -11,7 +11,7 @@
 </figure>
 
 ##### Overview
-This scatterplot shows the relationship between **ride duration** and **station-to-station distance** for non-tourist customer rides. A linear reference line illustrates the general trend.
+This scatterplot shows the relationship between **ride duration** and **station-to-station distance** for non-tourist [Customer](../glossary.qmd#glossary-customer) rides. A linear reference line illustrates the general trend.
 
 ##### Chart Details
 - **X-Axis:** Distance Between Stations (km), 0–30.
@@ -35,7 +35,7 @@ This scatterplot shows the relationship between **ride duration** and **station-
 - Inform operational planning for short vs. long trips.
 
 ##### Data Sources
-- **Ride Data:** Non-tourist customer rides filtered to exclude trips that start and end at the same station.
+- **Ride Data:** Non-tourist Customer rides filtered to exclude trips that start and end at the same station.
 - **Station Coordinates:** Merged from cleaned station dataset(s).
 - **Time Frame:** 2023 onward, as defined in the project scope.
 

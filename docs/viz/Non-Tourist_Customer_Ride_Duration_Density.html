@@ -167,14 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="non-tourist-customer-ride-duration-density" class="level4">
 <h4 class="anchored" data-anchor-id="non-tourist-customer-ride-duration-density">Non-Tourist Customer Ride Duration Density</h4>
 <figure class="float-right figure">
-<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist customer trips. The curve is strongly right-skewed, with most rides under 15 minutes." class="figure-img"> </a>
+<a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist Customer rides. The curve is strongly right-skewed, with most rides under 15 minutes." class="figure-img"> </a>
 <figcaption>
-Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density plot shows how ride lengths are distributed among customer (non-subscriber) rides that do not involve tourist stations.
+Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density plot shows how ride lengths are distributed among Customer (non-Subscriber) rides that do not involve tourist stations.
 </figcaption>
 </figure>
 <section id="overview" class="level5">
 <h5 class="anchored" data-anchor-id="overview">Overview</h5>
-<p>This density plot illustrates the <strong>distribution of ride durations</strong> (in minutes) for trips taken by <strong>non-tourist customers</strong>. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.</p>
+<p>This density plot illustrates the <strong>distribution of ride durations</strong> (in minutes) for trips taken by <strong>non-tourist Customers</strong>. The visualization focuses on how frequently different ride lengths occur, highlighting the most common trip durations.</p>
 </section>
 <section id="chart-details" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details">Chart Details</h5>
@@ -195,7 +195,7 @@ Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density 
 <section id="interpretation" class="level5">
 <h5 class="anchored" data-anchor-id="interpretation">Interpretation</h5>
 <ul>
-<li>Short rides dominate customer usage patterns, consistent with quick errands or intra-neighborhood trips.</li>
+<li>Short rides dominate Customer usage patterns, consistent with quick errands or intra-neighborhood trips.</li>
 <li>The lack of a secondary peak suggests relatively uniform short-duration behavior among these riders.</li>
 <li>Longer rides may represent recreational trips or exploratory use.</li>
 </ul>
@@ -206,7 +206,7 @@ Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density 
 <ul>
 <li>Understanding the central tendency and spread of ride lengths.</li>
 <li>Supporting decisions about pricing (e.g., time-based fees).</li>
-<li>Tailoring operational planning for short-trip dominance among customer riders.</li>
+<li>Tailoring operational planning for short-trip dominance among Customer riders.</li>
 </ul>
 </section>
 <section id="technical-notes" class="level5">
@@ -214,7 +214,7 @@ Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density 
 <ul>
 <li><strong>Data Filtering:</strong>
 <ul>
-<li>Only includes <code>customer</code> rides.</li>
+<li>Only includes <code>Customer</code> rides.</li>
 <li>Excludes trips starting or ending at tourist stations.</li>
 </ul></li>
 <li><strong>Ride Length Calculation:</strong>
@@ -229,7 +229,7 @@ Ride Duration Density for Non-Tourist Customer Trips.<br> This smoothed density 
 <ul>
 <li><strong>Data Frame:</strong> <code>non_tourist_customer_rides_df</code>
 <ul>
-<li>Created by filtering the <code>rides</code> table to include only customer trips with relevant station IDs.</li>
+<li>Created by filtering the <code>rides</code> table to include only Customer rides with relevant station IDs.</li>
 <li>Converted timestamps to local time for consistency.</li>
 </ul></li>
 </ul>

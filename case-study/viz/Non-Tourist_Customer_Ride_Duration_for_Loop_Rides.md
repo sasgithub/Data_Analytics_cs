@@ -2,15 +2,15 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="Density plot showing the ride duration distribution for non-tourist loop rides by customers. A steep peak occurs at short durations under 10 minutes, with a long tapering tail up to 150 minutes.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="Density plot showing the ride duration distribution for non-tourist loop rides by Customers. A steep peak occurs at short durations under 10 minutes, with a long tapering tail up to 150 minutes.">
   </a>
   <figcaption>
-  Ride duration density for non-tourist loop rides taken by customers. The strong concentration of short rides suggests quick, casual trips returning to the same station.
+  Ride duration density for non-tourist loop rides taken by Customers. The strong concentration of short rides suggests quick, casual trips returning to the same station.
   </figcaption>
 </figure>
 
 ##### Overview
-This density plot shows the **distribution of ride lengths (in minutes)** for customer rides that **start and end at the same station**. Known as **[loop rides](#glossary-loop)**. Also trips involving tourist stations are excluded.
+This density plot shows the **distribution of ride lengths (in minutes)** for [Customer](../glossary.qmd#glossary-customer) rides that **start and end at the same station**. Known as **[loop rides](#glossary-loop)**. Also trips involving tourist stations are excluded.
 
 ##### Chart Details
 - **X-Axis:** Ride Length (minutes), ranging from 0 to 150.
@@ -24,7 +24,7 @@ This density plot shows the **distribution of ride lengths (in minutes)** for cu
 
 ##### Interpretation
 - The strong skew toward short rides reinforces the idea that many loop trips are **quick, casual uses**, possibly for errands or brief leisure.
-- The lack of a secondary peak suggests there is not a distinct long-ride group among non-tourist customers.
+- The lack of a secondary peak suggests there is not a distinct long-ride group among non-tourist Customers.
 
 ##### Technical Notes
 - This subset was filtered to include only **loop rides** (`start_station_id == end_station_id`) and to exclude known tourist stations.

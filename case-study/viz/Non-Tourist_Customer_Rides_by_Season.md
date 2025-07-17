@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Rides_by_Season.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Season.png" alt="Bar chart showing non-tourist customer ride counts by season. Summer has the highest number of rides, followed by Fall, Spring, and Winter.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Season.png" alt="Bar chart showing non-tourist Customer ride counts by season. Summer has the highest number of rides, followed by Fall, Spring, and Winter.">
   </a>
   <figcaption>
-  Total customer rides originating at non-tourist stations, aggregated by season. Summer shows the highest volume, with winter substantially lower.
+  Total **[Customer](../glossary.qmd#glossary-customer)** rides originating at non-tourist stations, aggregated by season. Summer shows the highest volume, with winter substantially lower.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This bar chart summarizes the total ride volume by season for customers using non-tourist stations. It helps illustrate seasonal variability in casual riding behavior.
+This bar chart summarizes the total ride volume by season for Customers using non-tourist stations. It helps illustrate seasonal variability in Customer riding behavior.
 
 ##### Chart Details
 
@@ -21,7 +21,7 @@ This bar chart summarizes the total ride volume by season for customers using no
 
 ##### Purpose
 
-This chart highlights how seasonal factors influence casual ridership, such as weather and daylight availability, independent of tourist activity.
+This chart highlights how seasonal factors influence Customer ridership, such as weather and daylight availability, independent of tourist activity.
 
 ###### Observations
 
@@ -32,7 +32,7 @@ This chart highlights how seasonal factors influence casual ridership, such as w
 
 ##### Interpretation
 
--  The strong seasonal trend underscores the importance of temperature and daylight in casual rider behavior.
+-  The strong seasonal trend underscores the importance of temperature and daylight in Customer behavior.
 -  Even excluding tourist hotspots, ridership in summer triples or quadruples winter levels.
 -  These patterns can inform resource allocation (e.g., rebalancing bikes) and maintenance scheduling.
 

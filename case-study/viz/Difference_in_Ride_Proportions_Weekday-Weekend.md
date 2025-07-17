@@ -26,7 +26,7 @@ This heatmap shows the **proportional difference in ride volume** by hour of the
 
 - **Weekday-dominant hours:**
   - Strong peaks in the **morning (7–9 AM)** and **late afternoon (4–6 PM)**.
-  - Consistent with commuter patterns among customers using non-tourist stations.
+  - Consistent with commuter patterns among Customers using non-tourist stations.
 
 - **Weekend-dominant hours:**
   - Midday and early afternoon (**10 AM–3 PM**) show higher weekend share, likely indicating recreational or leisure use.
@@ -37,13 +37,13 @@ This heatmap shows the **proportional difference in ride volume** by hour of the
 ##### Interpretation
 
 - This chart highlights the **behavioral shift** between weekdays and weekends.
-- Even when weekends have high total ride volume, customers distribute their rides more evenly across midday hours.
+- Even when weekends have high total ride volume, Customers distribute their rides more evenly across midday hours.
 - Weekdays concentrate ridership in commute-related time blocks.
 
 ##### Data Sources
 
 - **rides** table filtered for:
-  - `user_type = 1` (customer)
+  - `user_type = 1` (Customer)
   - Non-tourist stations (start and end)
   - Rides after `2023-01-01`
 - Derived tables:

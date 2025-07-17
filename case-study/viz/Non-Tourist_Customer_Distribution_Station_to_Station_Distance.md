@@ -2,16 +2,16 @@
 
 <figure class="float-right">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of distances between start and end stations for non-tourist customer rides. The curve peaks around 1–2 km and tapers off rapidly above 5 km.">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of distances between start and end stations for non-tourist Customer rides. The curve peaks around 1–2 km and tapers off rapidly above 5 km.">
   </a>
   <figcaption>
-    Distribution of station-to-station distances for non-tourist customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
+    Distribution of station-to-station distances for non-tourist Customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
   </figcaption>
 </figure>
 
 ##### Overview
 
-This density plot visualizes the distribution of **station-to-station distances** for rides taken by **customer (non-subscriber) riders** that do not involve tourist stations. The x-axis represents the distance in kilometers, and the y-axis shows the relative density of rides occurring at each distance.
+This density plot visualizes the distribution of **station-to-station distances** for rides taken by **[Customer](../glossary.qmd#glossary-customer)** that do not involve tourist stations. The x-axis represents the distance in kilometers, and the y-axis shows the relative density of rides occurring at each distance.
 
 ##### Chart Details
 
@@ -21,7 +21,7 @@ This density plot visualizes the distribution of **station-to-station distances*
 
 ##### Purpose
 
-This chart highlights the typical distance casual riders travel between stations when tourist hotspots are excluded, revealing patterns in local, everyday bike-share use.
+This chart highlights the typical distance Customers travel between stations when tourist hotspots are excluded, revealing patterns in local, everyday bike-share use.
 
 ##### Observations
 
@@ -33,7 +33,7 @@ This chart highlights the typical distance casual riders travel between stations
 ##### Interpretation
 
 - The pronounced twin peaks around 1 km suggests **short-distance, utility-oriented trips**, like errands or first-/last-mile commuting.
-- The long but thin tail implies that while occasional longer rides occur, they are uncommon among non-tourist customer riders.
+- The long but thin tail implies that while occasional longer rides occur, they are uncommon among non-tourist Customers.
 - The lack of a multiple wide spaced peaks differentiates this distribution from tourist-heavy patterns, which often show multiple modes due to popular routes.
 
 ##### Technical Notes

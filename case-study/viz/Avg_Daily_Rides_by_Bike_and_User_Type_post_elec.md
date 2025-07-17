@@ -2,15 +2,15 @@
 
 <figure class="float-right">
   <a href="../images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both customers and subscribers, while docked bikes are used primarily by customers.">
+  <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both Customers and Subscribers, while docked bikes are used primarily by Customers.">
   </a>
   <figcaption>
-  Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among subscribers, while electric modes see substantial adoption by both user groups.
+  Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among Subscribers, while electric modes see substantial adoption by both user groups.
   </figcaption>
 </figure>
 
 ##### Overview
-This bar chart displays the **average number of daily rides** by **bike type**, grouped by **user type** (Subscriber vs. Customer), for the period after the introduction of electric bikes and scooters.
+This bar chart displays the **average number of daily rides** by **bike type**, grouped by **user type** ([Subscriber](../glossary.qmd#glossary-subscriber) vs. [Customer](../glossary.qmd#glossary-customer)), for the period after the introduction of electric bikes and scooters.
 
 ##### Axes and Groupings
 
