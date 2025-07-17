@@ -1,6 +1,6 @@
-## Provenance of normalized_df
+#### Provenance of normalized_df
 
-### `normalized_df`
+##### `normalized_df`
 
 **Description:**  
 A normalized version of average ride counts across temperature bins, prepared for comparative visualization.
@@ -19,7 +19,7 @@ A normalized version of average ride counts across temperature bins, prepared fo
 
 - **Code:**
 
-  ```r
+```r
   avg_df  <- readr::read_csv("/data/temp_vs_rides_avg.csv")
   normalized_df <- avg_df %>%
     mutate(across(c(subs, cust, avg), ~ (. - min(.)) / (max(.) - min(.)))) %>%

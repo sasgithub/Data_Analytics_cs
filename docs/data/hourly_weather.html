@@ -155,14 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-for-hourly_weather-table-and-data-frame" id="toc-provenance-for-hourly_weather-table-and-data-frame" class="nav-link active" data-scroll-target="#provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -170,10 +164,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-for-hourly_weather-table-and-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<section id="provenance-for-hourly_weather-table-and-data-frame" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h4>
+<section id="data-origin" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <ul>
 <li><strong>Source File:</strong><br>
 <code>midway_weather.csv</code> (downloaded from Meteostat bulk data interface)<br>
@@ -182,8 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind Direction, Wind Speed, Peak Wind Gust, Pressure, Sunshine Minutes, Weather Code</li>
 </ul>
 </section>
-<section id="processing-and-cleaning-steps" class="level3">
-<h3 class="anchored" data-anchor-id="processing-and-cleaning-steps">Processing and Cleaning Steps</h3>
+<section id="processing-and-cleaning-steps" class="level5">
+<h5 class="anchored" data-anchor-id="processing-and-cleaning-steps">Processing and Cleaning Steps</h5>
 <ol type="1">
 <li><strong>Field Selection and Removal</strong>
 <ul>
@@ -224,12 +218,12 @@ Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind
 </ul></li>
 </ol>
 </section>
-<section id="how-this-fits-into-the-flow" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h3>
+<section id="how-this-fits-into-the-flow" class="level5">
+<h5 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h5>
 <p>This table was used as the authoritative hourly weather reference for: - Joining with hourly aggregated ride counts (<code>rides_per_hour</code> view). - Creating the <code>rides_weather</code> view combining weather and ridership patterns. - Supporting time series and correlation analyses of temperature, precipitation, and ride volume.</p>
 </section>
-<section id="steps-used" class="level3">
-<h3 class="anchored" data-anchor-id="steps-used">Steps Used</h3>
+<section id="steps-used" class="level5">
+<h5 class="anchored" data-anchor-id="steps-used">Steps Used</h5>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/midway_weather.csv"</span>, stringsAsFac</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">tors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(df)</span>

@@ -164,6 +164,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="file-post_electric_rides_df.rds" class="level4">
+<h4 class="anchored" data-anchor-id="file-post_electric_rides_df.rds"><strong>File:</strong> <code>post_electric_rides_df.rds</code></h4>
 <p>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
@@ -184,6 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

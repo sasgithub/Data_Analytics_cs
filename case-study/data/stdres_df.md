@@ -13,7 +13,7 @@ This data frame contains the standardized residuals from a chi-squared test of t
      - Columns = Weekday and Weekend ride counts.
    - Fill any missing counts with zero.
 
-   ```r
+```r
 # Start with rides_by_hour_weekpart (24 rows: one per hour)
 # Pivot so each hour has columns for Weekday and Weekend counts
 ride_matrix <- rides_by_hour_weekpart %>%
@@ -59,9 +59,11 @@ stdres_df <- as.data.frame(test_result$stdres)
 **Attach Hour Labels:**
 
   -  Added an hour column (0–23) for clarity.
+
 ```r
        stdres_df$hour <- 0:23
 ```
+
 **Columns in stdres_df:**
 
   -  Weekday: Standardized residuals for Weekday counts.

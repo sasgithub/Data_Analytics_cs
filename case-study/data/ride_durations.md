@@ -1,10 +1,10 @@
-## Provenance for `ride_durations`
+#### Provenance for `ride_durations`
 
-### Data Origin
+##### Data Origin
 - **Source Table:**  
   `rides` table in the SQLite database  
 
-### Query Details
+##### Query Details
 This query extracted per-trip durations in minutes with the following conditions:
 
 - **user_type:**  
@@ -14,21 +14,21 @@ This query extracted per-trip durations in minutes with the following conditions
   - Excluded records where `end_time <= start_time` (negative or zero durations).
   - Excluded unusually long rides (over ~3.3 hours), specifically durations ≥ 12,000 seconds.
 
-### Selected Fields
+##### Selected Fields
 - `user_type` (converted to label: subscriber or customer)
 - `duration_min`: Ride duration in minutes, computed as  
   ```
   (end_time - start_time) / 60.0
   ```
 
-### Purpose and Use
+##### Purpose and Use
 This dataset was used to:
 
 - Summarize ride duration distributions by user type.
 - Create histograms and density plots.
 - Calculate summary statistics (mean, median, percentiles) of trip durations.
 
-### Command Used
+##### Command Used
 
 ```r
 # Connect to the SQLite database

@@ -1,12 +1,12 @@
-## Provenance for `top_stations_df`
+### Provenance for `top_stations_df`
 
-### Data Origin
+#### Data Origin
 - **Source Tables:**  
 
   - `rides` table (trip records)  
   - `stations` table (station metadata)  
 
-### Query Details
+#### Query Details
 This query identified the 50 most-used start stations for each user type.
 
 **Steps:**
@@ -27,7 +27,7 @@ This query identified the 50 most-used start stations for each user type.
 
    - Selected only rows where the rank (`rn`) was ≤ 50.
 
-### Selected Fields
+#### Selected Fields
 - `station_id`: Unique ID of the station.
 - `name`: Station name.
 - `lat`, `long`: Latitude and longitude of the station.
@@ -35,7 +35,7 @@ This query identified the 50 most-used start stations for each user type.
 - `ride_count`: Total number of rides starting at this station for the user type.
 - `rn`: Rank within the top 50 for the user type.
 
-### Purpose and Use
+#### Purpose and Use
 This dataset was used to:
 
 - Highlight the highest-volume stations by user segment.
@@ -43,7 +43,7 @@ This dataset was used to:
 - Support station targeting strategies and user behavior analysis.
 
 
-### Command Used
+#### Command Used
 
 ```r
 query <- "

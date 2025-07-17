@@ -155,14 +155,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-for-ride_durations" id="toc-provenance-for-ride_durations" class="nav-link active" data-scroll-target="#provenance-for-ride_durations">Provenance for <code>ride_durations</code></a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -170,17 +164,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-for-ride_durations" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<section id="provenance-for-ride_durations" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h4>
+<section id="data-origin" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <ul>
 <li><strong>Source Table:</strong><br>
 <code>rides</code> table in the SQLite database</li>
 </ul>
 </section>
-<section id="query-details" class="level3">
-<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
+<section id="query-details" class="level5">
+<h5 class="anchored" data-anchor-id="query-details">Query Details</h5>
 <p>This query extracted per-trip durations in minutes with the following conditions:</p>
 <ul>
 <li><p><strong>user_type:</strong><br>
@@ -192,16 +186,16 @@ Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>
 </ul></li>
 </ul>
 </section>
-<section id="selected-fields" class="level3">
-<h3 class="anchored" data-anchor-id="selected-fields">Selected Fields</h3>
+<section id="selected-fields" class="level5">
+<h5 class="anchored" data-anchor-id="selected-fields">Selected Fields</h5>
 <ul>
 <li><p><code>user_type</code> (converted to label: subscriber or customer)</p></li>
 <li><p><code>duration_min</code>: Ride duration in minutes, computed as</p>
 <pre><code>(end_time - start_time) / 60.0</code></pre></li>
 </ul>
 </section>
-<section id="purpose-and-use" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h3>
+<section id="purpose-and-use" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h5>
 <p>This dataset was used to:</p>
 <ul>
 <li>Summarize ride duration distributions by user type.</li>
@@ -209,8 +203,8 @@ Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>
 <li>Calculate summary statistics (mean, median, percentiles) of trip durations.</li>
 </ul>
 </section>
-<section id="command-used" class="level3">
-<h3 class="anchored" data-anchor-id="command-used">Command Used</h3>
+<section id="command-used" class="level5">
+<h5 class="anchored" data-anchor-id="command-used">Command Used</h5>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>

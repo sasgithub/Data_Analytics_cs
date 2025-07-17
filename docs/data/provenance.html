@@ -161,31 +161,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link active" data-scroll-target="#data-provenance">Data Provenance</a></li>
-  <li><a href="#provenance-for-hourly_weather-table-and-data-frame" id="toc-provenance-for-hourly_weather-table-and-data-frame" class="nav-link" data-scroll-target="#provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</a></li>
   <li><a href="#provenance-binned_rides-r-data-frame" id="toc-provenance-binned_rides-r-data-frame" class="nav-link" data-scroll-target="#provenance-binned_rides-r-data-frame">Provenance: <code>binned_rides</code> R Data Frame</a></li>
   <li><a href="#provenance-density_df" id="toc-provenance-density_df" class="nav-link" data-scroll-target="#provenance-density_df">Provenance: <code>density_df</code></a></li>
-  <li><a href="#provenance-for-non_loop_rides_df" id="toc-provenance-for-non_loop_rides_df" class="nav-link" data-scroll-target="#provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</a></li>
   <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</a></li>
-  <li><a href="#provenance-of-normalized_df" id="toc-provenance-of-normalized_df" class="nav-link" data-scroll-target="#provenance-of-normalized_df">Provenance of normalized_df</a></li>
   <li><a href="#provenance-peak_df" id="toc-provenance-peak_df" class="nav-link" data-scroll-target="#provenance-peak_df">Provenance: <code>peak_df</code></a></li>
   <li><a href="#provenance-ride_counts_by_distance" id="toc-provenance-ride_counts_by_distance" class="nav-link" data-scroll-target="#provenance-ride_counts_by_distance">Provenance: <code>ride_counts_by_distance</code></a></li>
-  <li><a href="#provenance-for-ride_durations" id="toc-provenance-for-ride_durations" class="nav-link" data-scroll-target="#provenance-for-ride_durations">Provenance for <code>ride_durations</code></a></li>
   <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
   <li><a href="#provenance-stdres_df-r-data-frame" id="toc-provenance-stdres_df-r-data-frame" class="nav-link" data-scroll-target="#provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</a></li>
-  <li><a href="#now-ride_matrix-looks-like" id="toc-now-ride_matrix-looks-like" class="nav-link" data-scroll-target="#now-ride_matrix-looks-like">Now ride_matrix looks like:</a></li>
-  <li><a href="#weekday-weekend" id="toc-weekday-weekend" class="nav-link" data-scroll-target="#weekday-weekend">Weekday Weekend</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">0 123 45</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">1 100 42</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">…</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">23 89 30</a></li>
-  <li><a href="#perform-the-chi-squared-test-of-independence" id="toc-perform-the-chi-squared-test-of-independence" class="nav-link" data-scroll-target="#perform-the-chi-squared-test-of-independence">Perform the chi-squared test of independence</a></li>
-  <li><a href="#extract-standardized-residuals-measure-of-deviation" id="toc-extract-standardized-residuals-measure-of-deviation" class="nav-link" data-scroll-target="#extract-standardized-residuals-measure-of-deviation">Extract standardized residuals (measure of deviation)</a></li>
-  <li><a href="#re-attach-hour-labels-to-the-residuals" id="toc-re-attach-hour-labels-to-the-residuals" class="nav-link" data-scroll-target="#re-attach-hour-labels-to-the-residuals">Re-attach hour labels to the residuals</a></li>
-  <li><a href="#the-resulting-stdres_df-contains" id="toc-the-resulting-stdres_df-contains" class="nav-link" data-scroll-target="#the-resulting-stdres_df-contains">The resulting stdres_df contains:</a></li>
-  <li><a href="#weekday-residuals-weekend-residuals-and-the-hour" id="toc-weekday-residuals-weekend-residuals-and-the-hour" class="nav-link" data-scroll-target="#weekday-residuals-weekend-residuals-and-the-hour">Weekday residuals, Weekend residuals, and the hour</a>
-  <ul class="collapse">
-  <li><a href="#provenance-for-top_stations_df" id="toc-provenance-for-top_stations_df" class="nav-link" data-scroll-target="#provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -325,12 +307,10 @@ The <code>rides</code> table is the master record of all individual bike trips i
 </ul>
 <p><strong>Usage Notes:</strong> - This table underpins nearly all downstream datasets (e.g., ride duration analysis, temporal aggregations, distance distributions). - Records are filtered further in analysis scripts (e.g., non-tourist rides, loop rides). - The <code>user_type</code> numeric code simplifies grouping and pivoting.</p>
 <p><strong>See Also:</strong> - <a href="../data.html#2-2-divvy-trip-data">Section 2.2 of the Data Sources page</a> for more detail on the raw files and schema. - <a href="../data.html#3-2-divvy-trip-data-cleaning-and-harmonization">Section 3.2</a> for full cleaning and harmonization process.</p>
-</section>
-</section>
-<section id="provenance-for-hourly_weather-table-and-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<section id="provenance-for-hourly_weather-table-and-data-frame" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h4>
+<section id="data-origin" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <ul>
 <li><strong>Source File:</strong><br>
 <code>midway_weather.csv</code> (downloaded from Meteostat bulk data interface)<br>
@@ -339,8 +319,8 @@ The <code>rides</code> table is the master record of all individual bike trips i
 Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind Direction, Wind Speed, Peak Wind Gust, Pressure, Sunshine Minutes, Weather Code</li>
 </ul>
 </section>
-<section id="processing-and-cleaning-steps" class="level3">
-<h3 class="anchored" data-anchor-id="processing-and-cleaning-steps">Processing and Cleaning Steps</h3>
+<section id="processing-and-cleaning-steps" class="level5">
+<h5 class="anchored" data-anchor-id="processing-and-cleaning-steps">Processing and Cleaning Steps</h5>
 <ol type="1">
 <li><strong>Field Selection and Removal</strong>
 <ul>
@@ -381,12 +361,12 @@ Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind
 </ul></li>
 </ol>
 </section>
-<section id="how-this-fits-into-the-flow" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h3>
+<section id="how-this-fits-into-the-flow" class="level5">
+<h5 class="anchored" data-anchor-id="how-this-fits-into-the-flow">How this fits into the flow</h5>
 <p>This table was used as the authoritative hourly weather reference for: - Joining with hourly aggregated ride counts (<code>rides_per_hour</code> view). - Creating the <code>rides_weather</code> view combining weather and ridership patterns. - Supporting time series and correlation analyses of temperature, precipitation, and ride volume.</p>
 </section>
-<section id="steps-used" class="level3">
-<h3 class="anchored" data-anchor-id="steps-used">Steps Used</h3>
+<section id="steps-used" class="level5">
+<h5 class="anchored" data-anchor-id="steps-used">Steps Used</h5>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/midway_weather.csv"</span>, stringsAsFac</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">tors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(df)</span>
@@ -432,6 +412,8 @@ Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="st">+   )</span></span>
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="st">+ "</span>)</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dbWriteTable</span>(con, <span class="st">"hourly_weather"</span>, df, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 </section>
 <section id="rides_per_hour_tbl-table" class="level3">
 <h3 class="anchored" data-anchor-id="rides_per_hour_tbl-table">rides_per_hour_tbl Table</h3>
@@ -770,6 +752,8 @@ Same columns as <code>asym_data</code>, plus:<br>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">customer =</span> cust</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Usage:</strong> binned_rides was used to create line plots comparing ride volume across temperature bins by user type.</p>
+<section id="data-frame-daily_avg_df" class="level4">
+<h4 class="anchored" data-anchor-id="data-frame-daily_avg_df"><strong>Data Frame:</strong> <code>daily_avg_df</code></h4>
 <p>Average number of rides per day since January 2023, grouped by user type and bike type.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
@@ -785,6 +769,7 @@ Same columns as <code>asym_data</code>, plus:<br>
 <li>Comparison of subscriber and casual user behaviors in the e-bike era.</li>
 <li>Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.</li>
 </ul>
+</section>
 </section>
 <section id="provenance-density_df" class="level2">
 <h2 class="anchored" data-anchor-id="provenance-density_df">Provenance: <code>density_df</code></h2>
@@ -866,12 +851,10 @@ Provides a concise summary of ride duration behavior across different rider cate
 <li><code>attraction</code> (name of nearby attraction)</li>
 </ul>
 <p>Conveniently available as <a href="nearby_stations_df.rds">nearby_stations_df.rds</a> for your importing pleasure.</p>
-</section>
-</section>
-<section id="provenance-for-non_loop_rides_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h2>
-<section id="data-origin-1" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin-1">Data Origin</h3>
+<section id="provenance-for-non_loop_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h4>
+<section id="data-origin-1" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin-1">Data Origin</h5>
 <p>** Source Table:** 1 Start with non_tourist_customer_rides_df</p>
 <ul>
 <li>This already had:
@@ -881,18 +864,44 @@ Provides a concise summary of ride duration behavior across different rider cate
 </ul></li>
 </ul>
 <p>2 Filter out loop rides</p>
-<p>non_loop_rides_df &lt;- non_tourist_customer_rides_df %&gt;% filter(start_station_id != end_station_id)</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(start_station_id <span class="sc">!=</span> end_station_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Only rides starting and ending at different stations</code></pre>
 <p>3 Attach start and end station coordinates from stations_df</p>
-<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% left_join( stations_df %&gt;% rename( start_station_id = station_id, start_lat = lat, start_long = long ), by = “start_station_id” ) %&gt;% left_join( stations_df %&gt;% rename( end_station_id = station_id, end_lat = lat, end_long = long ), by = “end_station_id” )</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    stations_df <span class="sc">%&gt;%</span> <span class="fu">rename</span>(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_station_id =</span> station_id,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_lat =</span> lat,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_long =</span> long</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"start_station_id"</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    stations_df <span class="sc">%&gt;%</span> <span class="fu">rename</span>(</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_station_id =</span> station_id,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_lat =</span> lat,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_long =</span> long</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"end_station_id"</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Added start and end lat/lon
 Computed haversine distance</code></pre>
 <p>4 Recompute distance</p>
-<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% mutate( distance_m = distHaversine( matrix(c(start_long, start_lat), ncol = 2), matrix(c(end_long, end_lat), ncol = 2) ), distance_km = distance_m / 1000 )</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_m =</span> <span class="fu">distHaversine</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">matrix</span>(<span class="fu">c</span>(start_long, start_lat), <span class="at">ncol =</span> <span class="dv">2</span>),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">matrix</span>(<span class="fu">c</span>(end_long, end_lat), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_km =</span> distance_m <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) </code></pre>
+</section>
+</section>
 </section>
 </section>
 <section id="provenance-for-non_tourist_customer_rides_df" class="level2">
@@ -935,28 +944,26 @@ Computed haversine distance</code></pre>
 <li>rides_by_hour_season</li>
 </ul>
 <p>** Full Query Text **</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rides_query <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">" </span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="st">     ride_id,</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">     start_time,</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="st">     end_time,</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">     start_station_id,</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">     end_station_id,</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">     bike_type</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">   FROM rides</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="st">   WHERE user_type = 1</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_station_id IN (%s)</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="st">     AND end_station_id IN (%s)</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_time &gt;= strftime('%%s', '2023-01-01')</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="provenance-of-normalized_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-of-normalized_df">Provenance of normalized_df</h2>
-<section id="normalized_df" class="level3">
-<h3 class="anchored" data-anchor-id="normalized_df"><code>normalized_df</code></h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>rides_query <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">" </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="st">   SELECT</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="st">     ride_id,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="st">     start_time,</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="st">     end_time,</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="st">     start_station_id,</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="st">     end_station_id,</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="st">     bike_type</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="st">   FROM rides</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="st">   WHERE user_type = 1</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_station_id IN (%s)</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="st">     AND end_station_id IN (%s)</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="st">     AND start_time &gt;= strftime('%%s', '2023-01-01')</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="provenance-of-normalized_df" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-of-normalized_df">Provenance of normalized_df</h4>
+<section id="normalized_df" class="level5">
+<h5 class="anchored" data-anchor-id="normalized_df"><code>normalized_df</code></h5>
 <p><strong>Description:</strong><br>
 A normalized version of average ride counts across temperature bins, prepared for comparative visualization.</p>
 <p><strong>Provenance Details:</strong></p>
@@ -970,16 +977,18 @@ A normalized version of average ride counts across temperature bins, prepared fo
 <li>Applied min-max normalization (0–1 scale) to three columns: <code>subs</code>, <code>cust</code>, and <code>avg</code>.</li>
 <li>Reshaped the data from wide to long format using <code>pivot_longer</code>, producing a unified <code>user_type</code> column and corresponding <code>normalized_rides</code> values.</li>
 </ul></li>
-<li><p><strong>Code:</strong></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>avg_df  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"/data/temp_vs_rides_avg.csv"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>normalized_df <span class="ot">&lt;-</span> avg_df <span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(subs, cust, avg), <span class="sc">~</span> (. <span class="sc">-</span> <span class="fu">min</span>(.)) <span class="sc">/</span> (<span class="fu">max</span>(.) <span class="sc">-</span> <span class="fu">min</span>(.)))) <span class="sc">%&gt;%</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(subs, cust, avg), <span class="at">names_to =</span> <span class="st">"user_type"</span>, <span class="at">values_to =</span> <span class="st">"normalized_rides"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Code:</strong></p></li>
 </ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>  avg_df  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"/data/temp_vs_rides_avg.csv"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  normalized_df <span class="ot">&lt;-</span> avg_df <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(subs, cust, avg), <span class="sc">~</span> (. <span class="sc">-</span> <span class="fu">min</span>(.)) <span class="sc">/</span> (<span class="fu">max</span>(.) <span class="sc">-</span> <span class="fu">min</span>(.)))) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(subs, cust, avg), <span class="at">names_to =</span> <span class="st">"user_type"</span>, <span class="at">values_to =</span> <span class="st">"normalized_rides"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Purpose:</strong></p>
 <ul>
 <li>To enable fair visual comparison of ride volume trends across user types regardless of absolute scale.</li>
 </ul>
+</section>
+</section>
 </section>
 </section>
 <section id="provenance-peak_df" class="level2">
@@ -1027,20 +1036,22 @@ A wide-format data frame comparing the proportion of rides by hour between weekd
 <p><strong>Purpose:</strong><br>
 Enables straightforward comparison of ridership distribution by hour across weekdays and weekends, supporting visualizations and further analysis of temporal usage patterns.</p>
 <p><strong>Command Used</strong></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prop_wide <span class="ot">&lt;-</span> ride_props <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(hour, week_part, prop) <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> week_part, <span class="at">values_from =</span> prop) <span class="sc">%&gt;%</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Weekday <span class="sc">-</span> Weekend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>prop_wide <span class="ot">&lt;-</span> ride_props <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(hour, week_part, prop) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> week_part, <span class="at">values_from =</span> prop) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Weekday <span class="sc">-</span> Weekend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="file-post_electric_rides_df.rds" class="level4">
+<h4 class="anchored" data-anchor-id="file-post_electric_rides_df.rds"><strong>File:</strong> <code>post_electric_rides_df.rds</code></h4>
 <p>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="st">   bike_type,</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="st">   COUNT(*) AS ride_count,</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="st">   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="st">   bike_type,</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="st">   COUNT(*) AS ride_count,</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="st">   AVG((end_time - start_time) / 60.0) AS avg_duration_minutes</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="st">FROM rides</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE start_time &gt;= strftime('%s', '2023-01-01') -- first e-bike appeared</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY ride_date, user_type, bike_type;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Rationale for January 2023 Start Date</strong></p>
 <p>Electric bikes (e-bikes) were introduced into the Divvy fleet starting in January 2023. Because the adoption of e-bikes significantly affected ride patterns, trip frequency, duration, and user preferences, the analysis of post-2023 ride data was separated from earlier periods to ensure clear attribution of trends.</p>
 <p>The post_electric_rides_df and daily_avg_df data frames were derived exclusively from rides after this introduction date. This separation allows for:</p>
@@ -1049,6 +1060,7 @@ Enables straightforward comparison of ridership distribution by hour across week
 <li>Comparison of subscriber and casual user behaviors in the e-bike era.</li>
 <li>Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.</li>
 </ul>
+</section>
 </section>
 </section>
 <section id="provenance-ride_counts_by_distance" class="level2">
@@ -1065,7 +1077,7 @@ This data frame was created to analyze the distribution of ride distances:</p>
 <li><strong>Binning:</strong>
 <ul>
 <li><p>Distances are binned in 0.1 km increments:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This bins values like 1.04 km and 1.06 km into 1.0 km and 1.1 km respectively.</p></li>
 </ul></li>
 <li><strong>Aggregation:</strong>
@@ -1076,22 +1088,21 @@ This data frame was created to analyze the distribution of ride distances:</p>
 <p><strong>Purpose:</strong><br>
 This summary enables visualization or statistical analysis of how ride frequency varies with distance, and is useful for understanding behavioral patterns like the most common trip lengths among casual non-tourist users.</p>
 <p><strong>Code Used</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="provenance-for-ride_durations" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h2>
-<section id="data-origin-3" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin-3">Data Origin</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ride_counts_by_distance <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="provenance-for-ride_durations" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h4>
+<section id="data-origin-3" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin-3">Data Origin</h5>
 <ul>
 <li><strong>Source Table:</strong><br>
 <code>rides</code> table in the SQLite database</li>
 </ul>
 </section>
-<section id="query-details-1" class="level3">
-<h3 class="anchored" data-anchor-id="query-details-1">Query Details</h3>
+<section id="query-details-1" class="level5">
+<h5 class="anchored" data-anchor-id="query-details-1">Query Details</h5>
 <p>This query extracted per-trip durations in minutes with the following conditions:</p>
 <ul>
 <li><p><strong>user_type:</strong><br>
@@ -1103,16 +1114,16 @@ Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>
 </ul></li>
 </ul>
 </section>
-<section id="selected-fields" class="level3">
-<h3 class="anchored" data-anchor-id="selected-fields">Selected Fields</h3>
+<section id="selected-fields" class="level5">
+<h5 class="anchored" data-anchor-id="selected-fields">Selected Fields</h5>
 <ul>
 <li><p><code>user_type</code> (converted to label: subscriber or customer)</p></li>
 <li><p><code>duration_min</code>: Ride duration in minutes, computed as</p>
 <pre><code>(end_time - start_time) / 60.0</code></pre></li>
 </ul>
 </section>
-<section id="purpose-and-use" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h3>
+<section id="purpose-and-use" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h5>
 <p>This dataset was used to:</p>
 <ul>
 <li>Summarize ride duration distributions by user type.</li>
@@ -1120,24 +1131,25 @@ Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>
 <li>Calculate summary statistics (mean, median, percentiles) of trip durations.</li>
 </ul>
 </section>
-<section id="command-used" class="level3">
-<h3 class="anchored" data-anchor-id="command-used">Command Used</h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="st">    (end_time - start_time) / 60.0 AS duration_min</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE user_type IN (0, 1)</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="st">    AND end_time &gt; start_time</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="st">    AND (end_time - start_time) &lt; 12000</span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="command-used" class="level5">
+<h5 class="anchored" data-anchor-id="command-used">Command Used</h5>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the SQLite database</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">"caseStudy.db"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull ride durations for valid subscriber/customer rides under 200 min</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>ride_durations <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="st">    (end_time - start_time) / 60.0 AS duration_min</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="st">  WHERE user_type IN (0, 1)</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="st">    AND end_time &gt; start_time</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">    AND (end_time - start_time) &lt; 12000</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="ride_props" class="level3">
 <h3 class="anchored" data-anchor-id="ride_props"><code>ride_props</code></h3>
@@ -1153,11 +1165,11 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 <li>Computed the proportion of rides within each hour by dividing <code>ride_count</code> by the sum of <code>ride_count</code> in that week part.</li>
 </ul></li>
 <li><p><strong>Code:</strong></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ride_props <span class="ot">&lt;-</span> rides_by_hour_weekpart <span class="sc">%&gt;%</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part) <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">prop =</span> ride_count <span class="sc">/</span> <span class="fu">sum</span>(ride_count)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ride_props <span class="ot">&lt;-</span> rides_by_hour_weekpart <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">prop =</span> ride_count <span class="sc">/</span> <span class="fu">sum</span>(ride_count)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Purpose:</strong></p>
 <ul>
 <li>To facilitate comparison of hourly ride distribution between weekdays and weekends by normalizing counts into proportions.</li>
@@ -1197,18 +1209,18 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 </ul>
 <p>The resulting <code>rides_by_hour_season</code> data frame shows how ride volumes vary over the year and time of week/day.</p>
 <p><strong>Command Used</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_season <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="at">week_part =</span> <span class="fu">if_else</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">"Weekday"</span>, <span class="st">"Weekend"</span>),</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="at">season =</span> <span class="fu">case_when</span>(</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"Winter"</span>,</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">"Spring"</span>,</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">"Summer"</span>,</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>) <span class="sc">~</span> <span class="st">"Fall"</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(season, week_part, hour, <span class="at">name =</span> <span class="st">"ride_count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_season <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="at">week_part =</span> <span class="fu">if_else</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">"Weekday"</span>, <span class="st">"Weekend"</span>),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="at">season =</span> <span class="fu">case_when</span>(</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">~</span> <span class="st">"Winter"</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">~</span> <span class="st">"Spring"</span>,</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>) <span class="sc">~</span> <span class="st">"Summer"</span>,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">month</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>) <span class="sc">~</span> <span class="st">"Fall"</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(season, week_part, hour, <span class="at">name =</span> <span class="st">"ride_count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rides_by_hour_weekpart" class="level3">
 <h3 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h3>
@@ -1218,11 +1230,11 @@ Hourly ride counts for non-tourist customer trips, separated into weekday and we
 <p><strong>Purpose:</strong><br>
 This dataset is used to: - Analyze temporal riding patterns by day type. - Support visualization of hourly ride distributions. - Form the basis for calculating ride proportions (<code>ride_props</code>) and difference metrics (<code>prop_wide</code>).</p>
 <p>** Command Used**</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_weekpart <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">week_part =</span> <span class="fu">ifelse</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="st">"Weekend"</span>, <span class="st">"Weekday"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part, hour) <span class="sc">%&gt;%</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">ride_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rides_by_hour_weekpart <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(start_localtime),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">week_part =</span> <span class="fu">ifelse</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="st">"Weekend"</span>, <span class="st">"Weekday"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part, hour) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">ride_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="provenance-rides_weather_df" class="level2">
@@ -1246,9 +1258,9 @@ This view joins hourly weather observations to hourly ride counts:<br>
 - <code>coco</code> (weather condition code)</p>
 <p><strong>How Imported:</strong><br>
 Although no explicit import code was found in the logs, usage patterns strongly indicate it was loaded using a direct table read in R, for example:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, <span class="st">"rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>or</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>rides_weather_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM rides_weather"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Usage in Analysis:</strong> This dataframe was used as the basis for:</p>
 <ul>
 <li>Binning temperatures (floor(temp/2)*2) to create temperature histograms and line plots</li>
@@ -1294,59 +1306,50 @@ It serves as the basis for filtering rides and identifying top stations less lik
 <li>Columns = Weekday and Weekend ride counts.</li>
 </ul></li>
 <li>Fill any missing counts with zero.</li>
-</ul>
-```r # Start with rides_by_hour_weekpart (24 rows: one per hour) # Pivot so each hour has columns for Weekday and Weekend counts ride_matrix &lt;- rides_by_hour_weekpart %&gt;% tidyr::pivot_wider( names_from = week_part, values_from = ride_count, values_fill = 0 # fill missing combinations with 0 ) %&gt;% dplyr::arrange(hour) %&gt;% # ensure rows are in order by hour dplyr::select(-hour) %&gt;% # remove hour column so matrix is numeric as.matrix() # convert to numeric matrix (required for chisq.test)</li>
+</ul></li>
 </ol>
-</section>
-<section id="now-ride_matrix-looks-like" class="level1">
-<h1>Now ride_matrix looks like:</h1>
-</section>
-<section id="weekday-weekend" class="level1">
-<h1>Weekday Weekend</h1>
-</section>
-<section id="section" class="level1">
-<h1>0 123 45</h1>
-</section>
-<section id="section-1" class="level1">
-<h1>1 100 42</h1>
-</section>
-<section id="section-2" class="level1">
-<h1>…</h1>
-</section>
-<section id="section-3" class="level1">
-<h1>23 89 30</h1>
-</section>
-<section id="perform-the-chi-squared-test-of-independence" class="level1">
-<h1>Perform the chi-squared test of independence</h1>
-<p>test_result &lt;- chisq.test(ride_matrix)</p>
-</section>
-<section id="extract-standardized-residuals-measure-of-deviation" class="level1">
-<h1>Extract standardized residuals (measure of deviation)</h1>
-<p>stdres_df &lt;- as.data.frame(test_result$stdres)</p>
-</section>
-<section id="re-attach-hour-labels-to-the-residuals" class="level1">
-<h1>Re-attach hour labels to the residuals</h1>
-<p>stdres_df$hour &lt;- 0:23</p>
-</section>
-<section id="the-resulting-stdres_df-contains" class="level1">
-<h1>The resulting stdres_df contains:</h1>
-</section>
-<section id="weekday-residuals-weekend-residuals-and-the-hour" class="level1">
-<h1>Weekday residuals, Weekend residuals, and the hour</h1>
-<pre><code>
-**Chi-squared Test:**
-
-  -  Performed Pearson’s chi-squared test to check independence between hour of day and week part.
-  -  Extracted standardized residuals (measure of contribution to the chi-squared statistic).
-
-```r
-test_result &lt;- chisq.test(ride_matrix)
-stdres_df &lt;- as.data.frame(test_result$stdres)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with rides_by_hour_weekpart (24 rows: one per hour)</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot so each hour has columns for Weekday and Weekend counts</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>ride_matrix <span class="ot">&lt;-</span> rides_by_hour_weekpart <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> week_part,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> ride_count,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span>  <span class="co"># fill missing combinations with 0</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(hour) <span class="sc">%&gt;%</span>        <span class="co"># ensure rows are in order by hour</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>hour) <span class="sc">%&gt;%</span>        <span class="co"># remove hour column so matrix is numeric</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>()                     <span class="co"># convert to numeric matrix (required for chisq.test)</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Now ride_matrix looks like:</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="co">#       Weekday Weekend</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 0        123      45</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 1        100      42</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 23        89      30</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the chi-squared test of independence</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>test_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ride_matrix)</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract standardized residuals (measure of deviation)</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>stdres_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test_result<span class="sc">$</span>stdres)</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Re-attach hour labels to the residuals</span></span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>stdres_df<span class="sc">$</span>hour <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">23</span></span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="co"># The resulting stdres_df contains:</span></span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Weekday residuals, Weekend residuals, and the hour</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Chi-squared Test:</strong></p>
+<ul>
+<li>Performed Pearson’s chi-squared test to check independence between hour of day and week part.</li>
+<li>Extracted standardized residuals (measure of contribution to the chi-squared statistic).</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>test_result <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ride_matrix)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>stdres_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test_result<span class="sc">$</span>stdres)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Attach Hour Labels:</strong></p>
 <ul>
 <li>Added an hour column (0–23) for clarity.</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>       stdres_df<span class="sc">$</span>hour <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>       stdres_df<span class="sc">$</span>hour <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">23</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Columns in stdres_df:</strong></p>
 <ul>
 <li>Weekday: Standardized residuals for Weekday counts.</li>
@@ -1385,14 +1388,14 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 </ul></li>
 </ul>
 <p><strong>SQL Summary:</strong></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  start_station_id <span class="kw">AS</span> station_id,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> customer_ride_count</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> user_type <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> (start_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>non<span class="op">-</span>tourist station IDs<span class="op">&gt;</span>) <span class="kw">OR</span> end_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>same IDs<span class="op">&gt;</span>))</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> start_time <span class="op">&gt;=</span> strftime(<span class="st">'%s'</span>, <span class="st">'2023-01-01'</span>)</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> station_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  start_station_id <span class="kw">AS</span> station_id,</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> customer_ride_count</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> user_type <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> (start_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>non<span class="op">-</span>tourist station IDs<span class="op">&gt;</span>) <span class="kw">OR</span> end_station_id <span class="kw">IN</span> (<span class="op">&lt;</span>same IDs<span class="op">&gt;</span>))</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> start_time <span class="op">&gt;=</span> strftime(<span class="st">'%s'</span>, <span class="st">'2023-01-01'</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> station_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The resulting table <code>top_non_tourist_stations</code> lists each station along with the total number of customer rides associated with it, sorted in descending order (if subsequently sorted in R).</p>
 </section>
 <section id="provenance-top_non_tourist_stations_named" class="level3">
@@ -1401,10 +1404,10 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <p><strong>Transformation Steps:</strong> - <strong>Join:</strong> - Performed an <code>inner_join()</code> with <code>stations_df</code> on <code>station_id</code> to append station names and coordinates. - <strong>Sorting:</strong> - Sorted all rows by <code>customer_ride_count</code> in descending order. - <strong>Selection:</strong> - Retained only the top 25 stations with the highest customer ride counts.</p>
 <p>The resulting <code>top_non_tourist_stations_named</code> data frame contains the most popular non-tourist stations (by customer rides), including their names and location details.</p>
 </section>
-<section id="provenance-for-top_stations_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></h2>
-<section id="data-origin-4" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin-4">Data Origin</h3>
+<section id="provenance-for-top_stations_df" class="level3">
+<h3 class="anchored" data-anchor-id="provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></h3>
+<section id="data-origin-4" class="level4">
+<h4 class="anchored" data-anchor-id="data-origin-4">Data Origin</h4>
 <ul>
 <li><p><strong>Source Tables:</strong></p>
 <ul>
@@ -1414,8 +1417,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 </ul></li>
 </ul>
 </section>
-<section id="query-details-2" class="level3">
-<h3 class="anchored" data-anchor-id="query-details-2">Query Details</h3>
+<section id="query-details-2" class="level4">
+<h4 class="anchored" data-anchor-id="query-details-2">Query Details</h4>
 <p>This query identified the 50 most-used start stations for each user type.</p>
 <p><strong>Steps:</strong></p>
 <ol type="1">
@@ -1437,8 +1440,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 </ul></li>
 </ol>
 </section>
-<section id="selected-fields-1" class="level3">
-<h3 class="anchored" data-anchor-id="selected-fields-1">Selected Fields</h3>
+<section id="selected-fields-1" class="level4">
+<h4 class="anchored" data-anchor-id="selected-fields-1">Selected Fields</h4>
 <ul>
 <li><code>station_id</code>: Unique ID of the station.</li>
 <li><code>name</code>: Station name.</li>
@@ -1448,8 +1451,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <li><code>rn</code>: Rank within the top 50 for the user type.</li>
 </ul>
 </section>
-<section id="purpose-and-use-1" class="level3">
-<h3 class="anchored" data-anchor-id="purpose-and-use-1">Purpose and Use</h3>
+<section id="purpose-and-use-1" class="level4">
+<h4 class="anchored" data-anchor-id="purpose-and-use-1">Purpose and Use</h4>
 <p>This dataset was used to:</p>
 <ul>
 <li>Highlight the highest-volume stations by user segment.</li>
@@ -1457,29 +1460,30 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <li>Support station targeting strategies and user behavior analysis.</li>
 </ul>
 </section>
-<section id="command-used-1" class="level3">
-<h3 class="anchored" data-anchor-id="command-used-1">Command Used</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH ranked_stations AS (</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="st">    s.station_id,</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="st">    s.name,</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="st">    s.lat,</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="st">    s.long,</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS ride_count,</span></span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ROW_NUMBER() OVER (PARTITION BY user_type ORDER BY COUNT(*) DESC) AS rn</span></span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="st">  JOIN stations AS s ON rides.start_station_id = s.station_id</span></span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY s.station_id, user_type</span></span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT * FROM ranked_stations WHERE rn &lt;= 50;</span></span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="command-used-1" class="level4">
+<h4 class="anchored" data-anchor-id="command-used-1">Command Used</h4>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH ranked_stations AS (</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="st">    s.station_id,</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="st">    s.name,</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="st">    s.lat,</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="st">    s.long,</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="st">    CASE user_type</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 0 THEN 'subscriber'</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="st">      WHEN 1 THEN 'customer'</span></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a><span class="st">    END AS user_type,</span></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a><span class="st">    COUNT(*) AS ride_count,</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="st">    ROW_NUMBER() OVER (PARTITION BY user_type ORDER BY COUNT(*) DESC) AS rn</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM rides</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="st">  JOIN stations AS s ON rides.start_station_id = s.station_id</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="st">  GROUP BY s.station_id, user_type</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT * FROM ranked_stations WHERE rn &lt;= 50;</span></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="top_stations_df_offset" class="level3">
 <h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
@@ -1509,10 +1513,10 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <li><code>rn</code></li>
 <li><code>long_offset</code></li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>top_stations_df_offset <span class="ot">&lt;-</span> top_stations_df <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="csv-files" class="level3">
@@ -1563,28 +1567,28 @@ A summary CSV showing how many bikes fall into each range of total rides taken.<
 <p><strong>Purpose:</strong><br>
 - Provides an aggregated view of bike usage distribution. - Helps analyze fleet utilization patterns (e.g., how many bikes are heavily vs.&nbsp;lightly used).</p>
 <p><strong>Commands Used</strong></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> bucketed <span class="kw">AS</span> (</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    (ride_count <span class="op">/</span> <span class="dv">100</span>) <span class="op">*</span> <span class="dv">100</span> <span class="kw">AS</span> bucket_start,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> bike_count</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> (</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> bike_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> bike_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> bike_id</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> bucket_start</span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> bucket_start</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  bucket_start,</span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  bucket_start <span class="op">+</span> <span class="dv">99</span> <span class="kw">AS</span> bucket_end,</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>.output bike_ride_buckets.csv</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> bucketed <span class="kw">AS</span> (</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    (ride_count <span class="op">/</span> <span class="dv">100</span>) <span class="op">*</span> <span class="dv">100</span> <span class="kw">AS</span> bucket_start,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> bike_count</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> (</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> bike_id, <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span> bike_id <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> bike_id</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> bucket_start</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  bucket_start,</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  bucket_start <span class="op">+</span> <span class="dv">99</span> <span class="kw">AS</span> bucket_end,</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="data-provenance-max_concurrent_rides_by_year.csv" class="level3">
 <h3 class="anchored" data-anchor-id="data-provenance-max_concurrent_rides_by_year.csv">Data Provenance: max_concurrent_rides_by_year.csv</h3>
@@ -1600,33 +1604,33 @@ A summary CSV showing how many bikes fall into each range of total rides taken.<
 -  Use a windowed cumulative sum (SUM(delta) OVER (...)) to track the number of rides in progress at each event timestamp.
 -  Identify the maximum concurrency per year (MAX(concurrent_rides)).</code></pre>
 <p><strong>SQL Query:</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> <span class="kw">events</span> <span class="kw">AS</span> (</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> start_time <span class="kw">AS</span> ts, <span class="op">+</span><span class="dv">1</span> <span class="kw">AS</span> delta <span class="kw">FROM</span> rides</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">UNION</span> <span class="kw">ALL</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> end_time <span class="kw">AS</span> ts, <span class="op">-</span><span class="dv">1</span> <span class="kw">AS</span> delta <span class="kw">FROM</span> rides</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>labeled <span class="kw">AS</span> (</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    ts,</span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    delta,</span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    strftime(<span class="st">'%Y'</span>, ts, <span class="st">'unixepoch'</span>) <span class="kw">AS</span> <span class="dt">year</span></span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="kw">events</span></span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="kw">scan</span> <span class="kw">AS</span> (</span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span>,</span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    ts,</span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(delta) <span class="kw">OVER</span> (</span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>      <span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="dt">year</span></span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ORDER</span> <span class="kw">BY</span> ts</span>
-<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
-<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> concurrent_rides</span>
-<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> labeled</span>
-<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">year</span>, <span class="fu">MAX</span>(concurrent_rides) <span class="kw">AS</span> max_simultaneous_rides</span>
-<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">scan</span></span>
-<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">year</span></span>
-<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> <span class="kw">events</span> <span class="kw">AS</span> (</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> start_time <span class="kw">AS</span> ts, <span class="op">+</span><span class="dv">1</span> <span class="kw">AS</span> delta <span class="kw">FROM</span> rides</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">UNION</span> <span class="kw">ALL</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> end_time <span class="kw">AS</span> ts, <span class="op">-</span><span class="dv">1</span> <span class="kw">AS</span> delta <span class="kw">FROM</span> rides</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>labeled <span class="kw">AS</span> (</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    ts,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    delta,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    strftime(<span class="st">'%Y'</span>, ts, <span class="st">'unixepoch'</span>) <span class="kw">AS</span> <span class="dt">year</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="kw">events</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="kw">scan</span> <span class="kw">AS</span> (</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span>,</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>    ts,</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(delta) <span class="kw">OVER</span> (</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>      <span class="kw">PARTITION</span> <span class="kw">BY</span> <span class="dt">year</span></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ORDER</span> <span class="kw">BY</span> ts</span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">ROWS</span> <span class="kw">BETWEEN</span> <span class="kw">UNBOUNDED</span> <span class="kw">PRECEDING</span> <span class="kw">AND</span> <span class="kw">CURRENT</span> <span class="kw">ROW</span></span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">AS</span> concurrent_rides</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> labeled</span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="dt">year</span>, <span class="fu">MAX</span>(concurrent_rides) <span class="kw">AS</span> max_simultaneous_rides</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">scan</span></span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> <span class="dt">year</span></span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="dt">year</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output Columns:</strong></p>
 <ul>
 <li>year – Calendar year (4-digit)</li>
@@ -1713,31 +1717,31 @@ Top 5,000 most frequent origin-destination station pairs, with ride counts split
 <li><p><strong>Purpose:</strong><br>
 To analyze directional flows between stations, including the relative share of subscribers and customers, while collapsing bidirectional pairs into a single record.</p></li>
 <li><p><strong>Query Details:</strong></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  s1.name <span class="kw">AS</span> station_a,</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  s1.lat <span class="kw">AS</span> lat_a,</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  s1.<span class="dt">long</span> <span class="kw">AS</span> lon_a,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  s2.name <span class="kw">AS</span> station_b,</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  s2.lat <span class="kw">AS</span> lat_b,</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  s2.<span class="dt">long</span> <span class="kw">AS</span> lon_b,</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count,</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> subscriber_count,</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> customer_count</span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides r</span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s1 <span class="kw">ON</span> r.start_station_id <span class="op">=</span> s1.station_id</span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s2 <span class="kw">ON</span> r.end_station_id <span class="op">=</span> s2.station_id</span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> r.start_station_id <span class="op">!=</span> r.end_station_id</span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.start_station_id</span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.end_station_id</span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span>,</span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.end_station_id</span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.start_station_id</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span></span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ride_count <span class="kw">DESC</span></span>
-<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  s1.name <span class="kw">AS</span> station_a,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  s1.lat <span class="kw">AS</span> lat_a,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  s1.<span class="dt">long</span> <span class="kw">AS</span> lon_a,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  s2.name <span class="kw">AS</span> station_b,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  s2.lat <span class="kw">AS</span> lat_b,</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  s2.<span class="dt">long</span> <span class="kw">AS</span> lon_b,</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> ride_count,</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">0</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> subscriber_count,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> r.user_type <span class="op">=</span> <span class="dv">1</span> <span class="cf">THEN</span> <span class="dv">1</span> <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> customer_count</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides r</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s1 <span class="kw">ON</span> r.start_station_id <span class="op">=</span> s1.station_id</span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> stations s2 <span class="kw">ON</span> r.end_station_id <span class="op">=</span> s2.station_id</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> r.start_station_id <span class="op">!=</span> r.end_station_id</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.start_station_id</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.end_station_id</span>
+<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span>,</span>
+<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">CASE</span> </span>
+<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">WHEN</span> r.start_station_id <span class="op">&lt;</span> r.end_station_id <span class="cf">THEN</span> r.end_station_id</span>
+<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">ELSE</span> r.start_station_id</span>
+<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span></span>
+<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> ride_count <span class="kw">DESC</span></span>
+<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">5000</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 <p><strong>Notes:</strong></p>
 <ul>
@@ -1760,25 +1764,25 @@ CSV file summarizing the number of hourly observations per 2 °C temperature b
 <li><strong>Likely Process:</strong>
 <ol type="1">
 <li><p>Rounded or floored each <code>temp</code> value to the nearest even integer using a binning rule such as:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Counted the number of hourly weather records falling into each bin.</p></li>
 <li><p>Output written as a CSV with two columns:</p>
 <pre><code>temp_bin,count</code></pre></li>
 </ol></li>
 </ul>
 <p><strong>Sample SQL (reconstructed):</strong></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>.output temp_distribution.csv</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> hourly_weather</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin;</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>.output temp_distribution.csv</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> <span class="fu">count</span></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> hourly_weather</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin;</span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Usage Notes:</strong></p>
 <ul>
 <li>Useful for visualizing or validating the distribution of temperature observations in your weather data.</li>
@@ -1808,7 +1812,7 @@ CSV file containing the total number of rides observed in each 2 °C temperatu
 <li><p><strong>Process:</strong></p>
 <ol type="1">
 <li><p>Bin each temperature observation to the nearest even integer using:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb53"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>Grouped by <code>temp_bin</code> and summed ride counts:</p>
 <ul>
 <li><code>total</code>: sum of all rides (subscribers + customers)</li>
@@ -1820,31 +1824,31 @@ CSV file containing the total number of rides observed in each 2 °C temperatu
 </ol></li>
 </ul>
 <p><strong>Sample SQL (reconstructed):</strong></p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides_total.csv</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    user_type,</span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(rides) <span class="kw">AS</span> rides</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, user_type</span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (</span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    temp_bin,</span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(rides) <span class="kw">AS</span> total,</span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type <span class="op">=</span> <span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type <span class="op">=</span> <span class="st">'customer'</span> <span class="cf">THEN</span> rides <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> binned</span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> csv</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>.output temp_vs_rides_total.csv</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    user_type,</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(rides) <span class="kw">AS</span> rides</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, user_type</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>    temp_bin,</span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(rides) <span class="kw">AS</span> total,</span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type <span class="op">=</span> <span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">SUM</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type <span class="op">=</span> <span class="st">'customer'</span> <span class="cf">THEN</span> rides <span class="cf">ELSE</span> <span class="dv">0</span> <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> binned</span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
+<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
+<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Usage Notes:</strong></p>
 <ul>
 <li>Provides a high-level view of how ride volume varies with temperature across all available hourly observations.</li>
@@ -1859,10 +1863,12 @@ CSV file containing the total number of rides observed in each 2 °C temperatu
 <p><strong>nearby_stations_df.rds</strong></p>
 <p>This RDS file contains the <a href="../data/nearby_stations_df.html">nearby_stations_df</a> data frame. It was derived by identifying all Divvy stations located within a 600-meter radius of any point in attractions_df (which was read from attractions.csv). The filtering was performed using geodesic distance calculations applied across all station coordinates. Stations meeting this proximity threshold were included to facilitate analyses that distinguish tourist-adjacent station activity.</p>
 <p>Conveniently available as <a href="../data/nearby_stations_df.rds.html">nearby_stations_df.rds</a> for you importing pleasure.</p>
-<p><strong>File:</strong> <code>stations_non_tourist_df.rds</code></p>
+<section id="file-stations_non_tourist_df.rds" class="level4">
+<h4 class="anchored" data-anchor-id="file-stations_non_tourist_df.rds"><strong>File:</strong> <code>stations_non_tourist_df.rds</code></h4>
 <p>This RDS file contains the <a href="../data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a> data frame, which represents Divvy stations that are not within 600 meters of any known tourist attraction. It was created by first loading a curated list of tourist destinations from <code>attractions.csv</code>, then computing the geodesic distance between each station and every attraction using the Haversine formula. Stations were excluded if they were within 600 meters of any attraction, based on the assumption that such stations are likely to serve tourists. The resulting data frame includes only those stations deemed non-tourist-oriented, and is used as a filtering basis for analyzing local commuting behavior, particularly among casual (customer) riders.</p>
 <p>Conveniently available as <a href="stations_non_tourist_df.rds">stations_non_tourist_df.rds</a> for your importing pleasure.</p>
 <hr>
+</section>
 </section>
 <section id="miscellaneous-files" class="level3">
 <h3 class="anchored" data-anchor-id="miscellaneous-files">Miscellaneous Files</h3>
@@ -1897,68 +1903,67 @@ Tab-separated summary table aggregating the <em>average</em> hourly ride counts 
 </ol></li>
 </ul>
 <p><strong>SQL Snippet:</strong></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>.output avg_temp_vs_rides.tsv</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(r.rides) <span class="kw">AS</span> rides</span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides_per_hour_tbl r</span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> hourly_weather w <span class="kw">ON</span> w.epoch <span class="op">=</span> r.epoch</span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, r.user_type</span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (</span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>        temp_bin,</span>
-<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(rides) <span class="kw">AS</span> total,</span>
-<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
-<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'customer'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
-<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> binned</span>
-<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
-<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
-<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span>
-<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-29"><a href="#cb53-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-30"><a href="#cb53-30" aria-hidden="true" tabindex="-1"></a>### `temp_vs_rides_2.dat`</span>
-<span id="cb53-31"><a href="#cb53-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-32"><a href="#cb53-32" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Description:<span class="op">**</span>  </span>
-<span id="cb53-33"><a href="#cb53-33" aria-hidden="true" tabindex="-1"></a>Tab<span class="op">-</span>separated <span class="kw">values</span> <span class="kw">file</span> used <span class="kw">as</span> input <span class="kw">to</span> `gnuplot`, showing average ride volume per <span class="dv">2</span> °C temperature bin.</span>
-<span id="cb53-34"><a href="#cb53-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-35"><a href="#cb53-35" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Origin:<span class="op">**</span></span>
-<span id="cb53-36"><a href="#cb53-36" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="kw">Generated</span> <span class="kw">from</span> <span class="kw">the</span> `rides_weather` <span class="kw">view</span> <span class="kw">in</span> SQLite <span class="kw">using</span> a SQL <span class="kw">query</span> that:</span>
-<span id="cb53-37"><a href="#cb53-37" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Bins temperatures <span class="kw">into</span> <span class="dv">2</span><span class="op">-</span><span class="kw">degree</span> Celsius intervals <span class="kw">using</span> `CAST(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>`.</span>
-<span id="cb53-38"><a href="#cb53-38" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Computes <span class="kw">the</span> average <span class="dt">number</span> <span class="kw">of</span> rides per temperature bin.</span>
-<span id="cb53-39"><a href="#cb53-39" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> SQL output <span class="kw">mode</span> <span class="kw">set</span> <span class="kw">to</span>:</span>
-<span id="cb53-40"><a href="#cb53-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> <span class="kw">No</span> headers (`.headers off`)</span>
-<span id="cb53-41"><a href="#cb53-41" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Tab<span class="op">-</span>separated (`.<span class="kw">mode</span> tabs`)</span>
-<span id="cb53-42"><a href="#cb53-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-43"><a href="#cb53-43" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Purpose:<span class="op">**</span></span>
-<span id="cb53-44"><a href="#cb53-44" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Used <span class="cf">for</span> visualizing how ride volume changes <span class="kw">with</span> temperature.</span>
-<span id="cb53-45"><a href="#cb53-45" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Designed <span class="cf">for</span> easy <span class="kw">use</span> <span class="kw">in</span> `gnuplot` <span class="kw">or</span> other plotting tools that prefer delimited plain<span class="op">-</span>text input.</span>
-<span id="cb53-46"><a href="#cb53-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-47"><a href="#cb53-47" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="kw">Query</span> Used<span class="op">**</span></span>
-<span id="cb53-48"><a href="#cb53-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-49"><a href="#cb53-49" aria-hidden="true" tabindex="-1"></a>```sql</span>
-<span id="cb53-50"><a href="#cb53-50" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
-<span id="cb53-51"><a href="#cb53-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb53-52"><a href="#cb53-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
-<span id="cb53-53"><a href="#cb53-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
-<span id="cb53-54"><a href="#cb53-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
-<span id="cb53-55"><a href="#cb53-55" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb53-56"><a href="#cb53-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb53-57"><a href="#cb53-57" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb53-58"><a href="#cb53-58" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
-<span id="cb53-59"><a href="#cb53-59" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">off</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>.<span class="kw">mode</span> tabs</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>.output avg_temp_vs_rides.tsv</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> binned <span class="kw">AS</span> (</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>) <span class="op">*</span> <span class="dv">2</span> <span class="kw">AS</span> temp_bin,</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>        r.user_type,</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">SUM</span>(r.rides) <span class="kw">AS</span> rides</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> rides_per_hour_tbl r</span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">JOIN</span> hourly_weather w <span class="kw">ON</span> w.epoch <span class="op">=</span> r.epoch</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin, r.user_type</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>), pivot <span class="kw">AS</span> (</span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a>        temp_bin,</span>
+<span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(rides) <span class="kw">AS</span> total,</span>
+<span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'subscriber'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> subs,</span>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">AVG</span>(<span class="cf">CASE</span> <span class="cf">WHEN</span> user_type<span class="op">=</span><span class="st">'customer'</span> <span class="cf">THEN</span> rides <span class="cf">END</span>) <span class="kw">AS</span> cust</span>
+<span id="cb57-19"><a href="#cb57-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span> binned</span>
+<span id="cb57-20"><a href="#cb57-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-21"><a href="#cb57-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-22"><a href="#cb57-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-23"><a href="#cb57-23" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, total, subs, cust</span>
+<span id="cb57-24"><a href="#cb57-24" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pivot;</span>
+<span id="cb57-25"><a href="#cb57-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-26"><a href="#cb57-26" aria-hidden="true" tabindex="-1"></a>.output stdout</span>
+<span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>### `temp_vs_rides_2.dat`</span>
+<span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Description:<span class="op">**</span>  </span>
+<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a>Tab<span class="op">-</span>separated <span class="kw">values</span> <span class="kw">file</span> used <span class="kw">as</span> input <span class="kw">to</span> `gnuplot`, showing average ride volume per <span class="dv">2</span> °C temperature bin.</span>
+<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-35"><a href="#cb57-35" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Origin:<span class="op">**</span></span>
+<span id="cb57-36"><a href="#cb57-36" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="kw">Generated</span> <span class="kw">from</span> <span class="kw">the</span> `rides_weather` <span class="kw">view</span> <span class="kw">in</span> SQLite <span class="kw">using</span> a SQL <span class="kw">query</span> that:</span>
+<span id="cb57-37"><a href="#cb57-37" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Bins temperatures <span class="kw">into</span> <span class="dv">2</span><span class="op">-</span><span class="kw">degree</span> Celsius intervals <span class="kw">using</span> `CAST(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>`.</span>
+<span id="cb57-38"><a href="#cb57-38" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Computes <span class="kw">the</span> average <span class="dt">number</span> <span class="kw">of</span> rides per temperature bin.</span>
+<span id="cb57-39"><a href="#cb57-39" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> SQL output <span class="kw">mode</span> <span class="kw">set</span> <span class="kw">to</span>:</span>
+<span id="cb57-40"><a href="#cb57-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> <span class="kw">No</span> headers (`.headers off`)</span>
+<span id="cb57-41"><a href="#cb57-41" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Tab<span class="op">-</span>separated (`.<span class="kw">mode</span> tabs`)</span>
+<span id="cb57-42"><a href="#cb57-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-43"><a href="#cb57-43" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Purpose:<span class="op">**</span></span>
+<span id="cb57-44"><a href="#cb57-44" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Used <span class="cf">for</span> visualizing how ride volume changes <span class="kw">with</span> temperature.</span>
+<span id="cb57-45"><a href="#cb57-45" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Designed <span class="cf">for</span> easy <span class="kw">use</span> <span class="kw">in</span> `gnuplot` <span class="kw">or</span> other plotting tools that prefer delimited plain<span class="op">-</span>text input.</span>
+<span id="cb57-46"><a href="#cb57-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-47"><a href="#cb57-47" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="kw">Query</span> Used<span class="op">**</span></span>
+<span id="cb57-48"><a href="#cb57-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-49"><a href="#cb57-49" aria-hidden="true" tabindex="-1"></a>```sql</span>
+<span id="cb57-50"><a href="#cb57-50" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
+<span id="cb57-51"><a href="#cb57-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb57-52"><a href="#cb57-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
+<span id="cb57-53"><a href="#cb57-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
+<span id="cb57-54"><a href="#cb57-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
+<span id="cb57-55"><a href="#cb57-55" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-56"><a href="#cb57-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-57"><a href="#cb57-57" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-58"><a href="#cb57-58" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
+<span id="cb57-59"><a href="#cb57-59" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 

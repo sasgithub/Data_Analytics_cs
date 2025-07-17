@@ -1,6 +1,6 @@
-## Provenance for non_loop_rides_df
+#### Provenance for non_loop_rides_df
 
-### Data Origin
+##### Data Origin
 
 ** Source Table:**
 1 Start with non_tourist_customer_rides_df
@@ -11,8 +11,10 @@
 
 2 Filter out loop rides
 
+```r
 non_loop_rides_df <- non_tourist_customer_rides_df %>%
   filter(start_station_id != end_station_id)
+```
 
   Result:
 
@@ -20,6 +22,7 @@ non_loop_rides_df <- non_tourist_customer_rides_df %>%
 
 3 Attach start and end station coordinates from stations_df
 
+```r
 non_loop_rides_df <- non_loop_rides_df %>%
   left_join(
     stations_df %>% rename(
@@ -37,6 +40,7 @@ non_loop_rides_df <- non_loop_rides_df %>%
     ),
     by = "end_station_id"
   )
+```
 
   Result:
 
@@ -45,6 +49,7 @@ non_loop_rides_df <- non_loop_rides_df %>%
 
 4  Recompute distance
 
+```r
 non_loop_rides_df <- non_loop_rides_df %>%
   mutate(
     distance_m = distHaversine(
@@ -53,6 +58,7 @@ non_loop_rides_df <- non_loop_rides_df %>%
     ),
     distance_km = distance_m / 1000
   )
+```
 
   Result:
 

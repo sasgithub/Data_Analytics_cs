@@ -129,7 +129,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><strong>Data Frame:</strong> <code>weekday_rides_df</code></p>
+<section id="data-frame-weekday_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="data-frame-weekday_rides_df"><strong>Data Frame:</strong> <code>weekday_rides_df</code></h4>
 <p>This data frame was derived from <code>non_tourist_customer_rides_df</code> by filtering to include only rides that took place on weekdays (<code>week_part == "Weekday"</code>).</p>
 <p>A new categorical variable, <code>commute_window</code>, was created by binning each ride’s local start hour (<code>hour_local</code>) into five time-of-day intervals using <code>cut()</code>:</p>
 <ul>
@@ -142,6 +143,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The breaks used were <code>c(-1, 5, 9, 15, 19, 24)</code>, and the bins were defined as ordered factors. This transformation enabled time-of-day analysis of ride patterns across defined commuting periods.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

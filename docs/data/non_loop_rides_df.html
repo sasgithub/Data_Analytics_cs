@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -120,14 +155,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#provenance-for-non_loop_rides_df" id="toc-provenance-for-non_loop_rides_df" class="nav-link active" data-scroll-target="#provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -135,10 +164,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="provenance-for-non_loop_rides_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h2>
-<section id="data-origin" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin">Data Origin</h3>
+<section id="provenance-for-non_loop_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h4>
+<section id="data-origin" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <p>** Source Table:** 1 Start with non_tourist_customer_rides_df</p>
 <ul>
 <li>This already had:
@@ -148,16 +177,40 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 <p>2 Filter out loop rides</p>
-<p>non_loop_rides_df &lt;- non_tourist_customer_rides_df %&gt;% filter(start_station_id != end_station_id)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_tourist_customer_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(start_station_id <span class="sc">!=</span> end_station_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Only rides starting and ending at different stations</code></pre>
 <p>3 Attach start and end station coordinates from stations_df</p>
-<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% left_join( stations_df %&gt;% rename( start_station_id = station_id, start_lat = lat, start_long = long ), by = “start_station_id” ) %&gt;% left_join( stations_df %&gt;% rename( end_station_id = station_id, end_lat = lat, end_long = long ), by = “end_station_id” )</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    stations_df <span class="sc">%&gt;%</span> <span class="fu">rename</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_station_id =</span> station_id,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_lat =</span> lat,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">start_long =</span> long</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"start_station_id"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    stations_df <span class="sc">%&gt;%</span> <span class="fu">rename</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_station_id =</span> station_id,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_lat =</span> lat,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">end_long =</span> long</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="st">"end_station_id"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Added start and end lat/lon
 Computed haversine distance</code></pre>
 <p>4 Recompute distance</p>
-<p>non_loop_rides_df &lt;- non_loop_rides_df %&gt;% mutate( distance_m = distHaversine( matrix(c(start_long, start_lat), ncol = 2), matrix(c(end_long, end_lat), ncol = 2) ), distance_km = distance_m / 1000 )</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>non_loop_rides_df <span class="ot">&lt;-</span> non_loop_rides_df <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_m =</span> <span class="fu">distHaversine</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">matrix</span>(<span class="fu">c</span>(start_long, start_lat), <span class="at">ncol =</span> <span class="dv">2</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">matrix</span>(<span class="fu">c</span>(end_long, end_lat), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_km =</span> distance_m <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) </code></pre>
 

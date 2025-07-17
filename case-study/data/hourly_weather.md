@@ -1,12 +1,12 @@
-## Provenance for `hourly_weather` Table and Data Frame
+#### Provenance for `hourly_weather` Table and Data Frame
 
-### Data Origin
+##### Data Origin
 - **Source File:**  
   `midway_weather.csv` (downloaded from Meteostat bulk data interface)  
 - **Original Fields:**  
   Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind Direction, Wind Speed, Peak Wind Gust, Pressure, Sunshine Minutes, Weather Code  
 
-### Processing and Cleaning Steps
+##### Processing and Cleaning Steps
 
 1. **Field Selection and Removal**
    - Dropped columns not required for analysis:
@@ -39,14 +39,14 @@
    - Created `hourly_weather` SQLite table with the same schema.
    - Inserted all cleaned records via `dbWriteTable()`.
 
-### How this fits into the flow
+##### How this fits into the flow
 This table was used as the authoritative hourly weather reference for:
 - Joining with hourly aggregated ride counts (`rides_per_hour` view).
 - Creating the `rides_weather` view combining weather and ridership patterns.
 - Supporting time series and correlation analyses of temperature, precipitation, and ride volume.
 
 
-### Steps Used
+##### Steps Used
 
 ```r
 > df <- read.csv("/home/sas/classes/Google/data-analytics/data/midway_weather.csv", stringsAsFac
