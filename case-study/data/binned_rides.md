@@ -1,4 +1,8 @@
-## Provenance: `binned_rides` R Data Frame
+#### `binned_rides`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame summarizes the average number of rides per 2 °C temperature bin, split by user type.
 

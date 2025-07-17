@@ -1,4 +1,6 @@
-### `attractions.csv`
+#### `attractions.csv`
+
+**Type:** CSV File
 
 **Description:**  
 A CSV file containing the list of tourist attractions in Chicago, each with name and geographic coordinates.

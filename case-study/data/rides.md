@@ -1,4 +1,6 @@
-### rides Table
+#### rides Table
+
+**Type:** SQLite Table
 
 **Description:**  
 The `rides` table is the master record of all individual bike trips included in the project. Each record corresponds to a single ride, capturing details about trip timing, station locations, user type, and computed metrics (such as distance).

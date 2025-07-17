@@ -164,8 +164,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="bike_ride_buckets.csv" class="level3">
-<h3 class="anchored" data-anchor-id="bike_ride_buckets.csv"><code>bike_ride_buckets.csv</code></h3>
+<section id="bike_ride_buckets.csv" class="level4">
+<h4 class="anchored" data-anchor-id="bike_ride_buckets.csv"><code>bike_ride_buckets.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Description:</strong><br>
 A summary CSV showing how many bikes fall into each range of total rides taken.</p>
 <p><strong>Source &amp; Processing:</strong> - Data source: <code>rides</code> table. - Steps performed in SQLite: 1. Counted the total rides per <code>bike_id</code> (<code>GROUP BY bike_id</code>). 2. Divided each bike’s ride count into buckets in increments of 100: - For example, rides 0–99, 100–199, etc. - Used <code>(ride_count / 100) * 100</code> to define the start of each bucket. 3. Counted how many bikes fell into each bucket. 4. Added <code>bucket_end</code> as <code>bucket_start + 99</code> to label the ranges. - Exported with <code>.mode csv</code> and <code>.headers on</code>.</p>

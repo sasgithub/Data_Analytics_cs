@@ -1,7 +1,9 @@
-### `rider_readable`
+#### `rider_readable`
+
+**Type:** SQLite View
 
 **Description:**  
-A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.
+A human-friendly view of `rides` records with timestamps converted to readable formats and categorical fields labeled.
 
 **Source & Processing:**
 

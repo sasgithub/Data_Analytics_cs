@@ -1,4 +1,6 @@
-### asym_top
+#### asym_top
+
+**Type:** R Data Frame
 
 **Data Origin**  
 Derived directly from the `asym_data` data frame, which summarizes directional ride imbalances between station pairs.

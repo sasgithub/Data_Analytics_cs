@@ -1,4 +1,6 @@
-#### Provenance for `stations_df`
+#### `stations_df`
+
+**Type:** R Data Frame
 
 ##### Data Origin
 - **Source Table:**  

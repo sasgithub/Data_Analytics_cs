@@ -164,10 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="duration_by_type" class="level3">
-<h3 class="anchored" data-anchor-id="duration_by_type"><code>duration_by_type</code></h3>
-<p><strong>Description:</strong><br>
-Summarized ride duration statistics by user type and bike type.</p>
+<section id="duration_by_type" class="level4">
+<h4 class="anchored" data-anchor-id="duration_by_type"><code>duration_by_type</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description:</strong></p>
+<p>Summarized ride duration statistics by user type and bike type.</p>
 <p><strong>Source &amp; Processing:</strong><br>
 - Derived from <a href="../data/post_electric_rides_df.html"><code>post_electric_rides_df</code></a>, which contains daily ride counts and average durations for rides since the introduction of e-bikes (January 1, 2023). - Grouped by <code>user_type</code> and <code>bike_type</code>. - For each group, calculated: - <code>avg_duration</code>: Mean of average ride durations (minutes). - <code>sd_duration</code>: Standard deviation of average ride durations. - User type labels were recoded to human-readable form (“Subscriber” and “Customer”).</p>
 <p><strong>Purpose:</strong><br>

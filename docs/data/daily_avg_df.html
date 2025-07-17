@@ -164,8 +164,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="data-frame-daily_avg_df" class="level4">
-<h4 class="anchored" data-anchor-id="data-frame-daily_avg_df"><strong>Data Frame:</strong> <code>daily_avg_df</code></h4>
+<section id="daily_avg_df" class="level4">
+<h4 class="anchored" data-anchor-id="daily_avg_df"><code>daily_avg_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>Average number of rides per day since January 2023, grouped by user type and bike type.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>

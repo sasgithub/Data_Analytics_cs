@@ -1,4 +1,6 @@
-### `bike_ride_buckets.csv`
+#### `bike_ride_buckets.csv`
+
+**Type:** CSV File
 
 **Description:**  
 A summary CSV showing how many bikes fall into each range of total rides taken.

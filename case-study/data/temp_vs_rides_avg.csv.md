@@ -1,6 +1,9 @@
-### `temp_vs_rides_avg.csv`
+#### `temp_vs_rides_avg.csv`
 
-**Description:**  
+**Type:** CSV File
+
+**Description:**
+  
 A temperature-binned summary of average hourly ride counts across the study period.
 
 **Source & Processing:**  

@@ -1,4 +1,8 @@
-### Data Provenance: max_concurrent_rides_by_year.csv
+#### max_concurrent_rides_by_year.csv
+
+**Type:** CSV File
+
+**Description**
 
 This dataset was derived from the rides table in the SQLite database caseStudy.db.
 It records the maximum number of rides occurring simultaneously in each calendar year.

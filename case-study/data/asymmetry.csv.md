@@ -1,4 +1,6 @@
-### File: `asymmetry.csv`
+#### `asymmetry.csv`
+
+**Type:** CSV File
 
 **Data Origin**
 

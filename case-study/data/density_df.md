@@ -1,4 +1,6 @@
-## Provenance: `density_df`
+#### `density_df`
+
+**Type:** R Data Frame
 
 **Data Origin:**
 

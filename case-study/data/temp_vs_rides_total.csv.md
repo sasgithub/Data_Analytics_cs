@@ -1,4 +1,6 @@
-### temp_vs_rides_total.csv
+#### temp_vs_rides_total.csv
+
+**Type:** CSV File
 
 **Description:**  
 CSV file containing the total number of rides observed in each 2 °C temperature bin, broken out by user type (subscriber vs. customer).

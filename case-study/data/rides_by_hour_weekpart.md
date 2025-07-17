@@ -1,4 +1,6 @@
-### `rides_by_hour_weekpart`
+#### `rides_by_hour_weekpart`
+
+**Type:** R Data Frame
 
 **Description:**  
 Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.

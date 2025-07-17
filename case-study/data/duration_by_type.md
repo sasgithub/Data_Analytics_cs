@@ -1,6 +1,9 @@
-### `duration_by_type`
+#### `duration_by_type`
 
-**Description:**  
+**Type:** R Data Frame
+
+**Description:**
+  
 Summarized ride duration statistics by user type and bike type.
 
 **Source & Processing:**  

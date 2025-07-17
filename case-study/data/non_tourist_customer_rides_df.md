@@ -1,11 +1,13 @@
-## Provenance for non_tourist_customer_rides_df
+#### non_tourist_customer_rides_df
 
-### Data Origin
+**Type:** R Data Frame
+
+##### Data Origin
 
 ** Source Table:**
 rides table in SQLite database 
 
-### Query Details
+##### Query Details
 
 Query selects:
 
@@ -25,7 +27,7 @@ With these filters:
   -  Meaning: rides starting on or after Jan 1, 2023
 
 
-### How this fits into the flow
+##### How this fits into the flow
 
 This dataset forms the **foundational rides subset** from which many other frames were derived:
 

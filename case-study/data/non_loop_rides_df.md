@@ -1,4 +1,6 @@
-#### Provenance for non_loop_rides_df
+#### non_loop_rides_df
+
+**Type:** R Data Frame
 
 ##### Data Origin
 

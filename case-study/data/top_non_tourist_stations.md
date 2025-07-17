@@ -1,4 +1,8 @@
-### Provenance: `top_non_tourist_stations`
+#### `top_non_tourist_stations`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame was created by querying the SQLite `rides` table to identify stations with the highest number of **customer** rides that **started or ended** at non-tourist stations post Covid.  
 

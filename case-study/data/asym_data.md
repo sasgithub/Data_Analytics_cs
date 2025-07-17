@@ -1,4 +1,6 @@
-### asym_data
+#### asym_data
+
+**Type:** R Data Frame
 
 **Data Origin**  
 Loaded from the CSV file `asymmetry.csv`, which was generated as a summary of directional ride imbalances between pairs of stations.

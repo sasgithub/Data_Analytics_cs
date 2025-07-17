@@ -1,4 +1,8 @@
-## Provenance: `stdres_df` R Data Frame
+#### `stdres_df`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame contains the standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part (Weekday vs Weekend).
 

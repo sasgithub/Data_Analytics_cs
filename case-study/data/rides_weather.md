@@ -1,6 +1,9 @@
-### `rides_weather`
+#### `rides_weather`
+
+**Type:** SQLite View
 
 **Description:**  
+
 A SQLite view combining hourly weather observations with hourly ride counts.
 
 **Source & Processing:**  

@@ -1,4 +1,6 @@
-## Provenance: `ride_counts_by_distance`
+#### `ride_counts_by_distance`
+
+**Type:** R Data Frame
 
 **Data Origin:**  
 Derived from `non_loop_rides_df`, which includes only non-loop rides by customer riders starting and ending at non-tourist stations on or after 2023-01-01. This dataframe also contains a `distance_km` column representing the calculated ride distance in kilometers.

@@ -1,4 +1,6 @@
-### rides_per_hour_tbl Table
+#### rides_per_hour_tbl
+
+**Type:** SQLite Table
 
 **Description:**
   

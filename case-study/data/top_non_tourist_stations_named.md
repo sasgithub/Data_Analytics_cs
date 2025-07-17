@@ -1,4 +1,8 @@
-### Provenance: `top_non_tourist_stations_named`
+#### `top_non_tourist_stations_named`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame was derived from `top_non_tourist_stations` by enriching it with station metadata and selecting the top entries.  
 

@@ -1,4 +1,8 @@
-**Data Frame:** `loop_rides_non_tourist`
+#### `loop_rides_non_tourist`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame was created by filtering `non_tourist_customer_rides_df` to include only rides that started and ended at the same station.  
 

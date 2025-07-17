@@ -1,6 +1,6 @@
-#### Provenance of normalized_df
+#### normalized_df
 
-##### `normalized_df`
+**Type:** R Data Frame
 
 **Description:**  
 A normalized version of average ride counts across temperature bins, prepared for comparative visualization.

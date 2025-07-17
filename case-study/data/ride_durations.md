@@ -1,4 +1,6 @@
-#### Provenance for `ride_durations`
+#### `ride_durations`
+
+**Type:** R Data Frame
 
 ##### Data Origin
 - **Source Table:**  

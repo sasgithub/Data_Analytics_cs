@@ -1,6 +1,9 @@
-### avg_temp_vs_rides.tsv
+#### avg_temp_vs_rides.tsv
 
-**Description:**  
+**Type:** TSV File
+
+**Description:**
+  
 Tab-separated summary table aggregating the *average* hourly ride counts by temperature bin and user type.
 
 **Provenance:**

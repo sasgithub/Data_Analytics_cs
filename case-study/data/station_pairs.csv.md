@@ -1,6 +1,9 @@
-### `station_pairs.csv`
+#### `station_pairs.csv`
+
+**Type:** CSV File
 
 **Description:**  
+
 Top 5,000 most frequent origin-destination station pairs, with ride counts split by user type.
 
 **Provenance Details:**

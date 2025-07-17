@@ -164,10 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="provenance-for-top_stations_df" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></h3>
-<section id="data-origin" class="level4">
-<h4 class="anchored" data-anchor-id="data-origin">Data Origin</h4>
+<section id="top_stations_df" class="level4">
+<h4 class="anchored" data-anchor-id="top_stations_df"><code>top_stations_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<section id="data-origin" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <ul>
 <li><p><strong>Source Tables:</strong></p>
 <ul>
@@ -177,8 +178,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="query-details" class="level4">
-<h4 class="anchored" data-anchor-id="query-details">Query Details</h4>
+<section id="query-details" class="level5">
+<h5 class="anchored" data-anchor-id="query-details">Query Details</h5>
 <p>This query identified the 50 most-used start stations for each user type.</p>
 <p><strong>Steps:</strong></p>
 <ol type="1">
@@ -200,8 +201,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 </section>
-<section id="selected-fields" class="level4">
-<h4 class="anchored" data-anchor-id="selected-fields">Selected Fields</h4>
+<section id="selected-fields" class="level5">
+<h5 class="anchored" data-anchor-id="selected-fields">Selected Fields</h5>
 <ul>
 <li><code>station_id</code>: Unique ID of the station.</li>
 <li><code>name</code>: Station name.</li>
@@ -211,8 +212,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>rn</code>: Rank within the top 50 for the user type.</li>
 </ul>
 </section>
-<section id="purpose-and-use" class="level4">
-<h4 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h4>
+<section id="purpose-and-use" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-and-use">Purpose and Use</h5>
 <p>This dataset was used to:</p>
 <ul>
 <li>Highlight the highest-volume stations by user segment.</li>
@@ -220,8 +221,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Support station targeting strategies and user behavior analysis.</li>
 </ul>
 </section>
-<section id="command-used" class="level4">
-<h4 class="anchored" data-anchor-id="command-used">Command Used</h4>
+<section id="command-used" class="level5">
+<h5 class="anchored" data-anchor-id="command-used">Command Used</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH ranked_stations AS (</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>

@@ -129,8 +129,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="file-ride_durations.rds" class="level4">
-<h4 class="anchored" data-anchor-id="file-ride_durations.rds"><strong>File:</strong> <code>ride_durations.rds</code></h4>
+<section id="ride_durations.rds" class="level4">
+<h4 class="anchored" data-anchor-id="ride_durations.rds"><code>ride_durations.rds</code></h4>
+<p><strong>Type:</strong> RDS File</p>
+<p><strong>Description</strong></p>
 <p>This RDS file contains the <a href="../data/ride_durations.html"><code>ride_durations</code></a> data frame, which was created by querying the <code>rides</code> table to compute the duration of each trip in minutes. The SQL query selected rides where <code>end_time &gt; start_time</code> and excluded any rides longer than 12,000 seconds (approximately 3.3 hours) to filter out potential data errors. It also converted numeric <code>user_type</code> values into descriptive labels (<code>subscriber</code> and <code>customer</code>). The resulting data frame has one row per qualifying ride, including columns for <code>user_type</code> and <code>duration_min</code>. Saving to RDS enables efficient reuse of this pre-cleaned dataset for analysis of ride duration distributions without re-running the query each time.</p>
 <p>Convieniently available as <a href="ride_durations.rds">ride_durations.rds</a> for you importing pleasure.</p>
 

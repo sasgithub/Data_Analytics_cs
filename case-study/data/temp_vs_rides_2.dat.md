@@ -1,6 +1,9 @@
-### `temp_vs_rides_2.dat`
+#### `temp_vs_rides_2.dat`
 
-**Description:**  
+**Type:** Data File
+
+**Description:**
+ 
 Tab-separated values file used as input to `gnuplot`, showing average ride volume per 2 °C temperature bin.
 
 **Origin:**

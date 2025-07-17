@@ -131,6 +131,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="file-stations_non_tourist_df.rds" class="level4">
 <h4 class="anchored" data-anchor-id="file-stations_non_tourist_df.rds"><strong>File:</strong> <code>stations_non_tourist_df.rds</code></h4>
+<p><strong>Type:</strong> RDS File</p>
+<p><strong>Description</strong></p>
 <p>This RDS file contains the <a href="../data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a> data frame, which represents Divvy stations that are not within 600 meters of any known tourist attraction. It was created by first loading a curated list of tourist destinations from <code>attractions.csv</code>, then computing the geodesic distance between each station and every attraction using the Haversine formula. Stations were excluded if they were within 600 meters of any attraction, based on the assumption that such stations are likely to serve tourists. The resulting data frame includes only those stations deemed non-tourist-oriented, and is used as a filtering basis for analyzing local commuting behavior, particularly among casual (customer) riders.</p>
 <p>Conveniently available as <a href="stations_non_tourist_df.rds">stations_non_tourist_df.rds</a> for your importing pleasure.</p>
 

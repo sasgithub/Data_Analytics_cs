@@ -1,4 +1,6 @@
-## Provenance: `peak_df`
+#### `peak_df`
+
+**Type:** R Data Frame
 
 **Data Origin:**  
 Derived from the `density_df` data frame, which contains kernel density estimates of bike ride distances (`x` for distance in km, `y` for density values).

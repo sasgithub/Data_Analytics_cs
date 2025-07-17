@@ -1,4 +1,6 @@
-### stations table
+#### stations 
+
+**Type:** SQLite Table
 
 **Description:**  
 The canonical reference table of Divvy station locations, IDs, and metadata, stored in SQLite.

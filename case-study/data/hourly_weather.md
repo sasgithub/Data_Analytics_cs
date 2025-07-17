@@ -1,4 +1,4 @@
-#### Provenance for `hourly_weather` Table and Data Frame
+#### `hourly_weather` Table and Data Frame
 
 ##### Data Origin
 - **Source File:**  

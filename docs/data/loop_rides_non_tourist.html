@@ -129,13 +129,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><strong>Data Frame:</strong> <code>loop_rides_non_tourist</code></p>
+<section id="loop_rides_non_tourist" class="level4">
+<h4 class="anchored" data-anchor-id="loop_rides_non_tourist"><code>loop_rides_non_tourist</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame was created by filtering <code>non_tourist_customer_rides_df</code> to include only rides that started and ended at the same station.</p>
 <p>Specifically, records were retained where:</p>
 <pre><code>start_station_id == end_station_id</code></pre>
 <p>This subset isolates non-tourist customer rides that form a complete loop, supporting analysis of short trips returning to the origin station.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

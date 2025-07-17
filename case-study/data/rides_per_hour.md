@@ -1,4 +1,6 @@
-### rides_per_hour View
+#### rides_per_hour
+
+**Type:** SQLite View
 
 **Description:**  
 The `rides_per_hour` view summarizes ride counts per hour and user type, creating a time-aligned dataset comparable to hourly weather records.

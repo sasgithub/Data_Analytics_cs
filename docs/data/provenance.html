@@ -159,15 +159,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
+  <ul>
+  <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link active" data-scroll-target="#data-provenance">Data Provenance</a>
+  <ul>
+  <li><a href="#sql-tables" id="toc-sql-tables" class="nav-link" data-scroll-target="#sql-tables">SQL Tables</a>
   <ul class="collapse">
-  <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link active" data-scroll-target="#data-provenance">Data Provenance</a></li>
-  <li><a href="#provenance-binned_rides-r-data-frame" id="toc-provenance-binned_rides-r-data-frame" class="nav-link" data-scroll-target="#provenance-binned_rides-r-data-frame">Provenance: <code>binned_rides</code> R Data Frame</a></li>
-  <li><a href="#provenance-density_df" id="toc-provenance-density_df" class="nav-link" data-scroll-target="#provenance-density_df">Provenance: <code>density_df</code></a></li>
-  <li><a href="#provenance-for-non_tourist_customer_rides_df" id="toc-provenance-for-non_tourist_customer_rides_df" class="nav-link" data-scroll-target="#provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</a></li>
-  <li><a href="#provenance-peak_df" id="toc-provenance-peak_df" class="nav-link" data-scroll-target="#provenance-peak_df">Provenance: <code>peak_df</code></a></li>
-  <li><a href="#provenance-ride_counts_by_distance" id="toc-provenance-ride_counts_by_distance" class="nav-link" data-scroll-target="#provenance-ride_counts_by_distance">Provenance: <code>ride_counts_by_distance</code></a></li>
-  <li><a href="#provenance-rides_weather_df" id="toc-provenance-rides_weather_df" class="nav-link" data-scroll-target="#provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></a></li>
-  <li><a href="#provenance-stdres_df-r-data-frame" id="toc-provenance-stdres_df-r-data-frame" class="nav-link" data-scroll-target="#provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</a></li>
+  <li><a href="#stations" id="toc-stations" class="nav-link" data-scroll-target="#stations">stations</a></li>
+  <li><a href="#rides-table" id="toc-rides-table" class="nav-link" data-scroll-target="#rides-table">rides Table</a></li>
+  <li><a href="#hourly_weather-table-and-data-frame" id="toc-hourly_weather-table-and-data-frame" class="nav-link" data-scroll-target="#hourly_weather-table-and-data-frame"><code>hourly_weather</code> Table and Data Frame</a></li>
+  <li><a href="#rides_per_hour_tbl" id="toc-rides_per_hour_tbl" class="nav-link" data-scroll-target="#rides_per_hour_tbl">rides_per_hour_tbl</a></li>
+  </ul></li>
+  <li><a href="#sql-views" id="toc-sql-views" class="nav-link" data-scroll-target="#sql-views">SQL Views</a>
+  <ul class="collapse">
+  <li><a href="#rider_readable" id="toc-rider_readable" class="nav-link" data-scroll-target="#rider_readable"><code>rider_readable</code></a></li>
+  <li><a href="#rides_per_hour" id="toc-rides_per_hour" class="nav-link" data-scroll-target="#rides_per_hour">rides_per_hour</a></li>
+  <li><a href="#rides_weather" id="toc-rides_weather" class="nav-link" data-scroll-target="#rides_weather"><code>rides_weather</code></a></li>
+  </ul></li>
+  <li><a href="#r-data-frames" id="toc-r-data-frames" class="nav-link" data-scroll-target="#r-data-frames">R Data Frames</a>
+  <ul class="collapse">
+  <li><a href="#asym_top" id="toc-asym_top" class="nav-link" data-scroll-target="#asym_top">asym_top</a></li>
+  <li><a href="#attractions_df" id="toc-attractions_df" class="nav-link" data-scroll-target="#attractions_df"><code>attractions_df</code></a></li>
+  <li><a href="#asym_top-1" id="toc-asym_top-1" class="nav-link" data-scroll-target="#asym_top-1">asym_top</a></li>
+  <li><a href="#attractions_df-1" id="toc-attractions_df-1" class="nav-link" data-scroll-target="#attractions_df-1"><code>attractions_df</code></a></li>
+  <li><a href="#binned_rides" id="toc-binned_rides" class="nav-link" data-scroll-target="#binned_rides"><code>binned_rides</code></a></li>
+  <li><a href="#daily_avg_df" id="toc-daily_avg_df" class="nav-link" data-scroll-target="#daily_avg_df"><code>daily_avg_df</code></a></li>
+  <li><a href="#density_df" id="toc-density_df" class="nav-link" data-scroll-target="#density_df"><code>density_df</code></a></li>
+  <li><a href="#duration_by_type" id="toc-duration_by_type" class="nav-link" data-scroll-target="#duration_by_type"><code>duration_by_type</code></a></li>
+  <li><a href="#loop_rides_non_tourist" id="toc-loop_rides_non_tourist" class="nav-link" data-scroll-target="#loop_rides_non_tourist"><code>loop_rides_non_tourist</code></a></li>
+  <li><a href="#nearby_stations_df" id="toc-nearby_stations_df" class="nav-link" data-scroll-target="#nearby_stations_df"><code>nearby_stations_df</code></a></li>
+  <li><a href="#non_loop_rides_df" id="toc-non_loop_rides_df" class="nav-link" data-scroll-target="#non_loop_rides_df">non_loop_rides_df</a></li>
+  <li><a href="#non_tourist_customer_rides_df" id="toc-non_tourist_customer_rides_df" class="nav-link" data-scroll-target="#non_tourist_customer_rides_df">non_tourist_customer_rides_df</a></li>
+  <li><a href="#normalized_df" id="toc-normalized_df" class="nav-link" data-scroll-target="#normalized_df">normalized_df</a></li>
+  <li><a href="#peak_df" id="toc-peak_df" class="nav-link" data-scroll-target="#peak_df"><code>peak_df</code></a></li>
+  <li><a href="#prop_df" id="toc-prop_df" class="nav-link" data-scroll-target="#prop_df">prop_df</a></li>
+  <li><a href="#prop_wide" id="toc-prop_wide" class="nav-link" data-scroll-target="#prop_wide"><code>prop_wide</code></a></li>
+  <li><a href="#post_electric_rides_df" id="toc-post_electric_rides_df" class="nav-link" data-scroll-target="#post_electric_rides_df"><code>post_electric_rides_df</code></a></li>
+  <li><a href="#ride_counts_by_distance" id="toc-ride_counts_by_distance" class="nav-link" data-scroll-target="#ride_counts_by_distance"><code>ride_counts_by_distance</code></a></li>
+  <li><a href="#ride_durations" id="toc-ride_durations" class="nav-link" data-scroll-target="#ride_durations"><code>ride_durations</code></a></li>
+  <li><a href="#ride_props" id="toc-ride_props" class="nav-link" data-scroll-target="#ride_props"><code>ride_props</code></a></li>
+  <li><a href="#provenance-rides_by_hour_season" id="toc-provenance-rides_by_hour_season" class="nav-link" data-scroll-target="#provenance-rides_by_hour_season">Provenance: <code>rides_by_hour_season</code></a></li>
+  <li><a href="#rides_by_hour_weekpart" id="toc-rides_by_hour_weekpart" class="nav-link" data-scroll-target="#rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></a></li>
+  <li><a href="#rides_weather_df" id="toc-rides_weather_df" class="nav-link" data-scroll-target="#rides_weather_df"><code>rides_weather_df</code></a></li>
+  <li><a href="#stations_non_tourist_df" id="toc-stations_non_tourist_df" class="nav-link" data-scroll-target="#stations_non_tourist_df"><code>stations_non_tourist_df</code></a></li>
+  <li><a href="#stdres_df" id="toc-stdres_df" class="nav-link" data-scroll-target="#stdres_df"><code>stdres_df</code></a></li>
+  <li><a href="#stdres_long" id="toc-stdres_long" class="nav-link" data-scroll-target="#stdres_long">stdres_long</a></li>
+  <li><a href="#top_non_tourist_stations" id="toc-top_non_tourist_stations" class="nav-link" data-scroll-target="#top_non_tourist_stations"><code>top_non_tourist_stations</code></a></li>
+  <li><a href="#top_non_tourist_stations_named" id="toc-top_non_tourist_stations_named" class="nav-link" data-scroll-target="#top_non_tourist_stations_named"><code>top_non_tourist_stations_named</code></a></li>
+  <li><a href="#top_stations_df" id="toc-top_stations_df" class="nav-link" data-scroll-target="#top_stations_df"><code>top_stations_df</code></a></li>
+  <li><a href="#top_stations_df_offset" id="toc-top_stations_df_offset" class="nav-link" data-scroll-target="#top_stations_df_offset"><code>top_stations_df_offset</code></a></li>
+  </ul></li>
+  <li><a href="#csv-files" id="toc-csv-files" class="nav-link" data-scroll-target="#csv-files">CSV Files</a>
+  <ul class="collapse">
+  <li><a href="#asymmetry.csv" id="toc-asymmetry.csv" class="nav-link" data-scroll-target="#asymmetry.csv"><code>asymmetry.csv</code></a></li>
+  <li><a href="#attractions.csv" id="toc-attractions.csv" class="nav-link" data-scroll-target="#attractions.csv"><code>attractions.csv</code></a></li>
+  <li><a href="#bike_ride_buckets.csv" id="toc-bike_ride_buckets.csv" class="nav-link" data-scroll-target="#bike_ride_buckets.csv"><code>bike_ride_buckets.csv</code></a></li>
+  <li><a href="#max_concurrent_rides_by_year.csv" id="toc-max_concurrent_rides_by_year.csv" class="nav-link" data-scroll-target="#max_concurrent_rides_by_year.csv">max_concurrent_rides_by_year.csv</a></li>
+  <li><a href="#reshaped_pairs.csv" id="toc-reshaped_pairs.csv" class="nav-link" data-scroll-target="#reshaped_pairs.csv"><code>reshaped_pairs.csv</code></a></li>
+  <li><a href="#station_pairs.csv" id="toc-station_pairs.csv" class="nav-link" data-scroll-target="#station_pairs.csv"><code>station_pairs.csv</code></a></li>
+  <li><a href="#temp_distribution.csv" id="toc-temp_distribution.csv" class="nav-link" data-scroll-target="#temp_distribution.csv">temp_distribution.csv</a></li>
+  <li><a href="#temp_vs_rides_avg.csv" id="toc-temp_vs_rides_avg.csv" class="nav-link" data-scroll-target="#temp_vs_rides_avg.csv"><code>temp_vs_rides_avg.csv</code></a></li>
+  <li><a href="#temp_vs_rides_total.csv" id="toc-temp_vs_rides_total.csv" class="nav-link" data-scroll-target="#temp_vs_rides_total.csv">temp_vs_rides_total.csv</a></li>
+  </ul></li>
+  <li><a href="#rds-files" id="toc-rds-files" class="nav-link" data-scroll-target="#rds-files">RDS Files</a>
+  <ul class="collapse">
+  <li><a href="#nearby_stations_df.rds" id="toc-nearby_stations_df.rds" class="nav-link" data-scroll-target="#nearby_stations_df.rds">nearby_stations_df.rds</a></li>
+  <li><a href="#file-stations_non_tourist_df.rds" id="toc-file-stations_non_tourist_df.rds" class="nav-link" data-scroll-target="#file-stations_non_tourist_df.rds"><strong>File:</strong> <code>stations_non_tourist_df.rds</code></a></li>
+  </ul></li>
+  <li><a href="#miscellaneous-files" id="toc-miscellaneous-files" class="nav-link" data-scroll-target="#miscellaneous-files">Miscellaneous Files</a>
+  <ul class="collapse">
+  <li><a href="#avg_temp_vs_rides.tsv" id="toc-avg_temp_vs_rides.tsv" class="nav-link" data-scroll-target="#avg_temp_vs_rides.tsv">avg_temp_vs_rides.tsv</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -207,9 +269,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="sql-tables" class="level3">
 <h3 class="anchored" data-anchor-id="sql-tables">SQL Tables</h3>
-</section>
-<section id="stations-table" class="level3">
-<h3 class="anchored" data-anchor-id="stations-table">stations table</h3>
+<section id="stations" class="level4">
+<h4 class="anchored" data-anchor-id="stations">stations</h4>
+<p><strong>Type:</strong> SQLite Table</p>
 <p><strong>Description:</strong><br>
 The canonical reference table of Divvy station locations, IDs, and metadata, stored in SQLite.</p>
 <p><strong>Provenance Summary:</strong></p>
@@ -246,9 +308,11 @@ The canonical reference table of Divvy station locations, IDs, and metadata, sto
 </ul></li>
 </ul>
 <p><strong>Usage Notes:</strong> - This table is used to enrich trip records with consistent station coordinates and names. - For reproducibility or schema change tracking, refer to <a href="../src/load_stations_table.sh">load_stations_table.sh</a> and Section 3.1 of the Data Sources page.</p>
+<hr>
 </section>
-<section id="rides-table" class="level3">
-<h3 class="anchored" data-anchor-id="rides-table">rides Table</h3>
+<section id="rides-table" class="level4">
+<h4 class="anchored" data-anchor-id="rides-table">rides Table</h4>
+<p><strong>Type:</strong> SQLite Table</p>
 <p><strong>Description:</strong><br>
 The <code>rides</code> table is the master record of all individual bike trips included in the project. Each record corresponds to a single ride, capturing details about trip timing, station locations, user type, and computed metrics (such as distance).</p>
 <p><strong>Provenance:</strong></p>
@@ -307,8 +371,10 @@ The <code>rides</code> table is the master record of all individual bike trips i
 </ul>
 <p><strong>Usage Notes:</strong> - This table underpins nearly all downstream datasets (e.g., ride duration analysis, temporal aggregations, distance distributions). - Records are filtered further in analysis scripts (e.g., non-tourist rides, loop rides). - The <code>user_type</code> numeric code simplifies grouping and pivoting.</p>
 <p><strong>See Also:</strong> - <a href="../data.html#2-2-divvy-trip-data">Section 2.2 of the Data Sources page</a> for more detail on the raw files and schema. - <a href="../data.html#3-2-divvy-trip-data-cleaning-and-harmonization">Section 3.2</a> for full cleaning and harmonization process.</p>
-<section id="provenance-for-hourly_weather-table-and-data-frame" class="level4">
-<h4 class="anchored" data-anchor-id="provenance-for-hourly_weather-table-and-data-frame">Provenance for <code>hourly_weather</code> Table and Data Frame</h4>
+<hr>
+</section>
+<section id="hourly_weather-table-and-data-frame" class="level4">
+<h4 class="anchored" data-anchor-id="hourly_weather-table-and-data-frame"><code>hourly_weather</code> Table and Data Frame</h4>
 <section id="data-origin" class="level5">
 <h5 class="anchored" data-anchor-id="data-origin">Data Origin</h5>
 <ul>
@@ -412,11 +478,12 @@ Date, Hour, Temperature, Dew Point, Relative Humidity, Precipitation, Snow, Wind
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="st">+   )</span></span>
 <span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="st">+ "</span>)</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dbWriteTable</span>(con, <span class="st">"hourly_weather"</span>, df, <span class="at">append =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-</section>
-<section id="rides_per_hour_tbl-table" class="level3">
-<h3 class="anchored" data-anchor-id="rides_per_hour_tbl-table">rides_per_hour_tbl Table</h3>
+<section id="rides_per_hour_tbl" class="level4">
+<h4 class="anchored" data-anchor-id="rides_per_hour_tbl">rides_per_hour_tbl</h4>
+<p><strong>Type:</strong> SQLite Table</p>
 <p><strong>Description:</strong></p>
 <p>The <code>rides_per_hour_tbl</code> table is a materialized version of hourly ride counts by user type, optimized for repeated querying.</p>
 <p><strong>Provenance:</strong></p>
@@ -458,15 +525,16 @@ CREATE INDEX idx_rides_per_hour_epoch
 <li><p>Facilitates rapid joins with hourly_weather.</p></li>
 <li><p>Preferred over the view for performance when working with large time ranges or repeated analyses.</p></li>
 </ul>
-<hr>
+<hr style="height: 5px; background-color: black; border: none;">
+</section>
 </section>
 <section id="sql-views" class="level3">
 <h3 class="anchored" data-anchor-id="sql-views">SQL Views</h3>
-</section>
-<section id="rider_readable" class="level3">
-<h3 class="anchored" data-anchor-id="rider_readable"><code>rider_readable</code></h3>
+<section id="rider_readable" class="level4">
+<h4 class="anchored" data-anchor-id="rider_readable"><code>rider_readable</code></h4>
+<p><strong>Type:</strong> SQLite View</p>
 <p><strong>Description:</strong><br>
-A human-friendly view of ride records with timestamps converted to readable formats and categorical fields labeled.</p>
+A human-friendly view of <code>rides</code> records with timestamps converted to readable formats and categorical fields labeled.</p>
 <p><strong>Source &amp; Processing:</strong></p>
 <ul>
 <li><p>Base table: <code>rides</code></p></li>
@@ -514,9 +582,11 @@ A human-friendly view of ride records with timestamps converted to readable form
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">END</span> <span class="kw">AS</span> gender,</span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  birth_year</span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> rides</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="rides_per_hour-view" class="level3">
-<h3 class="anchored" data-anchor-id="rides_per_hour-view">rides_per_hour View</h3>
+<section id="rides_per_hour" class="level4">
+<h4 class="anchored" data-anchor-id="rides_per_hour">rides_per_hour</h4>
+<p><strong>Type:</strong> SQLite View</p>
 <p><strong>Description:</strong><br>
 The <code>rides_per_hour</code> view summarizes ride counts per hour and user type, creating a time-aligned dataset comparable to hourly weather records.</p>
 <p><strong>Provenance:</strong></p>
@@ -549,11 +619,13 @@ The <code>rides_per_hour</code> view summarizes ride counts per hour and user ty
 <li>Used to efficiently join hourly ride counts with hourly weather data in the rides_weather view.</li>
 <li>Provides a normalized temporal aggregation for analysis.</li>
 </ul>
+<hr>
 </section>
-<section id="rides_weather" class="level3">
-<h3 class="anchored" data-anchor-id="rides_weather"><code>rides_weather</code></h3>
-<p><strong>Description:</strong><br>
-A SQLite view combining hourly weather observations with hourly ride counts.</p>
+<section id="rides_weather" class="level4">
+<h4 class="anchored" data-anchor-id="rides_weather"><code>rides_weather</code></h4>
+<p><strong>Type:</strong> SQLite View</p>
+<p><strong>Description:</strong></p>
+<p>A SQLite view combining hourly weather observations with hourly ride counts.</p>
 <p><strong>Source &amp; Processing:</strong><br>
 - Created by joining <code>hourly_weather</code> (weather metrics per hour) with <code>rides_per_hour</code> (hourly aggregated ride counts by user type). - LEFT JOIN ensures every hourly weather record is included, even if no rides occurred in that hour. - Columns include: - <code>epoch</code>: Hour timestamp (Unix epoch). - <code>user_type</code>: User type (customer or subscriber). - <code>rides</code>: Count of rides during the hour (defaults to 0 if none). - Weather variables (<code>temp</code>, <code>dwpt</code>, <code>rhum</code>, <code>prcp</code>, <code>wdir</code>, <code>wspd</code>, <code>coco</code>).</p>
 <p><strong>Purpose:</strong><br>
@@ -574,13 +646,14 @@ Supports analysis of the relationship between weather conditions and bike usage 
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> hourly_weather <span class="kw">AS</span> w</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> rides_per_hour <span class="kw">AS</span> r</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>       <span class="kw">ON</span> r.epoch <span class="op">=</span> w.epoch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<hr style="height: 5px; background-color: black; border: none;">
+</section>
 </section>
 <section id="r-data-frames" class="level3">
 <h3 class="anchored" data-anchor-id="r-data-frames">R Data Frames</h3>
-</section>
-<section id="asym_top" class="level3">
-<h3 class="anchored" data-anchor-id="asym_top">asym_top</h3>
+<section id="asym_top" class="level4">
+<h4 class="anchored" data-anchor-id="asym_top">asym_top</h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin</strong><br>
 Derived directly from the <code>asym_data</code> data frame, which summarizes directional ride imbalances between station pairs.</p>
 <p><strong>How Created</strong><br>
@@ -598,9 +671,10 @@ Filtered and transformed in R to select the top 20 most asymmetric station pairs
 <p><strong>Columns</strong><br>
 Same columns as <code>asym_data</code>, plus:<br>
 - <code>path_label</code>: Combined string of station names in the format “A → B”.</p>
+<hr>
 </section>
-<section id="attractions_df" class="level3">
-<h3 class="anchored" data-anchor-id="attractions_df"><code>attractions_df</code></h3>
+<section id="attractions_df" class="level4">
+<h4 class="anchored" data-anchor-id="attractions_df"><code>attractions_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong></p>
 <p>This data frame contains the list of tourist attractions in Chicago used to identify nearby Divvy stations likely to serve visitors rather than commuters.</p>
@@ -640,9 +714,11 @@ Same columns as <code>asym_data</code>, plus:<br>
 </ul>
 <p><strong>Command Used</strong></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>attractions_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/tourist_attractions.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="asym_top-1" class="level3">
-<h3 class="anchored" data-anchor-id="asym_top-1">asym_top</h3>
+<section id="asym_top-1" class="level4">
+<h4 class="anchored" data-anchor-id="asym_top-1">asym_top</h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin</strong><br>
 Derived directly from the <code>asym_data</code> data frame, which summarizes directional ride imbalances between station pairs.</p>
 <p><strong>How Created</strong><br>
@@ -660,9 +736,10 @@ Filtered and transformed in R to select the top 20 most asymmetric station pairs
 <p><strong>Columns</strong><br>
 Same columns as <code>asym_data</code>, plus:<br>
 - <code>path_label</code>: Combined string of station names in the format “A → B”.</p>
+<hr>
 </section>
-<section id="attractions_df-1" class="level3">
-<h3 class="anchored" data-anchor-id="attractions_df-1"><code>attractions_df</code></h3>
+<section id="attractions_df-1" class="level4">
+<h4 class="anchored" data-anchor-id="attractions_df-1"><code>attractions_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong></p>
 <p>This data frame contains the list of tourist attractions in Chicago used to identify nearby Divvy stations likely to serve visitors rather than commuters.</p>
@@ -702,10 +779,12 @@ Same columns as <code>asym_data</code>, plus:<br>
 </ul>
 <p><strong>Command Used</strong></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>attractions_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"/home/sas/classes/Google/data-analytics/data/tourist_attractions.csv"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-</section>
-<section id="provenance-binned_rides-r-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-binned_rides-r-data-frame">Provenance: <code>binned_rides</code> R Data Frame</h2>
+<section id="binned_rides" class="level4">
+<h4 class="anchored" data-anchor-id="binned_rides"><code>binned_rides</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame summarizes the average number of rides per 2 °C temperature bin, split by user type.</p>
 <ul>
 <li><strong>Source File:</strong> <code>avg_temp_vs_rides.tsv</code></li>
@@ -752,8 +831,12 @@ Same columns as <code>asym_data</code>, plus:<br>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">customer =</span> cust</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Usage:</strong> binned_rides was used to create line plots comparing ride volume across temperature bins by user type.</p>
-<section id="data-frame-daily_avg_df" class="level4">
-<h4 class="anchored" data-anchor-id="data-frame-daily_avg_df"><strong>Data Frame:</strong> <code>daily_avg_df</code></h4>
+<hr>
+</section>
+<section id="daily_avg_df" class="level4">
+<h4 class="anchored" data-anchor-id="daily_avg_df"><code>daily_avg_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>Average number of rides per day since January 2023, grouped by user type and bike type.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>daily_avg_df <span class="ot">&lt;-</span> post_electric_rides_df <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(user_type, bike_type) <span class="sc">%&gt;%</span></span>
@@ -769,10 +852,11 @@ Same columns as <code>asym_data</code>, plus:<br>
 <li>Comparison of subscriber and casual user behaviors in the e-bike era.</li>
 <li>Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.</li>
 </ul>
+<hr>
 </section>
-</section>
-<section id="provenance-density_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-density_df">Provenance: <code>density_df</code></h2>
+<section id="density_df" class="level4">
+<h4 class="anchored" data-anchor-id="density_df"><code>density_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin:</strong></p>
 <p>Derived from the <code>non_loop_rides_df</code> data frame, which contains filtered bike rides excluding loops, limited to casual riders, non-tourist stations, and rides starting from 2023-01-01. The relevant column used is <code>distance_km</code>, representing the ride distances in kilometers.</p>
 <p><strong>Transformation Details:</strong></p>
@@ -792,10 +876,13 @@ Same columns as <code>asym_data</code>, plus:<br>
 </ul>
 <p><strong>Purpose:</strong><br>
 The <code>density_df</code> data frame provides a smooth estimate of the distribution of ride distances, which can be used for visualizations such as density plots to understand the continuous frequency pattern of trip lengths in the dataset.</p>
-<section id="duration_by_type" class="level3">
-<h3 class="anchored" data-anchor-id="duration_by_type"><code>duration_by_type</code></h3>
-<p><strong>Description:</strong><br>
-Summarized ride duration statistics by user type and bike type.</p>
+<hr>
+</section>
+<section id="duration_by_type" class="level4">
+<h4 class="anchored" data-anchor-id="duration_by_type"><code>duration_by_type</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description:</strong></p>
+<p>Summarized ride duration statistics by user type and bike type.</p>
 <p><strong>Source &amp; Processing:</strong><br>
 - Derived from <a href="../data/post_electric_rides_df.html"><code>post_electric_rides_df</code></a>, which contains daily ride counts and average durations for rides since the introduction of e-bikes (January 1, 2023). - Grouped by <code>user_type</code> and <code>bike_type</code>. - For each group, calculated: - <code>avg_duration</code>: Mean of average ride durations (minutes). - <code>sd_duration</code>: Standard deviation of average ride durations. - User type labels were recoded to human-readable form (“Subscriber” and “Customer”).</p>
 <p><strong>Purpose:</strong><br>
@@ -812,14 +899,20 @@ Provides a concise summary of ride duration behavior across different rider cate
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>duration_by_type<span class="sc">$</span>user_type <span class="ot">&lt;-</span> <span class="fu">fct_recode</span>(<span class="fu">as.factor</span>(duration_by_type<span class="sc">$</span>user_type),</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Subscriber"</span> <span class="ot">=</span> <span class="st">"0"</span>,</span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Customer"</span> <span class="ot">=</span> <span class="st">"1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Data Frame:</strong> <code>loop_rides_non_tourist</code></p>
+<hr>
+</section>
+<section id="loop_rides_non_tourist" class="level4">
+<h4 class="anchored" data-anchor-id="loop_rides_non_tourist"><code>loop_rides_non_tourist</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame was created by filtering <code>non_tourist_customer_rides_df</code> to include only rides that started and ended at the same station.</p>
 <p>Specifically, records were retained where:</p>
 <pre><code>start_station_id == end_station_id</code></pre>
 <p>This subset isolates non-tourist customer rides that form a complete loop, supporting analysis of short trips returning to the origin station.</p>
+<hr>
 </section>
-<section id="nearby_stations_df" class="level3">
-<h3 class="anchored" data-anchor-id="nearby_stations_df"><code>nearby_stations_df</code></h3>
+<section id="nearby_stations_df" class="level4">
+<h4 class="anchored" data-anchor-id="nearby_stations_df"><code>nearby_stations_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong></p>
 <p>This data frame was created to identify Divvy stations located near known tourist attractions.</p>
@@ -851,8 +944,11 @@ Provides a concise summary of ride duration behavior across different rider cate
 <li><code>attraction</code> (name of nearby attraction)</li>
 </ul>
 <p>Conveniently available as <a href="nearby_stations_df.rds">nearby_stations_df.rds</a> for your importing pleasure.</p>
-<section id="provenance-for-non_loop_rides_df" class="level4">
-<h4 class="anchored" data-anchor-id="provenance-for-non_loop_rides_df">Provenance for non_loop_rides_df</h4>
+<hr>
+</section>
+<section id="non_loop_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="non_loop_rides_df">non_loop_rides_df</h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <section id="data-origin-1" class="level5">
 <h5 class="anchored" data-anchor-id="data-origin-1">Data Origin</h5>
 <p>** Source Table:** 1 Start with non_tourist_customer_rides_df</p>
@@ -900,18 +996,18 @@ Computed haversine distance</code></pre>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Result:</p>
 <pre><code>Recomputed distance_m and distance_km using (start_long, start_lat) </code></pre>
+<hr>
 </section>
 </section>
-</section>
-</section>
-<section id="provenance-for-non_tourist_customer_rides_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-for-non_tourist_customer_rides_df">Provenance for non_tourist_customer_rides_df</h2>
-<section id="data-origin-2" class="level3">
-<h3 class="anchored" data-anchor-id="data-origin-2">Data Origin</h3>
+<section id="non_tourist_customer_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="non_tourist_customer_rides_df">non_tourist_customer_rides_df</h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<section id="data-origin-2" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin-2">Data Origin</h5>
 <p>** Source Table:** rides table in SQLite database</p>
 </section>
-<section id="query-details" class="level3">
-<h3 class="anchored" data-anchor-id="query-details">Query Details</h3>
+<section id="query-details" class="level5">
+<h5 class="anchored" data-anchor-id="query-details">Query Details</h5>
 <p>Query selects:</p>
 <ul>
 <li>ride_id</li>
@@ -930,8 +1026,8 @@ Computed haversine distance</code></pre>
 <li>Meaning: rides starting on or after Jan 1, 2023</li>
 </ul>
 </section>
-<section id="how-this-fits-into-the-flow-1" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-fits-into-the-flow-1">How this fits into the flow</h3>
+<section id="how-this-fits-into-the-flow-1" class="level5">
+<h5 class="anchored" data-anchor-id="how-this-fits-into-the-flow-1">How this fits into the flow</h5>
 <p>This dataset forms the <strong>foundational rides subset</strong> from which many other frames were derived:</p>
 <ul>
 <li>non_loop_rides_df</li>
@@ -960,10 +1056,12 @@ Computed haversine distance</code></pre>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>, station_ids_sql, station_ids_sql)</span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>non_tourist_customer_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, ride_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="provenance-of-normalized_df" class="level4">
-<h4 class="anchored" data-anchor-id="provenance-of-normalized_df">Provenance of normalized_df</h4>
-<section id="normalized_df" class="level5">
-<h5 class="anchored" data-anchor-id="normalized_df"><code>normalized_df</code></h5>
+<hr>
+</section>
+</section>
+<section id="normalized_df" class="level4">
+<h4 class="anchored" data-anchor-id="normalized_df">normalized_df</h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Description:</strong><br>
 A normalized version of average ride counts across temperature bins, prepared for comparative visualization.</p>
 <p><strong>Provenance Details:</strong></p>
@@ -987,12 +1085,11 @@ A normalized version of average ride counts across temperature bins, prepared fo
 <ul>
 <li>To enable fair visual comparison of ride volume trends across user types regardless of absolute scale.</li>
 </ul>
+<hr>
 </section>
-</section>
-</section>
-</section>
-<section id="provenance-peak_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-peak_df">Provenance: <code>peak_df</code></h2>
+<section id="peak_df" class="level4">
+<h4 class="anchored" data-anchor-id="peak_df"><code>peak_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin:</strong><br>
 Derived from the <code>density_df</code> data frame, which contains kernel density estimates of bike ride distances (<code>x</code> for distance in km, <code>y</code> for density values).</p>
 <p><strong>Transformation Details:</strong><br>
@@ -1001,8 +1098,10 @@ Derived from the <code>density_df</code> data frame, which contains kernel densi
 - <code>peak_df</code> is a subset of <code>density_df</code> containing only the rows at these peak positions.</p>
 <p><strong>Purpose:</strong><br>
 <code>peak_df</code> highlights the key distance values where the density of rides is locally maximized, helping to identify common ride distance modes or popular trip length clusters in the dataset.</p>
-<section id="prop_df" class="level3">
-<h3 class="anchored" data-anchor-id="prop_df">prop_df</h3>
+<hr>
+</section>
+<section id="prop_df" class="level4">
+<h4 class="anchored" data-anchor-id="prop_df">prop_df</h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong><br>
 Derived directly from <code>rides_by_hour_weekpart</code>, which summarizes the hourly count of non-tourist customer rides split by “week part” (Weekday or Weekend).</p>
@@ -1026,9 +1125,11 @@ Provides the <em>within-week part distribution</em> of ride frequency over the d
 </li>
 <li><code>prop</code>: Proportion of rides within each <code>week_part</code></li>
 </ul>
+<hr>
 </section>
-<section id="prop_wide" class="level3">
-<h3 class="anchored" data-anchor-id="prop_wide"><code>prop_wide</code></h3>
+<section id="prop_wide" class="level4">
+<h4 class="anchored" data-anchor-id="prop_wide"><code>prop_wide</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Description:</strong><br>
 A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.</p>
 <p><strong>Source &amp; Processing:</strong><br>
@@ -1040,9 +1141,12 @@ Enables straightforward comparison of ridership distribution by hour across week
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(hour, week_part, prop) <span class="sc">%&gt;%</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">names_from =</span> week_part, <span class="at">values_from =</span> prop) <span class="sc">%&gt;%</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">diff =</span> Weekday <span class="sc">-</span> Weekend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="file-post_electric_rides_df.rds" class="level4">
-<h4 class="anchored" data-anchor-id="file-post_electric_rides_df.rds"><strong>File:</strong> <code>post_electric_rides_df.rds</code></h4>
-<p>Daily ride counts and average durations since January 2023, broken down by user type and bike type.</p>
+<hr>
+</section>
+<section id="post_electric_rides_df" class="level4">
+<h4 class="anchored" data-anchor-id="post_electric_rides_df"><code>post_electric_rides_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong> Daily ride counts and average durations since January 2023, broken down by user type and bike type.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
@@ -1060,11 +1164,11 @@ Enables straightforward comparison of ridership distribution by hour across week
 <li>Comparison of subscriber and casual user behaviors in the e-bike era.</li>
 <li>Avoidance of bias from mixing fundamentally different vehicle types in aggregate metrics.</li>
 </ul>
+<hr>
 </section>
-</section>
-</section>
-<section id="provenance-ride_counts_by_distance" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-ride_counts_by_distance">Provenance: <code>ride_counts_by_distance</code></h2>
+<section id="ride_counts_by_distance" class="level4">
+<h4 class="anchored" data-anchor-id="ride_counts_by_distance"><code>ride_counts_by_distance</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin:</strong><br>
 Derived from <code>non_loop_rides_df</code>, which includes only non-loop rides by customer riders starting and ending at non-tourist stations on or after 2023-01-01. This dataframe also contains a <code>distance_km</code> column representing the calculated ride distance in kilometers.</p>
 <p><strong>Transformation Details:</strong><br>
@@ -1092,8 +1196,11 @@ This summary enables visualization or statistical analysis of how ride frequency
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(distance_km <span class="sc">&lt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distance_bin =</span> <span class="fu">round</span>(distance_km <span class="sc">/</span> <span class="fl">0.1</span>) <span class="sc">*</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(distance_bin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="provenance-for-ride_durations" class="level4">
-<h4 class="anchored" data-anchor-id="provenance-for-ride_durations">Provenance for <code>ride_durations</code></h4>
+<hr>
+</section>
+<section id="ride_durations" class="level4">
+<h4 class="anchored" data-anchor-id="ride_durations"><code>ride_durations</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <section id="data-origin-3" class="level5">
 <h5 class="anchored" data-anchor-id="data-origin-3">Data Origin</h5>
 <ul>
@@ -1149,10 +1256,12 @@ Restricted to records where <code>user_type</code> is 0 (<code>subscriber</code>
 <span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="st">    AND end_time &gt; start_time</span></span>
 <span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="st">    AND (end_time - start_time) &lt; 12000</span></span>
 <span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="ride_props" class="level3">
-<h3 class="anchored" data-anchor-id="ride_props"><code>ride_props</code></h3>
+<section id="ride_props" class="level4">
+<h4 class="anchored" data-anchor-id="ride_props"><code>ride_props</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Description:</strong><br>
 Calculates the proportion of rides occurring in each hour relative to the total rides for that week part (Weekday or Weekend).</p>
 <p><strong>Provenance Details:</strong></p>
@@ -1164,7 +1273,8 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 <li>Grouped by <code>week_part</code>.</li>
 <li>Computed the proportion of rides within each hour by dividing <code>ride_count</code> by the sum of <code>ride_count</code> in that week part.</li>
 </ul></li>
-<li><p><strong>Code:</strong></p>
+<li><p><strong>Code:</strong></p></li>
+</ul>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ride_props <span class="ot">&lt;-</span> rides_by_hour_weekpart <span class="sc">%&gt;%</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part) <span class="sc">%&gt;%</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
@@ -1173,11 +1283,12 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 <p><strong>Purpose:</strong></p>
 <ul>
 <li>To facilitate comparison of hourly ride distribution between weekdays and weekends by normalizing counts into proportions.</li>
-</ul></li>
 </ul>
+<hr>
 </section>
-<section id="provenance-rides_by_hour_season" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-rides_by_hour_season">Provenance: <code>rides_by_hour_season</code></h3>
+<section id="provenance-rides_by_hour_season" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-rides_by_hour_season">Provenance: <code>rides_by_hour_season</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p>This data frame was created to analyze the temporal patterns of customer rides across seasons, weekdays, and hours.</p>
 <p><strong>Transformation Steps:</strong></p>
 <ul>
@@ -1221,9 +1332,11 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 <span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(season, week_part, hour, <span class="at">name =</span> <span class="st">"ride_count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="rides_by_hour_weekpart" class="level3">
-<h3 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h3>
+<section id="rides_by_hour_weekpart" class="level4">
+<h4 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Description:</strong><br>
 Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.</p>
 <p><strong>Source &amp; Processing:</strong> - Input data: <a href="../data/non_tourist_customer_rides_df.html"><code>non_tourist_customer_rides_df</code></a> - Transformation steps in R: - Computed <code>hour</code> (0–23) using <code>lubridate::hour(start_localtime)</code>. - Created <code>week_part</code> as: - <code>"Weekend"</code> if the ride started on Saturday or Sunday (<code>wday</code> in {1,7}) - <code>"Weekday"</code> otherwise. - Grouped by <code>week_part</code> and <code>hour</code>. - Summarised to count total rides in each combination.</p>
@@ -1235,10 +1348,11 @@ This dataset is used to: - Analyze temporal riding patterns by day type. - Suppo
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">week_part =</span> <span class="fu">ifelse</span>(lubridate<span class="sc">::</span><span class="fu">wday</span>(start_localtime) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>), <span class="st">"Weekend"</span>, <span class="st">"Weekday"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(week_part, hour) <span class="sc">%&gt;%</span></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">ride_count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-</section>
-<section id="provenance-rides_weather_df" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-rides_weather_df">Provenance: <code>rides_weather_df</code></h2>
+<section id="rides_weather_df" class="level4">
+<h4 class="anchored" data-anchor-id="rides_weather_df"><code>rides_weather_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Data Origin:</strong><br>
 Derived directly from the <code>rides_weather</code> view in the SQLite database.</p>
 <p><strong>View Definition Recap (<code>rides_weather</code>):</strong><br>
@@ -1268,8 +1382,10 @@ Although no explicit import code was found in the logs, usage patterns strongly 
 <li>Summarising rides by temperature and precipitation bins</li>
 <li>Producing LOESS-smoothed plots of ride volume by temperature</li>
 </ul>
-<section id="stations_non_tourist_df" class="level3">
-<h3 class="anchored" data-anchor-id="stations_non_tourist_df"><code>stations_non_tourist_df</code></h3>
+<hr>
+</section>
+<section id="stations_non_tourist_df" class="level4">
+<h4 class="anchored" data-anchor-id="stations_non_tourist_df"><code>stations_non_tourist_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong></p>
 <p>This dataset contains all Divvy stations <strong>not</strong> within a defined proximity of tourist attractions as defined in <a href="../data/attractions_df.html">attractions_df</a>.</p>
@@ -1290,10 +1406,12 @@ It serves as the basis for filtering rides and identifying top stations less lik
 <li><code>long</code></li>
 </ul>
 <p>Conveniently available as <a href="stations_non_tourist_df.rds">stations_non_tourist_df.rds</a> for your importing pleasures.</p>
+<hr>
 </section>
-</section>
-<section id="provenance-stdres_df-r-data-frame" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-stdres_df-r-data-frame">Provenance: <code>stdres_df</code> R Data Frame</h2>
+<section id="stdres_df" class="level4">
+<h4 class="anchored" data-anchor-id="stdres_df"><code>stdres_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame contains the standardized residuals from a chi-squared test of the association between hour of day and ride volume by week part (Weekday vs Weekend).</p>
 <p><strong>Source Data:</strong> - <code>rides_by_hour_weekpart</code> - aggregated counts of rides by hour and whether the ride occurred on a weekday or weekend.</p>
 <p><strong>Processing Steps:</strong></p>
@@ -1358,8 +1476,10 @@ It serves as the basis for filtering rides and identifying top stations less lik
 </ul>
 <p><strong>Interpretation:</strong></p>
 <pre><code>Residuals &gt; +2 or &lt; –2 indicate significantly more or fewer rides than expected under independence.</code></pre>
-<section id="stdres_long" class="level3">
-<h3 class="anchored" data-anchor-id="stdres_long">stdres_long</h3>
+<hr>
+</section>
+<section id="stdres_long" class="level4">
+<h4 class="anchored" data-anchor-id="stdres_long">stdres_long</h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong><br>
 Derived from <code>stdres_df</code>, which contains standardized residuals from a chi-squared test comparing hourly ride distributions between weekdays and weekends.</p>
@@ -1368,9 +1488,12 @@ Derived from <code>stdres_df</code>, which contains standardized residuals from 
 <p><strong>Purpose:</strong><br>
 Provides a long-form table of standardized residuals, enabling: - Visualization of deviations from expected ride counts by hour and week part. - Identification of significantly over- or under-represented hours (residuals &gt; +2 or &lt; –2).</p>
 <p><strong>Example Columns:</strong> - <code>hour</code>: Hour of the day (0–23) - <code>week_part</code>: Weekday or Weekend - <code>std_residual</code>: Chi-squared standardized residual</p>
+<hr>
 </section>
-<section id="provenance-top_non_tourist_stations" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-top_non_tourist_stations">Provenance: <code>top_non_tourist_stations</code></h3>
+<section id="top_non_tourist_stations" class="level4">
+<h4 class="anchored" data-anchor-id="top_non_tourist_stations"><code>top_non_tourist_stations</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame was created by querying the SQLite <code>rides</code> table to identify stations with the highest number of <strong>customer</strong> rides that <strong>started or ended</strong> at non-tourist stations post Covid.</p>
 <ul>
 <li><strong>Source tables:</strong> <code>rides</code><br>
@@ -1397,17 +1520,22 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">AND</span> start_time <span class="op">&gt;=</span> strftime(<span class="st">'%s'</span>, <span class="st">'2023-01-01'</span>)</span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> station_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The resulting table <code>top_non_tourist_stations</code> lists each station along with the total number of customer rides associated with it, sorted in descending order (if subsequently sorted in R).</p>
+<hr>
 </section>
-<section id="provenance-top_non_tourist_stations_named" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-top_non_tourist_stations_named">Provenance: <code>top_non_tourist_stations_named</code></h3>
+<section id="top_non_tourist_stations_named" class="level4">
+<h4 class="anchored" data-anchor-id="top_non_tourist_stations_named"><code>top_non_tourist_stations_named</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame was derived from <code>top_non_tourist_stations</code> by enriching it with station metadata and selecting the top entries.</p>
 <p><strong>Transformation Steps:</strong> - <strong>Join:</strong> - Performed an <code>inner_join()</code> with <code>stations_df</code> on <code>station_id</code> to append station names and coordinates. - <strong>Sorting:</strong> - Sorted all rows by <code>customer_ride_count</code> in descending order. - <strong>Selection:</strong> - Retained only the top 25 stations with the highest customer ride counts.</p>
 <p>The resulting <code>top_non_tourist_stations_named</code> data frame contains the most popular non-tourist stations (by customer rides), including their names and location details.</p>
+<hr>
 </section>
-<section id="provenance-for-top_stations_df" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-for-top_stations_df">Provenance for <code>top_stations_df</code></h3>
-<section id="data-origin-4" class="level4">
-<h4 class="anchored" data-anchor-id="data-origin-4">Data Origin</h4>
+<section id="top_stations_df" class="level4">
+<h4 class="anchored" data-anchor-id="top_stations_df"><code>top_stations_df</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<section id="data-origin-4" class="level5">
+<h5 class="anchored" data-anchor-id="data-origin-4">Data Origin</h5>
 <ul>
 <li><p><strong>Source Tables:</strong></p>
 <ul>
@@ -1417,8 +1545,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 </ul></li>
 </ul>
 </section>
-<section id="query-details-2" class="level4">
-<h4 class="anchored" data-anchor-id="query-details-2">Query Details</h4>
+<section id="query-details-2" class="level5">
+<h5 class="anchored" data-anchor-id="query-details-2">Query Details</h5>
 <p>This query identified the 50 most-used start stations for each user type.</p>
 <p><strong>Steps:</strong></p>
 <ol type="1">
@@ -1440,8 +1568,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 </ul></li>
 </ol>
 </section>
-<section id="selected-fields-1" class="level4">
-<h4 class="anchored" data-anchor-id="selected-fields-1">Selected Fields</h4>
+<section id="selected-fields-1" class="level5">
+<h5 class="anchored" data-anchor-id="selected-fields-1">Selected Fields</h5>
 <ul>
 <li><code>station_id</code>: Unique ID of the station.</li>
 <li><code>name</code>: Station name.</li>
@@ -1451,8 +1579,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <li><code>rn</code>: Rank within the top 50 for the user type.</li>
 </ul>
 </section>
-<section id="purpose-and-use-1" class="level4">
-<h4 class="anchored" data-anchor-id="purpose-and-use-1">Purpose and Use</h4>
+<section id="purpose-and-use-1" class="level5">
+<h5 class="anchored" data-anchor-id="purpose-and-use-1">Purpose and Use</h5>
 <p>This dataset was used to:</p>
 <ul>
 <li>Highlight the highest-volume stations by user segment.</li>
@@ -1460,8 +1588,8 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <li>Support station targeting strategies and user behavior analysis.</li>
 </ul>
 </section>
-<section id="command-used-1" class="level4">
-<h4 class="anchored" data-anchor-id="command-used-1">Command Used</h4>
+<section id="command-used-1" class="level5">
+<h5 class="anchored" data-anchor-id="command-used-1">Command Used</h5>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH ranked_stations AS (</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SELECT</span></span>
@@ -1483,10 +1611,11 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
 <span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>top_stations_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
 </section>
-<section id="top_stations_df_offset" class="level3">
-<h3 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h3>
+<section id="top_stations_df_offset" class="level4">
+<h4 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Provenance:</strong></p>
 <p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
@@ -1517,13 +1646,14 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">long_offset =</span> <span class="fu">ifelse</span>(user_type <span class="sc">==</span> <span class="st">"subscriber"</span>, long <span class="sc">-</span> <span class="fl">0.0001</span>, long <span class="sc">+</span> <span class="fl">0.0001</span>)</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<hr style="height: 5px; background-color: black; border: none;">
+</section>
 </section>
 <section id="csv-files" class="level3">
 <h3 class="anchored" data-anchor-id="csv-files">CSV Files</h3>
-</section>
-<section id="file-asymmetry.csv" class="level3">
-<h3 class="anchored" data-anchor-id="file-asymmetry.csv">File: <code>asymmetry.csv</code></h3>
+<section id="asymmetry.csv" class="level4">
+<h4 class="anchored" data-anchor-id="asymmetry.csv"><code>asymmetry.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Data Origin</strong></p>
 <p>Derived from the <code>rides</code> table in SQLite.</p>
 <p><strong>Generation Process</strong></p>
@@ -1549,18 +1679,22 @@ Provides a long-form table of standardized residuals, enabling: - Visualization 
 <p>Supports analysis of directional imbalances in station-to-station traffic, helping to identify: - Pairs with consistent one-way flows (e.g., commuting corridors) - Potential rebalancing priorities - Differences in patterns between subscribers and casual users</p>
 <p><em>File available at:</em> <a href="asymmetry.csv"><code>asymmetry.csv</code></a></p>
 <p><em>SQL Command Used:</em> <a href="../../src/asymmetry.sql">`asymmetry.sql</a></p>
+<hr>
 </section>
-<section id="attractions.csv" class="level3">
-<h3 class="anchored" data-anchor-id="attractions.csv"><code>attractions.csv</code></h3>
+<section id="attractions.csv" class="level4">
+<h4 class="anchored" data-anchor-id="attractions.csv"><code>attractions.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Description:</strong><br>
 A CSV file containing the list of tourist attractions in Chicago, each with name and geographic coordinates.</p>
 <p><strong>Origin:</strong> - Created manually as an initial reference list of attractions for proximity analysis. - Coordinates were collected via Google Maps. - Columns: - <code>Name</code>: Name of the attraction. - <code>lat</code>: Latitude. - <code>long</code>: Longitude.</p>
 <p><strong>Notes:</strong> - This was the earlier, simpler version of the attractions dataset. - Compared to <code>tourist_attractions.csv</code>, this file: - Uses lower precision coordinates.</p>
 <p><strong>Purpose:</strong> - Served as the primary input to generate <code>attractions_df</code>. - Used to identify stations within 600 meters of known tourist sites to help isolate commuter-focused stations.</p>
 <p>Conveniently available as <a href="attractions_csv">attractions_csv</a> for your importing pleasure.</p>
+<hr>
 </section>
-<section id="bike_ride_buckets.csv" class="level3">
-<h3 class="anchored" data-anchor-id="bike_ride_buckets.csv"><code>bike_ride_buckets.csv</code></h3>
+<section id="bike_ride_buckets.csv" class="level4">
+<h4 class="anchored" data-anchor-id="bike_ride_buckets.csv"><code>bike_ride_buckets.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Description:</strong><br>
 A summary CSV showing how many bikes fall into each range of total rides taken.</p>
 <p><strong>Source &amp; Processing:</strong> - Data source: <code>rides</code> table. - Steps performed in SQLite: 1. Counted the total rides per <code>bike_id</code> (<code>GROUP BY bike_id</code>). 2. Divided each bike’s ride count into buckets in increments of 100: - For example, rides 0–99, 100–199, etc. - Used <code>(ride_count / 100) * 100</code> to define the start of each bucket. 3. Counted how many bikes fell into each bucket. 4. Added <code>bucket_end</code> as <code>bucket_start + 99</code> to label the ranges. - Exported with <code>.mode csv</code> and <code>.headers on</code>.</p>
@@ -1589,9 +1723,12 @@ A summary CSV showing how many bikes fall into each range of total rides taken.<
 <span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  bike_count</span>
 <span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> bucketed;</span>
 <span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>.output stdout</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
 </section>
-<section id="data-provenance-max_concurrent_rides_by_year.csv" class="level3">
-<h3 class="anchored" data-anchor-id="data-provenance-max_concurrent_rides_by_year.csv">Data Provenance: max_concurrent_rides_by_year.csv</h3>
+<section id="max_concurrent_rides_by_year.csv" class="level4">
+<h4 class="anchored" data-anchor-id="max_concurrent_rides_by_year.csv">max_concurrent_rides_by_year.csv</h4>
+<p><strong>Type:</strong> CSV File</p>
+<p><strong>Description</strong></p>
 <p>This dataset was derived from the rides table in the SQLite database caseStudy.db. It records the maximum number of rides occurring simultaneously in each calendar year.</p>
 <p><strong>Extraction Process:</strong></p>
 <p><strong>Source Table:</strong></p>
@@ -1642,9 +1779,10 @@ A summary CSV showing how many bikes fall into each range of total rides taken.<
 <li>Years with minimal activity (e.g., 2020) reflect pandemic-related usage drops.</li>
 <li>This file was exported directly from the query output and saved as max_concurrent_rides_by_year.csv.</li>
 </ul>
+<hr>
 </section>
-<section id="reshaped_pairs.csv" class="level3">
-<h3 class="anchored" data-anchor-id="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></h3>
+<section id="reshaped_pairs.csv" class="level4">
+<h4 class="anchored" data-anchor-id="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></h4>
 <p><strong>Type:</strong> CSV File</p>
 <p><strong>Provenance:</strong></p>
 <p>This dataset was created by reshaping aggregated station-to-station ride counts to support Tableau visualizations of directional flows.</p>
@@ -1701,11 +1839,13 @@ A summary CSV showing how many bikes fall into each range of total rides taken.<
 <p>Station A, 41.88, -87.63, Station B, 41.89, -87.64, 500, 300, 200</p>
 <p>The <code>awk</code> command would produce <strong>two rows in <code>reshaped_pairs.csv</code></strong>:</p>
 <p>Station A,41.88,-87.63,500,300,200,1 Station B,41.89,-87.64,500,300,200,2</p>
+<hr>
 </section>
-<section id="station_pairs.csv" class="level3">
-<h3 class="anchored" data-anchor-id="station_pairs.csv"><code>station_pairs.csv</code></h3>
-<p><strong>Description:</strong><br>
-Top 5,000 most frequent origin-destination station pairs, with ride counts split by user type.</p>
+<section id="station_pairs.csv" class="level4">
+<h4 class="anchored" data-anchor-id="station_pairs.csv"><code>station_pairs.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
+<p><strong>Description:</strong></p>
+<p>Top 5,000 most frequent origin-destination station pairs, with ride counts split by user type.</p>
 <p><strong>Provenance Details:</strong></p>
 <ul>
 <li><p><strong>Source Tables:</strong></p>
@@ -1750,9 +1890,11 @@ To analyze directional flows between stations, including the relative share of s
 <li>Output includes lat/long for both stations to support mapping.</li>
 </ul>
 <p>Conveniently available as <a href="station_pairs.csv">station_pairs.csv</a> for your importing pleasure.</p>
+<hr>
 </section>
-<section id="temp_distribution.csv" class="level3">
-<h3 class="anchored" data-anchor-id="temp_distribution.csv">temp_distribution.csv</h3>
+<section id="temp_distribution.csv" class="level4">
+<h4 class="anchored" data-anchor-id="temp_distribution.csv">temp_distribution.csv</h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Description:</strong><br>
 CSV file summarizing the number of hourly observations per 2 °C temperature bin across the entire weather dataset.</p>
 <p><strong>Provenance:</strong></p>
@@ -1788,19 +1930,23 @@ CSV file summarizing the number of hourly observations per 2 °C temperature b
 <li>Useful for visualizing or validating the distribution of temperature observations in your weather data.</li>
 <li>Commonly referenced alongside avg_temp_vs_rides.tsv or temp_vs_rides_avg.csv to contextualize ride volume against sample sizes in each temperature bin.</li>
 </ul>
+<hr>
 </section>
-<section id="temp_vs_rides_avg.csv" class="level3">
-<h3 class="anchored" data-anchor-id="temp_vs_rides_avg.csv"><code>temp_vs_rides_avg.csv</code></h3>
-<p><strong>Description:</strong><br>
-A temperature-binned summary of average hourly ride counts across the study period.</p>
+<section id="temp_vs_rides_avg.csv" class="level4">
+<h4 class="anchored" data-anchor-id="temp_vs_rides_avg.csv"><code>temp_vs_rides_avg.csv</code></h4>
+<p><strong>Type:</strong> CSV File</p>
+<p><strong>Description:</strong></p>
+<p>A temperature-binned summary of average hourly ride counts across the study period.</p>
 <p><strong>Source &amp; Processing:</strong><br>
 - Derived by grouping hourly weather and ride data by temperature bins (<code>temp_bin</code>). - For each bin, the dataset records: - <code>avg</code>: Average total hourly rides (all users). - <code>subs</code>: Average hourly rides by subscribers. - <code>cust</code>: Average hourly rides by customers. - Binning was performed in 2-degree Celsius increments, ranging from -28°C to +36°C. - Missing or sparse bins were filled with low or zero values, reflecting limited ridership in extreme temperatures.</p>
 <p><strong>Purpose:</strong><br>
 Used as the input to generate <code>normalized_df</code>, in which all ride counts were normalized to a 0–1 scale for visualization of relative demand across temperatures and user types.</p>
 <p>Conveniently Available as <a href="temp_vs_rides_avg.csv">temp_vs_rides_avg.csv</a> for you importing pleasure.</p>
+<hr>
 </section>
-<section id="temp_vs_rides_total.csv" class="level3">
-<h3 class="anchored" data-anchor-id="temp_vs_rides_total.csv">temp_vs_rides_total.csv</h3>
+<section id="temp_vs_rides_total.csv" class="level4">
+<h4 class="anchored" data-anchor-id="temp_vs_rides_total.csv">temp_vs_rides_total.csv</h4>
+<p><strong>Type:</strong> CSV File</p>
 <p><strong>Description:</strong><br>
 CSV file containing the total number of rides observed in each 2 °C temperature bin, broken out by user type (subscriber vs.&nbsp;customer).</p>
 <p><strong>Provenance:</strong></p>
@@ -1856,27 +2002,35 @@ CSV file containing the total number of rides observed in each 2 °C temperatu
 <li>Frequently used to plot ride volume vs.&nbsp;temperature curves segmented by user type.</li>
 </ul>
 <p>Conveniently available as <a href="temp_vs_rides_total.csv">temp_vs_rides_total.csv</a> for you importing pleasure.</p>
-<hr>
+<hr style="height: 5px; background-color: black; border: none;">
+</section>
 </section>
 <section id="rds-files" class="level3">
 <h3 class="anchored" data-anchor-id="rds-files">RDS Files</h3>
-<p><strong>nearby_stations_df.rds</strong></p>
+<section id="nearby_stations_df.rds" class="level4">
+<h4 class="anchored" data-anchor-id="nearby_stations_df.rds">nearby_stations_df.rds</h4>
+<p><strong>Type:</strong> RDS File</p>
+<p><strong>Description</strong></p>
 <p>This RDS file contains the <a href="../data/nearby_stations_df.html">nearby_stations_df</a> data frame. It was derived by identifying all Divvy stations located within a 600-meter radius of any point in attractions_df (which was read from attractions.csv). The filtering was performed using geodesic distance calculations applied across all station coordinates. Stations meeting this proximity threshold were included to facilitate analyses that distinguish tourist-adjacent station activity.</p>
 <p>Conveniently available as <a href="../data/nearby_stations_df.rds.html">nearby_stations_df.rds</a> for you importing pleasure.</p>
+<hr>
+</section>
 <section id="file-stations_non_tourist_df.rds" class="level4">
 <h4 class="anchored" data-anchor-id="file-stations_non_tourist_df.rds"><strong>File:</strong> <code>stations_non_tourist_df.rds</code></h4>
+<p><strong>Type:</strong> RDS File</p>
+<p><strong>Description</strong></p>
 <p>This RDS file contains the <a href="../data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a> data frame, which represents Divvy stations that are not within 600 meters of any known tourist attraction. It was created by first loading a curated list of tourist destinations from <code>attractions.csv</code>, then computing the geodesic distance between each station and every attraction using the Haversine formula. Stations were excluded if they were within 600 meters of any attraction, based on the assumption that such stations are likely to serve tourists. The resulting data frame includes only those stations deemed non-tourist-oriented, and is used as a filtering basis for analyzing local commuting behavior, particularly among casual (customer) riders.</p>
 <p>Conveniently available as <a href="stations_non_tourist_df.rds">stations_non_tourist_df.rds</a> for your importing pleasure.</p>
-<hr>
+<hr style="height: 5px; background-color: black; border: none;">
 </section>
 </section>
 <section id="miscellaneous-files" class="level3">
 <h3 class="anchored" data-anchor-id="miscellaneous-files">Miscellaneous Files</h3>
-</section>
-<section id="avg_temp_vs_rides.tsv" class="level3">
-<h3 class="anchored" data-anchor-id="avg_temp_vs_rides.tsv">avg_temp_vs_rides.tsv</h3>
-<p><strong>Description:</strong><br>
-Tab-separated summary table aggregating the <em>average</em> hourly ride counts by temperature bin and user type.</p>
+<section id="avg_temp_vs_rides.tsv" class="level4">
+<h4 class="anchored" data-anchor-id="avg_temp_vs_rides.tsv">avg_temp_vs_rides.tsv</h4>
+<p><strong>Type:</strong> TSV File</p>
+<p><strong>Description:</strong></p>
+<p>Tab-separated summary table aggregating the <em>average</em> hourly ride counts by temperature bin and user type.</p>
 <p><strong>Provenance:</strong></p>
 <ul>
 <li><strong>Source Tables:</strong>
@@ -1932,38 +2086,45 @@ Tab-separated summary table aggregating the <em>average</em> hourly ride counts 
 <span id="cb57-27"><a href="#cb57-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-28"><a href="#cb57-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-29"><a href="#cb57-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a>### `temp_vs_rides_2.dat`</span>
+<span id="cb57-30"><a href="#cb57-30" aria-hidden="true" tabindex="-1"></a><span class="co">--- </span></span>
 <span id="cb57-31"><a href="#cb57-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Description:<span class="op">**</span>  </span>
-<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a>Tab<span class="op">-</span>separated <span class="kw">values</span> <span class="kw">file</span> used <span class="kw">as</span> input <span class="kw">to</span> `gnuplot`, showing average ride volume per <span class="dv">2</span> °C temperature bin.</span>
-<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-35"><a href="#cb57-35" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Origin:<span class="op">**</span></span>
-<span id="cb57-36"><a href="#cb57-36" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="kw">Generated</span> <span class="kw">from</span> <span class="kw">the</span> `rides_weather` <span class="kw">view</span> <span class="kw">in</span> SQLite <span class="kw">using</span> a SQL <span class="kw">query</span> that:</span>
-<span id="cb57-37"><a href="#cb57-37" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Bins temperatures <span class="kw">into</span> <span class="dv">2</span><span class="op">-</span><span class="kw">degree</span> Celsius intervals <span class="kw">using</span> `CAST(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>`.</span>
-<span id="cb57-38"><a href="#cb57-38" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Computes <span class="kw">the</span> average <span class="dt">number</span> <span class="kw">of</span> rides per temperature bin.</span>
-<span id="cb57-39"><a href="#cb57-39" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> SQL output <span class="kw">mode</span> <span class="kw">set</span> <span class="kw">to</span>:</span>
-<span id="cb57-40"><a href="#cb57-40" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> <span class="kw">No</span> headers (`.headers off`)</span>
-<span id="cb57-41"><a href="#cb57-41" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Tab<span class="op">-</span>separated (`.<span class="kw">mode</span> tabs`)</span>
-<span id="cb57-42"><a href="#cb57-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-43"><a href="#cb57-43" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Purpose:<span class="op">**</span></span>
-<span id="cb57-44"><a href="#cb57-44" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Used <span class="cf">for</span> visualizing how ride volume changes <span class="kw">with</span> temperature.</span>
-<span id="cb57-45"><a href="#cb57-45" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Designed <span class="cf">for</span> easy <span class="kw">use</span> <span class="kw">in</span> `gnuplot` <span class="kw">or</span> other plotting tools that prefer delimited plain<span class="op">-</span>text input.</span>
-<span id="cb57-46"><a href="#cb57-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-47"><a href="#cb57-47" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="kw">Query</span> Used<span class="op">**</span></span>
-<span id="cb57-48"><a href="#cb57-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-49"><a href="#cb57-49" aria-hidden="true" tabindex="-1"></a>```sql</span>
-<span id="cb57-50"><a href="#cb57-50" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
-<span id="cb57-51"><a href="#cb57-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
-<span id="cb57-52"><a href="#cb57-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
-<span id="cb57-53"><a href="#cb57-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
-<span id="cb57-54"><a href="#cb57-54" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
-<span id="cb57-55"><a href="#cb57-55" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb57-56"><a href="#cb57-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
-<span id="cb57-57"><a href="#cb57-57" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb57-58"><a href="#cb57-58" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
-<span id="cb57-59"><a href="#cb57-59" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-32"><a href="#cb57-32" aria-hidden="true" tabindex="-1"></a>#### `temp_vs_rides_2.dat`</span>
+<span id="cb57-33"><a href="#cb57-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-34"><a href="#cb57-34" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="kw">Type</span>:<span class="op">**</span> <span class="kw">Data</span> <span class="kw">File</span></span>
+<span id="cb57-35"><a href="#cb57-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-36"><a href="#cb57-36" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Description:<span class="op">**</span></span>
+<span id="cb57-37"><a href="#cb57-37" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb57-38"><a href="#cb57-38" aria-hidden="true" tabindex="-1"></a>Tab<span class="op">-</span>separated <span class="kw">values</span> <span class="kw">file</span> used <span class="kw">as</span> input <span class="kw">to</span> `gnuplot`, showing average ride volume per <span class="dv">2</span> °C temperature bin.</span>
+<span id="cb57-39"><a href="#cb57-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-40"><a href="#cb57-40" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Origin:<span class="op">**</span></span>
+<span id="cb57-41"><a href="#cb57-41" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> <span class="kw">Generated</span> <span class="kw">from</span> <span class="kw">the</span> `rides_weather` <span class="kw">view</span> <span class="kw">in</span> SQLite <span class="kw">using</span> a SQL <span class="kw">query</span> that:</span>
+<span id="cb57-42"><a href="#cb57-42" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Bins temperatures <span class="kw">into</span> <span class="dv">2</span><span class="op">-</span><span class="kw">degree</span> Celsius intervals <span class="kw">using</span> `CAST(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>`.</span>
+<span id="cb57-43"><a href="#cb57-43" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Computes <span class="kw">the</span> average <span class="dt">number</span> <span class="kw">of</span> rides per temperature bin.</span>
+<span id="cb57-44"><a href="#cb57-44" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> SQL output <span class="kw">mode</span> <span class="kw">set</span> <span class="kw">to</span>:</span>
+<span id="cb57-45"><a href="#cb57-45" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> <span class="kw">No</span> headers (`.headers off`)</span>
+<span id="cb57-46"><a href="#cb57-46" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> Tab<span class="op">-</span>separated (`.<span class="kw">mode</span> tabs`)</span>
+<span id="cb57-47"><a href="#cb57-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-48"><a href="#cb57-48" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>Purpose:<span class="op">**</span></span>
+<span id="cb57-49"><a href="#cb57-49" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Used <span class="cf">for</span> visualizing how ride volume changes <span class="kw">with</span> temperature.</span>
+<span id="cb57-50"><a href="#cb57-50" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> Designed <span class="cf">for</span> easy <span class="kw">use</span> <span class="kw">in</span> `gnuplot` <span class="kw">or</span> other plotting tools that prefer delimited plain<span class="op">-</span>text input.</span>
+<span id="cb57-51"><a href="#cb57-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-52"><a href="#cb57-52" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="kw">Query</span> Used<span class="op">**</span></span>
+<span id="cb57-53"><a href="#cb57-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-54"><a href="#cb57-54" aria-hidden="true" tabindex="-1"></a>```sql</span>
+<span id="cb57-55"><a href="#cb57-55" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> t <span class="kw">AS</span> (</span>
+<span id="cb57-56"><a href="#cb57-56" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span></span>
+<span id="cb57-57"><a href="#cb57-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">CAST</span>(temp <span class="op">/</span> <span class="fl">2.0</span> <span class="kw">AS</span> <span class="dt">INT</span>)<span class="op">*</span><span class="dv">2</span>  <span class="kw">AS</span> temp_bin,   <span class="co">-- 2 °C Bin: …, 14, 16, 18 …</span></span>
+<span id="cb57-58"><a href="#cb57-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AVG</span>(rides)                 <span class="kw">AS</span> avg_rides</span>
+<span id="cb57-59"><a href="#cb57-59" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> rides_weather</span>
+<span id="cb57-60"><a href="#cb57-60" aria-hidden="true" tabindex="-1"></a>  <span class="kw">GROUP</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-61"><a href="#cb57-61" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> temp_bin</span>
+<span id="cb57-62"><a href="#cb57-62" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb57-63"><a href="#cb57-63" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> temp_bin, avg_rides</span>
+<span id="cb57-64"><a href="#cb57-64" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> t;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr style="height: 5px; background-color: black; border: none;">
 
 
+</section>
 </section>
 </section>
 

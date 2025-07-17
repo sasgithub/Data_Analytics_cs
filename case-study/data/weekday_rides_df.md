@@ -1,4 +1,8 @@
-#### **Data Frame:** `weekday_rides_df`
+#### `weekday_rides_df`
+
+**Type:** R Data Frame
+
+**Description**
 
 This data frame was derived from `non_tourist_customer_rides_df` by filtering to include only rides that took place on weekdays (`week_part == "Weekday"`).  
 

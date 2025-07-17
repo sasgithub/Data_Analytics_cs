@@ -1,5 +1,8 @@
-#### **File:** `post_electric_rides_df.rds`
+#### `post_electric_rides_df`
 
+**Type:** R Data Frame
+
+**Description**
 Daily ride counts and average durations since January 2023, broken down by user type and bike type.
 
 ```r

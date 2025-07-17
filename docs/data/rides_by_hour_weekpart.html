@@ -164,8 +164,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="rides_by_hour_weekpart" class="level3">
-<h3 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h3>
+<section id="rides_by_hour_weekpart" class="level4">
+<h4 class="anchored" data-anchor-id="rides_by_hour_weekpart"><code>rides_by_hour_weekpart</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
 <p><strong>Description:</strong><br>
 Hourly ride counts for non-tourist customer trips, separated into weekday and weekend buckets.</p>
 <p><strong>Source &amp; Processing:</strong> - Input data: <a href="../data/non_tourist_customer_rides_df.html"><code>non_tourist_customer_rides_df</code></a> - Transformation steps in R: - Computed <code>hour</code> (0–23) using <code>lubridate::hour(start_localtime)</code>. - Created <code>week_part</code> as: - <code>"Weekend"</code> if the ride started on Saturday or Sunday (<code>wday</code> in {1,7}) - <code>"Weekday"</code> otherwise. - Grouped by <code>week_part</code> and <code>hour</code>. - Summarised to count total rides in each combination.</p>

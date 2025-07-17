@@ -1,4 +1,8 @@
-#### **Data Frame:** `daily_avg_df`
+#### `daily_avg_df`
+
+**Type:** R Data Frame
+
+**Description**
 
 Average number of rides per day since January 2023, grouped by user type and bike type.
 

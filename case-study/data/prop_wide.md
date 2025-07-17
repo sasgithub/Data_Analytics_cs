@@ -1,4 +1,6 @@
-### `prop_wide`
+#### `prop_wide`
+
+**Type:** R Data Frame
 
 **Description:**  
 A wide-format data frame comparing the proportion of rides by hour between weekdays and weekends.

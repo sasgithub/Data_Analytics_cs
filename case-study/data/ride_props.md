@@ -1,4 +1,6 @@
-### `ride_props`
+#### `ride_props`
+
+**Type:** R Data Frame
 
 **Description:**  
 Calculates the proportion of rides occurring in each hour relative to the total rides for that week part (Weekday or Weekend).
@@ -14,12 +16,12 @@ Calculates the proportion of rides occurring in each hour relative to the total 
 
 - **Code:**
 
-  ```r
-  ride_props <- rides_by_hour_weekpart %>%
-      group_by(week_part) %>%
-      mutate(
-          prop = ride_count / sum(ride_count)
-      )
+```r
+ride_props <- rides_by_hour_weekpart %>%
+    group_by(week_part) %>%
+    mutate(
+        prop = ride_count / sum(ride_count)
+    )
 ```
 **Purpose:**
 

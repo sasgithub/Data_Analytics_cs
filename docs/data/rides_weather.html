@@ -164,10 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="rides_weather" class="level3">
-<h3 class="anchored" data-anchor-id="rides_weather"><code>rides_weather</code></h3>
-<p><strong>Description:</strong><br>
-A SQLite view combining hourly weather observations with hourly ride counts.</p>
+<section id="rides_weather" class="level4">
+<h4 class="anchored" data-anchor-id="rides_weather"><code>rides_weather</code></h4>
+<p><strong>Type:</strong> SQLite View</p>
+<p><strong>Description:</strong></p>
+<p>A SQLite view combining hourly weather observations with hourly ride counts.</p>
 <p><strong>Source &amp; Processing:</strong><br>
 - Created by joining <code>hourly_weather</code> (weather metrics per hour) with <code>rides_per_hour</code> (hourly aggregated ride counts by user type). - LEFT JOIN ensures every hourly weather record is included, even if no rides occurred in that hour. - Columns include: - <code>epoch</code>: Hour timestamp (Unix epoch). - <code>user_type</code>: User type (customer or subscriber). - <code>rides</code>: Count of rides during the hour (defaults to 0 if none). - Weather variables (<code>temp</code>, <code>dwpt</code>, <code>rhum</code>, <code>prcp</code>, <code>wdir</code>, <code>wspd</code>, <code>coco</code>).</p>
 <p><strong>Purpose:</strong><br>

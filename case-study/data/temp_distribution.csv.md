@@ -1,4 +1,6 @@
-### temp_distribution.csv
+#### temp_distribution.csv
+
+**Type:** CSV File
 
 **Description:**  
 CSV file summarizing the number of hourly observations per 2 °C temperature bin across the entire weather dataset.

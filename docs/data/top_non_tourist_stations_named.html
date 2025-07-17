@@ -129,8 +129,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="provenance-top_non_tourist_stations_named" class="level3">
-<h3 class="anchored" data-anchor-id="provenance-top_non_tourist_stations_named">Provenance: <code>top_non_tourist_stations_named</code></h3>
+<section id="top_non_tourist_stations_named" class="level4">
+<h4 class="anchored" data-anchor-id="top_non_tourist_stations_named"><code>top_non_tourist_stations_named</code></h4>
+<p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong></p>
 <p>This data frame was derived from <code>top_non_tourist_stations</code> by enriching it with station metadata and selecting the top entries.</p>
 <p><strong>Transformation Steps:</strong> - <strong>Join:</strong> - Performed an <code>inner_join()</code> with <code>stations_df</code> on <code>station_id</code> to append station names and coordinates. - <strong>Sorting:</strong> - Sorted all rows by <code>customer_ride_count</code> in descending order. - <strong>Selection:</strong> - Retained only the top 25 stations with the highest customer ride counts.</p>
 <p>The resulting <code>top_non_tourist_stations_named</code> data frame contains the most popular non-tourist stations (by customer rides), including their names and location details.</p>

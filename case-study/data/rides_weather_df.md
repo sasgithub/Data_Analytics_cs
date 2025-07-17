@@ -1,4 +1,6 @@
-## Provenance: `rides_weather_df`
+#### `rides_weather_df`
+
+**Type:** R Data Frame
 
 **Data Origin:**  
 Derived directly from the `rides_weather` view in the SQLite database.
