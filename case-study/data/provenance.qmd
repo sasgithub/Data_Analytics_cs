@@ -14,7 +14,7 @@ This page documents the origins, transformations, and usage context of each deri
 
 To provide a holistic view of how data sources, transformations, and outputs relate across the case study, the following interactive system map was created using [Kumu](../glossary.qmd#glossary-kumu). This visualization illustrates the key data frames, SQL views, input files, and derived outputs involved in the analysis pipeline. Relationships between components are represented as directional links, allowing for a clearer understanding of data lineage and dependencies.
 
-<iframe src="https://embed.kumu.io/0bd8469ea1e3c36303109e3879082522" width="940" height="600" frameborder="0"></iframe> 
+<iframe src="https://embed.kumu.io/0bd8469ea1e3c36303109e3879082522" width="900" height="640" frameborder="0"></iframe> 
 
 Provenance information helps ensure transparency and reproducibility of the analysis by clearly describing:
 
