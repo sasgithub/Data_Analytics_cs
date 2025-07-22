@@ -1,0 +1,43 @@
+---
+ title: "Mermaid Style Test"
+ format: html
+ css: styles.css
+---
+ 
+## Mermaid Diagram with classDef
+ 
+This diagram should have custom colors. If it does not, something is
+interfering with the rendering process.
+ 
+```{mermaid}
+graph TD
+    A[Start] --> B(Process);
+    B --> C{Decision};
+``` 
+
+```{mermaid}
+  graph TD
+      subgraph sg1 [My Subgroup]
+          A --> B
+      end
+
+      style sg1 fill:#f0f8ff,stroke:#b22222,stroke-width:2px
+```
+   
+
+```{mermaid}
+%%{
+  init: {
+    "theme": "base",
+    "themeVariables": {
+      "primaryColor": "#fff",
+      "primaryTextColor": "#fff",
+      "lineColor": "#fff",
+      "nodeBorder": "#fff"
+    }
+  }
+}%%
+graph TD
+    A --> B
+```
+

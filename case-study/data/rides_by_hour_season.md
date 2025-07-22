@@ -1,6 +1,8 @@
-#### Provenance: `rides_by_hour_season`
+#### `rides_by_hour_season`
 
 **Type:** R Data Frame
+
+**Description**
 
 This data frame was created to analyze the temporal patterns of customer rides across seasons, weekdays, and hours.  
 

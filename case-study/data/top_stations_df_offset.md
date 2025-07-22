@@ -2,11 +2,11 @@
 
 **Type:** R Data Frame
 
-**Provenance:**
+**Description**
 
 This dataset is a transformed version of [`top_stations_df`](top_stations_df.md) created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.
 
-**Generation Steps:**
+**Generation Steps**
 
 1. Based on `top_stations_df`, which contains the top 50 stations per user type by ride volume.
 2. Applied `mutate()` to create a new column `long_offset`:
@@ -14,7 +14,7 @@ This dataset is a transformed version of [`top_stations_df`](top_stations_df.md)
    - For **customers**: longitude shifted *east* by 0.0001 degrees.
 3. This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.
 
-**Purpose:**
+**Purpose**
 
 Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.
 

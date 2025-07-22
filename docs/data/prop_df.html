@@ -132,6 +132,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="prop_df" class="level4">
 <h4 class="anchored" data-anchor-id="prop_df">prop_df</h4>
 <p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong> Provides the <em>within-week part distribution</em> of ride frequency over the day, enabling comparisons of riding patterns between weekdays and weekends on a relative scale.</p>
 <p><strong>Provenance:</strong><br>
 Derived directly from <code>rides_by_hour_weekpart</code>, which summarizes the hourly count of non-tourist customer rides split by “week part” (Weekday or Weekend).</p>
 <p><strong>Transformation Steps:</strong></p>
@@ -142,8 +143,6 @@ Derived directly from <code>rides_by_hour_weekpart</code>, which summarizes the 
 <p>[ = ]</p></li>
 <li><p>This yields the fraction of total rides in each week part that occur in each hour.</p></li>
 </ul>
-<p><strong>Purpose:</strong><br>
-Provides the <em>within-week part distribution</em> of ride frequency over the day, enabling comparisons of riding patterns between weekdays and weekends on a relative scale.</p>
 <p><strong>Example Columns:</strong></p>
 <ul>
 <li><code>week_part</code>: Weekday or Weekend<br>

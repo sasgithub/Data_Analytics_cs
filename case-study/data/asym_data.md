@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Summary of directional ride asymmetry between station pairs. Each row includes ride counts in both directions and an asymmetry ratio.
+
 **Data Origin**  
 Loaded from the CSV file `asymmetry.csv`, which was generated as a summary of directional ride imbalances between pairs of stations.
 

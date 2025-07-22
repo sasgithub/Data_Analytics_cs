@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Filtered ride data containing only Customer rides that do not start or end at tourist-heavy stations. Aimed at isolating local, non-tourist behavior.
+
 ##### Data Origin
 
 ** Source Table:**

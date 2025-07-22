@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>stations_non_tourist_df.rds – Bike share case-study</title>
+<title>Mermaid Style Test – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,9 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -120,21 +124,95 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#mermaid-diagram-with-classdef" id="toc-mermaid-diagram-with-classdef" class="nav-link active" data-scroll-target="#mermaid-diagram-with-classdef">Mermaid Diagram with classDef</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mermaid Style Test</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="stations_non_tourist_df.rds" class="level4">
-<h4 class="anchored" data-anchor-id="stations_non_tourist_df.rds"><code>stations_non_tourist_df.rds</code></h4>
-<p><strong>Type:</strong> RDS File</p>
-<p><strong>Description</strong></p>
-<p>This RDS file contains the <a href="../data/stations_non_tourist_df.html"><code>stations_non_tourist_df</code></a> data frame, which represents Divvy stations that are not within 600 meters of any known tourist attraction. It was created by first loading a curated list of tourist destinations from <code>attractions.csv</code>, then computing the geodesic distance between each station and every attraction using the Haversine formula. Stations were excluded if they were within 600 meters of any attraction, based on the assumption that such stations are likely to serve tourists. The resulting data frame includes only those stations deemed non-tourist-oriented, and is used as a filtering basis for analyzing local commuting behavior, particularly among Customer riders.</p>
-<p>Conveniently available as <a href="stations_non_tourist_df.rds">stations_non_tourist_df.rds</a> for your importing pleasure.</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="mermaid-diagram-with-classdef" class="level2">
+<h2 class="anchored" data-anchor-id="mermaid-diagram-with-classdef">Mermaid Diagram with classDef</h2>
+<p>This diagram should have custom colors. If it does not, something is interfering with the rendering process.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    A[Start] --&gt; B(Process);
+    B --&gt; C{Decision};
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">  graph TD
+      subgraph sg1 [My Subgroup]
+          A --&gt; B
+      end
+
+      style sg1 fill:#f0f8ff,stroke:#b22222,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{
+  init: {
+    "theme": "base",
+    "themeVariables": {
+      "primaryColor": "#fff",
+      "primaryTextColor": "#fff",
+      "lineColor": "#fff",
+      "nodeBorder": "#fff"
+    }
+  }
+}%%
+graph TD
+    A --&gt; B
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 </section>

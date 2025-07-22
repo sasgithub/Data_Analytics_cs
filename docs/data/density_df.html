@@ -132,8 +132,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="density_df" class="level4">
 <h4 class="anchored" data-anchor-id="density_df"><code>density_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
-<p><strong>Data Origin:</strong></p>
-<p>Derived from the <code>non_loop_rides_df</code> data frame, which contains filtered bike rides excluding loops, limited to casual riders, non-tourist stations, and rides starting from 2023-01-01. The relevant column used is <code>distance_km</code>, representing the ride distances in kilometers.</p>
+<p><strong>Description</strong> Station-level usage density data, provides a smooth estimate of the distribution of ride distances.</p>
+<p><strong>Data Origin:</strong> Derived from the <code>non_loop_rides_df</code> data frame, which contains filtered bike rides excluding loops, limited to casual riders, non-tourist stations, and rides starting from 2023-01-01. The relevant column used is <code>distance_km</code>, representing the ride distances in kilometers.</p>
 <p><strong>Transformation Details:</strong></p>
 <ul>
 <li>The R <code>density()</code> function was applied to the <code>distance_km</code> column to estimate the kernel density of ride distances.<br>

@@ -167,9 +167,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="top_stations_df_offset" class="level4">
 <h4 class="anchored" data-anchor-id="top_stations_df_offset"><code>top_stations_df_offset</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
-<p><strong>Provenance:</strong></p>
+<p><strong>Description</strong></p>
 <p>This dataset is a transformed version of <a href="../data/top_stations_df.html"><code>top_stations_df</code></a> created to help improve visualization clarity when plotting subscriber and customer top stations on the same map.</p>
-<p><strong>Generation Steps:</strong></p>
+<p><strong>Generation Steps</strong></p>
 <ol type="1">
 <li>Based on <code>top_stations_df</code>, which contains the top 50 stations per user type by ride volume.</li>
 <li>Applied <code>mutate()</code> to create a new column <code>long_offset</code>:
@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li>This offset avoids overlapping station markers in visualizations, making it easier to see the distribution of user types.</li>
 </ol>
-<p><strong>Purpose:</strong></p>
+<p><strong>Purpose</strong></p>
 <p>Facilitates clearer, less cluttered maps showing both user groups’ station popularity side by side.</p>
 <p><strong>Key Columns:</strong></p>
 <ul>

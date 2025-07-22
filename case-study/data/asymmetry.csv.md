@@ -2,8 +2,10 @@
 
 **Type:** CSV File
 
-**Data Origin**
+**Description**
+Underlying CSV File used to create asym_data. Contains precomputed directional ride counts and imbalance metrics between station pairs.
 
+**Data Origin**
 Derived from the `rides` table in SQLite.
 
 **Generation Process**

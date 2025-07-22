@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Filtered version of asym_data showing the top imbalanced station pairs, sorted by magnitude or ratio of asymmetry.
+
 **Data Origin**  
 Derived directly from the `asym_data` data frame, which summarizes directional ride imbalances between station pairs.
 

@@ -1,0 +1,129 @@
+---
+ title: "Mermaid Style Test"
+ format: 
+   html:
+     embed-resources: true
+     include-in-header: []
+ css: styles.css
+---
+
+###Test Embedded
+
+::: {.cell}
+```{=html}
+<iframe src="https://embed.kumu.io/6700bc426a2144f122df8ac125c9e3a5" width="840" height="600" frameborder="0"></iframe> 
+```
+:::
+
+## Mermaid Diagram
+
+```{mermaid}
+%%{
+  init: {
+    "theme": "base",
+    "themeVariables": {
+      "primaryColor": "#fff",
+      "primaryTextColor": "#fff",
+      "lineColor": "#fff",
+      "nodeBorder": "#fff"
+    }
+  }
+}%%
+graph TD
+  subgraph sg1["Source Imports"]
+    div1[202004-divvy-tripdata.csv] --> table2
+    div2[202306-divvy-tripdata.csv] --> table2
+    div3[202307-divvy-tripdata.csv] --> table2
+    div4[202308-divvy-tripdata.csv] --> table2
+    div5[202309-divvy-tripdata.csv] --> table2
+    div6[202310-divvy-tripdata.csv] --> table2
+    div7[202311-divvy-tripdata.csv] --> table2
+    div8[202312-divvy-tripdata.csv] --> table2
+    div9[202401-divvy-tripdata.csv] --> table2
+    div10[202402-divvy-tripdata.csv] --> table2
+    div11[202403-divvy-tripdata.csv] --> table2
+    div12[202404-divvy-tripdata.csv] --> table2
+    div13[202405-divvy-tripdata.csv] --> table2
+    div14[202406-divvy-tripdata.csv] --> table2
+    div15[202407-divvy-tripdata.csv] --> table2
+    div16[202408-divvy-tripdata.csv] --> table2
+    div17[202409-divvy-tripdata.csv] --> table2
+    div18[202410-divvy-tripdata.csv] --> table2
+    div19[202411-divvy-tripdata.csv] --> table2
+    div20[202412-divvy-tripdata.csv] --> table2
+    div21[202501-divvy-tripdata.csv] --> table2
+    div22[202502-divvy-tripdata.csv] --> table2
+    div23[202503-divvy-tripdata.csv] --> table2
+    div24[202504-divvy-tripdata.csv] --> table2
+    div25[Divvy_Trips_20250501.csv] --> table2
+    div26[Divvy_Stations_2013.csv] --> table1
+    div27[Divvy_Stations_2014-Q1Q2.xlsx] --> div30[Divvy_Stations_2014-Q1Q2.csv] 
+    div30--> table1
+    div28[Divvy_Stations_2014-Q3Q4.csv] --> table1
+    div29[Divvy_Bicycle_Stations_20250501.csv] --> table1
+  end
+
+  subgraph sg2["SQLite Database"]
+    table2[rides]
+    table3[rides_per_hour_tbl]
+    midway_weather.csv --> table4[hourly_weather]
+    table1[stations]
+    view1[rider_readable]
+    view2[rides_per_hour]
+    view3[rides_weather]
+  end
+
+  subgraph sg3["R Data Frames"]
+    csv2 --> df1[asym_data]
+    df1 --> df2[asym_top]
+    cvs3 --> df3[attractions_df]
+    cvs1 --> df4[avg_df]
+    csv1 --> df5[binned_rides]
+    df13 --> df6[daily_avg_df]
+    df32 --> df7[density_df]
+    df13 --> df8[duration_by_type]
+    df10 --> df9[loop_rides_non_tourist]
+    table2 --> df10[non_tourist_customer_rides_df]
+    df4 --> df11[normalized_df]
+    df7 --> df12[peak_df]
+    table2 --> df13[post_electric_rides_df]
+    df20 --> df14[prop_df]
+    df14 --> df15[prop_wide]
+    df32 --> df16[ride_counts_by_distance]
+    table2 --> df17[ride_durations]
+    df20 --> df18[ride_props]
+    df33 --> df19[rides_by_hour_season]
+    df33 --> df20[rides_by_hour_weekpart]
+    view3 --> df21[rides_weather_df]
+    table1 --> df22[stations_df]
+    df23[stations_non_tourist_df]
+    df24[stdres_df]
+    df24 --> df25[stdres_long]
+    df26[top_non_tourist_stations]
+    df26 --> df27[top_non_tourist_stations_named]
+    table1 & table2 --> df28[top_stations_df]
+    df28 --> df29[top_stations_df_offset]
+    df33 --> df31[weekday_rides_df]
+    df23 & df33 --> df32[non_loop_rides_df]
+    df33[non_tourist_customer_rides_df]
+    df3 & df22 --> df34[nearby_stations_df]
+  end
+
+  subgroup sg4["Exports"]
+    table2 --> csv1[temp_vs_rides_avg.csv]
+    table3 --> csv1[temp_vs_rides_avg.csv]
+    csv2[asymmetry.csv]
+    csv3[attractions.csv]
+    csv4[bike_ride_buckets.csv]
+    csv5[max_concurrent_rides_by_year.csv]
+    csv6[reshaped_pairs.csv]
+    csv7[station_pairs.csv]
+    csv8[temp_distribution.csv]
+    csv9[temp_vs_rides_total.csv]
+    table2 & table3 --> tsv1[avg_temp_vs_rides.tsv]
+    df34 --> rds1[nearby_stations_df.rds]
+    df17 --> rds2[ride_durations.rds]
+    df33 --> rds3[stations_non_tourist_df.rds]
+  end
+ 
+``` 

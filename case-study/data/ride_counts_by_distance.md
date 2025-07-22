@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Summarizes the number of rides grouped into distance bins by non-loop rides by customers starting and ending at non-tourist stations on or after 2023-01-01, binned by distan 
+
 **Data Origin:**  
 Derived from `non_loop_rides_df`, which includes only non-loop rides by customer riders starting and ending at non-tourist stations on or after 2023-01-01. This dataframe also contains a `distance_km` column representing the calculated ride distance in kilometers.
 

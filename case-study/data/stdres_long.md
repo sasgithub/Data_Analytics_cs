@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Contains standardized residuals from a chi-squared test of hourly ride patterns (weekday vs. weekend). Reformatted to long form for easier visualization and filtering of statistically significant hourly deviations.
+
 **Provenance:**  
 Derived from `stdres_df`, which contains standardized residuals from a chi-squared test comparing hourly ride distributions between weekdays and weekends.
 

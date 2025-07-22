@@ -2,9 +2,9 @@
 
 **Type:** R Data Frame
 
-**Provenance:**
+**Description**
 
-This dataset contains all Divvy stations **not** within a defined proximity of tourist attractions as defined in [attractions_df](attractions_df.md).  
+This dataset contains all Divvy stations **not** within 600 m of a tourist attractions as defined in [attractions_df](attractions_df.md).  
 
 **Generation Steps:**
 

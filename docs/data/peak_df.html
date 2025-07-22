@@ -132,14 +132,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="peak_df" class="level4">
 <h4 class="anchored" data-anchor-id="peak_df"><code>peak_df</code></h4>
 <p><strong>Type:</strong> R Data Frame</p>
+<p><strong>Description</strong> <code>peak_df</code> highlights the key distance values where the density of rides is locally maximized, helping to identify common ride distance modes or popular trip length clusters in the dataset.</p>
 <p><strong>Data Origin:</strong><br>
 Derived from the <code>density_df</code> data frame, which contains kernel density estimates of bike ride distances (<code>x</code> for distance in km, <code>y</code> for density values).</p>
 <p><strong>Transformation Details:</strong><br>
 - The <code>find_peaks()</code> function was applied to the <code>y</code> values of <code>density_df</code> to identify local maxima (peaks) in the density distribution.<br>
 - The resulting indices (<code>peak_indices</code>) correspond to positions in <code>density_df</code> where the density reaches a local peak.<br>
 - <code>peak_df</code> is a subset of <code>density_df</code> containing only the rows at these peak positions.</p>
-<p><strong>Purpose:</strong><br>
-<code>peak_df</code> highlights the key distance values where the density of rides is locally maximized, helping to identify common ride distance modes or popular trip length clusters in the dataset.</p>
 
 
 </section>

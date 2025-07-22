@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Contains ride durations in minutes for valid trips by subscribers and customers. Filters exclude records with invalid or excessively long durations (≥ 200 minutes). Used to analyze trip length distributions by user type, including summary statistics and visualizations.
+
 ##### Data Origin
 - **Source Table:**  
   `rides` table in the SQLite database  

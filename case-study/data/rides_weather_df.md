@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Combines hourly ride counts with corresponding weather data by user type. Includes fields like temperature, humidity, and precipitation. Used to explore weather impacts on ride volume through binning, summaries, and LOESS-smoothed visualizations.
+
 **Data Origin:**  
 Derived directly from the `rides_weather` view in the SQLite database.
 

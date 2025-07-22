@@ -2,7 +2,7 @@
 
 **Type:** R Data Frame
 
-**Provenance:**
+**Description**
 
 This data frame contains the list of tourist attractions in Chicago used to identify nearby Divvy stations likely to serve visitors rather than commuters.
 
@@ -42,5 +42,5 @@ Compared to [`tourist_attractions.csv`](archive/tourist_attractions_csv), this f
 **Command Used**
 
 ```r
-attractions_df <- read.csv("/home/sas/classes/Google/data-analytics/data/tourist_attractions.csv", stringsAsFactors = FALSE)
+attractions_df <- read.csv("/home/sas/classes/Google/data-analytics/data/attractions.csv", stringsAsFactors = FALSE)
 ```

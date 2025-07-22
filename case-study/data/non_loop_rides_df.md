@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Subset of ride records that exclude loop trips (rides starting and ending at the same station). 
+
 ##### Data Origin
 
 ** Source Table:**

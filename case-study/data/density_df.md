@@ -2,8 +2,10 @@
 
 **Type:** R Data Frame
 
-**Data Origin:**
+**Description**
+Station-level usage density data, provides a smooth estimate of the distribution of ride distances.
 
+**Data Origin:**
 Derived from the `non_loop_rides_df` data frame, which contains filtered bike rides excluding loops, limited to casual riders, non-tourist stations, and rides starting from 2023-01-01. The relevant column used is `distance_km`, representing the ride distances in kilometers.
 
 **Transformation Details:**

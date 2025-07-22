@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Provides the *within-week part distribution* of ride frequency over the day, enabling comparisons of riding patterns between weekdays and weekends on a relative scale.
+
 **Provenance:**  
 Derived directly from `rides_by_hour_weekpart`, which summarizes the hourly count of non-tourist customer rides split by "week part" (Weekday or Weekend).  
 
@@ -15,8 +18,6 @@ Derived directly from `rides_by_hour_weekpart`, which summarizes the hourly coun
   \]
 - This yields the fraction of total rides in each week part that occur in each hour.
 
-**Purpose:**  
-Provides the *within-week part distribution* of ride frequency over the day, enabling comparisons of riding patterns between weekdays and weekends on a relative scale.
 
 **Example Columns:**  
 

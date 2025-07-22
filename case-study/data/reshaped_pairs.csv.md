@@ -2,7 +2,7 @@
 
 **Type:** CSV File
 
-**Provenance:**
+**Description**
 
 This dataset was created by reshaping aggregated station-to-station ride counts to support Tableau visualizations of directional flows.
 

@@ -2,6 +2,10 @@
 
 **Type:** R Data Frame
 
+
+**Description**
+Contains station IDs, names, and geographic coordinates. Used for joining ride data, mapping, and distance-based analyses such as proximity to attractions.
+
 ##### Data Origin
 - **Source Table:**  
 

@@ -2,6 +2,9 @@
 
 **Type:** R Data Frame
 
+**Description**
+Contains the top 50 most-used start stations for each user type (subscriber and customer). Includes station metadata, ride counts, and user-type-specific rankings. Used for mapping high-traffic areas and analyzing user behavior by location.
+
 ##### Data Origin
 - **Source Tables:**  
 

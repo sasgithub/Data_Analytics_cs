@@ -2,9 +2,9 @@
 
 **Type:** R Data Frame
 
-**Provenance:**
+**Description**
 
-This data frame was created to identify Divvy stations located near known tourist attractions.
+Lists stations located within 600 m radius of each tourist attraction in attractions_df. Used to define the "tourist station" set.
 
 **Source Data:**
 
