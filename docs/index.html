@@ -211,20 +211,30 @@ Please check back soon for a complete walk-through, analysis, and visualizations
 </section>
 <section id="tools-used" class="level3">
 <h3 class="anchored" data-anchor-id="tools-used">Tools Used</h3>
+<p><strong><a href="https://www.sqlite.org/">SQLite</a></strong><br>
+Served as the central data store for large-scale tables and computationally intensive queries. Offered a portable and efficient solution for handling over 28 million ride records and weather data.</p>
 <ul>
-<li><p><strong>SQLite</strong> - Used to store all large table and do any intensive queries.</p></li>
-<li><p><strong>R (via RStudio)</strong> – Primary environment for analysis and visualization generation.</p>
+<li><strong>Key R libraries for SQLite integration</strong>:
 <ul>
-<li><p>Key libraries:</p>
-<ul>
-<li><code>dplyr</code>, <code>tidyr</code>, and <code>lubridate</code> for data wrangling</li>
-<li><code>DBI</code>, <code>RSQLite</code>, and <code>dbplyr</code> for seamless interaction with SQLite</li>
-<li><code>leaflet</code> for dynamic, interactive mapping of station data</li>
-</ul></li>
+<li><a href="https://cran.r-project.org/package=DBI"><code>DBI</code></a>, <a href="https://cran.r-project.org/package=RSQLite"><code>RSQLite</code></a>, and <a href="https://cran.r-project.org/package=dbplyr"><code>dbplyr</code></a> for seamless database access and SQL abstraction<br>
+</li>
+<li><a href="https://cran.r-project.org/package=dplyr"><code>dplyr</code></a>, <a href="https://cran.r-project.org/package=tidyr"><code>tidyr</code></a>, and <a href="https://cran.r-project.org/package=lubridate"><code>lubridate</code></a> for data wrangling and time-aware transformations<br>
+</li>
+<li><a href="https://cran.r-project.org/package=leaflet"><code>leaflet</code></a> for dynamic, interactive station mapping</li>
 </ul></li>
 </ul>
-<p><strong>Tableau</strong> - Chosen for its unique suitability for certain interactive visuals.</p>
-<p><strong>Gnuplot</strong> - Used for quick visuals when the data was not in RStudio.</p>
+<p><strong><a href="https://duckdb.org/">DuckDB</a></strong><br>
+Used for fast, in-memory SQL operations during exploratory analysis. Particularly effective for joining and filtering intermediate R data frames without modifying the main SQLite schema.</p>
+<p><strong><a href="https://kumu.io/">Kumu</a></strong><br>
+Provided system-style, network-based visualizations that highlighted interconnections among stations, routes, and other elements. Supplemented traditional plots with conceptual relationship mapping.</p>
+<p><strong><a href="https://www.tableau.com/">Tableau</a></strong><br>
+Chosen for its ability to deliver polished, highly interactive dashboards. Used for final presentations involving path-based filtering, click-driven exploration, and spatial overlays.</p>
+<p><strong><a href="http://www.gnuplot.info/">Gnuplot</a></strong><br>
+Employed during early exploration and cleaning, especially when working outside RStudio. Enabled quick, scriptable charts for validation and trend detection.</p>
+<p><strong><a href="https://quarto.org/">Quarto</a></strong><br>
+Used to author, render, and organize the entire report. Enabled integration of R code, visualizations, and narrative in a reproducible, literate programming format.</p>
+<p><strong><a href="https://git-scm.com/">Git</a></strong> &amp; <strong><a href="https://github.com/">GitHub</a></strong><br>
+Version control was managed with Git. All source files — including R scripts, Quarto documents, and data artifacts — are hosted on GitHub. The final report is published via <strong><a href="https://pages.github.com/">GitHub Pages</a></strong>, ensuring transparency and reproducibility.</p>
 <hr>
 </section>
 </section>

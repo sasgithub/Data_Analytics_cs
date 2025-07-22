@@ -102,9 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -261,108 +258,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="system-level-data-provenance-map" class="level3">
 <h3 class="anchored" data-anchor-id="system-level-data-provenance-map">System-Level Data Provenance Map</h3>
 <p>To provide a holistic view of how data sources, transformations, and outputs relate across the case study, the following interactive system map was created using <a href="../glossary.html#glossary-kumu">Kumu</a>. This visualization illustrates the key data frames, SQL views, input files, and derived outputs involved in the analysis pipeline. Relationships between components are represented as directional links, allowing for a clearer understanding of data lineage and dependencies.</p>
-<iframe src="https://embed.kumu.io/6700bc426a2144f122df8ac125c9e3a5" width="940" height="600" frameborder="0">
+<iframe src="https://embed.kumu.io/0bd8469ea1e3c36303109e3879082522" width="940" height="600" frameborder="0">
 </iframe>
-<iframe src="https://embed.kumu.io/dcbb590b82617bbc7542af52f1e5e2f3" width="940" height="600" frameborder="0">
-</iframe>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { "theme": "dark" } }%%
-flowchart TD
-    subgraph "Raw Imports"
-      A[ride_df] --&gt; B[filtered_df]
-      A --&gt; C[oldest_to_latest_df]
-      B --&gt; D[ride_df_labeled]
-      D --&gt; E[ride_df_geo]
-      E --&gt; F[ride_df_loops]
-      E --&gt; G[ride_df_non_loops]
-      F --&gt; H[ride_df_geocoded]
-      G --&gt; H
-      H --&gt; I[ride_df_usable]
-      I --&gt; J[ride_df_under_20km]
-    end
-
-    subgraph "Station Filtering"
-      K[tourist_stations_df]
-      L[non_tourist_stations_df]
-      G --&gt; M[non_loop_rides_df]
-      L --&gt; M
-    end
-
-    subgraph "Weather Integration"
-      N[weather_df] --&gt; O[ride_weather_df]
-      M --&gt; O
-      O --&gt; P[weather_summary_df]
-      O --&gt; Q[rides_per_day_df]
-    end
-
-    subgraph "Aggregates &amp; Visualizations"
-      O --&gt; R[rides_per_hour_df]
-      Q --&gt; S[rides_per_day_by_type_df]
-      O --&gt; T[rides_by_weekday_df]
-      M --&gt; U[distance_by_user_type_df]
-      M --&gt; V[distance_hist_df]
-      O --&gt; W[rides_by_temp_df]
-    end
-
-
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-
-%% Ingestion
-  A1[Raw CSVs: Rides Data] --&gt; B1[load_rides.sh]
-  A2[Raw CSVs: Stations] --&gt; B2[load_stations.R]
-  A3[hourly_weather.csv] --&gt; B3[load_clean_write_weather_data.R]
-
-%% SQLite Tables
-  B1 --&gt; C1[rides table]
-  B2 --&gt; C2[stations_df]
-  B3 --&gt; C3[hourly_weather table]
-
-%% SQL Views
-  C1 --&gt; D1[rides_per_hour]
-  C1 --&gt; D2[rides_with_temp]
-  C1 --&gt; D3[rides_by_hour_weekpart]
-  C1 &amp; C3 --&gt; D4[rides_with_weather]
-
-%% Filtering &amp; Derived Frames (R)
-  C2 --&gt; E1[non_tourist_stations_df]
-  C1 &amp; E1 --&gt; E2[non_loop_rides_df]
-
-%% Analysis-Ready Frames
-  D4 --&gt; F1[rides_weather_summary_df]
-  F1 --&gt; F2[weather_wide_df]
-  D1 --&gt; F3[stdres_df]
-  E2 --&gt; F4[casual_duration_df]
-  F4 --&gt; F5[duration_glm]
-  F5 --&gt; F6[duration_predictions_df]
-
-%% Outputs
-  F1 &amp; F2 --&gt; G1[CSV: rides_weather_summary.csv]
-  F3 --&gt; G2[RDS: stdres_df.rds]
-  F4 --&gt; G3[CSV: casual_duration.csv]
-  F4 --&gt; G4[RDS: casual_duration_df.rds]
-  F6 --&gt; G5[CSV: duration_predictions.csv]
-
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 <p>Provenance information helps ensure transparency and reproducibility of the analysis by clearly describing:</p>
 <ul>
 <li><strong>Source data</strong> - where each dataset or file originated</li>

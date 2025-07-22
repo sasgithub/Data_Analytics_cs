@@ -374,17 +374,31 @@ The full Schema for the SQLite database is listed in the source archive.
 
 ### Tools Used
 
-• SQLite - Used to store all large table and do any intensive queries.
-  • Key libraries:
+**[SQLite](https://www.sqlite.org/)**  
+Served as the central data store for large-scale tables and computationally intensive queries. Offered a portable and efficient solution for handling over 28 million ride records and weather data.
 
-    • dplyr, tidyr, and lubridate for data wrangling
-    • DBI, RSQLite, and dbplyr for seamless interaction with SQLite
-    • leaflet for dynamic, interactive mapping of station data
+- **Key R libraries for SQLite integration**:
+  - [`DBI`](https://cran.r-project.org/package=DBI), [`RSQLite`](https://cran.r-project.org/package=RSQLite), and [`dbplyr`](https://cran.r-project.org/package=dbplyr) for seamless database access and SQL abstraction  
+  - [`dplyr`](https://cran.r-project.org/package=dplyr), [`tidyr`](https://cran.r-project.org/package=tidyr), and [`lubridate`](https://cran.r-project.org/package=lubridate) for data wrangling and time-aware transformations  
+  - [`leaflet`](https://cran.r-project.org/package=leaflet) for dynamic, interactive station mapping
 
-Tableau - Chosen for its unique suitability for certain interactive visuals.
+**[DuckDB](https://duckdb.org/)**  
+Used for fast, in-memory SQL operations during exploratory analysis. Particularly effective for joining and filtering intermediate R data frames without modifying the main SQLite schema.
 
-Gnuplot - Used for quick visuals when the data was not in RStudio.
+**[Tableau](https://www.tableau.com/)**  
+Chosen for its ability to deliver polished, highly interactive dashboards. Used for final presentations involving path-based filtering, click-driven exploration, and spatial overlays.
 
+**[Kumu](https://kumu.io/)**  
+Provided system-style, network-based visualizations that highlighted interconnections among stations, routes, and other elements. Supplemented traditional plots with conceptual relationship mapping.
+
+**[Gnuplot](http://www.gnuplot.info/)**  
+Employed during early exploration and cleaning, especially when working outside RStudio. Enabled quick, scriptable charts for validation and trend detection.
+
+**[Quarto](https://quarto.org/)**  
+Used to author, render, and organize the entire report. Enabled integration of R code, visualizations, and narrative in a reproducible, literate programming format.
+
+**[Git](https://git-scm.com/)** & **[GitHub](https://github.com/)**  
+Version control was managed with Git. All source files — including R scripts, Quarto documents, and data artifacts — are hosted on GitHub. The final report is published via **[GitHub Pages](https://pages.github.com/)**, ensuring transparency and reproducibility.
 
 ### Supplementary Technical Resources
 
