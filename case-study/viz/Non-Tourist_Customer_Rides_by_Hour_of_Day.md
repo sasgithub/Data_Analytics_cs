@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Rides by Hour of Day
 
-<figure class="float-right">
+<figure class="float-right" id="fig5">
   <a href="../images/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_of_Day.png" alt="Bar chart showing the distribution of Customer rides by hour of the day at non-tourist stations. Ride volume starts low in the early morning, builds steadily through the day, and peaks sharply at 17:00 (5 PM).">
   </a>
   <figcaption>
-  Hourly distribution of Customer rides originating from non-tourist stations, showing peak activity in the late afternoon.
+  Figure 5: Hourly distribution of Customer rides originating from non-tourist stations, showing peak activity in the late afternoon.
   </figcaption>
 </figure>
 

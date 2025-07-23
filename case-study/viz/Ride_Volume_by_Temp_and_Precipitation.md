@@ -1,11 +1,11 @@
 #### Ride Volume by Temperature and Precipitation
 
-<figure class="float-right">
+<figure class="float-right" id="fig37">
   <a href="../images/Ride_Volume_by_Temp_and_Precipitation.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types.">
   </a>
   <figcaption>
-  Ride Volume by Temperature and Rain Condition
+  Figure 37: Ride Volume by Temperature and Rain Condition
 This panel chart shows total ride volume for **[Subscribers](../glossary#glossary-subscriber)** and **[customers](../glossary#glossary-)**, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
   </figcaption>
 </figure>

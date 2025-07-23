@@ -1,11 +1,11 @@
 #### Hourly Ride Volume vs Temperature
 
-<figure class="float-right">
+<figure class="float-right" id="fig15">
   <a href="../images/Hourly_Ride_Volume_vs_Temperature.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to Customers (red line). Ride volume increases steadily from below freezing to 35°C.">
   </a>
   <figcaption>
-  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing Customers and Subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
+  Figure 15: [LOESS](../glossary.qmd#glossary-LOESS)-smoothed hourly ride volume as a function of temperature, comparing Customers and Subscribers. Patterns remain elevated at higher temperatures due to the smoothing method.
   </figcaption>
 </figure>
 

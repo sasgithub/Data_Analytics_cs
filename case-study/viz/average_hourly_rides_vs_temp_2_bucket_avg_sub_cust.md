@@ -1,11 +1,11 @@
 #### Average Hourly Rides vs. Temperature by User Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig43">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../images/average_hourly_rides_vs_temp_2_bucket_avg_sub_cust.svg" alt="Line chart showing average hourly ride counts by temperature, with separate lines for all rides, Subscriber rides, and Customer rides.">
   </a>
   <figcaption>
-    Average hourly ride counts by temperature (°C), separated by user type. Temperature is binned in 2-degree increments, with data recorded hourly.
+   Figure 43: Average hourly ride counts by temperature (°C), separated by user type. Temperature is binned in 2-degree increments, with data recorded hourly.
 </figure>
 
 ##### Overview

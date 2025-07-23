@@ -1,11 +1,11 @@
 #### Total Hourly Rides vs Temperature by User Type (2°C Bins)
 
-<figure class="float-right">
+<figure class="float-right" id="fig18">
   <a href="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../images/total_hourly_rides_vs_temp_2_total_subs_cust.svg" alt="Line chart showing total rides by hour and temperature bin, with separate curves for Subscribers and Customers. Warmer temperatures correspond with higher ride counts.">
   </a>
   <figcaption>
-  Total hourly rides by temperature bin (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
+  Figure 18: Total hourly rides by temperature bin (2°C), separated by user type. Subscriber activity peaks more sharply in moderate to warm temperatures, while Customer rides increase more steadily with temperature. Data aggregated across all non-loop rides.
   </figcaption>
 </figure>
 

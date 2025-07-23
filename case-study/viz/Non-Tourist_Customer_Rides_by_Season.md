@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Rides by Season
 
-<figure class="float-right">
+<figure class="float-right" id="fig13">
   <a href="../images/Non-Tourist_Customer_Rides_by_Season.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Season.png" alt="Bar chart showing non-tourist Customer ride counts by season. Summer has the highest number of rides, followed by Fall, Spring, and Winter.">
   </a>
   <figcaption>
-  Total **[Customer](../glossary.qmd#glossary-customer)** rides originating at non-tourist stations, aggregated by season. Summer shows the highest volume, with winter substantially lower.
+  Figure 13: Total **[Customer](../glossary.qmd#glossary-customer)** rides originating at non-tourist stations, aggregated by season. Summer shows the highest volume, with winter substantially lower.
   </figcaption>
 </figure>
 

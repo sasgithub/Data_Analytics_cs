@@ -1,11 +1,11 @@
 #### Ride Duration Distribution by User Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig22">
   <a href="../images/Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">
     <img src="../images/thumbnails/Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for rides, split by user type. Subscriber rides are sharply concentrated under 30 minutes, while Customer rides are more spread out with a longer tail.">
   </a>
   <figcaption>
-    Ride duration distribution for **[Customers](../glossary.qmd#glossary-customer)** and **[Subscribers](../glossary.qmd#glossary-subscriber)**. Subscriber rides tend to be shorter and more consistent, while Customer rides show a broader range.
+    Figure 22: Ride duration distribution for **[Customers](../glossary.qmd#glossary-customer)** and **[Subscribers](../glossary.qmd#glossary-subscriber)**. Subscriber rides tend to be shorter and more consistent, while Customer rides show a broader range.
   </figcaption>
 </figure>
 

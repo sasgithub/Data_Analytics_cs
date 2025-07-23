@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Ride Count by Distance
 
-<figure class="float-right">
+<figure class="float-right" id="fig29">
   <a href="../images/Non-Tourist_Customer_Ride_Count_by_Distance.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Count_by_Distance.png" alt="Bar chart showing the number of non-tourist Customer rides by the straight-line distance between start and end stations, with prominent peaks at about 0.85 km and 1.35 km.">
   </a>
   <figcaption>
-    Ride count by station-to-station distance for non-tourist Customer trips, highlighting common trip lengths in the 0–2 km range.
+    Figure 29: Ride count by station-to-station distance for non-tourist Customer trips, highlighting common trip lengths in the 0–2 km range.
   </figcaption>
 </figure>
 

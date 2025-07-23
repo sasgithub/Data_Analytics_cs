@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Ride Duration for Loop Rides
 
-<figure class="float-right">
+<figure class="float-right" id="fig26">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_for_Loop_Rides.png" alt="Density plot showing the ride duration distribution for non-tourist loop rides by Customers. A steep peak occurs at short durations under 10 minutes, with a long tapering tail up to 150 minutes.">
   </a>
   <figcaption>
-  Ride duration density for non-tourist loop rides taken by Customers. The strong concentration of short rides suggests quick, casual trips returning to the same station.
+  Figure 26: Ride duration density for non-tourist loop rides taken by Customers. The strong concentration of short rides suggests quick, casual trips returning to the same station.
   </figcaption>
 </figure>
 

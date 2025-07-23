@@ -1,11 +1,11 @@
 #### Station-to-Station Distance Distribution (Non-Tourist Customers, ≤10 km)
 
-<figure class="float-right">
+<figure class="float-right" id="fig34">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of station-to-station distances under 10 km for non-tourist Customer rides, with peaks labeled around 1 km and 2.5 km.">
   </a>
   <figcaption>
-    Distribution of station-to-station distances for non-tourist Customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
+    Figure 34: Distribution of station-to-station distances for non-tourist Customer rides under 10 km. Distinct peaks highlight preferred trip lengths for local travel.
   </figcaption>
 </figure>
 

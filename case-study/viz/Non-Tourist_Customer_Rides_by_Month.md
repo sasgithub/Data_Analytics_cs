@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Rides by Month
 
-<figure class="float-right">
+<figure class="float-right" id="fig12">
   <a href="../images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Month.png" alt="Bar chart showing the number of Customer rides per month at non-tourist stations. Ride volume is lowest in winter, rises steadily in spring, peaks in August, and declines into the fall.">
   </a>
   <figcaption>
-   Monthly distribution of [Customer](../glossary.qmd#glossary-Cusomer) rides at non-tourist stations, illustrating clear seasonality in usage patterns.
+  Figure 12: Monthly distribution of [Customer](../glossary.qmd#glossary-Cusomer) rides at non-tourist stations, illustrating clear seasonality in usage patterns.
   </figcaption>
 </figure>
 

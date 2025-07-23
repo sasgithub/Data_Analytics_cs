@@ -1,11 +1,11 @@
 #### Top 20 Most Asymmetric Paths by User Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig39">
   <a href="../images/Top_20_Most_Asymmetric_Paths_by_User_Type.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Top_20_Most_Asymmetric_Paths_by_User_Type.png" alt="Bar charts comparing the top 20 most asymmetric bike share paths for Customers and Subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio.">
   </a>
   <figcaption>
-  Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while Subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
+  Figure 39: Top 20 bike-share station pairs with the most directional imbalance by user type. Customers show high asymmetry around central business district hubs, while Subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
   </figcaption>
 </figure>
 

@@ -1,11 +1,11 @@
 #### Average Ride Duration by Bike Type and User Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig45">
   <a href="../images/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Avg_Ride_Duration_by_Bike_and_User_type_post_elec.png" alt="Bar chart showing average ride duration in minutes by bike type and user type. Customers have much higher average durations on docked bikes, while subscribers show consistently shorter ride times across all bike types.">
   </a>
   <figcaption>
-  Average ride duration by bike type and user type. Customers show much longer rides on docked bikes, while subscribers tend to have shorter, more consistent durations.
+  Figure 45: Average ride duration by bike type and user type. Customers show much longer rides on docked bikes, while subscribers tend to have shorter, more consistent durations.
   </figcaption>
 </figure>
 

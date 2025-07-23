@@ -1,11 +1,11 @@
 #### Hourly Ride Patterns by Season and Day Type (Non-Tourist Stations)
 
-<figure class="float-right">
+<figure class="float-right" id="fig11">
   <a href="../images/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Hourly_Ride_Patterns_by_Season_and_Day_type.png" alt="Grouped bar charts showing hourly ride counts split by season (Fall, Spring, Summer, Winter) and further divided into Weekday and Weekend rides. Strong afternoon peaks on weekdays in Summer and Fall, flatter distributions on weekends and in Winter.">
   </a>
   <figcaption>
-    Hourly ride counts at non-tourist stations, grouped by season and separated by weekday versus weekend, illustrating clear seasonal and temporal ridership patterns.
+  Figure 11: Hourly ride counts at non-tourist stations, grouped by season and separated by weekday versus weekend, illustrating clear seasonal and temporal ridership patterns.
   </figcaption>
 </figure>
 

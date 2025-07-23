@@ -1,11 +1,11 @@
 #### Station-to-Station Distance Distribution (Non-Tourist Customers)
 
-<figure class="float-right">
+<figure class="float-right" id="fig30">
   <a href="../images/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Distribution_of_Station-to-Station_Distance.png" alt="Density plot showing distribution of distances between start and end stations for non-tourist Customer rides. The curve peaks around 1–2 km and tapers off rapidly above 5 km.">
   </a>
   <figcaption>
-    Distribution of station-to-station distances for non-tourist Customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
+    Figure 30: Distribution of station-to-station distances for non-tourist Customer rides. Most trips are under 5 km, confirming primarily short-distance usage.
   </figcaption>
 </figure>
 

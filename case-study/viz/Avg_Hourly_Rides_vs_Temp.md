@@ -1,11 +1,11 @@
 #### Average Hourly Rides vs. Temperature
 
-<figure class="float-right">
+<figure class="float-right" id="fig44">
   <a href="../images/Avg_Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="chart showing normalized average hourly bike rides by temperature in degrees Celsius. Three lines represent Subscribers, Customers, and Total rides. All peak around 25°C.">
   </a>
   <figcaption>
-  Average hourly rides by temperature (°C), showing Subscriber, Customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; Subscribers remain steadier.
+  Figure 44: Average hourly rides by temperature (°C), showing Subscriber, Customer, and total ride volume peaking near 25°C. Customers are slightly more temperature-sensitive; Subscribers remain steadier.
   </figcaption>
 </figure>
 

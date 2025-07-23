@@ -1,11 +1,11 @@
 #### Distribution of Ride Counts per Bike
 
-<figure class="float-right">
+<figure class="float-right" id="fig36">
   <a href="../images/bike_ride_bucket_histogram.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="Histogram showing the distribution of total ride counts per bike. Most bikes have between 2200–3999 rides, with a spike of underused bikes in the 0–99 range and a tapering tail above 4000 rides.">
   </a>
   <figcaption>
-    Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
+    Figure 36: Distribution of total ride counts per bike across the fleet, highlighting underused outliers and high-mileage bikes.
   </figcaption>
 </figure>
 

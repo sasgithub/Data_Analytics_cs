@@ -1,11 +1,11 @@
 #### Loop Ride Length Distribution by Week Part and Time of Day
 
-<figure class="float-right">
+<figure class="float-right" id="fig32">
   <a href="../images/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" alt="Grid of histograms showing the distribution of loop ride durations for non-tourist Customers, broken down by hour of day and by weekday versus weekend. Each subplot shows that most rides are under 15 minutes, with little variation in shape across time intervals.">
   </a>
   <figcaption>
-  Loop ride durations among non-tourist Customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
+  Figure 32: Loop ride durations among non-tourist Customers show a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
   </figcaption>
 </figure>
 

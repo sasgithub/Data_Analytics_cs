@@ -1,11 +1,11 @@
 #### Divvy Stations Table
 
-<figure class="float-right">
+<figure class="float-right" id="fig41">
   <a href="../images/Divvy_Stations_table.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Divvy_Stations_table.png" alt="screenshot showing information from the stations table inside the QGIS application">
   </a>
   <figcaption>
-  QGIS screenshot
+  Figure 41: QGIS screenshot
   </figcaption>
 </figure>
 

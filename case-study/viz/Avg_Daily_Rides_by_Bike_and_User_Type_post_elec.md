@@ -1,11 +1,11 @@
 #### Average Daily Rides by Bike Type and User Type (Post-Electric Launch)
 
-<figure class="float-right">
+<figure class="float-right" id="fig35">
   <a href="../images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both Customers and Subscribers, while docked bikes are used primarily by Customers.">
   </a>
   <figcaption>
-  Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among Subscribers, while electric modes see substantial adoption by both user groups.
+  Figure 35: Average daily rides by bike type and user type after the introduction of electric bikes and scooters. Classic bikes remain dominant among Subscribers, while electric modes see substantial adoption by both user groups.
   </figcaption>
 </figure>
 

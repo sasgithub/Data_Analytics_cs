@@ -1,11 +1,11 @@
 #### Ride Volume by Temperature (2°C Bins)
 
-<figure class="float-right">
+<figure class="float-right" id="fig47">
   <a href="../images/Ride_Volume_by_Temp_2_bin.png" target="_blank" title="Select image to open full sized chart">
     <img src="../images/thumbnails/Ride_Volume_by_Temp_2_bin.png" alt="Line plot showing total rides across binned temperature ranges, with separate lines for Customer, Subscriber, and Total ride counts.">
   </a>
   <figcaption>
-    Total ride volume across 2°C temperature bins, comparing Customers, Subscribers, and the overall total. Warmer temperatures strongly correlate with increased usage.
+  Figure 47: Total ride volume across 2°C temperature bins, comparing Customers, Subscribers, and the overall total. Warmer temperatures strongly correlate with increased usage.
   </figcaption>
 </figure>
 

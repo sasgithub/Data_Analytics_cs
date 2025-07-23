@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Ride Duration Density
 
-<figure class="float-right">
+<figure class="float-right" id="fig25">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Density.png" alt="Density plot showing the distribution of ride durations for non-tourist Customer rides. The curve is strongly right-skewed, with most rides under 15 minutes.">
   </a>
   <figcaption>
-    Ride Duration Density for Non-Tourist Customer Trips.<br>
+    Figure 25: Ride Duration Density for Non-Tourist Customer Trips.<br>
     This smoothed density plot shows how ride lengths are distributed among Customer (non-Subscriber) rides that do not involve tourist stations.
   </figcaption>
 </figure>

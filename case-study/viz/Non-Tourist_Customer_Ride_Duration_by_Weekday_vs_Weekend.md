@@ -1,11 +1,11 @@
 #### Ride Duration Distribution by Weekday vs Weekend (Non-Tourist Customers)
 
-<figure class="float-right">
+<figure class="float-right" id="fig24">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
     <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_by_Weekday_vs_Weekend.png" alt="Density plot comparing ride durations for non-tourist Customer rides on weekdays versus weekends. The distribution is right-skewed for both, with a higher peak on weekdays around 7 minutes.">
   </a>
   <figcaption>
-    Ride Duration Distribution by Day Type (Customer Rides Only).<br>
+    Figure 23: Ride Duration Distribution by Day Type (Customer Rides Only).<br>
     This density plot shows the distribution of ride durations in minutes for non-tourist Customer rides, separated by weekdays and weekends. Weekday rides tend to peak slightly earlier and higher than weekend rides, indicating a stronger presence of short utility trips during the work week.
   </figcaption>
 </figure>

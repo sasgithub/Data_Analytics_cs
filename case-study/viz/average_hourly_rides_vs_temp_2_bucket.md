@@ -1,11 +1,11 @@
 #### Average Hourly Rides vs Temperature (2° Bins)
 
-<figure class="float-right">
+<figure class="float-right" id="fig19">
   <a href="../images/average_hourly_rides_vs_temp_2_bucket.svg" target="_blank" title="Select image to open full sized chart">
   <img src="../images/average_hourly_rides_vs_temp_2_bucket.svg" alt="Line chart showing average hourly rides by temperature bin and user type, with separate lines for Subscribers and Customers. Ride counts increase with temperature for both groups, with Customers showing a stronger response at higher temperatures.">
   </a>
   <figcaption>
-  Average hourly rides by temperature bin and user type. Both Subscribers and Customers take more rides as temperatures increase, but Customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among Customers.
+  Figure 19: Average hourly rides by temperature bin and user type. Both Subscribers and Customers take more rides as temperatures increase, but Customer ride volume rises more sharply in warmer weather, indicating greater temperature sensitivity among Customers.
   </figcaption>
 </figure>
 

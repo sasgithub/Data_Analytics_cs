@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Ride Duration Distribution
 
-<figure class="float-right">
+<figure class="float-right" id="fig28">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_Distribution.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_Distribution.png" alt="Histogram showing the distribution of ride durations for non-tourist Customer trips. Most rides are under 20 minutes, with frequency declining rapidly thereafter.">
   </a>
   <figcaption>
-    Distribution of ride durations for non-tourist Customer trips.<br>
+    Figure 28: Distribution of ride durations for non-tourist Customer trips.<br>
     The histogram shows that the vast majority of trips are short in duration, tapering off beyond 20 minutes.
   </figcaption>
 </figure>

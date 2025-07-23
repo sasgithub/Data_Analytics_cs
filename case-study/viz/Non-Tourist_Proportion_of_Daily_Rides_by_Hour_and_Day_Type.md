@@ -1,11 +1,11 @@
 #### Non-Tourist Proportion of Daily Rides by Hour and Day Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig7">
   <a href="../images/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Proportion_of_Daily_Rides_by_Hour_and_Day_Type.png" alt="Heatmap showing the hourly distribution of non-tourist rides as a proportion of daily rides, separated by weekday and weekend. Weekday rides peak between 17:00 and 18:00, while weekend rides show a broader distribution from late morning through the afternoon.">
   </a>
   <figcaption>
-    Proportion of daily non-tourist rides by hour of day and day type (weekday vs. weekend). Weekdays show a clear peak in the late afternoon commute hours, while weekends have a more uniform midday distribution.
+   Figure 7: Proportion of daily non-tourist rides by hour of day and day type (weekday vs. weekend). Weekdays show a clear peak in the late afternoon commute hours, while weekends have a more uniform midday distribution.
   </figcaption>
 </figure>
 

@@ -1,11 +1,11 @@
 #### Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)
 
-<figure class="float-right">
+<figure class="float-right" id="fig9">
   <a href="../images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly Customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours.">
   </a>
   <figcaption>
-  Hourly comparison of **[Customer](../glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
+   Figure 9: Hourly comparison of **[Customer](../glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, highlighting differences in temporal riding behavior.
   </figcaption>
 </figure>
 

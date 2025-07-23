@@ -1,11 +1,11 @@
 #### Ride Duration vs. Station Distance (Non-Tourist Customers)
 
-<figure class="float-right">
+<figure class="float-right" id="fig27">
   <a href="../images/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" alt="Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist Customer rides. Points are densely clustered under 5 km and 50 minutes, with a blue linear reference line indicating expected travel time. Wide variation in durations is visible across short distances.">
   </a>
   <figcaption>
-  Ride Duration vs. Station Distance (Non-Tourist Customer Rides)<br>
+  Figure 27: Ride Duration vs. Station Distance (Non-Tourist Customer Rides)<br>
   This scatterplot displays the relationship between ride length and distance between stations. While longer distances generally correspond to longer durations, many short-distance rides also exhibit long durations, suggesting varied usage patterns. A linear reference line highlights the lower boundary of likely direct trips.
   </figcaption>
 </figure>

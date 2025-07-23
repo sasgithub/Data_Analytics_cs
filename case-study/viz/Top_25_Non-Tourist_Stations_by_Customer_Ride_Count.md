@@ -1,11 +1,11 @@
 #### Top 25 Non-Tourist Stations by Customer Ride Count
 
-<figure class="float-right">
+<figure class="float-right" id="fig33">
   <a href="../images/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Top_25_Non-Tourist_Stations_by_Customer_Ride_Count.png" alt="Horizontal bar chart showing the top 25 non-tourist stations ranked by the total number of Customer rides.">
   </a>
   <figcaption>
-    Top 25 stations (excluding tourist locations) ranked by total Customer ride volume. Bars highlight the most frequently used start locations among Customers.
+    Figure 33: Top 25 stations (excluding tourist locations) ranked by total Customer ride volume. Bars highlight the most frequently used start locations among Customers.
   </figcaption>
 </figure>
 

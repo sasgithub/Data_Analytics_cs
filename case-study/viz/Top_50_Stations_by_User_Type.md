@@ -1,11 +1,11 @@
 #### Top 50 Stations by User Type
 
-<figure class="float-right">
+<figure class="float-right" id="fig1">
   <a href="Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="Map of Top 50 Stations by User Type">
   </a>
   <figcaption>
-  Top 50 stations for Subscribers (blue) and Customers (red). Dot size scales with ride count.
+  Figure 1: Top 50 stations for Subscribers (blue) and Customers (red). Dot size scales with ride count.
   </figcaption>
 </figure>
 

@@ -1,11 +1,11 @@
 #### Non-Tourist Customer Rides by Day of the Week
 
-<figure class="float-right">
+<figure class="float-right" id="fig6">
   <a href="../images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing Customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday.">
   </a>
   <figcaption>
-  Total **[Customer](../glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations, highlighting the clear weekend peaks in ridership.
+  Figure 6: Total **[Customer](../glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations, highlighting the clear weekend peaks in ridership.
   </figcaption>
 </figure>
 

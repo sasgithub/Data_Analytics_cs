@@ -1,11 +1,11 @@
 #### Frequency of Temperature Bins
 
-<figure class="float-right">
+<figure class="float-right" id="fig16">
   <a href="../images/Frequency_of_Temp_bins.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Frequency_of_Temp_bins.png" alt="Histogram showing how many hourly weather records fall into each 2°C temperature bin between -20 and +40°C. The distribution peaks around 15–25°C and falls off sharply at higher and lower extremes.">
   </a>
   <figcaption>
-    Frequency distribution of hourly temperature observations during the analysis period, illustrating data coverage across temperature ranges.
+  Figure 16: Frequency distribution of hourly temperature observations during the analysis period, illustrating data coverage across temperature ranges.
   </figcaption>
 </figure>
 

@@ -1,11 +1,11 @@
 #### Divvy Stations in QGIS
 
-<figure class="float-right">
+<figure class="float-right" id="fig40">
   <a href="../images/Divvy_Stations_in_QGIS.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Divvy_Stations_in_QGIS.png" alt="A screenshot of the Divvy stations in the application QGIS">
   </a>
   <figcaption>
-  Divvy Stations in QGIS 
+  Figure 40: Divvy Stations in QGIS 
   </figcaption>
 </figure>
 

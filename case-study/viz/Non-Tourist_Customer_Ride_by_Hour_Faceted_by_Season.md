@@ -1,11 +1,11 @@
 #### Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)
 
-<figure class="float-right">
+<figure class="float-right" id="fig10">
   <a href="../images/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" target="_blank" title="Select image to open full sized chart">
   <img src="../images/thumbnails/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" alt="Line chart showing hourly Customer ride volumes at non-tourist stations, split by season and further separated by weekday and weekend. Clear afternoon peaks are visible on weekdays, especially in summer and fall.">
   </a>
   <figcaption>
-  Hourly Customer ride patterns by season at non-tourist stations. Weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.
+  Figure 10: Hourly Customer ride patterns by season at non-tourist stations. Weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.
   </figcaption>
 </figure>
 
