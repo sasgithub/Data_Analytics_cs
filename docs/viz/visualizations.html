@@ -268,20 +268,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="interactive-visuals" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-visuals">Interactive Visuals</h2>
-<!--
-### Top Stations Map (Leaflet)
-
-<figure class="float-right" id="fig1">
-  <a href="../Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="ALT_TEXT">
-  </a>
-  <figcaption>
-  Interactive map showing the 50 most active Divvy stations for subscribers and customers, between 2020 and 2025. Marker size indicates total ride count.
-  </figcaption>
-</figure>
-
-This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.
--->
 <section id="top-50-stations-by-user-type" class="level4">
 <h4 class="anchored" data-anchor-id="top-50-stations-by-user-type">Top 50 Stations by User Type</h4>
 <figure class="float-right figure" id="fig1">
@@ -376,7 +362,8 @@ Figure 1: Top 50 stations for Subscribers (blue) and Customers (red). Dot size s
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"User Type"</span>,</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">opacity =</span> <span class="dv">1</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The author created a tutorial using this as an example. More details are available on <a href="https://www.kaggle.com/code/yaid2r/top-stations-leaflet-demo/">Kaggle</a></p>
+<p>The author created a tutorial using this visualization as an example. More details are available on <a href="https://www.kaggle.com/code/yaid2r/top-stations-leaflet-demo/">Kaggle</a></p>
+<hr>
 </section>
 </section>
 <section id="tableau-sheets" class="level3">
@@ -437,6 +424,7 @@ FIGCAPTION
 <li>Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.</li>
 <li>Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.</li>
 </ul>
+<hr>
 </section>
 </section>
 </section>

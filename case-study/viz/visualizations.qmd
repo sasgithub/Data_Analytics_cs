@@ -14,24 +14,9 @@ This page presents visualizations from the case study. Visuals are grouped into 
 
 ## Interactive Visuals
 
-<!--
-### Top Stations Map (Leaflet)
-
-<figure class="float-right" id="fig1">
-  <a href="../Top_50_Stations_by_User_Type.html" target="_blank" title="Select image to open full sized chart">
-  <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="ALT_TEXT">
-  </a>
-  <figcaption>
-  Interactive map showing the 50 most active Divvy stations for subscribers and customers, between 2020 and 2025. Marker size indicates total ride count.
-  </figcaption>
-</figure>
-
-This interactive map of the top 50 stations includes the top 50 stations by number of subscriber rides and the top 50 stations by number of customer rides. We break from the normal color scheme as more contrast was required due to the preexisting colors in the map. So the dots for subscriber stations rendered in <span style="color: blue;">blue</span> and the dots for customer stations rendered in <span style="color: red;">red</span>. The dots for stations are offset slightly to avoid one dot obscuring the other for the cases where the station is in the top 50 for both subscribers and customers. This is accomplished by using a data frame where the location of the stations is offset. The size of the dots is scaled by the total number of rides (subscriber or customer as appropriate), so that stations with more rides are larger dots.
--->
-
 {{< include Top_50_Stations_by_User_Type.md >}}
 
-The author created a tutorial using this as an example.  More details are available on [Kaggle](https://www.kaggle.com/code/yaid2r/top-stations-leaflet-demo/)
+---
 
 ### Tableau Sheets
 
@@ -103,6 +88,8 @@ This visualization reveals important asymmetries in how ride paths are used:
 
 -   Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
 -   Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas.
+
+---
 
 ## Static Visualizations
 

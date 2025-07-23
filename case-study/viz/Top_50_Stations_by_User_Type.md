@@ -93,3 +93,5 @@ leaflet(top_stations_df_offset) %>%
     )
 ```
 
+The author created a tutorial using this visualization as an example.  More details are available on [Kaggle](https://www.kaggle.com/code/yaid2r/top-stations-leaflet-demo/)
+

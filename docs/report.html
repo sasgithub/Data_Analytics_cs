@@ -352,6 +352,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Temporal aggregation (e.g., hourly or daily binning) does not introduce significant bias in patterns observed.</li>
 <li>The choice of thresholds (e.g., 24-hour ride duration, maximum acceptable duplicates) reflects domain-reasonable cutoffs and does not materially distort the dataset.</li>
 </ul>
+<hr>
 </section>
 </section>
 <section id="validations" class="level2">
@@ -572,25 +573,18 @@ Stations Dataset Overview Table
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
-<pre><code>**Hourly Patterns**: Ride activity is minimal between midnight and 5 AM. Rides increase through the morning, reach a plateau from noon to mid-afternoon, and peak sharply around 5 PM. Evening usage gradually declines but remains non-negligible until 11 PM.
-
-**Weekday vs Weekend**: Weekdays show clear afternoon peaks (~17:00), typical of post-work commuting. Weekends display a flatter distribution, with more consistent usage from late morning through early afternoon (10:00–16:00).
-
-**Day-of-Week Trends**: Saturday consistently has the highest ride volume, followed by Sunday. Weekdays maintain a lower but steady ride count.
-
-**Commuter Indicators**: Non-tourist station usage on weekdays shows strong morning (7–9 AM) and evening (16–18 PM) peaks, suggesting routine commuting behavior even among casual riders.
-
-**Seasonal Variations**: Summer has the highest usage by far, with August as the peak month. Winter sees a dramatic reduction in activity and flatter hourly distributions. Spring and Fall show intermediate patterns, with clear late afternoon weekday peaks but lower volume than summer.</code></pre>
+<p><strong>Hourly Patterns</strong> Ride activity is minimal between midnight and 5 AM. Rides increase through the morning, reach a plateau from noon to mid-afternoon, and peak sharply around 5 PM. Evening usage gradually declines but remains non-negligible until 11 PM.</p>
+<p><strong>Weekday vs Weekend</strong> Weekdays show clear afternoon peaks (~17:00), typical of post-work commuting. Weekends display a flatter distribution, with more consistent usage from late morning through early afternoon (10:00–16:00).</p>
+<p><strong>Day-of-Week Trends</strong> Saturday consistently has the highest ride volume, followed by Sunday. Weekdays maintain a lower but steady ride count.</p>
+<p><strong>Commuter Indicators</strong> Non-tourist station usage on weekdays shows strong morning (7–9 AM) and evening (16–18 PM) peaks, suggesting routine commuting behavior even among casual riders.</p>
+<p><strong>Seasonal Variations</strong> Summer has the highest usage by far, with August as the peak month. Winter sees a dramatic reduction in activity and flatter hourly distributions. Spring and Fall show intermediate patterns, with clear late afternoon weekday peaks but lower volume than summer.</p>
 </section>
 <section id="interpretations" class="level5">
 <h5 class="anchored" data-anchor-id="interpretations">Interpretations</h5>
-<pre><code>Behavioral Segmentation by Time: The weekday 5 PM peak aligns with traditional commuting patterns, while the more even midday usage on weekends points to discretionary or leisure-based riding.
-
-Role of Weather and Season: Warmer months not only increase total rides but also amplify commute-style weekday peaks. Cold weather in winter dampens all usage but doesn't eliminate it, which implies that a baseline group of Customers persists year-round.
-
-Spatial Behavior Confirmation: Excluding tourist stations strengthens the argument that these patterns reflect local Customer use, not tourist behavior. Even among non-Subscribers, there is strong evidence of routine and purposeful riding patterns.
-
-Operational Implications: These temporal patterns suggest opportunities for optimizing fleet availability, staffing, and maintenance. For instance, summer weekday evenings may require more active bike redistribution, while winter mornings can likely be deprioritized.</code></pre>
+<p><strong>Behavioral Segmentation by Time</strong> The weekday 5 PM peak aligns with traditional commuting patterns, while the more even midday usage on weekends points to discretionary or leisure-based riding.</p>
+<p><strong>Role of Weather and Season</strong> Warmer months not only increase total rides but also amplify commute-style weekday peaks. Cold weather in winter dampens all usage but doesn’t eliminate it, which implies that a baseline group of Customers persists year-round.</p>
+<p><strong>Spatial Behavior Confirmation</strong> Excluding tourist stations strengthens the argument that these patterns reflect local Customer use, not tourist behavior. Even among non-Subscribers, there is strong evidence of routine and purposeful riding patterns.</p>
+<p><strong>Operational Implications</strong> These temporal patterns suggest opportunities for optimizing fleet availability, staffing, and maintenance. For instance, summer weekday evenings may require more active bike redistribution, while winter mornings can likely be deprioritized.</p>
 </section>
 <section id="summary-trends" class="level5">
 <h5 class="anchored" data-anchor-id="summary-trends">Summary Trends</h5>
@@ -604,33 +598,24 @@ Operational Implications: These temporal patterns suggest opportunities for opti
 </section>
 <section id="observations-1" class="level5">
 <h5 class="anchored" data-anchor-id="observations-1">Observations</h5>
-<pre><code>**Temperature-Driven Usage**: Ride volume increases steadily with temperature, peaking between 24–26°C (75–78°F). Above ~30°C, usage declines — especially for Customers.
-
-**User Type Sensitivity**: Customers show greater responsiveness to warming temperatures, with steeper usage increases and sharper declines beyond optimal ranges. Subscribers maintain a broader tolerance but still follow a similar bell-shaped usage curve.
-
-**Cold Weather Behavior**: Sub-zero temperatures (&lt; 0°C) show minimal usage across all groups. Subscribers retain a small baseline of cold-weather activity, unlike Customers whose volume approaches zero.
-
-**Precipitation Effects**: Rain significantly suppresses ride volume, flattening the temperature-ridership curve and reducing variability between user types. In wet conditions, both Subscribers and Customers show near-identical behavior.
-
-**Data Distribution Limits**: The dataset is concentrated between 5°C and 25°C, with relatively sparse observations at the temperature extremes. This explains smoother, more consistent curves in the mid-range and volatility at the tails.
-
-**Continuous vs Binned Trends**: LOESS-based smoothed charts show continuous temperature associations, while binned histograms reveal more visible drop-offs at higher temperatures, especially above 30°C.</code></pre>
+<p><strong>Temperature-Driven Usage</strong> Ride volume increases steadily with temperature, peaking between 24–26°C (75–78°F). Above ~30°C, usage declines — especially for Customers.</p>
+<p><strong>User Type Sensitivity</strong> Customers show greater responsiveness to warming temperatures, with steeper usage increases and sharper declines beyond optimal ranges. Subscribers maintain a broader tolerance but still follow a similar bell-shaped usage curve.</p>
+<p><strong>Cold Weather Behavior</strong> Sub-zero temperatures (&lt; 0°C) show minimal usage across all groups. Subscribers retain a small baseline of cold-weather activity, unlike Customers whose volume approaches zero.</p>
+<p><strong>Precipitation Effects</strong> Rain significantly suppresses ride volume, flattening the temperature-ridership curve and reducing variability between user types. In wet conditions, both Subscribers and Customers show near-identical behavior.</p>
+<p><strong>Data Distribution Limits</strong> The dataset is concentrated between 5°C and 25°C, with relatively sparse observations at the temperature extremes. This explains smoother, more consistent curves in the mid-range and volatility at the tails.</p>
+<p><strong>Continuous vs Binned Trends</strong> LOESS-based smoothed charts show continuous temperature associations, while binned histograms reveal more visible drop-offs at higher temperatures, especially above 30°C.</p>
 </section>
 <section id="interpretations-1" class="level5">
 <h5 class="anchored" data-anchor-id="interpretations-1">Interpretations</h5>
-<pre><code>**Temperature is a Dominant Predictor**: The consistent bell-shaped curve across all user types confirms that moderate warmth is ideal for biking, especially in the 20–26°C range.
-
-**User Motivation Differentiation**: Subscriber behavior suggests a commute-driven pattern, with usage clustered in comfortable temperature bands. Customer patterns reflect recreational or discretionary riding, with more dramatic increases in good weather and steeper declines when it’s too hot or cold.
-
-**Rain as a Deterrent**: Wet conditions override other factors — both Subscribers and Customers dramatically reduce usage, regardless of temperature. This uniform suppression highlights precipitation as a powerful behavioral constraint.
-
-**Operational Implications**:
-
-    **Redistribution and Fleet Scaling**: Summer afternoons and warm, dry days will require greater bike availability. Rainy or cold days may allow for reduced redistribution efforts.
-
-    **Maintenance Planning**: Off-peak seasons (winter or rainy periods) can support more aggressive fleet maintenance windows.
-
-    **Targeted Messaging**: Marketing to Customers should align with warm, dry forecast windows. Subscriber incentives might focus on resilience in fringe-weather conditions.</code></pre>
+<p><strong>Temperature is a Dominant Predictor</strong> The consistent bell-shaped curve across all user types confirms that moderate warmth is ideal for biking, especially in the 20–26°C range.</p>
+<p><strong>User Motivation Differentiation</strong> Subscriber behavior suggests a commute-driven pattern, with usage clustered in comfortable temperature bands. Customer patterns reflect recreational or discretionary riding, with more dramatic increases in good weather and steeper declines when it’s too hot or cold.</p>
+<p><strong>Rain as a Deterrent</strong> Wet conditions override other factors — both Subscribers and Customers dramatically reduce usage, regardless of temperature. This uniform suppression highlights precipitation as a powerful behavioral constraint.</p>
+<p><strong>Operational Implications</strong></p>
+<ul>
+<li><strong>Redistribution and Fleet Scaling</strong>: Summer afternoons and warm, dry days will require greater bike availability. Rainy or cold days may allow for reduced redistribution efforts.</li>
+<li><strong>Maintenance Planning</strong>: Off-peak seasons (winter or rainy periods) can support more aggressive fleet maintenance windows.</li>
+<li><strong>Targeted Messaging</strong>: Marketing to Customers should align with warm, dry forecast windows. Subscriber incentives might focus on resilience in fringe-weather conditions.</li>
+</ul>
 </section>
 <section id="summary-trends-1" class="level5">
 <h5 class="anchored" data-anchor-id="summary-trends-1">Summary Trends</h5>
@@ -644,11 +629,8 @@ Operational Implications: These temporal patterns suggest opportunities for opti
 </section>
 <section id="observations-2" class="level5">
 <h5 class="anchored" data-anchor-id="observations-2">Observations</h5>
-<pre><code>**Duration by User Type**:
-
-    **Subscribers**: Ride durations peak sharply around 10–15 minutes, with a rapid drop-off beyond 30 minutes.
-
-    **Customers**: Durations are more broadly distributed, with a long right tail extending beyond 100 minutes.
+<p><strong>Duration by User Type</strong> <strong>Subscribers</strong>: Ride durations peak sharply around 10–15 minutes, with a rapid drop-off beyond 30 minutes.</p>
+<pre><code>    **Customers**: Durations are more broadly distributed, with a long right tail extending beyond 100 minutes.
 
 **Boxplot Distributions**:
 
