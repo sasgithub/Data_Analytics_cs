@@ -567,26 +567,234 @@ Stations Dataset Overview Table
 <h3 class="anchored" data-anchor-id="trends-and-patterns">Trends and Patterns</h3>
 <section id="temporal-patterns" class="level4">
 <h4 class="anchored" data-anchor-id="temporal-patterns">Temporal Patterns</h4>
-<p>Analysis of hourly ride patterns for non-tourist customers (see <strong>?@fig-non-tourist-hourly-rides</strong>) revealed a pronounced late-afternoon peak around 17:00. Early morning usage was minimal, while midday and evening periods showed moderate sustained volume. This distribution suggests that local riders often use the service for discretionary trips after work hours, as well as for errands and recreation throughout the day.</p>
+<section id="key-visualizations" class="level5">
+<h5 class="anchored" data-anchor-id="key-visualizations">Key Visualizations</h5>
+</section>
+<section id="observations" class="level5">
+<h5 class="anchored" data-anchor-id="observations">Observations</h5>
+<pre><code>**Hourly Patterns**: Ride activity is minimal between midnight and 5 AM. Rides increase through the morning, reach a plateau from noon to mid-afternoon, and peak sharply around 5 PM. Evening usage gradually declines but remains non-negligible until 11 PM.
+
+**Weekday vs Weekend**: Weekdays show clear afternoon peaks (~17:00), typical of post-work commuting. Weekends display a flatter distribution, with more consistent usage from late morning through early afternoon (10:00–16:00).
+
+**Day-of-Week Trends**: Saturday consistently has the highest ride volume, followed by Sunday. Weekdays maintain a lower but steady ride count.
+
+**Commuter Indicators**: Non-tourist station usage on weekdays shows strong morning (7–9 AM) and evening (16–18 PM) peaks, suggesting routine commuting behavior even among casual riders.
+
+**Seasonal Variations**: Summer has the highest usage by far, with August as the peak month. Winter sees a dramatic reduction in activity and flatter hourly distributions. Spring and Fall show intermediate patterns, with clear late afternoon weekday peaks but lower volume than summer.</code></pre>
+</section>
+<section id="interpretations" class="level5">
+<h5 class="anchored" data-anchor-id="interpretations">Interpretations</h5>
+<pre><code>Behavioral Segmentation by Time: The weekday 5 PM peak aligns with traditional commuting patterns, while the more even midday usage on weekends points to discretionary or leisure-based riding.
+
+Role of Weather and Season: Warmer months not only increase total rides but also amplify commute-style weekday peaks. Cold weather in winter dampens all usage but doesn't eliminate it, which implies that a baseline group of Customers persists year-round.
+
+Spatial Behavior Confirmation: Excluding tourist stations strengthens the argument that these patterns reflect local Customer use, not tourist behavior. Even among non-Subscribers, there is strong evidence of routine and purposeful riding patterns.
+
+Operational Implications: These temporal patterns suggest opportunities for optimizing fleet availability, staffing, and maintenance. For instance, summer weekday evenings may require more active bike redistribution, while winter mornings can likely be deprioritized.</code></pre>
+</section>
+<section id="summary-trends" class="level5">
+<h5 class="anchored" data-anchor-id="summary-trends">Summary Trends</h5>
+<pre><code>Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-like peaks around 5 PM and a consistent weekend midday usage pattern. Seasonality plays a major role, warm months drive higher volumes and sharper commute peaks, while winter flattens and suppresses demand. These patterns, observed even after filtering out tourist stations, confirm that many Customer rides are local and purpose-driven and not purely recreational.</code></pre>
+</section>
 </section>
 <section id="temperature-and-weather-effects" class="level4">
 <h4 class="anchored" data-anchor-id="temperature-and-weather-effects">Temperature and Weather Effects</h4>
+<section id="key-visualizations-1" class="level5">
+<h5 class="anchored" data-anchor-id="key-visualizations-1">Key Visualizations</h5>
+</section>
+<section id="observations-1" class="level5">
+<h5 class="anchored" data-anchor-id="observations-1">Observations</h5>
+<pre><code>**Temperature-Driven Usage**: Ride volume increases steadily with temperature, peaking between 24–26°C (75–78°F). Above ~30°C, usage declines — especially for Customers.
+
+**User Type Sensitivity**: Customers show greater responsiveness to warming temperatures, with steeper usage increases and sharper declines beyond optimal ranges. Subscribers maintain a broader tolerance but still follow a similar bell-shaped usage curve.
+
+**Cold Weather Behavior**: Sub-zero temperatures (&lt; 0°C) show minimal usage across all groups. Subscribers retain a small baseline of cold-weather activity, unlike Customers whose volume approaches zero.
+
+**Precipitation Effects**: Rain significantly suppresses ride volume, flattening the temperature-ridership curve and reducing variability between user types. In wet conditions, both Subscribers and Customers show near-identical behavior.
+
+**Data Distribution Limits**: The dataset is concentrated between 5°C and 25°C, with relatively sparse observations at the temperature extremes. This explains smoother, more consistent curves in the mid-range and volatility at the tails.
+
+**Continuous vs Binned Trends**: LOESS-based smoothed charts show continuous temperature associations, while binned histograms reveal more visible drop-offs at higher temperatures, especially above 30°C.</code></pre>
+</section>
+<section id="interpretations-1" class="level5">
+<h5 class="anchored" data-anchor-id="interpretations-1">Interpretations</h5>
+<pre><code>**Temperature is a Dominant Predictor**: The consistent bell-shaped curve across all user types confirms that moderate warmth is ideal for biking, especially in the 20–26°C range.
+
+**User Motivation Differentiation**: Subscriber behavior suggests a commute-driven pattern, with usage clustered in comfortable temperature bands. Customer patterns reflect recreational or discretionary riding, with more dramatic increases in good weather and steeper declines when it’s too hot or cold.
+
+**Rain as a Deterrent**: Wet conditions override other factors — both Subscribers and Customers dramatically reduce usage, regardless of temperature. This uniform suppression highlights precipitation as a powerful behavioral constraint.
+
+**Operational Implications**:
+
+    **Redistribution and Fleet Scaling**: Summer afternoons and warm, dry days will require greater bike availability. Rainy or cold days may allow for reduced redistribution efforts.
+
+    **Maintenance Planning**: Off-peak seasons (winter or rainy periods) can support more aggressive fleet maintenance windows.
+
+    **Targeted Messaging**: Marketing to Customers should align with warm, dry forecast windows. Subscriber incentives might focus on resilience in fringe-weather conditions.</code></pre>
+</section>
+<section id="summary-trends-1" class="level5">
+<h5 class="anchored" data-anchor-id="summary-trends-1">Summary Trends</h5>
+<pre><code>Temperature and precipitation are among the strongest environmental drivers of bike usage. Rides peak in warm, dry weather around 25°C and fall sharply in cold or wet conditions. Customers exhibit greater sensitivity to weather changes, while Subscribers maintain a steadier, commuting-aligned pattern. These trends support adaptive operational planning and weather-aware engagement strategies.</code></pre>
+</section>
 </section>
 <section id="ride-duration-and-distance-distributions" class="level4">
 <h4 class="anchored" data-anchor-id="ride-duration-and-distance-distributions">Ride Duration and Distance Distributions</h4>
+<section id="key-visualizations-2" class="level5">
+<h5 class="anchored" data-anchor-id="key-visualizations-2">Key Visualizations</h5>
+</section>
+<section id="observations-2" class="level5">
+<h5 class="anchored" data-anchor-id="observations-2">Observations</h5>
+<pre><code>**Duration by User Type**:
+
+    **Subscribers**: Ride durations peak sharply around 10–15 minutes, with a rapid drop-off beyond 30 minutes.
+
+    **Customers**: Durations are more broadly distributed, with a long right tail extending beyond 100 minutes.
+
+**Boxplot Distributions**:
+
+    Subscribers show tight interquartile ranges with few outliers.
+
+    Customers have higher medians, greater variability, and more long-duration rides.
+
+**Weekday vs Weekend**:
+
+    Weekday rides are shorter on average (~6–8 minutes), likely task-oriented.
+
+    Weekend rides are longer (~8–10 minutes), suggesting more recreational or flexible use.
+
+**Loop Rides**:
+
+    Highly skewed toward very short durations (3–7 minutes), with minimal variance between weekdays and weekends.
+
+**Distance Distribution**:
+
+    Most rides are under 2 km, with pronounced peaks around 0.85 km and 1.35 km — likely common station-to-station pairs.
+
+    Very few rides exceed 5 km; rides over 20 km are rare outliers.
+
+**Duration vs Distance**:
+
+    A clear positive correlation exists, but wide variance in duration suggests stops, detours, or casual pacing.
+
+    A lower-bound line shows plausible “fastest rides,” but many trips exceed expected times for a given distance.</code></pre>
+</section>
+<section id="interpretations-2" class="level5">
+<h5 class="anchored" data-anchor-id="interpretations-2">Interpretations</h5>
+<pre><code>**Behavioral Divergence by User Type**:
+
+    Subscribers show behavior consistent with commuting or short errands — efficient, time-sensitive trips likely shaped by pricing incentives (e.g., overage fees after 30 minutes).
+
+    Customers display patterns more aligned with recreation, exploration, or discretionary travel, evidenced by longer durations and greater variability.
+
+**Temporal Consistency**:
+
+    Duration distributions are similar across hours and days of the week, suggesting predictable, habitual short-trip behavior among Customers.
+
+**Spatial Boundaries**:
+
+    Most rides occur within 1–2 km, indicating localized usage — e.g., last-mile transit, station-to-station hops, or intra-neighborhood errands.
+
+**Usage Clustering**:
+
+    The sharp peaks in duration and distance hint at high-volume, frequently traveled routes between key station pairs.
+
+    The absence of multi-modal distance peaks differentiates these patterns from tourist-heavy datasets, reinforcing the local, utilitarian character of non-Subscriber rides.
+
+**Variability and Edge Cases**:
+
+    Some rides show long durations but modest distances, implying possible non-transportation use: rest stops, detours, or leisure pacing.
+
+    A small number of long-distance rides suggest niche use cases (e.g., exercise or destination trips) but are statistically insignificant.
+    </code></pre>
+</section>
 </section>
 <section id="spatial-patterns" class="level4">
 <h4 class="anchored" data-anchor-id="spatial-patterns">Spatial Patterns</h4>
+<p>Analysis of spatial patterns among casual users reveals a highly localized and purpose-driven use of the Divvy system. While tourist hubs are excluded from this dataset, clear usage hotspots still emerge.</p>
+<p><strong>High-Usage Local Hubs</strong>: The most popular non-tourist stations accumulate ride volumes far exceeding those near the bottom of the top 25. This steep usage drop-off indicates that Customer riders are clustering their activity around a small number of key locations. These likely serve as community nodes—near transit stops, commercial corridors, or dense residential zones—highlighting the presence of neighborhood-scale ridership hubs.</p>
+<p><strong>Trip Distance Distribution</strong>: Ride distance data displays two strong peaks at approximately 0.86 km and 1.29 km, suggesting common use cases like very short errands, intra-neighborhood trips, or first/last-mile connections. A steep decline beyond 4–5 km confirms that long-distance trips are rare, reinforcing the system’s use as a hyper-local mobility option for casual users.</p>
+<p><strong>Modal Preferences and Fleet Distribution</strong>: Casual riders show more diverse preferences across vehicle types than subscribers. While electric bikes are popular across both groups, customers also make significant use of scooters and docked bikes—modes almost unused by subscribers. This diversity points to more occasional, exploratory, or convenience-based decisions among casual users.</p>
+<p><strong>Fleet Utilization</strong>: Fleet usage patterns further reveal operational insights. Most bikes fall within a healthy usage range (2200–3999 rides), suggesting balanced deployment and rotation. However, a noticeable spike in underutilized bikes (0–99 rides) may represent malfunctions, late additions to the fleet, or seasonal imbalances. Conversely, high-mileage bikes (&gt;4000 rides) could signal workhorses nearing maintenance thresholds.</p>
+<p><strong>Summary</strong>: Together, these spatial trends suggest that casual Divvy users engage in short, highly localized trips clustered around urban activity centers. Their flexible vehicle choices and the uneven distribution of ride volumes across the fleet highlight different motivations and constraints compared to subscribers, such as spontaneity, novelty, or limited commitment.</p>
 </section>
 <section id="fleet-usage-patterns" class="level4">
 <h4 class="anchored" data-anchor-id="fleet-usage-patterns">Fleet &amp; Usage Patterns</h4>
+<p>Analysis of vehicle type and fleet usage data reveals distinct preferences and operational dynamics between Subscribers and Customers.</p>
+<section id="modal-usage-by-rider-type" class="level5">
+<h5 class="anchored" data-anchor-id="modal-usage-by-rider-type">Modal Usage by Rider Type</h5>
+<p>Classic bikes remain the workhorses of the Divvy system, with Subscribers contributing the bulk of their ride volume. This aligns with commuter-like behavior—regular, utilitarian, and possibly cost-conscious.</p>
+<p>Electric bikes show broad appeal across both groups, underscoring their convenience and efficiency. While Subscribers still dominate in total ride volume, Customers account for a substantial portion of electric bike usage, suggesting a growing comfort and interest in this mode.</p>
+<p>Docked bikes, in contrast, register very low overall usage and appear to be used exclusively by Customers. This could reflect limited availability or a transitional state in fleet management. The presence of docked bikes among Customers—but not Subscribers—may point to situational or novelty-based usage.</p>
+<p>Electric scooters, while contributing fewer total rides than bikes, are notably more popular with Customers than with Subscribers. Their lighter, more spontaneous usage pattern aligns with leisure or last-mile contexts rather than regular commuting.</p>
+</section>
+<section id="subscriber-vs.-customer-modal-tendencies" class="level5">
+<h5 class="anchored" data-anchor-id="subscriber-vs.-customer-modal-tendencies">Subscriber vs.&nbsp;Customer Modal Tendencies</h5>
+<p>Subscribers overwhelmingly prefer classic and electric bikes, reinforcing the notion of predictable, scheduled usage. Customers, by contrast, distribute their usage more evenly across all available vehicle types. Their comparatively higher share of docked bike and scooter usage suggests more casual, opportunistic, or exploratory trip behavior.</p>
+<p>The introduction of electric options (bikes and scooters) appears to have encouraged broader participation across both rider groups, potentially siphoning some trips away from classic bikes and shifting the system’s overall modal balance.</p>
+</section>
+<section id="fleet-utilization-distribution" class="level5">
+<h5 class="anchored" data-anchor-id="fleet-utilization-distribution">Fleet Utilization Distribution</h5>
+<p>The distribution of rides per bike exhibits a strong central tendency, with most bikes registering between 2200 and 3999 rides. This suggests a balanced and consistently utilized core fleet.</p>
+<p>However, a notable cluster of low-use outliers—approximately 130 bikes with fewer than 100 rides—may indicate anomalies. These bikes could be damaged, stolen, seasonally deployed, or simply introduced late in the analysis period.</p>
+<p>On the high end, a long but thinning tail shows bikes with over 4000 rides, with very few exceeding 5000. These high-mileage units may be nearing the end of their service life and warrant inspection or preemptive maintenance.</p>
+</section>
+<section id="summary" class="level5">
+<h5 class="anchored" data-anchor-id="summary">Summary</h5>
+<p>The data reveals a well-utilized fleet with clear patterns of use by rider type. Subscribers show focused, high-volume usage centered on bikes, while Customers engage with a wider variety of vehicles. The shape of the ride distribution supports operational efficiency but also flags underutilized and overburdened assets, offering actionable insights for fleet management and maintenance planning.</p>
+</section>
 </section>
 <section id="route-asymmetry" class="level4">
 <h4 class="anchored" data-anchor-id="route-asymmetry">Route Asymmetry</h4>
+<section id="key-trends" class="level5">
+<h5 class="anchored" data-anchor-id="key-trends">Key Trends</h5>
+<ol type="1">
+<li><strong>Customer Asymmetry is Downtown-Centric</strong></li>
+</ol>
 <ul>
-<li>Some stations show strong subscriber dominance, limiting recruitment opportunity.</li>
+<li>Strong directional flows are centered around Canal St, Clinton St, Wacker Dr, and transit hubs.</li>
+<li>Likely reflects one-way sightseeing trips, drop-offs, or transitions to other transit modes.</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Subscriber Asymmetry Aligns with Recreation &amp; Commute</strong>
+<ul>
+<li>High asymmetry observed along Columbus Dr, Streeter Dr, Lake Shore Dr, and destinations like Millennium Park or McCormick Place.</li>
+<li>Indicates use patterns shaped by recreation and predictable commuting behavior.</li>
+</ul></li>
+</ol>
+</section>
+<section id="behavioral-insight" class="level5">
+<h5 class="anchored" data-anchor-id="behavioral-insight">Behavioral Insight</h5>
+<ul>
+<li><strong>Asymmetry Ratio</strong> (rides in one direction / total rides) approaching 1.0 reflects pronounced one-way behavior.</li>
+<li>Customer behavior suggests fluid, urban-tourism-based usage where returns often happen by walking, transit, or not at all.</li>
+<li>Subscriber behavior shows structured routines and preferences for scenic or efficient routes, often with predictable directional bias (e.g., ride in, train home).</li>
+</ul>
+</section>
+<section id="operational-relevance" class="level5">
+<h5 class="anchored" data-anchor-id="operational-relevance">Operational Relevance</h5>
+<ul>
+<li>Persistent asymmetries represent logistical challenges for fleet rebalancing.</li>
+<li>High-asymmetry routes may benefit from:
+<ul>
+<li><strong>Incentives</strong> to encourage return trips,</li>
+<li><strong>Station capacity adjustments</strong>,</li>
+<li><strong>Redistribution planning during</strong> peak usage periods.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpretive-summary" class="level5">
+<h5 class="anchored" data-anchor-id="interpretive-summary">Interpretive Summary</h5>
+<ul>
+<li><p>While both user types show asymmetry, their spatial footprints differ:</p>
+<ul>
+<li>Customers: core-focused, incidental travel.</li>
+<li>Subscribers: edge-focused, intentional, possibly scheduled travel.</li>
+</ul></li>
+<li><p>This difference reveals how each group interacts with the network infrastructure and informs targeted strategies for <strong>system optimization</strong>.</p></li>
+<li><p>Some stations show strong subscriber dominance, limiting recruitment opportunity.</p></li>
 </ul>
 <hr>
+</section>
 </section>
 </section>
 <section id="recommendations" class="level3">
