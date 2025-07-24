@@ -215,7 +215,6 @@ Where paths are not balanced in both directions by user type.
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     if (
-       document.referrer.includes("report.html") &&
        window.location.hash === "#fig38"
      ) {
       const backLink = document.getElementById("backlink-fig38");

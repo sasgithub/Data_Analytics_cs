@@ -101,10 +101,9 @@ ggplot(asym_top, aes(x = asymmetry_ratio, y = reorder(path_label, asymmetry_rati
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     if (
-       document.referrer.includes("report.html") &&
        window.location.hash === "#fig39"
      ) {
-      const backLink = document.getElementById("backlink-fig38");
+      const backLink = document.getElementById("backlink-fig39");
       if (backLink) backLink.style.display = "block";
     }
   });
