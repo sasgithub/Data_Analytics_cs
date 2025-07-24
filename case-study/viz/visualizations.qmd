@@ -191,11 +191,11 @@ Where paths are not balanced in both directions by user type.
 {{< include Top_20_Most_Asymmetric_Paths.md >}}
 
 ```{=html}
-<p id="backlink-asymmetry" style="display:none;">
+<p id="backlink-fig38" style="display:none;">
   <a href="../report.html#route-asymmetry"
      rel="prev"
      aria-label="Return to Route Asymmetry">
-    ← Return to Route Asymmetry
+    ← Return to Route Asymmetry in the case study report.
   </a>
 </p>
 ```
@@ -214,8 +214,11 @@ Where paths are not balanced in both directions by user type.
 ```{=html}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    if (document.referrer.includes("report.html")) {
-      const backLink = document.getElementById("backlink-asymmetry");
+    if (
+       document.referrer.includes("report.html") &&
+       window.location.hash === "#fig38"
+     ) {
+      const backLink = document.getElementById("backlink-fig38");
       if (backLink) backLink.style.display = "block";
     }
   });

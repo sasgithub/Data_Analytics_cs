@@ -87,3 +87,27 @@ ggplot(asym_top, aes(x = asymmetry_ratio, y = reorder(path_label, asymmetry_rati
     )
 ```
 
+```{=html}
+<p id="backlink-fig39" style="display:none;">
+  <a href="../report.html#route-asymmetry"
+     rel="prev"
+     aria-label="Return to Route Asymmetry">
+    ← Return to Route Asymmetry in the case study report.
+  </a>
+</p>
+```
+
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (
+       document.referrer.includes("report.html") &&
+       window.location.hash === "#fig39"
+     ) {
+      const backLink = document.getElementById("backlink-fig38");
+      if (backLink) backLink.style.display = "block";
+    }
+  });
+</script>
+```
+
