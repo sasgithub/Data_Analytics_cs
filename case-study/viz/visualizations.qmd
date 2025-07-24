@@ -20,7 +20,9 @@ This page presents visualizations from the case study. Visuals are grouped into 
 
 ### Tableau Sheets
 
-<figure class="float-right" id="fig2">
+{{< include Top_10_Rides_by_User_type.md >}}
+
+<!-- <figure class="float-right" id="fig2">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization">
   <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored lines between bike stations, representing top 10 ride paths by user type">
   </a>
@@ -43,7 +45,7 @@ This visualization highlights differences in spatial behavior between groups:
 - Customers tend to use routes near the lakefront and popular tourist zones.
 - Subscribers favor more distributed, commuter-oriented paths.
 
-“Station usage differs substantially by rider type, but not in the expected way.”
+“Station usage differs substantially by rider type, but not in the expected way.” -->
 
 <figure class="float-right" id="fig3">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization">

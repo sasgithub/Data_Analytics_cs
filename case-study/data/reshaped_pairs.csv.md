@@ -45,11 +45,14 @@ This dataset was created by reshaping aggregated station-to-station ride counts 
 
 If `station_pairs.csv` contained:
 
+```text
 Station A, 41.88, -87.63, Station B, 41.89, -87.64, 500, 300, 200
+```
 
 The `awk` command would produce **two rows in `reshaped_pairs.csv`**:
 
+```text
 Station A,41.88,-87.63,500,300,200,1
 Station B,41.89,-87.64,500,300,200,2
-
+```
 

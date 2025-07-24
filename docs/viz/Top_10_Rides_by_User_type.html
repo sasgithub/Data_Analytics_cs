@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>reshaped_pairs.csv – Bike share case-study</title>
+<title>top_10_rides_by_user_type – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,65 +129,48 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="reshaped_pairs.csv" class="level4">
-<h4 class="anchored" data-anchor-id="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></h4>
-<p><strong>Type:</strong> CSV File</p>
-<p><strong>Description</strong></p>
-<p>This dataset was created by reshaping aggregated station-to-station ride counts to support Tableau visualizations of directional flows.</p>
-<p><strong>Generation Steps:</strong></p>
-<ol type="1">
-<li><strong>Base File (<code>station_pairs.csv</code>):</strong>
+<section id="sheet-1-top-10-rides-by-user-type-map-view" class="level4">
+<h4 class="anchored" data-anchor-id="sheet-1-top-10-rides-by-user-type-map-view">Sheet 1: Top 10 Rides by User Type (Map View)</h4>
+<figure class="float-right figure" id="fig2">
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_174
+80226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored 
+lines between bike stations, representing top 10 ride paths by user type" class="figure-img"> </a>
+<figcaption>
+Figure 2: This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate r ide volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to op en the full visualization in Tableau.
+</figcaption>
+</figure>
+</section>
+<section id="overview" class="level4">
+<h4 class="anchored" data-anchor-id="overview">Overview</h4>
+<p>This interactive map visualizes the top 10 most frequently traveled station-to-station ride paths for selected rider types: All Riders, Subscribers, or Customers. Each path is shown as a colored line on a Chicago map. - Each line represents a frequently traveled path, regardless of direction. - Line color corresponds to ride volume between those stations. - Users can filter by rider type.</p>
+</section>
+<section id="key-interactions" class="level4">
+<h4 class="anchored" data-anchor-id="key-interactions">Key Interactions</h4>
 <ul>
-<li>Each row contained:
-<ul>
-<li>Two stations: A and B, including their names and coordinates.</li>
-<li>Aggregated counts:
-<ul>
-<li><code>total_rides</code>: Combined rides in both directions.</li>
-<li><code>subscriber_rides</code>: Rides by subscribers.</li>
-<li><code>customer_rides</code>: Rides by customers.</li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><strong>Reshaping Logic:</strong>
-<ul>
-<li>Used <code>awk</code> to split each row into <strong>two rows</strong>, one for each station in the pair:
-<ul>
-<li>The first output row corresponds to Station A (<code>path_id = 1</code>).</li>
-<li>The second output row corresponds to Station B (<code>path_id = 2</code>).</li>
-</ul></li>
-<li>All ride counts were retained identically in both rows to enable Tableau to reconstruct paths by matching <code>path_id</code>.</li>
-</ul></li>
-<li><strong>Final Columns:</strong>
-<ul>
-<li><code>station_name</code>: Name of one station in the pair.</li>
-<li><code>lat</code>: Latitude of the station.</li>
-<li><code>lon</code>: Longitude of the station.</li>
-<li><code>total_rides</code>: Total rides between the two stations.</li>
-<li><code>subscriber_rides</code>: Subscriber rides between the two stations.</li>
-<li><code>customer_rides</code>: Customer rides between the two stations.</li>
-<li><code>path_id</code>: Unique identifier to group the two records back into a path.</li>
-</ul></li>
-<li><strong>Output:</strong>
-<ul>
-<li>Saved to <a href="reshaped_pairs.csv"><code>reshaped_pairs.csv</code></a>.</li>
-</ul></li>
-</ol>
-<p><strong>Purpose:</strong></p>
-<ul>
-<li>Used as the <strong>primary input to Tableau</strong> to visualize:
-<ul>
-<li>Ride volumes between station pairs.</li>
-<li>Directional flows.</li>
-<li>Customer vs.&nbsp;subscriber usage patterns.</li>
-</ul></li>
+<li>Use the control panel on the right to filter by rider type.</li>
+<li>Hover over a line to see ride count and station pair.</li>
+<li>Line color intensity reflects ride volume.</li>
 </ul>
-<p><strong>Example:</strong></p>
-<p>If <code>station_pairs.csv</code> contained:</p>
-<pre class="text"><code>Station A, 41.88, -87.63, Station B, 41.89, -87.64, 500, 300, 200</code></pre>
-<p>The <code>awk</code> command would produce <strong>two rows in <code>reshaped_pairs.csv</code></strong>:</p>
-<pre class="text"><code>Station A,41.88,-87.63,500,300,200,1
-Station B,41.89,-87.64,500,300,200,2</code></pre>
+</section>
+<section id="purpose" class="level4">
+<h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
+<p>To reveal spatial usage differences between rider categories and identify whether commuters and casual users favor different parts of the city.</p>
+</section>
+<section id="observations" class="level4">
+<h4 class="anchored" data-anchor-id="observations">Observations</h4>
+<ul>
+<li><strong>Customers</strong> cluster around the lakefront and tourist-heavy zones (e.g., Millennium Park, Theater on the Lake).</li>
+<li><strong>Subscribers</strong> show a lot of activity around a small cluster of stations downtown and some very long north/south rides from those stations.</li>
+<li>Certain paths consistently appear in the top 10 across all rider types.</li>
+</ul>
+</section>
+<section id="interpretation" class="level4">
+<h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
+<p>The map demonstrates that ride behavior is strongly influenced by rider intent. Customers tend to use routes near the lakefront and popular tourist zones. while Subscribers top usage if off the lakefront. These patterns confirm that spatial analysis can segment user types even without direct behavioral data.</p>
+</section>
+<section id="data-methods" class="level4">
+<h4 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h4>
+<p><strong>Data Source:</strong> <a href="../data/provenance.html#reshaped_pairs-csv"><code>reshaped_pairs.csv</code></a> This reshaped dataset supports directional visualization of paired stations. See the data provenance document for generation steps and structure.</p>
 
 
 </section>
