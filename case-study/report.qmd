@@ -2,6 +2,10 @@
 title: "Case Study Report"
 author: "Scott Sesher"
 data: "July 3, 2025"
+format:
+  html:
+    toc: true
+    toc-depth: 3
 ---
 
 > 🚧 This case study is currently under construction.
@@ -25,7 +29,6 @@ How do [Customers](glossary.qmd#glossary-customer) riders and [Subscribers](glos
 -  Executive leadership
 -  Operations team
 -  Product development team
-
 
 ---
 
@@ -509,7 +512,11 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
 </figure>
 - **Top 20 most asymmetric ride paths**
   - [View entry »](viz/Top_20_Most_Asymmetric_Paths.md)
-  - [Full-size image »](images/thumbnails/Top_20_Most_Asymmetric_Paths.png)
+  - [Full-size image »](images/Top_20_Most_Asymmetric_Paths.png)
+
+p.clear {
+  clear: right;
+}
 
 <figure class="float-right" id="fig39">
   <a href="viz/visualizations.qmd#fig39" target="_blank" title="Select image to see in the Visualizations compendium">
