@@ -25,7 +25,7 @@ This page presents visualizations from the case study. Visuals are grouped into 
   <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored lines between bike stations, representing top 10 ride paths by user type">
   </a>
   <figcaption>
-  This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
+  Figure 2: This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
   </figcaption>
 </figure>
 
@@ -50,7 +50,7 @@ This visualization highlights differences in spatial behavior between groups:
   <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths.">
   </a>
   <figcaption>
-  Comparison of Customer vs. Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments. 
+  Figure 3: Comparison of Customer vs. Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments. 
   </figcaption>
 </figure>
 
@@ -64,11 +64,11 @@ This view emphasizes which ride paths are dominated by Subscribers (often commut
 
 <figure class="float-right" id="fig4">
   <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet3" target="_blank" title="Select image to open interactive Tableau Visualization">
-  <img src="../images/thumbnails/tableau_thumb_sheet3.png" alt="ALT_TEXT">
+  <img src="../images/thumbnails/tableau_thumb_sheet3.png" alt="Alt: Histogram showing ride counts for 88 high-volume Divvy bike paths, with bars split between Subscribers (dark blue) and Customers (orange). Paths are sorted by total ride volume to emphasize dominant user types per route.
+">
   </a>
   <figcaption>
-  FIGCAPTION
-  </figcaption>
+  Figure 4: This histogram shows ride volumes for 88 station-to-station paths with over 10,000 total rides, sorted by combined ride count. Each bar is divided by user type: Subscribers (dark blue) and Customers (orange). The chart highlights which routes are commuter-heavy versus those with more balanced or customer-oriented traffic patterns. </figcaption>
 </figure>
 
 
@@ -190,6 +190,16 @@ Where paths are not balanced in both directions by user type.
 
 {{< include Top_20_Most_Asymmetric_Paths.md >}}
 
+```{=html}
+<p id="backlink-asymmetry" style="display:none;">
+  <a href="../report.html#route-asymmetry"
+     rel="prev"
+     aria-label="Return to Route Asymmetry">
+    ← Return to Route Asymmetry
+  </a>
+</p>
+```
+
 {{< include Top_20_Most_Asymmetric_Paths_by_User_Type.md >}}
 
 
@@ -200,4 +210,15 @@ Where paths are not balanced in both directions by user type.
 {{< include Divvy_Stations_table.md >}}
 
 {{< include 2025_Divvy_Stations.md >}}
+
+```{=html}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (document.referrer.includes("report.html")) {
+      const backLink = document.getElementById("backlink-asymmetry");
+      if (backLink) backLink.style.display = "block";
+    }
+  });
+</script>
+```
 

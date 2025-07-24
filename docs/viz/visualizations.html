@@ -371,7 +371,7 @@ Figure 1: Top 50 stations for Subscribers (blue) and Customers (red). Dot size s
 <figure class="float-right figure" id="fig2">
 <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored lines between bike stations, representing top 10 ride paths by user type" class="figure-img"> </a>
 <figcaption>
-This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
+Figure 2: This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate ride volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to open the full visualization in Tableau.
 </figcaption>
 </figure>
 <section id="sheet-1-top-10-rides-by-user-type-map-view" class="level4">
@@ -391,7 +391,7 @@ This interactive map shows the top 10 most frequently traveled station-to-statio
 <figure class="float-right figure" id="fig3">
 <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths." class="figure-img"> </a>
 <figcaption>
-Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
+Figure 3: Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
 </figcaption>
 </figure>
 </section>
@@ -401,9 +401,10 @@ Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizontal bar ch
 <p>Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.</p>
 <p>This view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic.</p>
 <figure class="float-right figure" id="fig4">
-<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet3" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet3.png" alt="ALT_TEXT" class="figure-img"> </a>
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet3" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet3.png" alt="Alt: Histogram showing ride counts for 88 high-volume Divvy bike paths, with bars split between Subscribers (dark blue) and Customers (orange). Paths are sorted by total ride volume to emphasize dominant user types per route.
+" class="figure-img"> </a>
 <figcaption>
-FIGCAPTION
+Figure 4: This histogram shows ride volumes for 88 station-to-station paths with over 10,000 total rides, sorted by combined ride count. Each bar is divided by user type: Subscribers (dark blue) and Customers (orange). The chart highlights which routes are commuter-heavy versus those with more balanced or customer-oriented traffic patterns.
 </figcaption>
 </figure>
 </section>
@@ -3511,6 +3512,11 @@ Figure 38: Top 20 most asymmetric ride paths by user type. Asymmetry ratio is ca
 <li>Targeting incentive programs to encourage return trips.</li>
 <li>Understanding travel patterns for infrastructure planning and operational improvements.</li>
 </ul>
+<p id="backlink-asymmetry" style="display:none;">
+  <a href="../report.html#route-asymmetry" rel="prev" aria-label="Return to Route Asymmetry">
+    ← Return to Route Asymmetry
+  </a>
+</p>
 </section>
 </section>
 <section id="top-20-most-asymmetric-paths-by-user-type" class="level4">
@@ -3658,6 +3664,14 @@ Figure 42: Map showing Divvy station locations across Chicago, captured during e
 </figure>
 <p>This is a screenshot of the Divvy Bicycle Stations Map from the City of Chicago Transportations web site. This image is referenced by the <a href="https://github.com/sasgithub/Data_Analytics_cs/blob/main/logs/workLog.md">workLog</a> during the exploratory stage of the case study while searching for a street map of Chicago to use in my own visualizations. This image was not used as a part of the case study.</p>
 <p>Source: <a href="https://">Divvy Station Map</a> Copyright: Map © City of Chicago. Used here under fair use for educational and analytical documentation.</p>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (document.referrer.includes("report.html")) {
+      const backLink = document.getElementById("backlink-asymmetry");
+      if (backLink) backLink.style.display = "block";
+    }
+  });
+</script>
 
 
 </section>
