@@ -39,6 +39,8 @@ To reveal spatial usage differences between rider categories and identify whethe
 The map demonstrates that ride behavior is strongly influenced by rider intent. Customers tend to use routes near the lakefront and popular tourist zones. while Subscribers top usage if off the lakefront. These patterns confirm that spatial analysis can segment user types even without direct behavioral data.
 
 #### Data & Methods
-**Data Source:** [`reshaped_pairs.csv`](../data/provenance.qmd#reshaped_pairs-csv)
-This reshaped dataset supports directional visualization of paired stations. See the data provenance document for generation steps and structure.
+- **Data Source:** [`reshaped_pairs.csv`](../data/provenance.qmd#reshaped_pairs-csv)
+  This reshaped dataset supports directional visualization of paired stations. See the data provenance document for generation steps and structure.
+- **Path Aggregation**: Filtered to include only paths with ≥10,000 rides; grouped and counted by user type.
+- **Visualization Tool**: Tableau was used to create the histogram with interactive sorting and tooltips.
 

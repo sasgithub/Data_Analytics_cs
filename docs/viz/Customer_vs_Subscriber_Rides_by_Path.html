@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>top_10_rides_by_user_type – Bike share case-study</title>
+<title>customer_vs_subscriber_rides_by_path – Bike share case-study</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,44 +129,41 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="sheet-1-top-10-rides-by-user-type-map-view" class="level4">
-<h4 class="anchored" data-anchor-id="sheet-1-top-10-rides-by-user-type-map-view">Sheet 1: Top 10 Rides by User Type (Map View)</h4>
-<figure class="float-right figure" id="fig2">
-<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_174
-80226880920/Sheet1" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet1.png" alt="Thumbnail of a map showing colored 
-lines between bike stations, representing top 10 ride paths by user type" class="figure-img"> </a>
+<section id="sheet-2-customer-vs.-subscriber-rides-by-path-histogram" class="level3">
+<h3 class="anchored" data-anchor-id="sheet-2-customer-vs.-subscriber-rides-by-path-histogram">Sheet 2: Customer vs.&nbsp;Subscriber Rides by Path (Histogram)</h3>
+<figure class="float-right figure" id="fig3">
+<a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization"> <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths." class="figure-img"> </a>
 <figcaption>
-Figure 2: This interactive map shows the top 10 most frequently traveled station-to-station ride paths for the following rider groups; All Riders, Subscribers, or Customers. Line colors indicate r ide volume, revealing distinct spatial usage patterns: casual riders concentrate near the lakefront and tourist zones, while subscribers follow more distributed, commuter-aligned routes. Click to op en the full visualization in Tableau.
+Figure 3: Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
 </figcaption>
 </figure>
-</section>
 <section id="overview" class="level4">
 <h4 class="anchored" data-anchor-id="overview">Overview</h4>
-<p>This interactive map visualizes the top 10 most frequently traveled station-to-station ride paths for selected rider types: All Riders, Subscribers, or Customers. Each path is shown as a colored line on a Chicago map. - Each line represents a frequently traveled path, regardless of direction. - Line color corresponds to ride volume between those stations. - Users can filter by rider type.</p>
+<p>A horizontal bar chart comparing ride counts for the 88 most-traveled station-to-station paths (≥10,000 rides each), split by rider type.</p>
 </section>
-<section id="key-interactions" class="level4">
-<h4 class="anchored" data-anchor-id="key-interactions">Key Interactions</h4>
+<section id="chart-details" class="level4">
+<h4 class="anchored" data-anchor-id="chart-details">Chart Details</h4>
 <ul>
-<li>Use the control panel on the right to filter by rider type.</li>
-<li>Hover over a line to see ride count and station pair.</li>
-<li>Line color intensity reflects ride volume.</li>
+<li><strong>X-Axis</strong>: Number of rides (stacked bar segments)</li>
+<li><strong>Y-Axis</strong>: Individual station-to-station ride paths</li>
+<li><strong>Other Elements</strong>: Bars colored by rider type (blue = Subscriber, orange = Customer)</li>
 </ul>
 </section>
 <section id="purpose" class="level4">
 <h4 class="anchored" data-anchor-id="purpose">Purpose</h4>
-<p>To reveal spatial usage differences between rider categories and identify whether commuters and casual users favor different parts of the city.</p>
+<p>To show how ride volumes and route preferences differ between Subscribers and Customers on the most popular paths.</p>
 </section>
 <section id="observations" class="level4">
 <h4 class="anchored" data-anchor-id="observations">Observations</h4>
 <ul>
-<li><strong>Customers</strong> cluster around the lakefront and tourist-heavy zones (e.g., Millennium Park, Theater on the Lake).</li>
-<li><strong>Subscribers</strong> show a lot of activity around a small cluster of stations downtown and some very long north/south rides from those stations.</li>
-<li>Certain paths consistently appear in the top 10 across all rider types.</li>
+<li>Some paths are overwhelmingly dominated by Subscribers, suggesting daily commute patterns.</li>
+<li>Others show more balanced or Customer-heavy traffic, often around tourist areas.</li>
+<li>The longest bars are generally Subscriber-heavy, reinforcing the commuter narrative.</li>
 </ul>
 </section>
 <section id="interpretation" class="level4">
 <h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
-<p>The map demonstrates that ride behavior is strongly influenced by rider intent. Customers tend to use routes near the lakefront and popular tourist zones. while Subscribers top usage if off the lakefront. These patterns confirm that spatial analysis can segment user types even without direct behavioral data.</p>
+<p>Subscriber ride patterns favor longer, distributed paths, likely associated with work commutes. Customers cluster on fewer, more localized tourist routes.</p>
 </section>
 <section id="data-methods" class="level4">
 <h4 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h4>
@@ -177,6 +174,7 @@ Figure 2: This interactive map shows the top 10 most frequently traveled station
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
