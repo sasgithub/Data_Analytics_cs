@@ -5,7 +5,7 @@ data: "July 3, 2025"
 format:
   html:
     toc: true
-    toc-depth: 3
+    toc-depth: 4
 ---
 
 > 🚧 This case study is currently under construction.
@@ -17,10 +17,10 @@ How do [Customers](glossary.qmd#glossary-customer) riders and [Subscribers](glos
 
 ### Key Questions
 
--  Which stations have the highest potential to convert customer riders into subscribers?
+-  Which stations have the highest potential to convert Customer riders into Subscribers?
 -  What rider behaviors and patterns can we leverage for targeted campaigns?
 -  How can data collection be improved to enhance marketing and operational strategies?
--  How does weather effect subscribers and customers differently?
+-  How does weather effect Subscribers and Customers differently?
 
 
 ### Stakeholders
@@ -163,8 +163,8 @@ The following limitations and potential biases should be considered:
 
  -  All rides are assumed to represent legitimate use, except for explicitly excluded outliers (e.g., zero-duration rides, overlapping rides).
  -  Rides during the pandemic period are assumed to reflect atypical behavior and are excluded where appropriate to avoid skewing trends.
- -  Stations with >90% subscriber rides are commuter-focused hubs.
- -  Stations with high casual usage but low subscribers are likely tourist-oriented.
+ -  Stations with >90% Subscriber rides are commuter-focused hubs.
+ -  Stations with high Customer usage but low Subscribers are likely tourist-oriented.
  -  Midday rides often represent “Lunch & Ride” exercise trips.
 
 #### Modeling and Analysis Assumptions
@@ -181,7 +181,7 @@ To ensure data quality and analytical reliability, the following validations wer
 - **Schema Consistency Checks:** Verified that all data files conformed to the expected schema, accounting for changes in column names, data types, and field definitions over time.
 - **Record Integrity:** Identified and removed duplicate ride records and inconsistent bike usage records (e.g., overlapping rides for the same bike, etc).
 - **Time Validity:** Dropped rides with invalid or implausible timestamps (e.g., start times after end times, rides exceeding 24 hours).
-- **User Type Validation:** Removed records with null or unrecognized user type labels to maintain clarity in subscriber vs. customer analyses.
+- **User Type Validation:** Removed records with null or unrecognized user type labels to maintain clarity in Subscriber vs. Customer analyses.
 - **Station Data Reconciliation:** Addressed variations and duplicates in station naming and coordinates, resolving conflicts where stations had inconsistent IDs or locations.
 - **Weather Data Quality:** Reviewed weather data and dropped weather data from times before the study time period, for the few missing values decided not to impute values but rather leave them NULL.
 - **Referential Integrity:** Enforced that all station IDs referenced in the rides table had corresponding records in the stations table at time of ingestion.
@@ -199,7 +199,7 @@ All figures referenced here are compiled in the [Visualization Compendium](viz/v
 
 #### Data Overview
 
-Before focusing on subscriber and customer behavior differences, this section summarizes the overall dataset characteristics. This report utilized data stretching from , covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings. The SQLite database file size (all tables) is over 1.7 GB.  
+Before focusing on Subscriber and Customer behavior differences, this section summarizes the overall dataset characteristics. This report utilized data stretching from , covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings. The SQLite database file size (all tables) is over 1.7 GB.  
 
 
 **Rides Data**
@@ -294,7 +294,7 @@ Weekdays show clear afternoon peaks (~17:00), typical of post-work commuting. We
 Saturday consistently has the highest ride volume, followed by Sunday. Weekdays maintain a lower but steady ride count.
 
 **Commuter Indicators**:
-Non-tourist station usage on weekdays shows strong morning (7–9 AM) and evening (16–18 PM) peaks, suggesting routine commuting behavior even among casual riders.
+Non-tourist station usage on weekdays shows strong morning (7–9 AM) and evening (16–18 PM) peaks, suggesting routine commuting behavior even among Customers.
 
 **Seasonal Variations**:
 Summer has the highest usage by far, with August as the peak month. Winter sees a dramatic reduction in activity and flatter hourly distributions. Spring and Fall show intermediate patterns, with clear late afternoon weekday peaks but lower volume than summer.
@@ -443,22 +443,22 @@ Temperature and precipitation are among the strongest environmental drivers of b
         
 #### Spatial Patterns
 
-Analysis of spatial patterns among casual users reveals a highly localized and purpose-driven use of the Divvy system. While tourist hubs are excluded from this dataset, clear usage hotspots still emerge.
+Analysis of spatial patterns among Customers reveals a highly localized and purpose-driven use of the Divvy system. While tourist hubs are excluded from this dataset, clear usage hotspots still emerge.
 
 **High-Usage Local Hubs**:
 The most popular non-tourist stations accumulate ride volumes far exceeding those near the bottom of the top 25. This steep usage drop-off indicates that Customer riders are clustering their activity around a small number of key locations. These likely serve as community nodes near transit stops, commercial corridors, or dense residential zones. Thus highlighting the presence of neighborhood-scale ridership hubs.
 
 **Trip Distance Distribution**:
-Ride distance data displays two strong peaks at approximately 0.86 km and 1.29 km, suggesting common use cases like very short errands, intra-neighborhood trips, or first/last-mile connections. A steep decline beyond 4–5 km confirms that long-distance trips are rare, reinforcing the system's use as a hyper-local mobility option for casual users.
+Ride distance data displays two strong peaks at approximately 0.86 km and 1.29 km, suggesting common use cases like very short errands, intra-neighborhood trips, or first/last-mile connections. A steep decline beyond 4–5 km confirms that long-distance trips are rare, reinforcing the system's use as a hyper-local mobility option for Customers.
 
 **Modal Preferences and Fleet Distribution**:
-Casual riders show more diverse preferences across vehicle types than subscribers. While electric bikes are popular across both groups, customers also make significant use of scooters and docked bikes. Two modes that are almost unused by subscribers. This diversity points to more occasional, exploratory, or convenience-based decisions among casual users.
+Customers show more diverse preferences across vehicle types than Subscribers. While electric bikes are popular across both groups, Customers also make significant use of scooters and docked bikes. Two modes that are almost unused by Subscribers. This diversity points to more occasional, exploratory, or convenience-based decisions among Customers.
 
 **Fleet Utilization**:
 Fleet usage patterns further reveal operational insights. Most bikes fall within a healthy usage range (2200–3999 rides), suggesting balanced deployment and rotation. However, a noticeable spike in underutilized bikes (0–99 rides) may represent malfunctions, late additions to the fleet, or seasonal imbalances. Conversely, high-mileage bikes (>4000 rides) could signal workhorses nearing maintenance thresholds.
 
 **Summary**:
-Together, these spatial trends suggest that casual Divvy users engage in short, highly localized trips clustered around urban activity centers. Their flexible vehicle choices and the uneven distribution of ride volumes across the fleet highlight different motivations and constraints compared to subscribers, such as spontaneity, novelty, or limited commitment.
+Together, these spatial trends suggest that Customers engage in short, highly localized trips clustered around urban activity centers. Their flexible vehicle choices and the uneven distribution of ride volumes across the fleet highlight different motivations and constraints compared to Subscribers, such as spontaneity, novelty, or limited commitment.
 
 #### Fleet & Usage Patterns
 
@@ -514,9 +514,7 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
   - [View entry »](viz/Top_20_Most_Asymmetric_Paths.md)
   - [Full-size image »](images/Top_20_Most_Asymmetric_Paths.png)
 
-p.clear {
-  clear: right;
-}
+<div style="clear: right;"></div>
 
 <figure class="float-right" id="fig39">
   <a href="viz/visualizations.qmd#fig39" target="_blank" title="Select image to see in the Visualizations compendium">
@@ -563,7 +561,7 @@ p.clear {
 - This difference reveals how each group interacts with the network infrastructure and informs targeted strategies for **system optimization**.
 
 
--  Some stations show strong subscriber dominance, limiting recruitment opportunity.
+-  Some stations show strong Subscriber dominance, limiting recruitment opportunity.
 
 ---
 
@@ -572,8 +570,8 @@ p.clear {
 Recommendations are grouped into two categories:
 
 1   **Take Action with Existing Data**
-    -  Focus subscriber recruitment efforts at combined-use stations (those with both high subscriber and high casual use). These locations offer the greatest opportunity to reach likely subscribers without wasting resources.
-    -  Avoid stations dominated by one user type, such as tourist-heavy stations (high casual %) or commuter-heavy hubs (high subscriber %), where conversions are less likely.
+    -  Focus Subscriber recruitment efforts at combined-use stations (those with both high Subscriber and high Customer use). These locations offer the greatest opportunity to reach likely Subscribers without wasting resources.
+    -  Avoid stations dominated by one user type, such as tourist-heavy stations (high Customer %) or commuter-heavy hubs (high Subscriber %), where conversions are less likely.
     -  Design messaging campaigns around use cases we can detect now, such as midday riders ("Lunch & Ride") or first/last-mile commuters at major transit hubs.
 
 2   **Improve Data Collection Capabilities**
@@ -589,7 +587,7 @@ To operationalize these recommendations, we propose the following next steps:
 
 -  Determine budget for pilot outreach campaign in order to determine its size.
    -  Once the number of stations to be included in the pilot is known, rank Stations by User Mix and Volume
-   -  Use ride data to identify stations with highest levels of both subscribers and customers.
+   -  Use ride data to identify stations with highest levels of both Subscribers and Customers.
    -  Target these stations for pilot outreach.
 
 -  Design and Deploy a Pilot Campaign
