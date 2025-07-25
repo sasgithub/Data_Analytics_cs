@@ -24,7 +24,7 @@ website:
         text: Glossary  
   page-footer:
     left: |
-      [![Report Issues](https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue)](https://github.com/sasgithub/Data_Analytics_cs/issues)
+      [![Report Issues](https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue)](https://github.com/sasgithub/Data_Analytics_cs/issues){alt="Open GitHub Issues for this project"}
 
 format:
   html:

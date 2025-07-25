@@ -1,0 +1,27 @@
+/* In styles.css */
+
+/* 
+  Target the text element (which has a class of .nodeLabel)
+  ONLY when it's inside our custom-styled nodes.
+  The !important flag ensures this rule wins.
+*/
+.node rect, .node polygon {
+    /* You could set a default colors here if you wanted */
+    fill: #eee !important;
+    stroke-width: 2px !important;
+}
+
+.node .nodeLabel {
+    color: #000 !important; /* Default to BLACK text for all nodes */
+}
+
+.subgraph .subgraph-rect {
+  fill: #ddd !important;
+  stroke: #000 !important;
+  stroke-width: 2px !important;
+}
+
+.subgraph .label{
+  color: #000 !important;
+  font-weight: bold !important;
+}  
