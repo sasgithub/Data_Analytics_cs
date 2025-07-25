@@ -692,7 +692,7 @@ Analysis of vehicle type and fleet usage data reveals distinct preferences and o
   </figcaption>
 </figure>
 
--  **Comparison of Customer vs. Subscriber Rides by Path**
+- **Comparison of Customer vs. Subscriber Rides by Path**
 horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
   - [View entry »](viz/Customer_vs_Subscriber_Rides_by_Path.md){target="_blank"}
   - [View on Tableau »](https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2){target="_blank"}
