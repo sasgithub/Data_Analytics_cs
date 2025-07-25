@@ -6,7 +6,7 @@
   </a>
   <figcaption>
   Figure 37: Ride Volume by Temperature and Rain Condition
-This panel chart shows total ride volume for **[Subscribers](../glossary#glossary-subscriber)** and **[customers](../glossary#glossary-)**, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+This panel chart shows total ride volume for **[Subscribers](../glossary.qmd#glossary-subscriber)** and **[Customers](../glossary#glossary-customer)**, grouped by dry, wet, and unknown precipitation conditions. Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
   </figcaption>
 </figure>
 
