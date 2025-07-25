@@ -45,7 +45,7 @@ To illustrate weekly patterns in Customer ridership among local users, highlight
 
 ###### Data Source:
 
-  - Pre-processed dataframe `non_tourist_customer_rides_df`
+  - Pre-processed data frame [non_tourist_customer_rides_df](../data/non_tourist_customer_rides_df.md)
     - Filtered by:
       - Non-tourist station IDs
       - `customer` user type

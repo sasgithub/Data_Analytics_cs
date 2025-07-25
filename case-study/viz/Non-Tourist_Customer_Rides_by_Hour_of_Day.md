@@ -52,7 +52,7 @@ The modest morning volume and sustained midday usage indicate that, while some r
 
 ###### Data Source:
 
-  - Pre-processed dataframe `rides_by_hour_weekpart`
+  - Pre-processed data frame [rides_by_hour_weekpart](../data/rides_by_hour_weekpart.md)
     - Filtered by:
       - Non-tourist station IDs
       - `customer` user type

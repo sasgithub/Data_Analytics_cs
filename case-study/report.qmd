@@ -273,14 +273,69 @@ For readers interested in detailed station-level statistics, such as counts, cap
 
 ##### Key Visualizations
 
-    fig9
+<figure class="float-right" id="fig9">
+  <a href="viz/visualizations.qmd#fig9" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly Customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours.">
+  </a>
+  <figcaption>
+   Figure 9: Hourly comparison of **[Customer](../glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, 
+  </figcaption>
+</figure>
 
-    fig6
+- **Customer Rides by Hour: Weekday vs Weekend (Non-Tourist Stations)**
+  A Grouped bar chart comparing hourly Customer rides on weekdays and weekends at non-tourist stations, highlighting differences in temporal riding behavior.
+  - [View entry »](viz/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png){target="_blank"}
+  
+<div style="clear: right;"></div> 
 
-    fig10
+<figure class="float-right" id="fig6">
+  <a href="viz/visualizations.qmd#fig6" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing Customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday.">
+  </a>
+  <figcaption>
+  Figure 6: Total **[Customer](../glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations
+  </figcaption>
+</figure>
 
-    fig12
+- **Non-Tourist Customer Rides by Day of the Week**
+  A Bar chart showing Customer ride counts by day of the week at non-tourist stations, highlighting the clear weekend peaks in ridership.
+  - [View entry »](viz/Non-Tourist_Customer_Rides_by_Day_of_the_Week.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png){target="_blank"}    
 
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig10">
+  <a href="viz/visualizations.qmd#10" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" alt="Line chart showing hourly Customer ride volumes at non-tourist stations, split by season and further separated by weekday and weekend. Clear afternoon peaks are visible on weekdays, especially in summer and fall.">
+  </a>
+  <figcaption>
+  Figure 10: Hourly Customer ride patterns by season at non-tourist stations.
+  </figcaption>
+</figure>
+
+- **Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)**
+  A Line chart showing hourly Customer ride volumes at non-tourist stations showing weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.
+  - [View entry »](viz/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png){target="_blank"}  
+  
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig12">
+  <a href="viz/visualizations.qmd#fig12" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Month.png" alt="Bar chart showing the number of Customer rides per month at non-tourist stations. Ride volume is lowest in winter, rises steadily in spring, peaks in August, and declines into the fall.">
+  </a>
+  <figcaption>
+  Figure 12: Monthly distribution of [Customer](../glossary.qmd#glossary-Cusomer) rides at non-tourist stations.
+  </figcaption>
+</figure>
+
+- **Non-Tourist Customer Rides by Month**
+  A Bar chart showing the number of Customer rides per month at non-tourist stations, illustrating clear seasonality in usage patterns.
+  - [View entry »](viz/Non-Tourist_Customer_Rides_by_Month.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Rides_by_Month.png){target="_blank"}  
+
+<div style="clear: right;"></div> 
 
 ##### Observations
 
@@ -321,13 +376,71 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 
 ##### Key Visualizations
 
-fig15
+<figure class="float-right" id="fig15">
+  <a href="viz/visualizations.qmd#fig15" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to Customers (red line). Ride volume increases steadily from below freezing to 35°C.">
+  </a>
+  <figcaption>
+  Figure 15: Hourly ride volume as a function of temperature, comparing Customers and Subscribers. 
+  </figcaption>
+</figure>
 
-fig37
+- **Hourly Ride Volume vs Temperature**
+  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed Line chart showing hourly ride volume by temperature in Celsius. Patterns remain elevated at higher temperatures due to the smoothing method.
+  
+- [View entry »](viz/Hourly_Ride_Volume_vs_Temperature.md){target="_blank"}
+  - [Full-size image »](images/Hourly_Ride_Volume_vs_Temperature.png){target="_blank"} 
+  
+<div style="clear: right;"></div> 
 
-fig21
+<figure class="float-right" id="fig37">
+  <a href="../images/.png" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types.">
+  </a>
+  <figcaption>
+  Figure 37: This panel chart shows total ride volume  grouped by dry, wet, and unknown precipitation conditions.
+  </figcaption>
+</figure>
 
-fig14
+- **Ride Volume by Temperature and Precipitation**
+  A Line chart panel showing total ride volume for **[Subscribers](../glossary#glossary-subscriber)** and **[customers](../glossary#glossary-)**, by temperature bin and precipitation condition (Dry, No data, Wet). Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+  - [View entry »](viz/Ride_Volume_by_Temp_and_Precipitation.md){target="_blank"}
+  - [Full-size image »](images/Ride_Volume_by_Temp_and_Precipitation.png){target="_blank"}
+  
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig21">
+  <a href="viz/visualizations#fig21" target="_blank" title="Select image to see in the Visualizations Compendium">
+    <img src="../images/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius.">
+  </a>
+  <figcaption>
+    Figure 21: Normalized average hourly rides by temperature.
+  </figcaption>
+</figure>
+
+- **Normalized Average Hourly Rides vs Temperature**
+  A Line chart showing normalized average hourly bike rides by temperature (°C), showing Subscriber, Customer, and total ride volume, peaking near 25°C.
+  - [View entry »](viz/Normalized_Avg_Hourly_Rides_vs_Temperature.md){target="_blank"}
+  - [Full-size image »](images/Avg_Hourly_Rides_vs_Temp.png){target="_blank"}
+
+
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig14">
+  <a href="../images/Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/Hourly_Rides_vs_Temp.svg" alt="Line chart showing total hourly rides plotted against temperature in 2°C increments. Separate lines for Total rides, Subscribers, and Customers show ridership increasing steadily to a peak near 26°C, then declining at higher temperatures.">
+  </a>
+  <figcaption>
+  Figure 14: Hourly ride counts by 2°C temperature bins. 
+  </figcaption>
+</figure>
+
+- **Hourly Rides vs. Temperature (2°C bins)**
+  A Line chart showing total hourly rides plotted against temperature in 2°C increments, with separate curves for Total, Subscriber, and Customer rides. Warmer temperatures strongly correlate with increased bike usage, especially among Customers.
+  - [View entry »](viz/Hourly_Rides_vs_Temp.md){target="_blank"}
+  - [Full-size image »](images/Hourly_Rides_vs_Temp.png){target="_blank"}
+  
+<div style="clear: right;"></div> 
 
 ##### Observations
 
@@ -374,16 +487,88 @@ Temperature and precipitation are among the strongest environmental drivers of b
 
 ##### Key Visualizations
 
-    fig48
+<figure class="float-right" id="fig48">
+  <a href="viz/visualizations.qmd#fig48" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for Customers and Subscribers. Subscriber rides show a sharp peak near 10 minutes, while Customer rides have a broader, flatter distribution.">
+  </a>
+  <figcaption>
+  Figure 48: Density plot of ride durations by user type. 
+  </figcaption>
+</figure>
 
-    fig23
+- **Ride Duration Density**
+  A Density plot comparing ride durations for Customers and Subscribers. **[Subscribers](../glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](../glossary.qmd#glossary-customer)** have more varied and longer rides.
+  - [View entry »](viz/Ride_Duration_Density.md){target="_blank"}
+  - [Full-size image »](images/Ride_Duration_Density.png){target="_blank"}
+  
+<div style="clear: right;"></div> 
 
-    fig27
+<figure class="float-right" id="fig23">
+  <a href="viz/visualizations.qmd#fig23" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Ride_Duration_by_User_Type_box.png" alt="Box plot comparing ride durations for Subscribers and Customers. Subscribers have a tighter interquartile range and lower median duration, while Customers show a wider spread with longer outliers.">
+  </a>
+  <figcaption>
+    Figure 23: Box plot of ride durations by user type.
+  </figcaption>
+</figure>
 
-    fig32
+- **Ride Duration by User Type ( box plot )**
+  A Box plot comparing ride durations for Subscribers and Customers. **[Subscribers](../glossary.qmd#glossary-subscriber)** have shorter, more consistent trips, while **[Customers](../glossary.qmd#glossary-customer)** exhibit longer and more variable ride times.
+  - [View entry »](viz/Ride_Duration_by_User_Type_box.md){target="_blank"}
+  - [Full-size image »](images/Ride_Duration_by_User_Type_box.png){target="_blank"}
 
-    fig31
+<div style="clear: right;"></div> 
 
+<figure class="float-right" id="fig27">
+  <a href="viz/visualizations.qmd#fig27" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png" alt="Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist Customer rides. Points are densely clustered under 5 km and 50 minutes, with a blue linear reference line indicating expected travel time. Wide variation in durations is visible across short distances.">
+  </a>
+  <figcaption>
+  Figure 27: This scatterplot displays the relationship between ride length and distance between stations.
+  </figcaption>
+</figure>
+
+- **Ride Duration vs. Station Distance (Non-Tourist Customers)**
+  A "Scatterplot showing ride duration (minutes) versus station-to-station distance (km) for non-tourist Customer rides. While longer distances generally correspond to longer durations, many short-distance rides also exhibit long durations, suggesting varied usage patterns. A linear reference line highlights the lower boundary of likely direct trips.
+  - [View entry »](viz/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Ride_Duration_vs_Station_Distance.png){target="_blank"}  
+
+
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig32">
+  <a href="viz/visualizations.qmd#fig32" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png" alt="Grid of histograms showing the distribution of loop ride durations for non-tourist Customers, broken down by hour of day and by weekday versus weekend. Each subplot shows that most rides are under 15 minutes, with little variation in shape across time intervals.">
+  </a>
+  <figcaption>
+  Figure 32: Loop ride durations among non-tourist Customers.
+  </figcaption>
+</figure>
+
+- **Loop Ride Length Distribution by Week Part and Time of Day**
+  A grid of histograms showing the distribution of loop ride durations for non-tourist Customers, showing a consistently skewed distribution, regardless of time of day or whether the ride occurred on a weekday or weekend.
+- **Loop Ride Length Distribution by Week Part and Time of Day**
+  - [View entry »](viz/Non-Tourist_Customer_Loop_Ride_Length_Distribution.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Customer_Loop_Ride_Length_Distribution.png){target="_blank"}
+  
+<div style="clear: right;"></div> 
+
+<figure class="float-right" id="fig31">
+  <a href="viz/visualizations.qmd#fig31" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png" alt="Density plot showing the distribution of ride distances in kilometers for non-tourist, non-loop Customer rides, grouped into Short, Medium, and Long duration clusters. Short rides peak around 1–2 km, Medium rides span 2–6 km, and Long rides extend beyond 6 km.">
+  </a>
+  <figcaption>
+    Figure 31: This density plot compares ride distances for non-tourist loop Customer rides.
+  </figcaption>
+</figure>
+
+- **Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)**
+  A density plot showing the distribution of ride distances in kilometers for [non-loop](glossary.qmd#glossary-non-loop-ride) [Customer](../glossary.qmd#glossary-customer) rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
+  - [View entry »](viz/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md){target="_blank"}
+  - [Full-size image »](images/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png){target="_blank"}  
+
+
+<div style="clear: right;"></div> 
 
 ##### Observations
 
@@ -466,13 +651,70 @@ Analysis of vehicle type and fleet usage data reveals distinct preferences and o
 
 ##### Key Diagrams
 
-fig1
+<figure class="float-right" id="fig1">
+  <a href="viz/visualizations.qmd#fig1" target="_blank" title="Select image to open full sized
+ chart">
+  <img src="../images/thumbnails/thumbnail_top_50_stations.png" alt="Interactive map of Chicago showing the top 50 Divvy bike stations by ride volume for Subscribers (blue) and Customers (red). Dots vary in size by total rides and are slightly offset when a station ranks in both categories.">
+  </a>
+  <figcaption>
+  Figure 1: Top 50 stations for Subscribers (blue) and Customers (red). 
+  </figcaption>
+</figure>
 
-fig35
+- **Top 50 Stations by User Type**
+  Interactive map showing the top 50 stations ranked by ride volume for Subscribers (blue) and Customers (red). Dot size is scaled by ride count, and slight offsets prevent overlap at shared stations. This visualization reveals geographic clustering and usage contrasts between user types. Dot size scales with ride count.
+  - [View entry »](viz/Top_50_Stations_by_User_Type.md){target="_blank"}
+  - [Interactive Map »](Top_50_Stations_by_User_Type.html){target="_blank"}
+  
+<div style="clear: right;"></div>  
+  
+<figure class="float-right" id="fig35">
+  <a href="viz/visualization.qmd#fig35" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both Customers and Subscribers, while docked bikes are used primarily by Customers.">
+  </a>
+  <figcaption>
+  Figure 35: Average daily rides by bike type and user type.
+  </figcaption>
+</figure>
 
-fig3
+- **Average Daily Rides by Bike Type and User Type (Post-Electric Launch)**
+  Bar chart showing average daily rides by bike type and user type, after the introduction of electric bikes and scooters. Classic bikes remain dominant among Subscribers, while electric modes see substantial adoption by both user groups.
+  - [View entry »](viz/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.md){target="_blank"}
+  - [Full-size image »](images/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png){target="_blank"}
 
-fig36
+<div style="clear: right;"></div>
+
+<figure class="float-right" id="fig3">
+  <a href="viz/visualization.qmd#fig3" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths.">
+  </a>
+  <figcaption>
+  Figure 3: Comparison of Customer vs. Subscriber Rides by Path. This  
+  </figcaption>
+</figure>
+
+**Comparison of Customer vs. Subscriber Rides by Path**
+horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
+  - [View entry »](viz/Top_20_Most_Asymmetric_Paths_by_User_Type.md){target="_blank"}
+  - [View on Tableau »](https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2){target="_blank"}
+
+<div style="clear: right;"></div>
+
+<figure class="float-right" id="fig36">
+  <a href="viz/visualizations.qmd#fig36" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <img src="../images/thumbnails/bike_ride_bucket_histogram.png" alt="Histogram showing the distribution of total ride counts per bike. Most bikes have between 2200–3999 rides, with a spike of underused bikes in the 0–99 range and a tapering tail above 4000 rides.">
+  </a>
+  <figcaption>
+    Figure 36: Distribution of total ride counts per bike across the fleet.
+  </figcaption>
+</figure>
+
+- **Distribution of Ride Counts per Bike**
+  Histogram showing the distribution of total ride counts per bike, highlighting underused outliers and high-mileage bikes.
+  - [View entry »](viz/bike_ride_bucket_histogram.md){target="_blank"}
+  - [Full-size image »](images/bike_ride_bucket_histogram.png){target="_blank"}
+
+<div style="clear: right;"></div>
 
 ##### Modal Usage by Rider Type
 Classic bikes remain the workhorses of the Divvy system, with Subscribers contributing the bulk of their ride volume. This aligns with commuter-like behavior, regular, utilitarian, and possibly cost-conscious.
@@ -503,7 +745,7 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
 ##### Key Visualizations
 
 <figure class="float-right" id="fig38">
-  <a href="viz/visualizations.qmd#fig38" target="_blank" title="Select image to see in the visualizations compendium">
+  <a href="viz/visualizations.qmd#fig38" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="images/thumbnails/Top_20_Most_Asymmetric_Paths.png" alt="Side-by-side horizontal bar charts showing the top 20 most asymmetric bike path pairs for Customers (left) and Subscribers (right). Each bar represents a directional path with a high imbalance between ride counts in one direction versus the reverse.">
   </a>
   <figcaption>
@@ -512,13 +754,13 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
 </figure>
 - **Top 20 most asymmetric ride paths**
   Asymmetry ratio is calculated as the proportion of rides taken in one direction relative to the total rides between two stations. Distinct path preferences emerge between Customers and Subscribers.
-  - [View entry »](viz/Top_20_Most_Asymmetric_Paths.md)
-  - [Full-size image »](images/Top_20_Most_Asymmetric_Paths.png)
+  - [View entry »](viz/Top_20_Most_Asymmetric_Paths.md){target="_blank"}
+  - [Full-size image »](images/Top_20_Most_Asymmetric_Paths.png){target="_blank"}
 
 <div style="clear: right;"></div>
 
 <figure class="float-right" id="fig39">
-  <a href="viz/visualizations.qmd#fig39" target="_blank" title="Select image to see in the Visualizations compendium">
+  <a href="viz/visualizations.qmd#fig39" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="/images/thumbnails/Top_20_Most_Asymmetric_Paths_by_User_Type.png" alt="Bar charts comparing the top 20 most asymmetric bike share paths for Customers and Subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio.">
   </a>
   <figcaption>
@@ -527,9 +769,9 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
 </figure>
 
 - **Top 20 Most Asymmetric Paths by User Type**
-  A charts comparing the top 20 most asymmetric bike share paths for Customers and Subscribers. Each bar represents a path with a high one-way trip imbalance, measured by asymmetry ratio. Customers show high asymmetry around central business district hubs, while Subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
-  - [View entry »](viz/Top_20_Most_Asymmetric_Paths_by_User_Type.md)
-  - [Full-size image »](/images/Top_20_Most_Asymmetric_Paths_by_User_Type.png)
+  Bar charts comparing the top 20 most asymmetric bike share paths for Customers and Subscribers. Each bar represents a path with a high one-way trip imbalancemeasured by asymmetry ratio. Customers show high asymmetry around central business district hubs, while Subscriber asymmetries often reflect lakefront access or commuter endpoint behavior.
+  - [View entry »](viz/Top_20_Most_Asymmetric_Paths_by_User_Type.md){target="_blank"}
+  - [Full-size image »](/images/Top_20_Most_Asymmetric_Paths_by_User_Type.png){target="_blank"}
 
 <div style="clear: right;"></div>
 
@@ -563,9 +805,6 @@ The data reveals a well-utilized fleet with clear patterns of use by rider type.
   - Customers: core-focused, incidental travel.
   - Subscribers: edge-focused, intentional, possibly scheduled travel.
 - This difference reveals how each group interacts with the network infrastructure and informs targeted strategies for **system optimization**.
-
-
--  Some stations show strong Subscriber dominance, limiting recruitment opportunity.
 
 ---
 

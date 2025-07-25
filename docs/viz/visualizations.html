@@ -481,49 +481,6 @@ Figure 3: Comparison of Customer vs.&nbsp;Subscriber Rides by Path. This horizon
 <li><strong>Path Aggregation</strong>: Filtered to include only paths with ≥10,000 rides; grouped and counted by user type.</li>
 <li><strong>Visualization Tool</strong>: Tableau was used to create the histogram with interactive sorting and tooltips.</li>
 </ul>
-<!-- 
-<figure class="float-right" id="fig3">
-  <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2" target="_blank" title="Select image to open interactive Tableau Visualization">
-  <img src="../images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths.">
-  </a>
-  <figcaption>
-  Figure 3: Comparison of Customer vs. Subscriber Rides by Path. This horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments. 
-  </figcaption>
-</figure>
-
-#### Sheet 2: Customer vs Subscriber Rides by Path (Histogram)
-
-This histogram compares ride volumes for station-to-station pairs with at least 10,000 rides, of which there are 88, sorted by total combined ride count.
-
-Each bar shows the ride count split between Subscribers (dark blue) and Customers (orange) for a specific path.
-
-This view emphasizes which ride paths are dominated by Subscribers (often commuter routes) versus those with more balanced or Customer-heavy traffic. -->
-<!-- <figure class="float-right" id="fig4">
-  <a href="https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet3" target="_blank" title="Select image to open interactive Tableau Visualization">
-  <img src="../images/thumbnails/tableau_thumb_sheet3.png" alt="Alt: Histogram showing ride counts for 88 high-volume Divvy bike paths, with bars split between Subscribers (dark blue) and Customers (orange). Paths are sorted by total ride volume to emphasize dominant user types per route.
-">
-  </a>
-  <figcaption>
-  Figure 4: This histogram shows ride volumes for 88 station-to-station paths with over 10,000 total rides, sorted by combined ride count. Each bar is divided by user type: Subscribers (dark blue) and Customers (orange). The chart highlights which routes are commuter-heavy versus those with more balanced or customer-oriented traffic patterns. </figcaption>
-</figure>
-
-
-#### Sheet 3: Subscriber Ratio Distribution by Path (Histogram)
-
-This histogram visualizes the distribution of ride paths (station-to-station pairs) by their subscriber ratio, defined as the proportion of rides taken by Subscribers versus Customers for each path.
-
--  The dataset includes all the bi-directional path with at least 10,000 rides. There are 88 such paths.
--  Each path name represents one bi-directional path, with the length of the bar corresponding to the subscriber ratio (from 0% subscriber to 100%).
-
-The chart can be sorted by:
-
--   Path name (alphabetical)
--   Subscriber ratio (to identify Customer-heavy or Subscriber-heavy routes)
-
-This visualization reveals important asymmetries in how ride paths are used:
-
--   Paths with very low subscriber ratios often correspond to tourist-heavy or leisure routes.
--   Paths with high subscriber ratios are more likely to represent commuting corridors or utilitarian rides between residential and business areas. -->
 </section>
 </section>
 <section id="sheet-3-subscriber-ratio-distribution-by-path-histogram" class="level3">
@@ -638,7 +595,7 @@ Figure 5: Hourly distribution of Customer rides originating from non-tourist sta
 <section id="data-source" class="level6">
 <h6 class="anchored" data-anchor-id="data-source">Data Source:</h6>
 <ul>
-<li>Pre-processed dataframe <code>rides_by_hour_weekpart</code>
+<li>Pre-processed data frame <a href="../data/rides_by_hour_weekpart.html">rides_by_hour_weekpart</a>
 <ul>
 <li>Filtered by:
 <ul>
@@ -721,7 +678,7 @@ Figure 6: Total <strong><a href="../glossary.html#glossary-customer">Customer</a
 <section id="data-source-1" class="level6">
 <h6 class="anchored" data-anchor-id="data-source-1">Data Source:</h6>
 <ul>
-<li>Pre-processed dataframe <code>non_tourist_customer_rides_df</code>
+<li>Pre-processed data frame <a href="../data/non_tourist_customer_rides_df.html">non_tourist_customer_rides_df</a>
 <ul>
 <li>Filtered by:
 <ul>
@@ -1067,7 +1024,7 @@ Figure 10: Hourly Customer ride patterns by season at non-tourist stations. Week
 <h5 class="anchored" data-anchor-id="data-methods-6">Data &amp; Methods</h5>
 <p><strong>Data Source</strong></p>
 <p>Data Frame: rides_by_hour_season</p>
-<p>This dataframe includes:</p>
+<p>This data frame <a href="../data/rides_by_hour_season.html">rides_by_hour_season</a> includes:</p>
 <ul>
 <li>Filtered out tourist stations</li>
 <li>Filtered to Customer rides</li>
@@ -2294,7 +2251,7 @@ Figure 22: Ride duration distribution for <strong><a href="../glossary.html#glos
 <figure class="float-right figure" id="fig48">
 <a href="../images/Ride_Duration_Density.png" target="_blank" title="Select image to open full sized chart"> <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for Customers and Subscribers. Subscriber rides show a sharp peak near 10 minutes, while Customer rides have a broader, flatter distribution." class="figure-img"> </a>
 <figcaption>
-Figure 48: Density plot of ride durations by user type. <strong><a href="../glossary.html#glossary-subscriber">Subscribers</a></strong> tend to take shorter trips, while **<a href="../glossary.html#glossary-customer">Customers</a> have more varied and longer rides.
+Figure 48: Density plot of ride durations by user type. <strong><a href="../glossary.html#glossary-subscriber">Subscribers</a></strong> tend to take shorter trips, while <strong><a href="../glossary.html#glossary-customer">Customers</a></strong> have more varied and longer rides.
 </figcaption>
 </figure>
 <section id="overview-23" class="level5">
@@ -2647,7 +2604,7 @@ Figure 26: Ride duration density for non-tourist loop rides taken by Customers. 
 </figure>
 <section id="overview-27" class="level5">
 <h5 class="anchored" data-anchor-id="overview-27">Overview</h5>
-<p>This density plot shows the <strong>distribution of ride lengths (in minutes)</strong> for <a href="../glossary.html#glossary-customer">Customer</a> rides that <strong>start and end at the same station</strong>. Known as <strong><a href="#glossary-loop">loop rides</a></strong>. Also trips involving tourist stations are excluded.</p>
+<p>This density plot shows the <strong>distribution of ride lengths (in minutes)</strong> for <a href="../glossary.html#glossary-customer">Customer</a> rides that <strong>start and end at the same station</strong>. Known as <strong><a href="#glossary-loop-ride">loop rides</a></strong>. Also trips involving tourist stations are excluded.</p>
 </section>
 <section id="chart-details-24" class="level5">
 <h5 class="anchored" data-anchor-id="chart-details-24">Chart Details</h5>

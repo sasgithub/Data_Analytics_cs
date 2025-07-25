@@ -5,7 +5,7 @@
   <img src="../images/thumbnails/Ride_Duration_Density.png" alt="Density plot comparing ride durations for Customers and Subscribers. Subscriber rides show a sharp peak near 10 minutes, while Customer rides have a broader, flatter distribution.">
   </a>
   <figcaption>
-  Figure 48: Density plot of ride durations by user type. **[Subscribers](../glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](../glossary.qmd#glossary-customer) have more varied and longer rides.
+  Figure 48: Density plot of ride durations by user type. **[Subscribers](../glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](../glossary.qmd#glossary-customer)** have more varied and longer rides.
   </figcaption>
 </figure>
 
