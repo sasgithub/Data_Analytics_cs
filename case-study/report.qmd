@@ -278,7 +278,7 @@ For readers interested in detailed station-level statistics, such as counts, cap
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Hour_Weekday_vs_Weekend.png" alt="Grouped bar chart comparing hourly Customer rides on weekdays and weekends at non-tourist stations. Weekday rides peak sharply at 5 PM while weekend rides are more evenly distributed across the midday hours.">
   </a>
   <figcaption>
-   Figure 9: Hourly comparison of **[Customer](../glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, 
+   Figure 9: Hourly comparison of **[Customer](glossary.qmd#glossary-customer)** rides by day type (weekday vs weekend) at non-tourist stations, 
   </figcaption>
 </figure>
 
@@ -294,7 +294,7 @@ For readers interested in detailed station-level statistics, such as counts, cap
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Day_of_the_Week.png" alt="Bar chart showing Customer ride counts by day of the week at non-tourist stations. Ride volume is highest on Saturday and Sunday, and lower but steady Monday through Friday.">
   </a>
   <figcaption>
-  Figure 6: Total **[Customer](../glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations
+  Figure 6: Total **[Customer](glossary.qmd#glossary-customer)** rides per day of week at non-tourist stations
   </figcaption>
 </figure>
 
@@ -326,7 +326,7 @@ For readers interested in detailed station-level statistics, such as counts, cap
   <img src="../images/thumbnails/Non-Tourist_Customer_Rides_by_Month.png" alt="Bar chart showing the number of Customer rides per month at non-tourist stations. Ride volume is lowest in winter, rises steadily in spring, peaks in August, and declines into the fall.">
   </a>
   <figcaption>
-  Figure 12: Monthly distribution of [Customer](../glossary.qmd#glossary-Cusomer) rides at non-tourist stations.
+  Figure 12: Monthly distribution of [Customer](glossary.qmd#glossary-Cusomer) rides at non-tourist stations.
   </figcaption>
 </figure>
 
@@ -386,7 +386,7 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 </figure>
 
 - **Hourly Ride Volume vs Temperature**
-  [LOESS](../glossary.qmd#glossary-LOESS)-smoothed Line chart showing hourly ride volume by temperature in Celsius. Patterns remain elevated at higher temperatures due to the smoothing method.
+  [LOESS](glossary.qmd#glossary-LOESS)-smoothed Line chart showing hourly ride volume by temperature in Celsius. Patterns remain elevated at higher temperatures due to the smoothing method.
   
 - [View entry »](viz/Hourly_Ride_Volume_vs_Temperature.md){target="_blank"}
   - [Full-size image »](images/Hourly_Ride_Volume_vs_Temperature.png){target="_blank"} 
@@ -403,7 +403,7 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 </figure>
 
 - **Ride Volume by Temperature and Precipitation**
-  A Line chart panel showing total ride volume for **[Subscribers](../glossary#glossary-subscriber)** and **[customers](../glossary#glossary-)**, by temperature bin and precipitation condition (Dry, No data, Wet). Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+  A Line chart panel showing total ride volume for **[Subscribers](glossary#glossary-subscriber)** and **[customers](glossary#glossary-)**, by temperature bin and precipitation condition (Dry, No data, Wet). Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
   - [View entry »](viz/Ride_Volume_by_Temp_and_Precipitation.md){target="_blank"}
   - [Full-size image »](images/Ride_Volume_by_Temp_and_Precipitation.png){target="_blank"}
   
@@ -497,7 +497,7 @@ Temperature and precipitation are among the strongest environmental drivers of b
 </figure>
 
 - **Ride Duration Density**
-  A Density plot comparing ride durations for Customers and Subscribers. **[Subscribers](../glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](../glossary.qmd#glossary-customer)** have more varied and longer rides.
+  A Density plot comparing ride durations for Customers and Subscribers. **[Subscribers](glossary.qmd#glossary-subscriber)** tend to take shorter trips, while **[Customers](glossary.qmd#glossary-customer)** have more varied and longer rides.
   - [View entry »](viz/Ride_Duration_Density.md){target="_blank"}
   - [Full-size image »](images/Ride_Duration_Density.png){target="_blank"}
   
@@ -513,7 +513,7 @@ Temperature and precipitation are among the strongest environmental drivers of b
 </figure>
 
 - **Ride Duration by User Type ( box plot )**
-  A Box plot comparing ride durations for Subscribers and Customers. **[Subscribers](../glossary.qmd#glossary-subscriber)** have shorter, more consistent trips, while **[Customers](../glossary.qmd#glossary-customer)** exhibit longer and more variable ride times.
+  A Box plot comparing ride durations for Subscribers and Customers. **[Subscribers](glossary.qmd#glossary-subscriber)** have shorter, more consistent trips, while **[Customers](glossary.qmd#glossary-customer)** exhibit longer and more variable ride times.
   - [View entry »](viz/Ride_Duration_by_User_Type_box.md){target="_blank"}
   - [Full-size image »](images/Ride_Duration_by_User_Type_box.png){target="_blank"}
 
@@ -563,7 +563,7 @@ Temperature and precipitation are among the strongest environmental drivers of b
 </figure>
 
 - **Ride Distance Distribution by Duration Cluster (Non-Tourist, Non-Loop, Customers)**
-  A density plot showing the distribution of ride distances in kilometers for [non-loop](glossary.qmd#glossary-non-loop-ride) [Customer](../glossary.qmd#glossary-customer) rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
+  A density plot showing the distribution of ride distances in kilometers for [non-loop](glossary.qmd#glossary-non-loop-ride) [Customer](glossary.qmd#glossary-customer) rides, grouped into clusters based on ride duration. Short-duration rides are tightly concentrated around 1–2 km, medium-duration rides cover a broader 2–6 km range, and long-duration rides extend further, reflecting distinct usage behaviors within the same user group.
   - [View entry »](viz/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.md){target="_blank"}
   - [Full-size image »](images/Non-Tourist_Non-Loop_Customer_Ride_Distance_Distribution_by_Ride_Duration_Cluster.png){target="_blank"}  
 
@@ -669,7 +669,7 @@ Analysis of vehicle type and fleet usage data reveals distinct preferences and o
 <div style="clear: right;"></div>  
   
 <figure class="float-right" id="fig35">
-  <a href="viz/visualization.qmd#fig35" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#fig35" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="../images/thumbnails/Avg_Daily_Rides_by_Bike_and_User_Type_post_elec.png" alt="Bar chart showing average daily rides by bike type and user type. Classic bikes are most popular among subscribers. Electric bikes and scooters have significant usage from both Customers and Subscribers, while docked bikes are used primarily by Customers.">
   </a>
   <figcaption>
@@ -685,7 +685,7 @@ Analysis of vehicle type and fleet usage data reveals distinct preferences and o
 <div style="clear: right;"></div>
 
 <figure class="float-right" id="fig3">
-  <a href="viz/visualization.qmd#fig3" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#fig3" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="images/thumbnails/tableau_thumb_sheet2.png" alt="Horizontal bar chart showing the sum of subscriber rides (blue) and customer rides (orange) by top ride paths.">
   </a>
   <figcaption>
