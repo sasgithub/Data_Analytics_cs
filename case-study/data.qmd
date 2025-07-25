@@ -1,14 +1,10 @@
 ---
 title: "Data Sources"
 author: "Scott Sesher"
-date: "July 1, 2025"
+date: "July 25, 2025"
 format: html
 ---
 
-
-🚧 **This project is currently a work in progress.**  
-I'm actively building out my case study as part of the Google Data Analytics Capstone.
-Full write-up, code, and visualizations will be available soon!
 
 ## Overview
 
