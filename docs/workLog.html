@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
      1321  2014-02-21 11:57   Divvy_Stations_Trips_2013/README.txt
 ---------                     -------
  93427432                     4 files</code></pre>
-<p>Not the same at all, let’s have a look at the <a href="../data/Divvy_Stations_Trips_2013_README.txt">README.txt</a>.</p>
+<p>Not the same at all, let’s have a look at the <a href="data/Divvy_Stations_Trips_2013_README.txt">README.txt</a>.</p>
 <p>So the rides (now called trips) table format is a little different and there is some additional data. There is now a separate station table, but for some reason both the station name and station id are still in with the trips, at least the lat/long are only in the station table. The additional data in the trips table is bike_id, it seems to have replaced the rideable_type but there is no bikes table to find that out :-( Also the ride_id, now trip_id, has changed from a 16 digit hex number to an integer. The member_type is now called usertype and the values have changed from (member, casual) to (Subscriber, Customer) still only two values though. There is a new field called tripduration (I wonder if it’s just end time - start time, redundant data to store). Two other new fields, gender and birthday, but it claims they are only populated for Subscribers.</p>
 <p>In the station table we have</p>
 <p>id: station id name: station name latitude: station latitude longitude: station longitude dpcapacity: number of total docks at each station as of 2/7/2014 online date: date the station went live in the system</p>
@@ -2144,7 +2144,7 @@ We can probably go down to 150 for these
     <div class="nav-footer-left">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/sasgithub/Data_Analytics_cs/issues" alt="Open GitHub Issues for this project"><img src="https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue" class="img-fluid figure-img"></a></p>
+<p><a href="https://github.com/sasgithub/Data_Analytics_cs/issues" title="Open GitHub Issues for this project"><img src="https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue" class="img-fluid figure-img" alt="Open GitHub Issues for this project"></a></p>
 <figcaption>Report Issues</figcaption>
 </figure>
 </div>

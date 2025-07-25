@@ -402,7 +402,7 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 </figure>
 
 - **Ride Volume by Temperature and Precipitation**
-  A Line chart panel showing total ride volume for **[Subscribers](glossary#glossary-subscriber)** and **[customers](glossary#glossary-)**, by temperature bin and precipitation condition (Dry, No data, Wet). Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
+  A Line chart panel showing total ride volume for **[Subscribers](glossary.qmd#glossary-subscriber)** and **[Customers](glossary.qmd#glossary-customer)**, by temperature bin and precipitation condition (Dry, No data, Wet). Most rides occur in dry weather at temperatures between 20–25°C. Wet conditions significantly suppress ridership for both user types, revealing clear sensitivity to rain.
   - [View entry »](viz/Ride_Volume_by_Temp_and_Precipitation.md){target="_blank"}
   - [Full-size image »](images/Ride_Volume_by_Temp_and_Precipitation.png){target="_blank"}
   
@@ -887,7 +887,7 @@ The [**Provenance**](data/provenance.qmd) is broken down in the following sectio
 
 The full Schema for the SQLite database is listed in the source archive.
 
-[**schema.sql:**](../src/schema.sql)
+**schema.sql:** [view on GitHub](https://github.com/sasgithub/Data_Analytics_cs/blob/main/schema/schema.sql)
 
  -  SQL DDL statements defining all tables and views
  -  Data types and constraints
