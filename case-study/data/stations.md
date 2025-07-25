@@ -36,5 +36,5 @@ The canonical reference table of Divvy station locations, IDs, and metadata, sto
 
 **Usage Notes:**
 - This table is used to enrich trip records with consistent station coordinates and names.
-- For reproducibility or schema change tracking, refer to [load_stations_table.sh](../src/load_stations_table.sh) and Section 3.1 of the Data Sources page.
+- For reproducibility or schema change tracking, refer to load_stations_table.sh [view on GitHub](https://github.com/sasgithub/Data_Analytics_cs/blob/main/src/load_stations_table.sh) and Section 3.1 of the Data Sources page.
 

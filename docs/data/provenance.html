@@ -310,7 +310,7 @@ The canonical reference table of Divvy station locations, IDs, and metadata, sto
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 </ul>
-<p><strong>Usage Notes:</strong> - This table is used to enrich trip records with consistent station coordinates and names. - For reproducibility or schema change tracking, refer to <a href="../src/load_stations_table.sh">load_stations_table.sh</a> and Section 3.1 of the Data Sources page.</p>
+<p><strong>Usage Notes:</strong> - This table is used to enrich trip records with consistent station coordinates and names. - For reproducibility or schema change tracking, refer to load_stations_table.sh <a href="https://github.com/sasgithub/Data_Analytics_cs/blob/main/src/load_stations_table.sh">view on GitHub</a> and Section 3.1 of the Data Sources page.</p>
 <hr>
 </section>
 <section id="rides-table" class="level4">
@@ -653,7 +653,7 @@ Same columns as <code>asym_data</code>, plus:<br>
 <li><code>long</code></li>
 </ul>
 <p><strong>Note:</strong></p>
-<p>Compared to <a href="archive/tourist_attractions_csv"><code>tourist_attractions.csv</code></a>, this file:</p>
+<p>Compared to <a href="archive/tourist_attractions.csv"><code>tourist_attractions.csv</code></a>, this file:</p>
 <ul>
 <li>May have slightly less precise coordinates.</li>
 <li>Was retained for reproducibility and consistency in the final analysis.</li>
@@ -719,7 +719,7 @@ Same columns as <code>asym_data</code>, plus:<br>
 <li><code>long</code></li>
 </ul>
 <p><strong>Note:</strong></p>
-<p>Compared to <a href="archive/tourist_attractions_csv"><code>tourist_attractions.csv</code></a>, this file:</p>
+<p>Compared to <a href="archive/tourist_attractions.csv"><code>tourist_attractions.csv</code></a>, this file:</p>
 <ul>
 <li>May have slightly less precise coordinates.</li>
 <li>Was retained for reproducibility and consistency in the final analysis.</li>
@@ -1642,7 +1642,7 @@ A CSV file containing the list of tourist attractions in Chicago, each with name
 <p><strong>Origin:</strong> - Created manually as an initial reference list of attractions for proximity analysis. - Coordinates were collected via Google Maps. - Columns: - <code>Name</code>: Name of the attraction. - <code>lat</code>: Latitude. - <code>long</code>: Longitude.</p>
 <p><strong>Notes:</strong> - This was the earlier, simpler version of the attractions dataset. - Compared to <code>tourist_attractions.csv</code>, this file: - Uses lower precision coordinates.</p>
 <p><strong>Purpose:</strong> - Served as the primary input to generate <code>attractions_df</code>. - Used to identify stations within 600 meters of known tourist sites to help isolate commuter-focused stations.</p>
-<p>Conveniently available as <a href="attractions_csv">attractions_csv</a> for your importing pleasure.</p>
+<p>Conveniently available as <a href="attractions.csv">attractions.csv</a> for your importing pleasure.</p>
 <hr>
 </section>
 <section id="bike_ride_buckets.csv" class="level4">
@@ -2487,7 +2487,7 @@ CSV file containing the total number of rides observed in each 2 °C temperatu
     <div class="nav-footer-left">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://github.com/sasgithub/Data_Analytics_cs/issues"><img src="https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue" class="img-fluid figure-img"></a></p>
+<p><a href="https://github.com/sasgithub/Data_Analytics_cs/issues" alt="Open GitHub Issues for this project"><img src="https://img.shields.io/github/issues/sasgithub/Data_Analytics_cs.svg?label=report%20issue" class="img-fluid figure-img"></a></p>
 <figcaption>Report Issues</figcaption>
 </figure>
 </div>

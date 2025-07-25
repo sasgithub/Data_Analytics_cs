@@ -670,7 +670,7 @@ The [**Provenance**](data/provenance.qmd) is broken down in the following sectio
 
 The full Schema for the SQLite database is listed in the source archive.
 
-[**schema.sql:**](../src/schema.sql)
+**schema.sql:** [View on GitHub](https://github.com/sasgithub/Data_Analytics_cs/blob/main/schema/schema.sql)
 
  -  SQL DDL statements defining all tables and views
  -  Data types and constraints

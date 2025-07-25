@@ -232,7 +232,7 @@ For readers interested in detailed summary statistics, such as date ranges, reco
 |Number of Records with Missing Data| 0|
 |Timestamp Precision	        | Minute precision through 2017<br>Second precision starting in 2018|
 |Proportion of One-Way Rides	| 95%|
-| [Peak Concurrency](glossary#glossary-peak-concurrency)| 1178 rides |
+| [Peak Concurrency](glossary.qmd#glossary-peak-concurrency)| 1178 rides |
 :::
 **Stations Data**
 
@@ -409,7 +409,7 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 <div style="clear: right;"></div> 
 
 <figure class="float-right" id="fig21">
-  <a href="viz/visualizations#fig21" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#fig21" target="_blank" title="Select image to see in the Visualizations Compendium">
     <img src="images/Avg_Hourly_Rides_vs_Temp.svg" alt="Line chart showing normalized average hourly bike rides by temperature in degrees Celsius.">
   </a>
   <figcaption>

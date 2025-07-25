@@ -12,5 +12,5 @@
 
 This is a screenshot of the Divvy Bicycle Stations Map from the City of Chicago Transportations web site. This image is referenced by the [workLog](https://github.com/sasgithub/Data_Analytics_cs/blob/main/logs/workLog.md) during the exploratory stage of the case study while searching for a street map of Chicago to use in my own visualizations.  This image was not used as a part of the case study.
 
-Source: [Divvy Station Map](https://)
+Source: [Divvy Station Map](https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations-Map/bk89-9dk7)
 Copyright: Map © City of Chicago. Used here under fair use for educational and analytical documentation.

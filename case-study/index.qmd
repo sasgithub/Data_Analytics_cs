@@ -55,8 +55,8 @@ Served as the central data store for large-scale tables and computationally inte
 
 - **Key R libraries for SQLite integration**:
   - [`DBI`](https://cran.r-project.org/package=DBI), [`RSQLite`](https://cran.r-project.org/package=RSQLite), and [`dbplyr`](https://cran.r-project.org/package=dbplyr) for seamless database access and SQL abstraction  
-  - [`dplyr`](https://cran.r-project.org/package=dplyr), [`tidyr`](https://cran.r-project.org/package=tidyr), and [`lubridate`](https://cran.r-project.org/package=lubridate) for data wrangling and time-aware transformations  
-  - [`leaflet`](https://cran.r-project.org/package=leaflet) for dynamic, interactive station mapping
+  - [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html), [`tidyr`](https://cran.r-project.org/web/packages/tidyr/index.html), and [`lubridate`](https://cran.r-project.org/web/packages/lubridate/index.html) for data wrangling and time-aware transformations  
+  - [`leaflet`](https://cran.r-project.org/web/packages/leaflet/index.html) for dynamic, interactive station mapping
 
 **[DuckDB](https://duckdb.org/)**  
 Used for fast, in-memory SQL operations during exploratory analysis. Particularly effective for joining and filtering intermediate R data frames without modifying the main SQLite schema.

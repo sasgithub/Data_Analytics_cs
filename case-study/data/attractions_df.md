@@ -34,7 +34,7 @@ Provides the reference points for:
 
 **Note:**
 
-Compared to [`tourist_attractions.csv`](archive/tourist_attractions_csv), this file:
+Compared to [`tourist_attractions.csv`](archive/tourist_attractions.csv), this file:
 
 - May have slightly less precise coordinates.
 - Was retained for reproducibility and consistency in the final analysis.
