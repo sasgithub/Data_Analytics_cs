@@ -112,9 +112,6 @@ Non-Loop Ride
 :  A Non-Loop Ride refers to a ride that starts and ends at different stations. These rides represent purposeful travel between distinct stations, rather than [loop Rides](#glossary-loop-ride) that begin and end at the same point. In this case study, non-loop rides are analyzed separately from loop rides to better understand directional travel patterns and station-to-station dynamics. 
 :::
 
-:   A ride that does not start or end near designated tourist destinations. These rides are considered more likely to reflect routine or local travel behavior.
-:::
-
 :::{#glossary-NTS}
 Non-Tourist Station
 :   A station not in or near a designated tourist destinations.  These stations are considered to be more frequented by commuters.
