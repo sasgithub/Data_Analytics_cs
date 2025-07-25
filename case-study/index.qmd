@@ -80,7 +80,7 @@ Version control was managed with Git. All source files — including R scripts, 
 
 This project’s main findings, visualizations, and methodology are presented in a standalone report.
 
-➡️ [**Read the Full Analytical Report**](report.html)
+[**Read the Full Analytical Report**](report.html)
 
 The report includes:
 
@@ -100,7 +100,7 @@ In addition to the main report, the following resources provide further insight 
 
 - [**Glossary**](glossary.html): Definitions and explanations of domain-specific terms, variable names, abbreviations, and key metrics.
 
-- [Work Log](workLog.md): A chronological record of development activities, including data cleaning iterations, exploratory analyses, and decisions made throughout the project lifecycle. This log is intended primarily for internal documentation and reproducibility.
+- [**Work Log**](workLog.md): A chronological record of development activities, including data cleaning iterations, exploratory analyses, and decisions made throughout the project lifecycle. This log is intended primarily for internal documentation and reproducibility.
 
 
 
