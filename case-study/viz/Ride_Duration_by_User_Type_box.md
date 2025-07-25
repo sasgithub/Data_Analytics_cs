@@ -44,6 +44,7 @@ The data reinforces prior findings that:
 
 ##### Data Sources
 
+Data Frame: [ride_durations](../data/ride_durations.md)
 - **Trip Data:** Divvy rides from:
   - 2013–2019 (S3 archive)
   - 2023–2025 (City of Chicago Data Portal)

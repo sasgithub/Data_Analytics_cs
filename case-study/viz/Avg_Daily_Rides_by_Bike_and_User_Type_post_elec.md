@@ -68,7 +68,11 @@ This visualization supports:
 
 ##### Data Sources
 
-- **Query to Load Data into R:**
+Data Frames:
+  - [post_electric_rides_df](../data/post_electric_rides_df.md)
+  - [daily_avg_df](../data/daily_avg_df.md)
+
+**Query to Load Data into R:**
 
 ```r
 post_electric_rides_df <- dbGetQuery(con, "SELECT

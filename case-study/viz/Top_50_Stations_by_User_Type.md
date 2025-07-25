@@ -47,6 +47,7 @@ This map can be used by:
 
 ##### Data Sources
 
+**Data Frame:** [top_stations_df_offset](../data/top_stations_df_offset.md)
 - **Divvy Trip Data**: Chicago open data portal
 - **Station Metadata**: Divvy station reference dataset
 - Data preprocessed and aggregated to compute ride counts per station and user type.

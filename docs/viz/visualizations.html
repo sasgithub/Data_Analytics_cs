@@ -339,11 +339,7 @@ Figure 1: Top 50 stations for Subscribers (blue) and Customers (red). Dot size s
 </section>
 <section id="data-sources" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
-<ul>
-<li><strong>Divvy Trip Data</strong>: Chicago open data portal</li>
-<li><strong>Station Metadata</strong>: Divvy station reference dataset</li>
-<li>Data preprocessed and aggregated to compute ride counts per station and user type.</li>
-</ul>
+<p><strong>Data Frame:</strong> <a href="../data/top_stations_df_offset.html">top_stations_df_offset</a> - <strong>Divvy Trip Data</strong>: Chicago open data portal - <strong>Station Metadata</strong>: Divvy station reference dataset - Data preprocessed and aggregated to compute ride counts per station and user type.</p>
 </section>
 <section id="r-code-used-to-generate-chart" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart:</h5>
@@ -936,7 +932,7 @@ Figure 9: Hourly comparison of <strong><a href="../glossary.html#glossary-custom
 <section id="data-sources-3" class="level6">
 <h6 class="anchored" data-anchor-id="data-sources-3">Data Sources</h6>
 <ul>
-<li>Data Frame: rides_by_hour_weekpart
+<li>Data Frame: <a href="../data/rides_by_hour_weekpart.html">rides_by_hour_weekpart</a>
 <ul>
 <li>Filters Applied:
 <ul>
@@ -1023,8 +1019,8 @@ Figure 10: Hourly Customer ride patterns by season at non-tourist stations. Week
 <section id="data-methods-6" class="level5">
 <h5 class="anchored" data-anchor-id="data-methods-6">Data &amp; Methods</h5>
 <p><strong>Data Source</strong></p>
-<p>Data Frame: rides_by_hour_season</p>
-<p>This data frame <a href="../data/rides_by_hour_season.html">rides_by_hour_season</a> includes:</p>
+<p>Data Frame: <a href="../data/rides_by_hour_season.html">rides_by_hour_season</a></p>
+<p>This data frame includes:</p>
 <ul>
 <li>Filtered out tourist stations</li>
 <li>Filtered to Customer rides</li>
@@ -1198,11 +1194,13 @@ Figure 12: Monthly distribution of <a href="../glossary.html#glossary-Cusomer">C
 <section id="data-source-3" class="level6">
 <h6 class="anchored" data-anchor-id="data-source-3">Data Source:</h6>
 <ul>
-<li><a href="../data/non_tourist_customer_rides_df.html">non_tourist_customer_rides_df</a></li>
+<li>Data Frame: <a href="../data/non_tourist_customer_rides_df.html">non_tourist_customer_rides_df</a>
+<ul>
 <li>Filtered to include:
 <ul>
 <li>user_type == “customer”</li>
 <li>start_station_id in the non-tourist station list</li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
@@ -1338,11 +1336,7 @@ Figure 14: Hourly ride counts by temperature bin, with separate curves for Total
 </section>
 <section id="data-sources-4" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-4">Data Sources</h5>
-<ul>
-<li><strong>Hourly Weather Data:</strong> Chicago Midway Airport hourly weather observations (temperature, precipitation, etc.)</li>
-<li><strong>Ride Data:</strong> Aggregated hourly ride counts joined to weather records by timestamp.</li>
-<li><strong>Period:</strong> All available data between 2013 and 2025.</li>
-</ul>
+<p>TSV File: <a href="../data/temp_vs_rides.tsv">temp_vs_rides.tsv</a> - <strong>Hourly Weather Data:</strong> Chicago Midway Airport hourly weather observations (temperature, precipitation, etc.) - <strong>Ride Data:</strong> Aggregated hourly ride counts joined to weather records by timestamp. - <strong>Period:</strong> All available data between 2013 and 2025.</p>
 </section>
 <section id="data-preparation" class="level5">
 <h5 class="anchored" data-anchor-id="data-preparation">Data Preparation</h5>
@@ -1425,14 +1419,7 @@ Figure 15: <a href="../glossary.html#glossary-LOESS">LOESS</a>-smoothed hourly r
 </section>
 <section id="data-sources-5" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-5">Data Sources</h5>
-<ul>
-<li><strong>Trip Data:</strong> Divvy trip records from:
-<ul>
-<li>2013–2019 (S3 archive)</li>
-<li>2023–2025 (City of Chicago Data Portal)</li>
-</ul></li>
-<li><strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</li>
-</ul>
+<p>Data Frame: <a href="../data/rides_weather_df.html">rides_weather_df</a> - <strong>Trip Data:</strong> Divvy trip records from: - 2013–2019 (S3 archive) - 2023–2025 (City of Chicago Data Portal) - <strong>Weather Data:</strong> Chicago Midway Airport hourly observations via Meteostat.</p>
 </section>
 <section id="data-preparation-1" class="level5">
 <h5 class="anchored" data-anchor-id="data-preparation-1">Data Preparation</h5>
@@ -2065,11 +2052,7 @@ Figure 21: Normalized average hourly rides by temperature (°C), showing Subscri
 </section>
 <section id="data-sources-10" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-10">Data Sources</h5>
-<ul>
-<li><strong>Ride Counts:</strong> Aggregated hourly ride counts per user type.</li>
-<li><strong>Temperature:</strong> Hourly observations joined on timestamp.</li>
-<li><strong>Normalization:</strong> Each series scaled to [0–1].</li>
-</ul>
+<p>Data Frame: <a href="../data/normalized_df.html">normalized_df</a> - <strong>Ride Counts:</strong> Aggregated hourly ride counts per user type. - <strong>Temperature:</strong> Hourly observations joined on timestamp. - <strong>Normalization:</strong> Each series scaled to [0–1].</p>
 </section>
 <section id="r-code-used-to-generate-the-chart-2" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-2">R Code Used to Generate the Chart:</h5>
@@ -2298,13 +2281,7 @@ Figure 48: Density plot of ride durations by user type. <strong><a href="../glos
 </section>
 <section id="data-sources-11" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-11">Data Sources</h5>
-<ul>
-<li><strong>Trip Data:</strong> Divvy ride records from:
-<ul>
-<li>2013–2019 (S3 archive)</li>
-<li>2023–2025 (City of Chicago Data Portal)</li>
-</ul></li>
-</ul>
+<p>Data Frame: <a href="../data/ride_durations.html">ride_durations</a> - <strong>Trip Data:</strong> Divvy ride records from: - 2013–2019 (S3 archive) - 2023–2025 (City of Chicago Data Portal)</p>
 </section>
 <section id="data-preparation-5" class="level5">
 <h5 class="anchored" data-anchor-id="data-preparation-5">Data Preparation</h5>
@@ -2385,13 +2362,7 @@ Figure 23: Box plot of ride durations by user type. <strong><a href="../glossary
 </section>
 <section id="data-sources-12" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-12">Data Sources</h5>
-<ul>
-<li><strong>Trip Data:</strong> Divvy rides from:
-<ul>
-<li>2013–2019 (S3 archive)</li>
-<li>2023–2025 (City of Chicago Data Portal)</li>
-</ul></li>
-</ul>
+<p>Data Frame: <a href="../data/ride_durations.html">ride_durations</a> - <strong>Trip Data:</strong> Divvy rides from: - 2013–2019 (S3 archive) - 2023–2025 (City of Chicago Data Portal)</p>
 <section id="data-preparation-6" class="level6">
 <h6 class="anchored" data-anchor-id="data-preparation-6">Data Preparation</h6>
 <p><strong>SQL Query Used to Retrieve Data:</strong></p>
@@ -2699,11 +2670,7 @@ Figure 27: Ride Duration vs.&nbsp;Station Distance (Non-Tourist Customer Rides)<
 </section>
 <section id="data-sources-15" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-15">Data Sources</h5>
-<ul>
-<li><strong>Ride Data:</strong> Non-tourist Customer rides filtered to exclude trips that start and end at the same station.</li>
-<li><strong>Station Coordinates:</strong> Merged from cleaned station dataset(s).</li>
-<li><strong>Time Frame:</strong> 2023 onward, as defined in the project scope.</li>
-</ul>
+<p>Data Frame: <a href="../data/non_loop_rides_df.html">non_loop_rides_df</a> - <strong>Ride Data:</strong> Non-tourist Customer rides filtered to exclude trips that start and end at the same station. - <strong>Station Coordinates:</strong> Merged from cleaned station dataset(s). - <strong>Time Frame:</strong> 2023 onward, as defined in the project scope.</p>
 </section>
 <section id="r-code-used-to-generate-the-chart-4" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-4">R Code Used to Generate the Chart</h5>
@@ -3021,10 +2988,7 @@ Figure 31: Ride Distance Distribution by Duration Cluster (Customer Rides Only)<
 </section>
 <section id="data-sources-18" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-18">Data Sources</h5>
-<ul>
-<li><strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).</li>
-<li><strong>Distance Calculation</strong>: Haversine distance between station coordinates.</li>
-</ul>
+<p><strong>Data Frame:</strong> <a href="../data/non_loop_rides_df.html">non_loop_rides_df</a> - <strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station). - <strong>Distance Calculation</strong>: Haversine distance between station coordinates.</p>
 <section id="r-code-used-to-generate-the-chart-6" class="level6">
 <h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart-6">R Code Used to Generate the Chart:</h6>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km, <span class="at">fill =</span> duration_cluster)) <span class="sc">+</span></span>
@@ -3103,16 +3067,8 @@ Figure 32: Loop ride durations among non-tourist Customers show a consistently s
 </section>
 <section id="data-sources-19" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-19">Data Sources</h5>
-<ul>
-<li><strong>Database Table:</strong> <code>rides</code></li>
-<li><strong>Filtering Criteria:</strong>
-<ul>
-<li><code>start_station_id = end_station_id</code></li>
-<li><code>user_type = customer</code></li>
-<li>Excluded known tourist stations</li>
-</ul></li>
-<li><strong>Time Zone:</strong> Converted to Chicago local time</li>
-</ul>
+<p><strong>Database Table:</strong> <a href="../data/rides.html">rides</a> - <strong>Filtering Criteria:</strong> - <code>start_station_id = end_station_id</code> - <code>user_type = customer</code> - Excluded known tourist stations - <strong>Time Zone:</strong> Converted to Chicago local time</p>
+<p><strong>Data Frame:</strong> <a href="../data/loop_rides_non_tourist.html">loop_rides_non_tourist</a></p>
 </section>
 <section id="r-code-used-to-generate-chart-19" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-19">R Code Used to Generate Chart:</h5>
@@ -3376,9 +3332,8 @@ Figure 35: Average daily rides by bike type and user type after the introduction
 </section>
 <section id="data-sources-21" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-21">Data Sources</h5>
-<ul>
-<li><strong>Query to Load Data into R:</strong></li>
-</ul>
+<p>Data Frames: - <a href="../data/post_electric_rides_df.html">post_electric_rides_df</a> - <a href="../data/daily_avg_df.html">daily_avg_df</a></p>
+<p><strong>Query to Load Data into R:</strong></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>
@@ -3500,7 +3455,7 @@ Figure 36: Distribution of total ride counts per bike across the fleet, highligh
 </section>
 <section id="data-sources-22" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources-22">Data Sources</h5>
-<p><code>rides</code> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
+<p><a href="../data/rides.html">rides</a> table in SQLite, queried for bike usage counts grouped by <code>bike_id</code>.</p>
 <section id="sql-query-to-produce-aggregated-data" class="level6">
 <h6 class="anchored" data-anchor-id="sql-query-to-produce-aggregated-data">SQL Query to Produce Aggregated Data</h6>
 <div class="sourceCode" id="cb40"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>.headers <span class="kw">on</span></span>
@@ -3696,6 +3651,10 @@ While Customers show asymmetry in the urban core, Subscribers show it around rec
 <li>Infrastructure decisions.</li>
 <li>Targeted marketing to address directional demand.</li>
 </ul>
+</section>
+<section id="data-source-5" class="level5">
+<h5 class="anchored" data-anchor-id="data-source-5">Data Source</h5>
+<p>Data Frame: <a href="../data/asym_top.html">asym_top</a></p>
 </section>
 <section id="r-code-used-to-generate-chart-22" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart-22">R Code Used to Generate Chart</h5>

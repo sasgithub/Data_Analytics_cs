@@ -243,6 +243,10 @@ While Customers show asymmetry in the urban core, Subscribers show it around rec
 <li>Targeted marketing to address directional demand.</li>
 </ul>
 </section>
+<section id="data-source" class="level5">
+<h5 class="anchored" data-anchor-id="data-source">Data Source</h5>
+<p>Data Frame: <a href="../data/asym_top.html">asym_top</a></p>
+</section>
 <section id="r-code-used-to-generate-chart" class="level5">
 <h5 class="anchored" data-anchor-id="r-code-used-to-generate-chart">R Code Used to Generate Chart</h5>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(asym_top, <span class="fu">aes</span>(<span class="at">x =</span> asymmetry_ratio, <span class="at">y =</span> <span class="fu">reorder</span>(path_label, asymmetry_ratio))) <span class="sc">+</span></span>

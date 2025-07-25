@@ -35,6 +35,7 @@ This scatterplot shows the relationship between **ride duration** and **station-
 - Inform operational planning for short vs. long trips.
 
 ##### Data Sources
+Data Frame: [non_loop_rides_df](../data/non_loop_rides_df.md)
 - **Ride Data:** Non-tourist Customer rides filtered to exclude trips that start and end at the same station.
 - **Station Coordinates:** Merged from cleaned station dataset(s).
 - **Time Frame:** 2023 onward, as defined in the project scope.

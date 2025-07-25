@@ -37,6 +37,7 @@ This chart illustrates the relationship between **ambient temperature (°C)** an
 
 ##### Data Sources
 
+TSV File: [temp_vs_rides.tsv](../data/temp_vs_rides.tsv)
 - **Hourly Weather Data:** Chicago Midway Airport hourly weather observations (temperature, precipitation, etc.)
 - **Ride Data:** Aggregated hourly ride counts joined to weather records by timestamp.
 - **Period:** All available data between 2013 and 2025.

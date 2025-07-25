@@ -42,6 +42,7 @@ The contrasting shapes highlight different usage patterns:
 
 ##### Data Sources
 
+Data Frame: [ride_durations](../data/ride_durations.md)
 - **Trip Data:** Divvy ride records from:
   - 2013–2019 (S3 archive)
   - 2023–2025 (City of Chicago Data Portal)

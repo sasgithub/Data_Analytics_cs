@@ -306,7 +306,7 @@ For readers interested in detailed station-level statistics, such as counts, cap
 <div style="clear: right;"></div> 
 
 <figure class="float-right" id="fig10">
-  <a href="viz/visualizations.qmd#10" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#fig10" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="images/thumbnails/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" alt="Line chart showing hourly Customer ride volumes at non-tourist stations, split by season and further separated by weekday and weekend. Clear afternoon peaks are visible on weekdays, especially in summer and fall.">
   </a>
   <figcaption>
@@ -386,15 +386,14 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 </figure>
 
 - **Hourly Ride Volume vs Temperature**
-  [LOESS](glossary.qmd#glossary-LOESS)-smoothed Line chart showing hourly ride volume by temperature in Celsius. Patterns remain elevated at higher temperatures due to the smoothing method.
-  
-- [View entry »](viz/Hourly_Ride_Volume_vs_Temperature.md){target="_blank"}
+  [LOESS](glossary.qmd#glossary-LOESS)-smoothed Line chart showing hourly ride volume by temperature in Celsius. Patterns remain elevated at higher temperatures due to the smoothing method.  
+  - [View entry »](viz/Hourly_Ride_Volume_vs_Temperature.md){target="_blank"}
   - [Full-size image »](images/Hourly_Ride_Volume_vs_Temperature.png){target="_blank"} 
   
 <div style="clear: right;"></div> 
 
 <figure class="float-right" id="fig37">
-  <a href="images/.png" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#37" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types.">
   </a>
   <figcaption>
@@ -421,13 +420,13 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 - **Normalized Average Hourly Rides vs Temperature**
   A Line chart showing normalized average hourly bike rides by temperature (°C), showing Subscriber, Customer, and total ride volume, peaking near 25°C.
   - [View entry »](viz/Normalized_Avg_Hourly_Rides_vs_Temperature.md){target="_blank"}
-  - [Full-size image »](images/Avg_Hourly_Rides_vs_Temp.png){target="_blank"}
+  - [Full-size image »](images/Avg_Hourly_Rides_vs_Temp.svg){target="_blank"}
 
 
 <div style="clear: right;"></div> 
 
 <figure class="float-right" id="fig14">
-  <a href="images/Hourly_Rides_vs_Temp.svg" target="_blank" title="Select image to see in the Visualizations Compendium">
+  <a href="viz/visualizations.qmd#fig14" target="_blank" title="Select image to see in the Visualizations Compendium">
   <img src="images/Hourly_Rides_vs_Temp.svg" alt="Line chart showing total hourly rides plotted against temperature in 2°C increments. Separate lines for Total rides, Subscribers, and Customers show ridership increasing steadily to a peak near 26°C, then declining at higher temperatures.">
   </a>
   <figcaption>
@@ -438,7 +437,7 @@ Customer ride behavior is strongly time-sensitive, exhibiting weekday commute-li
 - **Hourly Rides vs. Temperature (2°C bins)**
   A Line chart showing total hourly rides plotted against temperature in 2°C increments, with separate curves for Total, Subscriber, and Customer rides. Warmer temperatures strongly correlate with increased bike usage, especially among Customers.
   - [View entry »](viz/Hourly_Rides_vs_Temp.md){target="_blank"}
-  - [Full-size image »](images/Hourly_Rides_vs_Temp.png){target="_blank"}
+  - [Full-size image »](images/Hourly_Rides_vs_Temp.svg){target="_blank"}
   
 <div style="clear: right;"></div> 
 
@@ -693,9 +692,9 @@ Analysis of vehicle type and fleet usage data reveals distinct preferences and o
   </figcaption>
 </figure>
 
-**Comparison of Customer vs. Subscriber Rides by Path**
+-  **Comparison of Customer vs. Subscriber Rides by Path**
 horizontal bar chart visualizes the total number of rides by customer type (subscribers in blue, casual customers in orange) for the top ride paths. It highlights differences in route preferences and ride volumes between the two user segments.
-  - [View entry »](viz/Top_20_Most_Asymmetric_Paths_by_User_Type.md){target="_blank"}
+  - [View entry »](viz/Customer_vs_Subscriber_Rides_by_Path.md){target="_blank"}
   - [View on Tableau »](https://public.tableau.com/app/profile/scott.sesher/viz/GoogleDataAnalyticsCaseStudy_17480226880920/Sheet2){target="_blank"}
 
 <div style="clear: right;"></div>
@@ -930,15 +929,14 @@ The following technical artifacts are included to support transparency, reproduc
 
 - [Source Code Repository](https://github.com/sasgithub/Data_Analytics_cs): Contains all scripts, SQL schema definitions, and supporting materials used in this analysis. Refer to the README for setup instructions and file descriptions.
 
-#### Footnotes
 
-  -  [^covid]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
-  -  [^precision]: Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.
-  -  [^real]:  From Wabash Ave & 87th St to Central St & Girard Ave on Sun Aug 12 2018 from 12:35:02 PM CDT to 03:27:11 PM CDT 
-  -  [^round]: Percentages rounded to the nearest whole number.
-  -  [^tied]: Tied with 1 departure each<br>Commercial Ave & 90th St<br>Eggleston Ave & 111th St<br>Sheridan Rd & Buena Ave<br>Wabash Ave & Cermak Rd
-  -  [^least]: Tied with 1 arrival each<br>Ashland Ave & Division St<br>
+[^covid]: Divvy Bikes ride data from June 13th 2013 to April 30th 2025 with the exception of the COVID-19 Pandemic, as that data is not representative of normal bike usage.
+[^precision]: Many rides prior to 2018 were recorded with minute-level timestamp precision, resulting in durations clustered at exact multiples of 60 seconds. See the [Timestamp Precision Transition](#timestamp-precision-transition) section for details.
+[^real]:  From Wabash Ave & 87th St to Central St & Girard Ave on Sun Aug 12 2018 from 12:35:02 PM CDT to 03:27:11 PM CDT 
+[^round]: Percentages rounded to the nearest whole number.
+[^tied]: Tied with 1 departure each<br>Commercial Ave & 90th St<br>Eggleston Ave & 111th St<br>Sheridan Rd & Buena Ave<br>Wabash Ave & Cermak Rd
+[^least]: Tied with 1 arrival each<br>Ashland Ave & Division St<br>
 Broadway & Barry Ave<br>Cityfront Plaza Dr & Pioneer Ct<br>Clinton St & Lake St<br>Clinton St & Roosevelt Rd<br>Clybourn Ave & Division St<br>Columbus Dr & Randolph St<br>Commercial Ave & 90th St<br>Daley Center Plaza<br>Daley Center Plaza<br>Halsted St & 37th St<br>Kingsbury St & Erie St<br>Sedgwick St & Webster Ave<br>Sheridan Rd & Irving Park Rd
-  -  [^tiny]:  Western Ave & 62nd St
-  -  [^max]:  Daley Center Plaza Corral
-  -  [^tourist]:  These stations were found to be within 600 m of the stations in the [Tourist Attractions Dataset](#tourist-attractions).  This is not an exhaustive list of tourist attractions in the Chicago are.
+[^tiny]:  Western Ave & 62nd St
+[^max]:  Daley Center Plaza Corral
+[^tourist]:  These stations were found to be within 600 m of the stations in the [Tourist Attractions Dataset](#tourist-attractions).  This is not an exhaustive list of tourist attractions in the Chicago are.

@@ -52,9 +52,9 @@ To illustrate how both time of day and seasonality affect Customer ride behavior
 
 **Data Source**
 
-Data Frame: rides_by_hour_season
+Data Frame: [rides_by_hour_season](../data/rides_by_hour_season.md)
 
-This data frame [rides_by_hour_season](../data/rides_by_hour_season.md) includes:
+This data frame includes:
 
 - Filtered out tourist stations
 - Filtered to Customer rides

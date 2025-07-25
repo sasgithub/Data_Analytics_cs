@@ -252,9 +252,8 @@ Figure 35: Average daily rides by bike type and user type after the introduction
 </section>
 <section id="data-sources" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
-<ul>
-<li><strong>Query to Load Data into R:</strong></li>
-</ul>
+<p>Data Frames: - <a href="../data/post_electric_rides_df.html">post_electric_rides_df</a> - <a href="../data/daily_avg_df.html">daily_avg_df</a></p>
+<p><strong>Query to Load Data into R:</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>post_electric_rides_df <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">   DATE(start_time, 'unixepoch') AS ride_date,</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">   user_type,</span></span>

@@ -56,6 +56,7 @@ This chart helps:
 
 ##### Data Sources
 
+**Data Frame:** [non_loop_rides_df](../data/non_loop_rides_df.md) 
 - **Ride Records**: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).
 - **Distance Calculation**: Haversine distance between station coordinates.
 

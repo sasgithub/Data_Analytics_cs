@@ -235,10 +235,7 @@ Figure 31: Ride Distance Distribution by Duration Cluster (Customer Rides Only)<
 </section>
 <section id="data-sources" class="level5">
 <h5 class="anchored" data-anchor-id="data-sources">Data Sources</h5>
-<ul>
-<li><strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station).</li>
-<li><strong>Distance Calculation</strong>: Haversine distance between station coordinates.</li>
-</ul>
+<p><strong>Data Frame:</strong> <a href="../data/non_loop_rides_df.html">non_loop_rides_df</a> - <strong>Ride Records</strong>: Filtered to exclude subscriber rides, tourist stations, and loop rides (rides that start and end at the same station). - <strong>Distance Calculation</strong>: Haversine distance between station coordinates.</p>
 <section id="r-code-used-to-generate-the-chart" class="level6">
 <h6 class="anchored" data-anchor-id="r-code-used-to-generate-the-chart">R Code Used to Generate the Chart:</h6>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(non_loop_rides_df, <span class="fu">aes</span>(<span class="at">x =</span> distance_km, <span class="at">fill =</span> duration_cluster)) <span class="sc">+</span></span>

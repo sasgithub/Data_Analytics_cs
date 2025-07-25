@@ -55,7 +55,7 @@ This visualization is designed to isolate potential **commuting or habitual usag
 
 ###### Data Sources
 
-- Data Frame: rides_by_hour_weekpart
+- Data Frame: [rides_by_hour_weekpart](../data/rides_by_hour_weekpart.md)
   - Filters Applied:
     - Only Customer rides 
     - Rides originating from non-tourist stations

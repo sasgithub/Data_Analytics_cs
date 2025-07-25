@@ -31,6 +31,7 @@ The continuous [LOESS](../glossary.qmd#glossary-LOESS) smoothing aggregates all 
 
 ##### Data Sources
 
+Data Frame: [rides_weather_df](../data/rides_weather_df.md)
 - **Trip Data:** Divvy trip records from:
   - 2013–2019 (S3 archive)
   - 2023–2025 (City of Chicago Data Portal)

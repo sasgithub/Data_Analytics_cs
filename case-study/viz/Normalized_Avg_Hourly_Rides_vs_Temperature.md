@@ -60,6 +60,7 @@ This visualization is useful for:
 
 ##### Data Sources
 
+Data Frame: [normalized_df](../data/normalized_df.md)
 - **Ride Counts:** Aggregated hourly ride counts per user type.
 - **Temperature:** Hourly observations joined on timestamp.
 - **Normalization:** Each series scaled to [0–1].

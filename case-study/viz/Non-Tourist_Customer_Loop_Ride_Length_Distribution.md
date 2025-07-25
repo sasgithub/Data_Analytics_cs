@@ -51,12 +51,14 @@ This chart supports:
 
 ##### Data Sources
 
-- **Database Table:** `rides`
+**Database Table:** [rides](../data/rides.md)
 - **Filtering Criteria:**
   - `start_station_id = end_station_id`
   - `user_type = customer`
   - Excluded known tourist stations
 - **Time Zone:** Converted to Chicago local time
+
+**Data Frame:** [loop_rides_non_tourist](../data/loop_rides_non_tourist.md)
 
 ##### R Code Used to Generate Chart:
 

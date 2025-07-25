@@ -58,6 +58,10 @@ Supports:
 - Infrastructure decisions.
 - Targeted marketing to address directional demand.
 
+##### Data Source
+
+Data Frame: [asym_top](../data/asym_top.md)
+
 ##### R Code Used to Generate Chart
 
 ```r

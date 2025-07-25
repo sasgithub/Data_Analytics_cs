@@ -64,7 +64,7 @@ This visualization is valuable for:
 
 ##### Data Sources
 
-`rides` table in SQLite, queried for bike usage counts grouped by `bike_id`.
+[rides](../data/rides.md) table in SQLite, queried for bike usage counts grouped by `bike_id`.
 
 ###### SQL Query to Produce Aggregated Data
 
