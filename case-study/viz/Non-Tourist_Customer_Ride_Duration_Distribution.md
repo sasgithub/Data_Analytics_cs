@@ -53,7 +53,7 @@ This chart is helpful for:
 
 ##### Data Sources
 
-- **Data Frame:** `non_tourist_customer_rides_df`
+- **Data Frame:** [non_tourist_customer_rides_df](../data/non_tourist_customer_rides_df.md)
   - Filtered from the `rides` table by user type and station criteria.
 
 ##### R Code Used to Generate the Chart:

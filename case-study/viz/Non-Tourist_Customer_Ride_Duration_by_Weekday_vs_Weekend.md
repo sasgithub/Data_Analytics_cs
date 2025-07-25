@@ -54,7 +54,7 @@ This chart can be applied to:
 
 ##### Data Sources
 
-- **Data Frame:** `non_tourist_customer_rides_df`
+- **Data Frame:** [non_tourist_customer_rides_df](../data/non_tourist_customer_rides_df.md)
   - Derived from the `rides` table filtered for Customer trips, start/end station IDs, and date range.
   - Preprocessed with timezone adjustment to Chicago local time.
 

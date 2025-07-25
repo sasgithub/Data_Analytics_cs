@@ -60,7 +60,7 @@ The visualization aims to:
 
 ###### Data source:
 
-- `non_tourist_customer_rides_df`
+- [non_tourist_customer_rides_df](../data/non_tourist_customer_rides_df.md)
   - Filtered for user_type = 1.
   - Filtered to non-tourist station IDs.
 

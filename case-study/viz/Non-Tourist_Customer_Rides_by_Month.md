@@ -40,7 +40,7 @@ This visualization is intended to illustrate seasonal variation in usage, exclud
 
 ###### Data Source:
 
--  non_tourist_customer_rides_df
+-  [non_tourist_customer_rides_df](../data/non_tourist_customer_rides_df.md)
   -  Filtered to include:
      -  user_type == "customer"
      -  start_station_id in the non-tourist station list
