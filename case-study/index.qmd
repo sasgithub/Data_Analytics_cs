@@ -2,7 +2,11 @@
 title: "Case Study"
 author: "Scott Sesher"
 date: "July 25, 2025"
-format: html
+format:
+  html:
+    toc: true
+    toc-depth: 3
+
 ---
 
 # How Does a Bike-Share Navigate Speedy Success?

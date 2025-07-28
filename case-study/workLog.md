@@ -102,7 +102,7 @@ Archive:  Divvy_Stations_Trips_2013.zip
  93427432                     4 files
  ```
 
-Not the same at all, let's have a look at the [README.txt](../data/Divvy_Stations_Trips_2013_README.txt).
+Not the same at all, let's have a look at the [README.txt](data/Divvy_Stations_Trips_2013_README.txt).
 
 So the rides (now called trips) table format is a little different and
 there is some additional data. There is now a separate station table,

@@ -144,6 +144,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#time-and-date-assumptions" id="toc-time-and-date-assumptions" class="nav-link" data-scroll-target="#time-and-date-assumptions">Time and Date Assumptions</a></li>
   <li><a href="#data-completeness-assumptions" id="toc-data-completeness-assumptions" class="nav-link" data-scroll-target="#data-completeness-assumptions">Data Completeness Assumptions</a></li>
+  <li><a href="#user-classification-assumptions" id="toc-user-classification-assumptions" class="nav-link" data-scroll-target="#user-classification-assumptions">User Classification Assumptions</a></li>
   <li><a href="#station-data-assumptions" id="toc-station-data-assumptions" class="nav-link" data-scroll-target="#station-data-assumptions">Station Data Assumptions</a></li>
   <li><a href="#weather-data-assumptions" id="toc-weather-data-assumptions" class="nav-link" data-scroll-target="#weather-data-assumptions">Weather Data Assumptions</a></li>
   <li><a href="#behavioral-assumptions" id="toc-behavioral-assumptions" class="nav-link" data-scroll-target="#behavioral-assumptions">Behavioral Assumptions</a></li>
@@ -154,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary-statistics-and-insights" id="toc-summary-statistics-and-insights" class="nav-link" data-scroll-target="#summary-statistics-and-insights">Summary Statistics and Insights</a>
   <ul class="collapse">
-  <li><a href="#data-overviewgoogle-data-analytics-community" id="toc-data-overviewgoogle-data-analytics-community" class="nav-link" data-scroll-target="#data-overviewgoogle-data-analytics-community">Data OverviewGoogle Data Analytics Community</a></li>
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data Overview</a></li>
   </ul></li>
   <li><a href="#trends-and-patterns" id="toc-trends-and-patterns" class="nav-link" data-scroll-target="#trends-and-patterns">Trends and Patterns</a>
   <ul class="collapse">
@@ -267,8 +268,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Comparing retention curves across membership types or initial usage patterns.</li>
 </ul>
 </section>
-<section id="ride-type-segmentationgoogle-data-analytics-community" class="level5">
-<h5 class="anchored" data-anchor-id="ride-type-segmentationgoogle-data-analytics-community">Ride Type SegmentationGoogle Data Analytics Community</h5>
+<section id="ride-type-segmentation" class="level5">
+<h5 class="anchored" data-anchor-id="ride-type-segmentation">Ride Type Segmentation</h5>
 <ul>
 <li>Detecting mixed behaviors (e.g., riders who both commute and recreate).</li>
 <li>Clustering users based on temporal riding patterns (weekday rush hour vs.&nbsp;weekend recreation).</li>
@@ -349,11 +350,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="data-completeness-assumptions" class="level4">
 <h4 class="anchored" data-anchor-id="data-completeness-assumptions">Data Completeness Assumptions</h4>
 <ul>
-<li><p>The Divvy Trip data is assumed to be a complete record of rides within the date range specified.</p></li>
-<li><p>Gaps in data for certain months (e.g., missing or partial files) are assumed to be either unavailable or intentionally omitted by the provider (data from the time of the COVID-19 pandemic is a good example of this). Google Data Analytics Community #### User Classification Assumptions</p></li>
-<li><p>Rides labeled as “<a href="./glossary.html#glossary-subscriber">Subscriber</a>” or “<a href="./glossary.html#glossary-member">member</a>” or are assumed to represent members with recurring plans.</p></li>
-<li><p>Rides labeled as “<a href="./glossary.html#glossary-customer">Customer</a>” or “<a href="./glossary.html#glossary-casual-user">casual</a>” are assumed to represent casual, pay-per-use riders.</p></li>
-<li><p>Null or unknown user types are excluded from ingestion as part of the main question this study seeks to answer is “How do <a href="./glossary.html#glossary-customer;">Customers</a> riders and <a href="./glossary.html#glossary-subscriber">Subscribers</a> use bikes differently”.</p></li>
+<li>The Divvy Trip data is assumed to be a complete record of rides within the date range specified.</li>
+<li>Gaps in data for certain months (e.g., missing or partial files) are assumed to be either unavailable or intentionally omitted by the provider (data from the time of the COVID-19 pandemic is a good example of this).</li>
+</ul>
+</section>
+<section id="user-classification-assumptions" class="level4">
+<h4 class="anchored" data-anchor-id="user-classification-assumptions">User Classification Assumptions</h4>
+<ul>
+<li>Rides labeled as “<a href="./glossary.html#glossary-subscriber">Subscriber</a>” or “<a href="./glossary.html#glossary-member">member</a>” or are assumed to represent members with recurring plans.</li>
+<li>Rides labeled as “<a href="./glossary.html#glossary-customer">Customer</a>” or “<a href="./glossary.html#glossary-casual-user">casual</a>” are assumed to represent casual, pay-per-use riders.</li>
+<li>Null or unknown user types are excluded from ingestion as part of the main question this study seeks to answer is “How do <a href="./glossary.html#glossary-customer;">Customers</a> riders and <a href="./glossary.html#glossary-subscriber">Subscribers</a> use bikes differently”.</li>
 </ul>
 </section>
 <section id="station-data-assumptions" class="level4">
@@ -410,8 +416,8 @@ ul.task-list li input[type="checkbox"] {
 <p>All figures referenced here are compiled in the <a href="./viz/visualizations.html">Visualization Compendium</a>.</p>
 <section id="summary-statistics-and-insights" class="level3">
 <h3 class="anchored" data-anchor-id="summary-statistics-and-insights">Summary Statistics and Insights</h3>
-<section id="data-overviewgoogle-data-analytics-community" class="level4">
-<h4 class="anchored" data-anchor-id="data-overviewgoogle-data-analytics-community">Data OverviewGoogle Data Analytics Community</h4>
+<section id="data-overview" class="level4">
+<h4 class="anchored" data-anchor-id="data-overview">Data Overview</h4>
 <p>Before focusing on Subscriber and Customer behavior differences, this section summarizes the overall dataset characteristics. This report utilized data stretching from , covering some 28,386,565 rides, 1,276 stations and 103,811 hourly weather readings. The SQLite database file size (all tables) is over 1.7 GB.</p>
 <p><strong>Rides Data</strong></p>
 <p>The rides dataset serves as the central resource for this analysis. It captures individual bike trips recorded by the Divvy bike share system over a multi-year span. Each record corresponds to a single ride, including attributes such as the start and end timestamps, the originating and destination stations, user classification (Subscriber or Customer), and additional metadata related to the trip.</p>
@@ -627,7 +633,6 @@ Figure 9: Hourly comparison of <strong><a href="./glossary.html#glossary-custome
 Figure 6: Total <strong><a href="./glossary.html#glossary-customer">Customer</a></strong> rides per day of week at non-tourist stations
 </figcaption>
 </figure>
-<p>Google Data Analytics Community</p>
 <ul>
 <li><strong>Non-Tourist Customer Rides by Day of the Week</strong> A Bar chart showing Customer ride counts by day of the week at non-tourist stations, highlighting the clear weekend peaks in ridership.
 <ul>
@@ -647,7 +652,7 @@ Figure 10: Hourly Customer ride patterns by season at non-tourist stations.
 <ul>
 <li><strong>Customer Rides by Hour, Faceted by Season (Non-Tourist Stations)</strong> A Line chart showing hourly Customer ride volumes at non-tourist stations showing weekday rides peak strongly in the late afternoon during warmer seasons, while weekend rides are more evenly distributed. Winter shows the lowest activity overall.
 <ul>
-<li><a href="viz/Non-Tourist_Customer_Ride_by_Hour_Faceted_Google Data Analytics Communityby_Season.md" target="_blank">View entry »</a></li>
+<li><a href="./viz/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.html" target="_blank">View entry »</a></li>
 <li><a href="images/Non-Tourist_Customer_Ride_by_Hour_Faceted_by_Season.png" target="_blank">Full-size image »</a></li>
 </ul></li>
 </ul>
@@ -664,13 +669,12 @@ Figure 12: Monthly distribution of <a href="./glossary.html#glossary-Cusomer">Cu
 <li><strong>Non-Tourist Customer Rides by Month</strong> A Bar chart showing the number of Customer rides per month at non-tourist stations, illustrating clear seasonality in usage patterns.
 <ul>
 <li><a href="./viz/Non-Tourist_Customer_Rides_by_Month.html" target="_blank">View entry »</a></li>
-<li><a href="images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank">Full-size image »</a><br>
-Google Data Analytics Community
-<div style="clear: right;">
-
-</div></li>
+<li><a href="images/Non-Tourist_Customer_Rides_by_Month.png" target="_blank">Full-size image »</a></li>
 </ul></li>
 </ul>
+<div style="clear: right;">
+
+</div>
 </section>
 <section id="observations" class="level5">
 <h5 class="anchored" data-anchor-id="observations">Observations</h5>
@@ -683,7 +687,7 @@ Google Data Analytics Community
 <section id="interpretations" class="level5">
 <h5 class="anchored" data-anchor-id="interpretations">Interpretations</h5>
 <p><strong>Behavioral Segmentation by Time</strong>: The weekday 5 PM peak aligns with traditional commuting patterns, while the more even midday usage on weekends points to discretionary or leisure-based riding.</p>
-<p><strong>Role of Weather and Season</strong>: Warmer months not only increase total rides but also amplify commute-style weekday peaks. Cold weather in winter dampens all usage but doesn’t eliminate it, which implies that a baseline group of Customers persists year-roundGoogle Data Analytics Community.</p>
+<p><strong>Role of Weather and Season</strong>: Warmer months not only increase total rides but also amplify commute-style weekday peaks. Cold weather in winter dampens all usage but doesn’t eliminate it, which implies that a baseline group of Customers persists year-round.</p>
 <p><strong>Spatial Behavior Confirmation</strong>: Excluding tourist stations strengthens the argument that these patterns reflect local Customer use, not tourist behavior. Even among non-Subscribers, there is strong evidence of routine and purposeful riding patterns.</p>
 <p><strong>Operational Implications</strong>: These temporal patterns suggest opportunities for optimizing fleet availability, staffing, and maintenance. For instance, summer weekday evenings may require more active bike redistribution, while winter mornings can likely be deprioritized.</p>
 </section>
@@ -697,7 +701,7 @@ Google Data Analytics Community
 <section id="key-visualizations-1" class="level5">
 <h5 class="anchored" data-anchor-id="key-visualizations-1">Key Visualizations</h5>
 <figure class="float-right figure" id="fig15">
-<a href="./viz/visualizations.html#fig15" target="_blank" title="Select imGoogle Data Analytics Communityage to see in the Visualizations Compendium"> <img src="images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to Customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
+<a href="./viz/visualizations.html#fig15" target="_blank" title="Select image to see in the Visualizations Compendium"> <img src="images/thumbnails/Hourly_Ride_Volume_vs_Temperature.png" alt="Line chart showing hourly ride volume by temperature in Celsius. Subscribers (blue line) maintain higher ride volumes across all temperatures compared to Customers (red line). Ride volume increases steadily from below freezing to 35°C." class="figure-img"> </a>
 <figcaption>
 Figure 15: Hourly ride volume as a function of temperature, comparing Customers and Subscribers.
 </figcaption>
@@ -713,7 +717,7 @@ Figure 15: Hourly ride volume as a function of temperature, comparing Customers 
 
 </div>
 <figure class="float-right figure" id="fig37">
-<a href="./viz/visualizations.html#37" target="_blank" title="Select image toGoogle Data Analytics Community see in the Visualizations Compendium"> <img src="images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types." class="figure-img"> </a>
+<a href="./viz/visualizations.html#37" target="_blank" title="Select image to see in the Visualizations Compendium"> <img src="images/thumbnails/Ride_Volume_by_Temp_and_Precipitation.png" alt="Line chart panel showing total ride volume by temperature bin and precipitation condition (Dry, No data, Wet). Subscriber rides (cyan) consistently exceed Customer rides (red), with peak volumes in dry weather around 20–25°C. Wet conditions show sharply reduced volume across both user types." class="figure-img"> </a>
 <figcaption>
 Figure 37: This panel chart shows total ride volume grouped by dry, wet, and unknown precipitation conditions.
 </figcaption>
